@@ -7,6 +7,7 @@ target 'HiringApp' do
 
   # Pods for HiringApp
   pod 'BNRDeferred'
+  pod 'HiringAppCore', :path => 'HiringAppCore'
 
   target 'HiringAppTests' do
     inherit! :search_paths

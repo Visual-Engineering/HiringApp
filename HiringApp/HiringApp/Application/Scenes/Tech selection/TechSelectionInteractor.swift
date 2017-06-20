@@ -8,30 +8,23 @@
 
 import Foundation
 import Deferred
+import HiringAppCore
 
 class TechSelectionInteractor {
 
     //MARK: - Stored properties
-    //    let repository: SceneRepositoryProtocol
+        let repository: TechnologiesRepository
 
     //MARK: - Initializer
-    //    init(repository: SceneRepositoryProtocol = SceneRepository()) {
-    //        self.repository = repository
-    //    }
+        init(repository: TechnologiesRepository = TechnologiesRepository()) {
+            self.repository = repository
+        }
 
 }
 
 extension TechSelectionInteractor: TechSelectionInteractorProtocol {
 
     func retrieveData() -> Task<[TechnologyModel]> {
-        let technologies = [
-            TechnologyModel(id: 1, title: "iOS", imageURL: "https://images/ios.png", testAvailable: true),
-            TechnologyModel(id: 2, title: "Android", imageURL: "https://images/android.png", testAvailable: false),
-            TechnologyModel(id: 3, title: "Frontend", imageURL: "https://images/frontend.png", testAvailable: false),
-            TechnologyModel(id: 4, title: "Backend", imageURL: "https://images/backend.png", testAvailable: false),
-
-        ]
-
-        return Task(success: technologies)
+       return repository.retrieveTechnologiesList()
     }
 }

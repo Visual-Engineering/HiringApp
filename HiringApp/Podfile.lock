@@ -1,12 +1,23 @@
 PODS:
   - BNRDeferred (3.0.0)
+  - Decodable (0.5)
+  - HiringAppCore (1.0.0):
+    - BNRDeferred
+    - Decodable
 
 DEPENDENCIES:
   - BNRDeferred
+  - HiringAppCore (from `HiringAppCore`)
+
+EXTERNAL SOURCES:
+  HiringAppCore:
+    :path: HiringAppCore
 
 SPEC CHECKSUMS:
   BNRDeferred: 0757b256613622d3f3db21bd126ba63031ca3deb
+  Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
+  HiringAppCore: d9f1875a445d90b49c713869150928d54e489cde
 
-PODFILE CHECKSUM: 84476d670fd3cf5111926f9914314ec657012ccf
+PODFILE CHECKSUM: d55e0d11ca0d6784585b28957c776ae631215c03
 
 COCOAPODS: 1.2.0

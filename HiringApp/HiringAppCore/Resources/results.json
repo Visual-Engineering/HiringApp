@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "title": "iOS",
+    "imageURL": "http://asd.asdf",
+    "testAvailable": true,
+  },
+  {
+    "id": 1,
+    "title": "Android",
+    "imageURL": "http://asd.asdf",
+    "testAvailable": true,
+  },
+  {
+    "id": 2,
+    "title": "Backend",
+    "imageURL": "http://asd.asdf",
+    "testAvailable": true,
+  },
+  {
+    "id": 3,
+    "title": "Web",
+    "imageURL": "http://asd.asdf",
+    "testAvailable": true
+  },
+  {
+    "id": 4,
+    "title": "Diseño",
+    "imageURL": "http://asd.asdf",
+    "testAvailable": false
+  }
+]

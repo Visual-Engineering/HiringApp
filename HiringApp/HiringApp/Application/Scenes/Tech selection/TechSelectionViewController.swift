@@ -37,7 +37,7 @@ class TechSelectionViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(technologiesStackView)
 
-        titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 35.0).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor, constant: 35.0).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         technologiesStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 50.0).isActive = true

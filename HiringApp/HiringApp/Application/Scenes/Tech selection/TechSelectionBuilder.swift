@@ -8,6 +8,7 @@
 
 import Foundation
 import Deferred
+import HiringAppCore
 
 protocol TechSelectionPresenterProtocol {
     func viewDidLoad()
