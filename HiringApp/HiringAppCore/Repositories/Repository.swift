@@ -14,13 +14,29 @@ class Repository {
     
     //MARK: - Stored properties
     let apiProvider: APIProvider
+    let cacheProvider: CacheProvider
     
-    init(apiProvider: APIProvider) {
+    init(apiProvider: APIProvider, cacheProvider: CacheProvider) {
         self.apiProvider = apiProvider
+        self.cacheProvider = cacheProvider
     }
     
     func retrieveTechnologies() -> Task<[TechnologyModel]> {
-        return apiProvider.retrieveTechnologies()
+        if let technologies = cacheProvider.getTechnologies() {
+            return Task(success: technologies)
+        }
+                
+        let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
+            return self.cacheProvider
+                .saveTechnologies(technologies: modelsArray) //Save modelsArray into cache
+                .recover(upon: .main, substituting: { (_) in })
+                .map(upon: .main, transform: { (_) -> [TechnologyModel] in
+                    return modelsArray
+                })
+        }
+        
+        return techTask
     }
+    
 }
 

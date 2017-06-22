@@ -25,9 +25,18 @@ class DroskyFake : DroskyType {
     }
 }
 
+class CacheProviderFake: CacheProviderType {
+    func getTechnologies() -> [TechnologyModel]?{
+        return [TechnologyModel].fake
+    }
+    func saveTechnologies(technologies: [TechnologyModel]) -> Task<()>{
+        return Task(success: ())
+    }
+}
+
 class HiringAppTests: XCTestCase {
     
-    func testProvider() {
+    func testAPIProvider() {
         let exp = expectation(description: "Wait for drosky to perform the taks")
         
         //Given
@@ -85,4 +94,26 @@ class HiringAppTests: XCTestCase {
         }
         waitForExpectations(timeout: 60, handler: nil)
     }
+    
+    
+    func testCacheProvider() {
+        //Given
+        let provider = CacheProvider()
+        
+        //When
+        provider.saveTechnologies(technologies: [TechnologyModel].fake)
+        let technologies = provider.getTechnologies()
+        
+        //Then
+        guard let tech = technologies else {
+            XCTAssert(false)
+            return
+        }
+        
+        let fakeTech: [TechnologyModel] = [TechnologyModel].fake
+        XCTAssert(tech == fakeTech)
+    }
 }
+
+
+
