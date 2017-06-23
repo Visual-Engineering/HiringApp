@@ -13,10 +13,10 @@ import BSWFoundation
 class Repository {
     
     //MARK: - Stored properties
-    let apiProvider: APIProvider
-    let cacheProvider: CacheProvider
+    let apiProvider: APIProviderType
+    let cacheProvider: CacheProviderType
     
-    init(apiProvider: APIProvider, cacheProvider: CacheProvider) {
+    init(apiProvider: APIProviderType, cacheProvider: CacheProviderType) {
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
     }

@@ -26,40 +26,46 @@ class DroskyFake : DroskyType {
 }
 
 class CacheProviderFake: CacheProviderType {
+    
+    var isEmpty: Bool = true
+    var isSaved: Bool = false
+    
     func getTechnologies() -> [TechnologyModel]?{
+        if isEmpty {
+            return nil
+        }
         return [TechnologyModel].fake
     }
+    
     func saveTechnologies(technologies: [TechnologyModel]) -> Task<()>{
+        isSaved = true
         return Task(success: ())
+    }
+}
+
+class APIProviderSpy: APIProviderType {
+    
+    var isCalled: Bool = false
+    
+    func retrieveTechnologies() -> Task<[TechnologyModel]> {
+        isCalled = true
+        return Task(success: [TechnologyModel].fake)
     }
 }
 
 class HiringAppTests: XCTestCase {
     
-    func testAPIProvider() {
-        let exp = expectation(description: "Wait for drosky to perform the taks")
-        
-        //Given
-        let provider = APIProvider(drosky: DroskyFake())
-        
-        //When
-        let task: Task<[TechnologyModel]> = provider.retrieveTechnologies()
-        
-        //Then
-        task.upon(.main) { (result) in
-            switch result {
-            case .success(let value):
-                XCTAssertFalse(value.isEmpty)
-                XCTAssert(value.count == 5)
-            case .failure(let _):
-                XCTAssert(false)
-            }
-            exp.fulfill()
-        }
-        
-        waitForExpectations(timeout: 5, handler: nil)
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
     
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        let  cacheProvider = CacheProvider()
+        cacheProvider.removeTechnologies()
+        super.tearDown()
+    }
     
     func testParser() {
         //Given
@@ -76,7 +82,31 @@ class HiringAppTests: XCTestCase {
         //Then
     }
     
-    func testRepository() {
+    func testAPIProviderWithFakeDrosky() {
+        let exp = expectation(description: "Wait for drosky to perform the taks")
+        
+        //Given
+        let provider = APIProvider(drosky: DroskyFake())
+        
+        //When
+        let task: Task<[TechnologyModel]> = provider.retrieveTechnologies()
+        
+        //Then
+        task.upon(.main) { (result) in
+            switch result {
+            case .success(let value):
+                XCTAssertFalse(value.isEmpty)
+                XCTAssert(value.count == 5)
+            case .failure(_):
+                XCTAssert(false)
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testRealAPIProvider() {
         let exp = expectation(description: "Wait for drosky to perform the taks")
         //Given
         let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
@@ -87,7 +117,7 @@ class HiringAppTests: XCTestCase {
             switch result {
             case .success(let value):
                 XCTAssertFalse(value.isEmpty)
-            case .failure(let error):
+            case .failure(_):
                 XCTAssert(false)
             }
             exp.fulfill()
@@ -96,12 +126,12 @@ class HiringAppTests: XCTestCase {
     }
     
     
-    func testCacheProvider() {
+    func testStoreDataCacheProvider() {
         //Given
         let provider = CacheProvider()
         
         //When
-        provider.saveTechnologies(technologies: [TechnologyModel].fake)
+        _ = provider.saveTechnologies(technologies: [TechnologyModel].fake)
         let technologies = provider.getTechnologies()
         
         //Then
@@ -112,6 +142,64 @@ class HiringAppTests: XCTestCase {
         
         let fakeTech: [TechnologyModel] = [TechnologyModel].fake
         XCTAssert(tech == fakeTech)
+    }
+    
+    func testRepositoryProvidersCacheEmpty() {
+
+        // CASE 1 : cache is empty, call api provider
+        //Given
+        let exp = expectation(description: "Download techologies")
+        let fakeCache = CacheProviderFake()
+        fakeCache.isEmpty = true
+        let apiSpy = APIProviderSpy()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache)
+        
+        //When
+        let task: Task<[TechnologyModel]> = repository.retrieveTechnologies()
+        task.upon(.main) { (result) in
+            switch result {
+            case .success(_):
+                XCTAssert(true)
+            case .failure(_):
+                XCTAssert(false)
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+
+        //Then
+        if apiSpy.isCalled {
+            XCTAssert(true)
+        } else {
+            XCTAssert(false)
+        }
+        
+        if fakeCache.isSaved {
+            XCTAssert(true)
+        } else {
+            XCTAssert(false)
+        }
+    }
+    
+    func testRepositoryProvidersCacheFull() {
+        
+        // CASE 2 : cache is full, don't call api provider
+        //Given
+        let fakeCache = CacheProviderFake()
+        fakeCache.isEmpty = false
+        let apiSpy = APIProviderSpy()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache)
+        
+        //When
+        let _ = repository.retrieveTechnologies()
+        
+        //Then
+        if apiSpy.isCalled {
+            XCTAssert(false)
+        } else {
+            XCTAssert(true)
+        }
     }
 }
 

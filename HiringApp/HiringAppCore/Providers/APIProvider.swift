@@ -33,7 +33,11 @@ protocol DroskyType {
 
 extension Drosky: DroskyType {}
 
-class APIProvider {
+protocol APIProviderType {
+    func retrieveTechnologies() -> Task<[TechnologyModel]>
+}
+
+class APIProvider: APIProviderType {
     
     let drosky: DroskyType
     

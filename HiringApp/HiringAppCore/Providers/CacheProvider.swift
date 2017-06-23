@@ -38,7 +38,7 @@ class CacheProvider: CacheProviderType {
         
         var technologiesStorable = [[String: Any]]()
         technologies.forEach { (tech) in
-            technologiesStorable.append(tech.toDict())
+            technologiesStorable.append(tech.technologiestoDict())
         }
 
         defaults.setValue(technologiesStorable, forKey: "technologies")
@@ -46,15 +46,28 @@ class CacheProvider: CacheProviderType {
         
         return Task(future: Future(deferred))
     }
+    
+    func removeTechnologies() {
+        defaults.removeObject(forKey: "technologies")
+    }
 }
 
 extension TechnologyModel {
-    func toDict() -> [String: Any] {
-        var dict = [String:Any]()
+    func technologiestoDict() -> [String: Any] {
+        
         let otherSelf = Mirror(reflecting: self)
+        
+        var optionalKeys = [String]()
+        for (property, value) in otherSelf.children {
+            if String(describing: type(of: value)).contains("Optional") {
+                optionalKeys.append(property!)
+            }
+        }
+        
+        var dict = [String:Any]()
         for child in otherSelf.children {
             if let key = child.label {
-                if key == "submittedTest" {
+                if optionalKeys.contains(key) {
                     if let _ = child.value as? Dictionary<String, Any> {
                         dict[key] = child.value
                     }
