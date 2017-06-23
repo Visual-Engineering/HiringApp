@@ -16,6 +16,13 @@
 		780490F31EF1886D00D03BEA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F21EF1886D00D03BEA /* UIView.swift */; };
 		780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F41EF1894A00D03BEA /* AppRouter.swift */; };
 		780490F71EF189B300D03BEA /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F61EF189B300D03BEA /* AppManager.swift */; };
+		8A87019C1EFD23E400637923 /* TechnologiesBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8701961EFD23E400637923 /* TechnologiesBuilder.swift */; };
+		8A87019D1EFD23E400637923 /* TechnologiesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8701971EFD23E400637923 /* TechnologiesInteractor.swift */; };
+		8A87019E1EFD23E400637923 /* TechnologiesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8701981EFD23E400637923 /* TechnologiesPresenter.swift */; };
+		8A87019F1EFD23E400637923 /* TechnologiesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8701991EFD23E400637923 /* TechnologiesRouter.swift */; };
+		8A8701A01EFD23E400637923 /* TechnologiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A87019A1EFD23E400637923 /* TechnologiesViewController.swift */; };
+		8A8701A11EFD23E400637923 /* TechnologiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A87019B1EFD23E400637923 /* TechnologiesViewModel.swift */; };
+		8A8701A31EFD2DC800637923 /* Scene+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8701A21EFD2DC800637923 /* Scene+Common.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		780490F21EF1886D00D03BEA /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		780490F41EF1894A00D03BEA /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		780490F61EF189B300D03BEA /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
+		8A8701961EFD23E400637923 /* TechnologiesBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesBuilder.swift; sourceTree = "<group>"; };
+		8A8701971EFD23E400637923 /* TechnologiesInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesInteractor.swift; sourceTree = "<group>"; };
+		8A8701981EFD23E400637923 /* TechnologiesPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesPresenter.swift; sourceTree = "<group>"; };
+		8A8701991EFD23E400637923 /* TechnologiesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesRouter.swift; sourceTree = "<group>"; };
+		8A87019A1EFD23E400637923 /* TechnologiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewController.swift; sourceTree = "<group>"; };
+		8A87019B1EFD23E400637923 /* TechnologiesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewModel.swift; sourceTree = "<group>"; };
+		8A8701A21EFD2DC800637923 /* Scene+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scene+Common.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +183,8 @@
 		780490ED1EF1881F00D03BEA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8A8701A21EFD2DC800637923 /* Scene+Common.swift */,
+				8A8701951EFD23E400637923 /* TechnologiesList */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -185,6 +201,19 @@
 			children = (
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		8A8701951EFD23E400637923 /* TechnologiesList */ = {
+			isa = PBXGroup;
+			children = (
+				8A8701961EFD23E400637923 /* TechnologiesBuilder.swift */,
+				8A8701971EFD23E400637923 /* TechnologiesInteractor.swift */,
+				8A8701981EFD23E400637923 /* TechnologiesPresenter.swift */,
+				8A8701991EFD23E400637923 /* TechnologiesRouter.swift */,
+				8A87019A1EFD23E400637923 /* TechnologiesViewController.swift */,
+				8A87019B1EFD23E400637923 /* TechnologiesViewModel.swift */,
+			);
+			path = TechnologiesList;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,11 +351,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A87019C1EFD23E400637923 /* TechnologiesBuilder.swift in Sources */,
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
+				8A8701A11EFD23E400637923 /* TechnologiesViewModel.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
+				8A8701A31EFD2DC800637923 /* Scene+Common.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
+				8A87019E1EFD23E400637923 /* TechnologiesPresenter.swift in Sources */,
+				8A8701A01EFD23E400637923 /* TechnologiesViewController.swift in Sources */,
+				8A87019F1EFD23E400637923 /* TechnologiesRouter.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
+				8A87019D1EFD23E400637923 /* TechnologiesInteractor.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

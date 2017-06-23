@@ -25,7 +25,7 @@ class AppRouter {
 
     //MARK: - Public API
     func startApplication() {
-        let controller = UIViewController()
+        let controller = TechnologiesBuilder.build()
         let navigationController = UINavigationController(rootViewController: controller)
         rootViewController.transitionToRootViewController(navigationController)
     }
