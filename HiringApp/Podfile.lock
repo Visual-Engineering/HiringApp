@@ -9,7 +9,13 @@ PODS:
   - Decodable (0.5)
   - HiringAppCore (1.0.0):
     - BSWFoundation (~> 1.0.1)
+    - RealmSwift
   - KeychainAccess (3.0.2)
+  - Realm (2.8.3):
+    - Realm/Headers (= 2.8.3)
+  - Realm/Headers (2.8.3)
+  - RealmSwift (2.8.3):
+    - Realm (= 2.8.3)
 
 DEPENDENCIES:
   - Decodable
@@ -24,8 +30,10 @@ SPEC CHECKSUMS:
   BNRDeferred: 0757b256613622d3f3db21bd126ba63031ca3deb
   BSWFoundation: a9bc24005e587b21e4295bcf9f51fbfb7695ca3e
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
-  HiringAppCore: 36e034287909394ea0a80fe869e5d3c97080e546
+  HiringAppCore: 8feb05924ca36462021b732a3907a1e648411515
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
+  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
+  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
 PODFILE CHECKSUM: a971cf3550f8a3fcb868b205ac8a62246a81a0dc
 

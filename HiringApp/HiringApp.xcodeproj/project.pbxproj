@@ -42,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		B209170F1EFA9D450064181D /* Embed Frameworks */ = {
+		B2C879E61EFD1F2000C5671A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
@@ -270,7 +270,7 @@
 				780490B61EF184E200D03BEA /* Resources */,
 				C6A21761CED6B462A5241828 /* [CP] Embed Pods Frameworks */,
 				963EC2792665CB70BFD28966 /* [CP] Copy Pods Resources */,
-				B209170F1EFA9D450064181D /* Embed Frameworks */,
+				B2C879E61EFD1F2000C5671A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -683,6 +683,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U57BHELK4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HiringApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
@@ -697,6 +701,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U57BHELK4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HiringApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
@@ -712,6 +720,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = U57BHELK4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Decodable\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BNRDeferred\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSWFoundation\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Decodable\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/HiringAppCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/KeychainAccess\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HiringAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringAppTests;
@@ -728,6 +747,17 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = U57BHELK4C;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Decodable\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Alamofire\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BNRDeferred\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSWFoundation\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Decodable\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/HiringAppCore\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/KeychainAccess\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = HiringAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringAppTests;

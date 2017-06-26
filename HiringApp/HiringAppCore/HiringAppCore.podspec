@@ -17,6 +17,7 @@ Pod::Spec.new do |spec|
     ]
   }
   spec.dependency 'BSWFoundation', '~> 1.0.1'
+  spec.dependency 'RealmSwift'
 
 
 end

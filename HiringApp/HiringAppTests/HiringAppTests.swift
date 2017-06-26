@@ -201,6 +201,13 @@ class HiringAppTests: XCTestCase {
             XCTAssert(true)
         }
     }
+    
+    func testDBProvider() {
+        
+        let dbProvider = DBProvider()
+        dbProvider.write()
+        dbProvider.read()
+    }
 }
 
 
