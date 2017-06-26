@@ -15,10 +15,12 @@ class Repository {
     //MARK: - Stored properties
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
+    //let dbProvider: DBProvider
     
     init(apiProvider: APIProviderType, cacheProvider: CacheProviderType) {
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
+        //self.dbProvider = dbProvider
     }
     
     func retrieveTechnologies() -> Task<[TechnologyModel]> {

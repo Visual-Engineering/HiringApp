@@ -9,46 +9,38 @@
 import Foundation
 import RealmSwift
 
-class Technology: Object {
-    dynamic var id = 0
-    dynamic var title = ""
-    dynamic var imageURL = ""
-    dynamic var testAvailable = false
-    dynamic var submittedTest: Test?
-}
-
-class Test: Object {
-    dynamic var status = ""
-}
-
 class DBProvider {
     
     var realm: Realm?
     
-    let tech = Technology(value: [
-        "id": 0,
-        "title": "iOS",
-        "imageURL": "",
-        "testAvailable": false,
-        "submittedTest": Test(value: ["status": ""])
-        ])
-    
     init() {
-        do {  realm = try Realm()
+        do {
+            realm = try Realm()
         } catch let error as NSError {
             print(error.localizedDescription)
         }
     }
     
-    func write() {
+    func write(tech: TechnologyRealm) {
         try! realm?.write {
             _ = realm?.add(tech)
         }
     }
     
-    func read() {
-       let results = realm?.objects(Technology.self)
-       print(results)
+    func read() -> [TechnologyRealm]? {
+        let results = realm?.objects(TechnologyRealm.self)
+        var technologies = [TechnologyRealm]()
+        results?.forEach({ (tech) in
+            technologies.append(tech)
+        })
+        return technologies
+    }
+    
+    func clearAll() {
+        try! realm?.write {
+            realm?.deleteAll()
+        }
     }
     
 }
+

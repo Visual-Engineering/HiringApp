@@ -52,6 +52,3 @@ extension TechnologyModel: Equatable {
         return idsEqual && titleEqual && imgEqual && testEqual && submittedEqual
     }
 }
-
-
-

@@ -64,6 +64,9 @@ class HiringAppTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         let  cacheProvider = CacheProvider()
         cacheProvider.removeTechnologies()
+        
+        let dbProvider = DBProvider()
+        dbProvider.clearAll()
         super.tearDown()
     }
     
@@ -202,12 +205,59 @@ class HiringAppTests: XCTestCase {
         }
     }
     
-    func testDBProvider() {
+    func testTransformTechnologyRealmToTechnologyModel() {
         
-        let dbProvider = DBProvider()
-        dbProvider.write()
-        dbProvider.read()
+        let fakeTechRealm = TechnologyRealm.fake
+        let fakeTechModel = fakeTechRealm.transformToTechnologyModel()
+        
+        guard let fakeTechModelReceived = fakeTechModel else {
+            XCTAssert(false)
+            return
+        }
+        
+        XCTAssert(fakeTechRealm.id == fakeTechModelReceived.id)
+        XCTAssert(fakeTechRealm.title == fakeTechModelReceived.title)
+        XCTAssert(fakeTechRealm.imageURL == fakeTechModelReceived.imageURL)
+        XCTAssert(fakeTechRealm.testAvailable == fakeTechModelReceived.testAvailable)
+        
+        if let realmSubmittedTest: String = fakeTechRealm.submittedTest?["status"] as? String {
+            XCTAssert(realmSubmittedTest == fakeTechModelReceived.submittedTest?["status"])
+        }
     }
+
+    
+    func testDBProvider() {        
+        let fakeTech = [TechnologyRealm].fakeArray
+        //Given
+        let dbProvider = DBProvider()
+        
+        //When
+        fakeTech.forEach { (tech) in
+            dbProvider.write(tech: tech)
+        }
+        
+        //Then
+        let tech: [TechnologyRealm]? = dbProvider.read()
+        
+        guard let techReceived = tech else {
+            XCTAssert(false)
+            return
+        }
+        
+        for i in  stride(from: 0, to: fakeTech.count, by: 1) {
+        
+            XCTAssert(fakeTech[i].id == techReceived[i].id)
+            XCTAssert(fakeTech[i].title == techReceived[i].title)
+            XCTAssert(fakeTech[i].imageURL == techReceived[i].imageURL)
+            XCTAssert(fakeTech[i].testAvailable == techReceived[i].testAvailable)
+            
+            if let realmSubmittedTest: String = fakeTech[i].submittedTest?["status"] as? String ,
+                let techReceivedTest: String = techReceived[i].submittedTest?["status"] as? String{
+                XCTAssert(realmSubmittedTest == techReceivedTest)
+            }
+        }
+    }
+    
 }
 
 
