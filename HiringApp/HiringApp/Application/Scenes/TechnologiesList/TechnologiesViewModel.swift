@@ -9,5 +9,15 @@
 import Foundation
 
 struct TechnologiesViewModel {
-    
+    let technologies: [String]
+}
+
+struct TechnologiesModel {
+    let technologies: [String]
+}
+
+extension TechnologiesViewModel {
+    init(fromModel model: TechnologiesModel) {
+        self.technologies = model.technologies
+    }
 }

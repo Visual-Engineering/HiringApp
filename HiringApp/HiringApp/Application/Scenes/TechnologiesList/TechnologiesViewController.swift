@@ -38,8 +38,6 @@ class TechnologiesViewController: UIViewController {
         return stackView
     }()
     
-    
-    
     var presenter: TechnologiesPresenterProtocol!
 
     //MARK: - View lifecycle
@@ -57,19 +55,6 @@ class TechnologiesViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(technologiesStackView)
         
-        technologiesStackView.subviews.forEach { subview in
-            technologiesStackView.removeArrangedSubview(subview)
-            subview.removeFromSuperview()
-        }
-        
-        technologiesListStrings.forEach { (technology) in
-            let button = UIButton()
-            button.setTitle(technology, for: .normal)
-            button.backgroundColor = Constants.brandWhite
-            button.setTitleColor(Constants.brandBlue, for: .normal)
-            technologiesStackView.addArrangedSubview(button)
-        }
-        
         titleLabel.topAnchor(equalTo: topLayoutGuide.bottomAnchor, constant: Constants.titleTopMargin)
         titleLabel.centerXAnchor(equalTo: view.centerXAnchor)
         
@@ -79,8 +64,18 @@ class TechnologiesViewController: UIViewController {
     }
 }
 
-extension TechnologiesViewController: TechnologiesUserInterfaceProtocol, ViewModelConfigurable {
+extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
     func configureFor(viewModel: TechnologiesViewModel) {
         
+        technologiesStackView.clear()
+        
+        viewModel.technologies.forEach { (technology) in
+            let button = UIButton()
+            button.setTitle(technology, for: .normal)
+            button.backgroundColor = Constants.brandWhite
+            button.setTitleColor(Constants.brandBlue, for: .normal)
+            technologiesStackView.addArrangedSubview(button)
+        }
     }
 }
+

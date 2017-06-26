@@ -7,7 +7,7 @@
 //
 
 import Foundation
-//import Deferred
+import Deferred
 
 class TechnologiesInteractor {
 
@@ -19,11 +19,13 @@ class TechnologiesInteractor {
     //        self.repository = repository
     //    }
 
+    let technologiesListStrings = ["ios", "android", "backend"]
 }
 
 extension TechnologiesInteractor: TechnologiesInteractorProtocol {
 
-    //    func retrieveData() -> Task<TechnologiesModel> {
-    //
-    //    }
+    func retrieveData() -> Task<TechnologiesModel> {
+        let techModel = TechnologiesModel(technologies: technologiesListStrings)
+        return Task(success: techModel)
+    }
 }

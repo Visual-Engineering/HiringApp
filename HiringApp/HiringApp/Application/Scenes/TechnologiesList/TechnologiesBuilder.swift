@@ -7,18 +7,18 @@
 //
 
 import Foundation
-//import Deferred
+import Deferred
 
 protocol TechnologiesPresenterProtocol {
     func viewDidLoad()
 }
 
 protocol TechnologiesInteractorProtocol {
-    //    func retrieveData() -> Task<TechnologiesViewModel>
+    @discardableResult func retrieveData() -> Task<TechnologiesModel>
 }
 
 protocol TechnologiesUserInterfaceProtocol: class {
-
+    func configureFor(viewModel: TechnologiesViewModel)
 }
 
 protocol TechnologiesRouterProtocol {

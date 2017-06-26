@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Deferred
 
 class TechnologiesPresenter {
 
@@ -40,18 +41,17 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
 
     func viewDidLoad() {
         
-        let technologiesListStrings = ["ios", "android", "backend"]
-        guard let viewConf = view as? ViewModelConfigurable else { fatalError() }
-        viewConf.configureFor(viewModel: <#T##ViewModelConfigurable.VM#>)
-        
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = TechnologiesViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
+        interactor.retrieveData()
+            .map(upon: .main) { TechnologiesViewModel(fromModel: $0) }
+            .upon(.main) { [weak self] result in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .failure(let error):
+                    strongSelf.state = .error(error)
+                case .success(let vm):
+                    strongSelf.state = .loaded(viewModel: vm)
+                    strongSelf.view.configureFor(viewModel: vm)
+                }
+        }
     }
 }
