@@ -22,7 +22,7 @@ public class Test: Object {
     dynamic var status = ""
 }
 
-extension TechnologyRealm {    
+extension TechnologyRealm {
     func transformToTechnologyModel() -> TechnologyModel? {
         var submittedTest: [String: String]? = [String: String]()
         if let status = self.submittedTest?.status {

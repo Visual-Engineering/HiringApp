@@ -13,16 +13,19 @@
 		780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BB1EF184E200D03BEA /* AppDelegate.swift */; };
 		780490BE1EF184E200D03BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BD1EF184E200D03BEA /* ViewController.swift */; };
 		780490C31EF184E200D03BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780490C21EF184E200D03BEA /* Assets.xcassets */; };
-		780490D11EF184E200D03BEA /* HiringAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490D01EF184E200D03BEA /* HiringAppTests.swift */; };
 		780490DC1EF184E200D03BEA /* HiringAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490DB1EF184E200D03BEA /* HiringAppUITests.swift */; };
 		780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F01EF1884100D03BEA /* AppRootViewController.swift */; };
 		780490F31EF1886D00D03BEA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F21EF1886D00D03BEA /* UIView.swift */; };
 		780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F41EF1894A00D03BEA /* AppRouter.swift */; };
 		780490F71EF189B300D03BEA /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F61EF189B300D03BEA /* AppManager.swift */; };
-		B20917451EFAC3860064181D /* TechnologyModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B20917441EFAC3860064181D /* TechnologyModel+Fake.swift */; };
 		B20917481EFAC4DF0064181D /* technologies.json in Resources */ = {isa = PBXBuildFile; fileRef = B20917471EFAC4DF0064181D /* technologies.json */; };
 		B209174D1EFAC6720064181D /* Data+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B209174C1EFAC6720064181D /* Data+JSON.swift */; };
-		B25839071F0100CB00B335AC /* TechnologyRealm+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25839061F0100CB00B335AC /* TechnologyRealm+Fake.swift */; };
+		B258391B1F0165F300B335AC /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25839191F0165F300B335AC /* UtilityTests.swift */; };
+		B25839201F01664000B335AC /* CandidateModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258391D1F01664000B335AC /* CandidateModel+Fake.swift */; };
+		B25839211F01664000B335AC /* TechnologyModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258391E1F01664000B335AC /* TechnologyModel+Fake.swift */; };
+		B25839221F01664000B335AC /* TechnologyRealm+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258391F1F01664000B335AC /* TechnologyRealm+Fake.swift */; };
+		B25839241F01665400B335AC /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25839231F01665400B335AC /* RepositoryTests.swift */; };
+		B25839261F0166E600B335AC /* ProvidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25839251F0166E600B335AC /* ProvidersTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +68,6 @@
 		780490C21EF184E200D03BEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		780490C71EF184E200D03BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		780490CC1EF184E200D03BEA /* HiringAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiringAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		780490D01EF184E200D03BEA /* HiringAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiringAppTests.swift; sourceTree = "<group>"; };
 		780490D21EF184E200D03BEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		780490D71EF184E200D03BEA /* HiringAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HiringAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		780490DB1EF184E200D03BEA /* HiringAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HiringAppUITests.swift; sourceTree = "<group>"; };
@@ -76,10 +78,14 @@
 		780490F61EF189B300D03BEA /* AppManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppManager.swift; sourceTree = "<group>"; };
 		7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F4143D62620272447D4F65C /* Pods_HiringAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B20917441EFAC3860064181D /* TechnologyModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TechnologyModel+Fake.swift"; sourceTree = "<group>"; };
 		B20917471EFAC4DF0064181D /* technologies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = technologies.json; path = json/technologies.json; sourceTree = "<group>"; };
 		B209174C1EFAC6720064181D /* Data+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSON.swift"; sourceTree = "<group>"; };
-		B25839061F0100CB00B335AC /* TechnologyRealm+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TechnologyRealm+Fake.swift"; sourceTree = "<group>"; };
+		B25839191F0165F300B335AC /* UtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
+		B258391D1F01664000B335AC /* CandidateModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CandidateModel+Fake.swift"; sourceTree = "<group>"; };
+		B258391E1F01664000B335AC /* TechnologyModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TechnologyModel+Fake.swift"; sourceTree = "<group>"; };
+		B258391F1F01664000B335AC /* TechnologyRealm+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TechnologyRealm+Fake.swift"; sourceTree = "<group>"; };
+		B25839231F01665400B335AC /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
+		B25839251F0166E600B335AC /* ProvidersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvidersTests.swift; sourceTree = "<group>"; };
 		CE86F7E57BA66E35C6F9E100 /* Pods-HiringAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5E6658F1F115D7D69C42E18 /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8A2C85A5DD7300D050F24CB /* Pods-HiringAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,12 +160,11 @@
 		780490CF1EF184E200D03BEA /* HiringAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B258391C1F01660E00B335AC /* FakeModels */,
+				B25839171F0165A500B335AC /* Tests */,
 				B20917461EFAC4B30064181D /* json */,
-				780490D01EF184E200D03BEA /* HiringAppTests.swift */,
 				780490D21EF184E200D03BEA /* Info.plist */,
-				B20917441EFAC3860064181D /* TechnologyModel+Fake.swift */,
 				B209174C1EFAC6720064181D /* Data+JSON.swift */,
-				B25839061F0100CB00B335AC /* TechnologyRealm+Fake.swift */,
 			);
 			path = HiringAppTests;
 			sourceTree = "<group>";
@@ -235,6 +240,26 @@
 				B20917471EFAC4DF0064181D /* technologies.json */,
 			);
 			name = json;
+			sourceTree = "<group>";
+		};
+		B25839171F0165A500B335AC /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B25839191F0165F300B335AC /* UtilityTests.swift */,
+				B25839231F01665400B335AC /* RepositoryTests.swift */,
+				B25839251F0166E600B335AC /* ProvidersTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		B258391C1F01660E00B335AC /* FakeModels */ = {
+			isa = PBXGroup;
+			children = (
+				B258391D1F01664000B335AC /* CandidateModel+Fake.swift */,
+				B258391E1F01664000B335AC /* TechnologyModel+Fake.swift */,
+				B258391F1F01664000B335AC /* TechnologyRealm+Fake.swift */,
+			);
+			path = FakeModels;
 			sourceTree = "<group>";
 		};
 		D70ADD56E670A87AA4616E22 /* Pods */ = {
@@ -557,10 +582,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B25839071F0100CB00B335AC /* TechnologyRealm+Fake.swift in Sources */,
-				B20917451EFAC3860064181D /* TechnologyModel+Fake.swift in Sources */,
+				B25839261F0166E600B335AC /* ProvidersTests.swift in Sources */,
+				B25839201F01664000B335AC /* CandidateModel+Fake.swift in Sources */,
+				B25839241F01665400B335AC /* RepositoryTests.swift in Sources */,
+				B258391B1F0165F300B335AC /* UtilityTests.swift in Sources */,
+				B25839221F01664000B335AC /* TechnologyRealm+Fake.swift in Sources */,
 				B209174D1EFAC6720064181D /* Data+JSON.swift in Sources */,
-				780490D11EF184E200D03BEA /* HiringAppTests.swift in Sources */,
+				B25839211F01664000B335AC /* TechnologyModel+Fake.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
