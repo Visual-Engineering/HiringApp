@@ -38,17 +38,6 @@ extension TechnologyRealm {
     }
 }
 
-extension TechnologyRealm {
-    
-    func transformToTechnologyModel() -> TechnologyModel? {
-        var submittedTest: [String: String]? = [String: String]()
-        if let status = self.submittedTest?.status {
-            submittedTest!["status"] = status
-        } else { submittedTest = nil }
-        return TechnologyModel(id: self.id, title: self.title, imageURL: self.imageURL, testAvailable: self.testAvailable, submittedTest: submittedTest)
-    }
-}
-
 
 extension Array where Element == TechnologyRealm {
     static var fakeArray: [TechnologyRealm] {
@@ -56,4 +45,4 @@ extension Array where Element == TechnologyRealm {
                   TechnologyRealm.fakeWithTest,
                   TechnologyRealm.fake]
     }
-    }
+}

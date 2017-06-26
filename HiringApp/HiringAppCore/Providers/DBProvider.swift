@@ -8,8 +8,14 @@
 
 import Foundation
 import RealmSwift
+import Deferred
 
-class DBProvider {
+protocol DBProviderType {
+    func write(tech: TechnologyRealm) -> Task<()>
+    func read() -> [TechnologyRealm]?
+}
+
+class DBProvider: DBProviderType {
     
     var realm: Realm?
     
@@ -21,10 +27,19 @@ class DBProvider {
         }
     }
     
-    func write(tech: TechnologyRealm) {
-        try! realm?.write {
-            _ = realm?.add(tech)
+    func write(tech: TechnologyRealm) -> Task<()> {
+        let deferred = Deferred<TaskResult<()>>()
+
+        do {
+            try realm?.write {
+                _ = realm?.add(tech)
+            }
+            deferred.fill(with: .success(()))
+        } catch {
+            deferred.fill(with: .failure(RepositoryError.cantSave))
         }
+        
+        return Task(future: Future(deferred))
     }
     
     func read() -> [TechnologyRealm]? {

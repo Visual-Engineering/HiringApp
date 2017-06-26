@@ -43,6 +43,25 @@ class CacheProviderFake: CacheProviderType {
     }
 }
 
+class DBProviderFake: DBProviderType {
+    
+    var returnsData: Bool = true
+    var savesData: Bool = true
+    
+    func write(tech: TechnologyRealm) -> Task<()> {
+        if savesData == false {
+            return Task(failure: RepositoryError.noData)
+        }
+        return Task(success: ())
+    }
+    func read() -> [TechnologyRealm]? {
+        if returnsData == false {
+            return nil
+        }
+        return [TechnologyRealm].fakeArray
+    }
+}
+
 class APIProviderSpy: APIProviderType {
     
     var isCalled: Bool = false
@@ -155,7 +174,8 @@ class HiringAppTests: XCTestCase {
         let fakeCache = CacheProviderFake()
         fakeCache.isEmpty = true
         let apiSpy = APIProviderSpy()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache)
+        let dbProvider = DBProviderFake()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
         
         //When
         let task: Task<[TechnologyModel]> = repository.retrieveTechnologies()
@@ -192,7 +212,8 @@ class HiringAppTests: XCTestCase {
         let fakeCache = CacheProviderFake()
         fakeCache.isEmpty = false
         let apiSpy = APIProviderSpy()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache)
+        let dbProvider = DBProviderFake()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
         
         //When
         let _ = repository.retrieveTechnologies()
@@ -224,6 +245,27 @@ class HiringAppTests: XCTestCase {
             XCTAssert(realmSubmittedTest == fakeTechModelReceived.submittedTest?["status"])
         }
     }
+    
+    func testTransformTechnologyModelToTechnologyRealm() {
+        
+        let fakeTechModel = TechnologyModel.fake
+        let fakeTechRealm = fakeTechModel.transformToTechnologyRealm()
+        
+        guard let fakeTechRealmReceived = fakeTechRealm else {
+            XCTAssert(false)
+            return
+        }
+        
+        XCTAssert(fakeTechModel.id == fakeTechRealmReceived.id)
+        XCTAssert(fakeTechModel.title == fakeTechRealmReceived.title)
+        XCTAssert(fakeTechModel.imageURL == fakeTechRealmReceived.imageURL)
+        XCTAssert(fakeTechModel.testAvailable == fakeTechRealmReceived.testAvailable)
+        
+        if let realmSubmittedTest: String = fakeTechRealmReceived.submittedTest?["status"] as? String {
+            XCTAssert(realmSubmittedTest == fakeTechModel.submittedTest?["status"])
+        }
+    }
+
 
     
     func testDBProvider() {        
@@ -233,7 +275,7 @@ class HiringAppTests: XCTestCase {
         
         //When
         fakeTech.forEach { (tech) in
-            dbProvider.write(tech: tech)
+            _ = dbProvider.write(tech: tech)
         }
         
         //Then
@@ -257,6 +299,61 @@ class HiringAppTests: XCTestCase {
             }
         }
     }
+    
+    func testRepositoryProvidersDBEmpty() {
+        
+        // CASE 1 : db is empty, call api provider
+        //Given
+        let exp = expectation(description: "Download techologies")
+        let fakeCache = CacheProviderFake()
+        let fakeDB = DBProviderFake()
+        fakeDB.returnsData = false
+        let apiSpy = APIProviderSpy()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB)
+        
+        //When
+        let task: Task<[TechnologyModel]> = repository.retrieveDBTechnologies()
+        task.upon(.main) { (result) in
+            switch result {
+            case .success(_):
+                XCTAssert(true)
+            case .failure(_):
+                XCTAssert(false)
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        //Then
+        if apiSpy.isCalled {
+            XCTAssert(true)
+        } else {
+            XCTAssert(false)
+        }
+    }
+    
+    func testRepositoryProvidersDBFull() {
+        
+        // CASE 2 : db is full, don't call api provider
+        //Given
+        let fakeCache = CacheProviderFake()
+        let fakeDB = DBProviderFake()
+        fakeDB.returnsData = true
+        let apiSpy = APIProviderSpy()
+        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB)
+        
+        //When
+        let _ = repository.retrieveDBTechnologies()
+        
+        //Then
+        if apiSpy.isCalled {
+            XCTAssert(false)
+        } else {
+            XCTAssert(true)
+        }
+    }
+
     
 }
 
