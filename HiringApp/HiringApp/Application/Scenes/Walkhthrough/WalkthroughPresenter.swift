@@ -7,13 +7,14 @@
 //
 
 import Foundation
+import BWWalkthrough
 
 class WalkthroughPresenter {
 
     //MARK: - Stored properties
     fileprivate let router: WalkthroughRouterProtocol
     fileprivate let interactor: WalkthroughInteractorProtocol
-    fileprivate unowned let view: WalkthroughUserInterfaceProtocol
+    fileprivate unowned let view: WalkthroughViewController
 
     var state: LoadingState<WalkthroughViewModel> = .loading
 
@@ -29,7 +30,7 @@ class WalkthroughPresenter {
     }
 
     //MARK: - Initializer
-    init(router: WalkthroughRouterProtocol, interactor: WalkthroughInteractorProtocol, view: WalkthroughUserInterfaceProtocol) {
+    init(router: WalkthroughRouterProtocol, interactor: WalkthroughInteractorProtocol, view: WalkthroughViewController) {
         self.router = router
         self.interactor = interactor
         self.view = view
@@ -39,14 +40,27 @@ class WalkthroughPresenter {
 extension WalkthroughPresenter: WalkthroughPresenterProtocol {
 
     func viewDidLoad() {
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = WalkthroughViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
+        self.view.walkthroughViewController.delegate = self
+        //self.view.walkthroughViewController.scrollview.isPagingEnabled = true
+        let pageOneViewController = WakthroughPageOneViewController()
+        let pageTwoViewController = WakthroughPageTwoViewController()
+
+        self.view.walkthroughViewController.add(viewController: pageOneViewController)
+        self.view.walkthroughViewController.add(viewController: pageTwoViewController)
+
+    }
+}
+
+extension WalkthroughPresenter: BWWalkthroughViewControllerDelegate {
+    func walkthroughNextButtonPressed(){
+        
+    }
+    
+    func walkthroughPrevButtonPressed(){
+        
+    }
+    
+    func walkthroughPageDidChange(pageNumber:Int){
+        
     }
 }

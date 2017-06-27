@@ -13,6 +13,7 @@ class WalkthroughViewController: UIViewController {
 
     //MARK: - Stored properties
     var presenter: WalkthroughPresenterProtocol!
+    let walkthroughViewController = BWWalkthroughViewController()
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
@@ -23,7 +24,13 @@ class WalkthroughViewController: UIViewController {
 
     //MARK: - Private API
     private func layout() {
-
+        navigationController?.navigationBar.isHidden = true
+        edgesForExtendedLayout = []
+        
+        view.addSubviewWithAutolayout(walkthroughViewController.view)
+        walkthroughViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
+        walkthroughViewController.view.fillSuperview()
     }
 }
 
