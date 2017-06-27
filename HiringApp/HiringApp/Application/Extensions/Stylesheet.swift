@@ -215,3 +215,43 @@ extension TextStylable where Self: UITextField {
 
 extension UITextField: TextStylable { }
 
+extension TextStylable where Self: UIButton {
+
+    var styledText: String? {
+        set {
+            guard let style = style else {
+                setTitle(newValue, for: .normal)
+                return
+            }
+
+            if let newValue = newValue {
+                setAttributedTitle(newValue.attributedWith(style: style), for: .normal)
+            } else {
+                setTitle(nil, for: .normal)
+            }
+        }
+        get {
+            return title(for: .normal)
+        }
+    }
+
+    var style: Style? {
+        set {
+            if style != newValue {
+                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                if let text = title(for: .normal) {
+                    styledText = text
+                }
+            }
+        }
+
+        get {
+            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
+                return associatedObject
+            }
+            return nil
+        }
+    }
+}
+
+extension UIButton: TextStylable { }
