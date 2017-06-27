@@ -204,7 +204,7 @@ class ProvidersTests: XCTestCase {
         let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
         
         //When
-        let task: Task<()> = provider.performContact(candidate: candidate)
+        let task: Task<(Data)> = provider.performContact(candidate: candidate)
         
         //Then
         task.upon(.main) { (result) in
