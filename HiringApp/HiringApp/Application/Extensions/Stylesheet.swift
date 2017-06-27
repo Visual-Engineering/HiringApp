@@ -87,7 +87,7 @@ protocol TextStylable {
 
 //MARK: - UIKit extensions
 
-let keyPointer: String = ""
+var keyPointer: String = ""
 
 extension TextStylable where Self: UILabel {
     
@@ -213,5 +213,5 @@ extension TextStylable where Self: UITextField {
     }
 }
 
-extension UITextView: UITextField { }
+extension UITextField: TextStylable { }
 
