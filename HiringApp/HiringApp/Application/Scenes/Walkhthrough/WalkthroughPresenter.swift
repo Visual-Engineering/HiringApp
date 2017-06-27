@@ -70,7 +70,9 @@ extension WalkthroughPresenter: BWWalkthroughViewControllerDelegate {
 extension WalkthroughPresenter {
     
     func showModalMap() {
-        
+        let mapViewController = WalkthroughMapViewController()
+        let navigationController = UINavigationController(rootViewController: mapViewController)
+        view.present(navigationController, animated: true)
     }
     
 }

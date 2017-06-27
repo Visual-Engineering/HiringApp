@@ -19,6 +19,7 @@
 		780490F31EF1886D00D03BEA /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F21EF1886D00D03BEA /* UIView.swift */; };
 		780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F41EF1894A00D03BEA /* AppRouter.swift */; };
 		780490F71EF189B300D03BEA /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F61EF189B300D03BEA /* AppManager.swift */; };
+		E43472AF1F02A5500001B9BB /* WalkthroughMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43472AE1F02A5500001B9BB /* WalkthroughMapViewController.swift */; };
 		E48F51751F02513C006B3065 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F51741F02513C006B3065 /* WakthroughPageOneViewController.swift */; };
 		E48F51771F02514C006B3065 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F51761F02514C006B3065 /* WalkthroughPageTwoViewController.swift */; };
 		E48F51791F025158006B3065 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F51781F025158006B3065 /* WalkthroughPageThreeViewController.swift */; };
@@ -73,6 +74,7 @@
 		9FA9A0E4B5C1216B9E990E3B /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		A671635886972EACC7901D14 /* Pods-HiringAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B1D9835978EDF3B80F2C9A06 /* Pods-HiringAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E43472AE1F02A5500001B9BB /* WalkthroughMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughMapViewController.swift; sourceTree = "<group>"; };
 		E48F51741F02513C006B3065 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
 		E48F51761F02514C006B3065 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
 		E48F51781F025158006B3065 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
@@ -253,6 +255,14 @@
 			name = Pages;
 			sourceTree = "<group>";
 		};
+		E43472AD1F02A5240001B9BB /* Map controller */ = {
+			isa = PBXGroup;
+			children = (
+				E43472AE1F02A5500001B9BB /* WalkthroughMapViewController.swift */,
+			);
+			path = "Map controller";
+			sourceTree = "<group>";
+		};
 		E4F5F1121F024AE70009F6AF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +275,7 @@
 		E4F5F1141F024B2D0009F6AF /* Walkhthrough */ = {
 			isa = PBXGroup;
 			children = (
+				E43472AD1F02A5240001B9BB /* Map controller */,
 				E4F5F1151F024B500009F6AF /* WalkthroughBuilder.swift */,
 				E4F5F1161F024B500009F6AF /* WalkthroughInteractor.swift */,
 				E4F5F1171F024B500009F6AF /* WalkthroughPresenter.swift */,
@@ -568,6 +579,7 @@
 				E48F517D1F025274006B3065 /* Scene+Common.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
 				E4F5F1201F024B500009F6AF /* WalkthroughViewModel.swift in Sources */,
+				E43472AF1F02A5500001B9BB /* WalkthroughMapViewController.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
 				E4F5F11E1F024B500009F6AF /* WalkthroughRouter.swift in Sources */,
@@ -710,6 +722,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				INFOPLIST_FILE = HiringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -724,6 +737,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				INFOPLIST_FILE = HiringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
