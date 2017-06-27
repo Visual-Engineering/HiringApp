@@ -113,7 +113,7 @@ class ProvidersTests: XCTestCase {
         waitForExpectations(timeout: 5, handler: nil)
     }
     
-    func testRealAPIProvider() {
+    func testRetrieveTechnologies() {
         let exp = expectation(description: "Wait for drosky to perform the taks")
         //Given
         let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
@@ -196,7 +196,7 @@ class ProvidersTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testPerformContact() {
+    func testSendContactFormData() {
         let exp = expectation(description: "Wait for drosky to perform the taks")
 
         //Given
@@ -239,7 +239,7 @@ class ProvidersTests: XCTestCase {
             }
             exp.fulfill()
         }
-        waitForExpectations(timeout: 10, handler: nil)
+        waitForExpectations(timeout: 30, handler: nil)
     }
 }
 

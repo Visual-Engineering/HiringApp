@@ -39,17 +39,7 @@ class APIProvider: APIProviderType {
     func retrieveTechnologies() -> Task<[TechnologyModel]> {
         
         let statusCodeTask = performRequest(endpoint: AppEndpoints.technologies)
-        
-        //parse the data of the response and return a model
-        let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<[TechnologyModel]> in
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                let model = try [TechnologyModel].decode(json)
-                return Task(success: model)
-            } catch {
-                return Task(failure: APIError.errorWhileParsing)
-            }
-        }
+        let modelTask: Task<[TechnologyModel]> = statusCodeTask.andThen(upon: .global(), start: parse)
         return modelTask
     }
     
@@ -57,7 +47,6 @@ class APIProvider: APIProviderType {
         
         let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate)
         
-        //parse the data of the response and return a model
         let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<String> in
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>
@@ -85,16 +74,7 @@ class APIProvider: APIProviderType {
     func retrieveTopics(technologyId: Int) -> Task<[TopicModel]> {
         
         let statusCodeTask = performRequest(endpoint: AppEndpoints.topics(technologyId: technologyId))
-
-        let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<[TopicModel]> in
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                let model = try [TopicModel].decode(json)
-                return Task(success: model)
-            } catch {
-                return Task(failure: APIError.errorWhileParsing)
-            }
-        }
+        let modelTask: Task<[TopicModel]> = statusCodeTask.andThen(upon: .global(), start: parse)
         return modelTask
     }
     
@@ -103,14 +83,33 @@ class APIProvider: APIProviderType {
         let droskyTask = drosky.performRequest(forEndpoint: endpoint)
         
         //check the status code of the response
-        let statusCodeTask = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<Data> in
-            //Check if status code is in range od 200s
-            guard droskyResponse.statusCode >= 200 && droskyResponse.statusCode < 300 else {
-                return Task(failure: APIError.badStatusCode)
-            }
-            
-            return Task(success: droskyResponse.data)
-        }
+        let statusCodeTask = droskyTask.andThen(upon: .global(), start: checkStatusCode)
         return statusCodeTask
+    }
+    
+    func checkStatusCode(fromDroskyResponse droskyResponse: DroskyResponse) -> Task<Data> {
+        //Check if status code is in range od 200s
+        guard droskyResponse.statusCode >= 200 && droskyResponse.statusCode < 300 else {
+            return Task(failure: APIError.badStatusCode)
+        }
+        
+        return Task(success: droskyResponse.data)
+    }
+    
+    func parse<T:Decodable>(data: Data) -> Task<T> {
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
+            let data = try? T.decode(json) else {
+            return Task(failure: APIError.errorWhileParsing)
+        }
+        return Task(success: data)
+    }
+    
+    func parse<T: Decodable>(data: Data) -> Task<[T]> {
+        
+        guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
+            let data = try? [T].decode(json) else {
+            return Task(failure: APIError.errorWhileParsing)
+        }
+        return Task(success: data)
     }
 }
