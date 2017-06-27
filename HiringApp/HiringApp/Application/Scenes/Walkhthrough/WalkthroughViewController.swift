@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import BWWalkthrough
 
 class WalkthroughViewController: UIViewController {
 
     //MARK: - Stored properties
     var presenter: WalkthroughPresenterProtocol!
-
+    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()

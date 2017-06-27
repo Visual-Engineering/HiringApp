@@ -242,6 +242,17 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		E43472AB1F0285320001B9BB /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E48F51741F02513C006B3065 /* WakthroughPageOneViewController.swift */,
+				E48F51761F02514C006B3065 /* WalkthroughPageTwoViewController.swift */,
+				E48F51781F025158006B3065 /* WalkthroughPageThreeViewController.swift */,
+				E48F517A1F025167006B3065 /* WalkthroughPageFourViewController.swift */,
+			);
+			name = Pages;
+			sourceTree = "<group>";
+		};
 		E4F5F1121F024AE70009F6AF /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,10 +271,7 @@
 				E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */,
 				E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */,
 				E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */,
-				E48F51741F02513C006B3065 /* WakthroughPageOneViewController.swift */,
-				E48F51761F02514C006B3065 /* WalkthroughPageTwoViewController.swift */,
-				E48F51781F025158006B3065 /* WalkthroughPageThreeViewController.swift */,
-				E48F517A1F025167006B3065 /* WalkthroughPageFourViewController.swift */,
+				E43472AB1F0285320001B9BB /* Pages */,
 			);
 			path = Walkhthrough;
 			sourceTree = "<group>";
