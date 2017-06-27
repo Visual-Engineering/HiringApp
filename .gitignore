@@ -1,3 +1,50 @@
 
 HiringApp/HiringApp.xcodeproj/xcuserdata/agarcia.xcuserdatad/xcschemes/HiringApp.xcscheme
 HiringApp/HiringApp.xcodeproj/xcuserdata/agarcia.xcuserdatad/xcschemes/xcschememanagement.plist
+HiringApp/Pods/Target Support Files/BWWalkthrough/Info.plist
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Info.plist
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-acknowledgements.markdown
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-acknowledgements.plist
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-dummy.m
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-frameworks.sh
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-resources.sh
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp-umbrella.h
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.debug.xcconfig
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.modulemap
+HiringApp/Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.release.xcconfig
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Info.plist
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-acknowledgements.markdown
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-acknowledgements.plist
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-dummy.m
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-frameworks.sh
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-resources.sh
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests-umbrella.h
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.modulemap
+HiringApp/Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Info.plist
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-acknowledgements.markdown
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-acknowledgements.plist
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-dummy.m
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-frameworks.sh
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-resources.sh
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests-umbrella.h
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.debug.xcconfig
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.modulemap
+HiringApp/Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.release.xcconfig
+HiringApp/Pods/Manifest.lock
+HiringApp/Pods/BWWalkthrough/LICENSE
+HiringApp/Pods/BWWalkthrough/README.md
+HiringApp/Pods/BWWalkthrough/BWWalkthrough/BWWalkthroughPageViewController.swift
+HiringApp/Pods/BWWalkthrough/BWWalkthrough/BWWalkthroughViewController.swift
+HiringApp/Pods/Pods.xcodeproj/project.pbxproj
+HiringApp/Pods/Pods.xcodeproj/xcuserdata/santibernaldo.xcuserdatad/xcschemes/BWWalkthrough.xcscheme
+HiringApp/Pods/Pods.xcodeproj/xcuserdata/santibernaldo.xcuserdatad/xcschemes/Pods-HiringApp.xcscheme
+HiringApp/Pods/Pods.xcodeproj/xcuserdata/santibernaldo.xcuserdatad/xcschemes/Pods-HiringAppTests.xcscheme
+HiringApp/Pods/Pods.xcodeproj/xcuserdata/santibernaldo.xcuserdatad/xcschemes/Pods-HiringAppUITests.xcscheme
+HiringApp/Pods/Pods.xcodeproj/xcuserdata/santibernaldo.xcuserdatad/xcschemes/xcschememanagement.plist
+HiringApp/Pods/Target Support Files/BWWalkthrough/BWWalkthrough-dummy.m
+HiringApp/Pods/Target Support Files/BWWalkthrough/BWWalkthrough-prefix.pch
+HiringApp/Pods/Target Support Files/BWWalkthrough/BWWalkthrough-umbrella.h
+HiringApp/Pods/Target Support Files/BWWalkthrough/BWWalkthrough.modulemap
+HiringApp/Pods/Target Support Files/BWWalkthrough/BWWalkthrough.xcconfig
