@@ -197,6 +197,8 @@ class ProvidersTests: XCTestCase {
     }
     
     func testPerformContact() {
+        let exp = expectation(description: "Wait for drosky to perform the taks")
+
         //Given
         let candidate = CandidateModel.fake
         let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
@@ -212,8 +214,32 @@ class ProvidersTests: XCTestCase {
             case .failure(_):
                 XCTAssert(false)
             }
+            exp.fulfill()
         }
+        waitForExpectations(timeout: 10, handler: nil)
+    }
+    
+    func testRetrieveTopics() {
+        let exp = expectation(description: "Wait for drosky to perform the taks")
+
+        //Given
+        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        let technologyId = 0
         
+        //When
+        let task: Task<[TopicModel]> = provider.retrieveTopics(technologyId: technologyId)
+        
+        //Then
+        task.upon(.main) { (result) in
+            switch result {
+            case .failure(_):
+                XCTAssert(false)
+            case .success(let value):
+                XCTAssert(value.count != 0)
+            }
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
     }
 }
 

@@ -26,3 +26,14 @@ struct AuthenticateEndpoint: Endpoint {
     var method: HTTPMethod = .POST
     var parameters: [String : AnyObject]? = ["deviceId": UIDevice.current.identifierForVendor?.uuidString as AnyObject]
 }
+
+struct TopicsEndpoint: Endpoint {
+    var path: String
+    var method: HTTPMethod = .GET
+    
+    init(technologyId: Int) {
+        self.path = "/technologies/\(technologyId)/topics"
+    }
+}
+
+struct TestEnd
