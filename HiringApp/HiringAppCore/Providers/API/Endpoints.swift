@@ -9,29 +9,54 @@
 import Foundation
 import BSWFoundation
 
-struct TechologiesEndpoint: Endpoint {
-    /// The path for the request
-    var path: String { return "/technologies" }
+enum AppEndpoints {
+    case technologies
+    case candidate(parameters: [String : AnyObject])
+    case authenticate
+    case topics(technologyId: Int)
 }
 
-struct CandidateEndpoint: Endpoint {
-    var path: String { return "/contact" }
-    var method: HTTPMethod = .POST
-    var parameters: [String : AnyObject]?
-    var httpHeaderFields: [String : String]? = ["Content-Type": "application/json"]
-}
-
-struct AuthenticateEndpoint: Endpoint {
-    var path: String { return "/users" }
-    var method: HTTPMethod = .POST
-    var parameters: [String : AnyObject]? = ["deviceId": UIDevice.current.identifierForVendor?.uuidString as AnyObject]
-}
-
-struct TopicsEndpoint: Endpoint {
-    var path: String
-    var method: HTTPMethod = .GET
+extension AppEndpoints: Endpoint {
     
-    init(technologyId: Int) {
-        self.path = "/technologies/\(technologyId)/topics"
+    var path: String {
+        switch self {
+        case .technologies:
+            return "/technologies"
+        case .candidate:
+            return "/contact"
+        case .authenticate:
+            return "/users"
+        case .topics(let technologyId):
+            return "/technologies/\(technologyId)/topics"
+        }
+    }
+    
+    var method: HTTPMethod {
+        switch self {
+        case .technologies, .topics:
+            return .GET
+        case .candidate, .authenticate:
+            return .POST
+        }
+    }
+    
+    var httpHeaderFields: [String : String]? {
+        switch self {
+        case .candidate:
+            return ["Content-Type": "application/json"]
+        case .technologies, .topics, .authenticate:
+            return nil
+        }
+    }
+    
+    var parameters: [String : AnyObject]? {
+        switch self {
+        case .authenticate:
+            return ["deviceId": UIDevice.current.identifierForVendor?.uuidString as AnyObject]
+        case .candidate(let parameters):
+            return parameters
+        case .technologies, .topics:
+            return nil
+        }
     }
 }

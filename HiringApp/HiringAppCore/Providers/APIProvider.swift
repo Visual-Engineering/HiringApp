@@ -39,7 +39,7 @@ class APIProvider: APIProviderType {
     func retrieveTechnologies() -> Task<[TechnologyModel]> {
         
         //perform a request
-        let droskyTask = drosky.performRequest(forEndpoint: TechologiesEndpoint())
+        let droskyTask = drosky.performRequest(forEndpoint: AppEndpoints.technologies)
         
         //check the status code of the response
         let statusCodeTask = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<Data> in
@@ -67,7 +67,7 @@ class APIProvider: APIProviderType {
     func performLogin() -> Task<String> {
         
         //perform a request
-        let droskyTask = drosky.performRequest(forEndpoint: AuthenticateEndpoint())
+        let droskyTask = drosky.performRequest(forEndpoint: AppEndpoints.authenticate)
         
         //check the status code of the response
         let statusCodeTask = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<Data> in
@@ -100,28 +100,26 @@ class APIProvider: APIProviderType {
     
     func performContact(candidate: CandidateModel) -> Task<()> {
         
-        var endpoint = CandidateEndpoint()
-        endpoint.parameters = candidate.dict as [String : AnyObject]
+        let endpoint = AppEndpoints.candidate(parameters: candidate.dict as [String : AnyObject])
 
         //perform a request
         let droskyTask = drosky.performRequest(forEndpoint: endpoint)
         
         //check the status code of the response
-        _ = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<()> in
+        let finalTask = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<()> in
             //Check if status code is in range od 200s
             guard droskyResponse.statusCode >= 200 && droskyResponse.statusCode < 300 else {
                 return Task(failure: APIError.badStatusCode)
             }
             return Task(success: (()))
         }
-        
-        return Task(success: ())
+        return finalTask
     }
     
     func retrieveTopics(technologyId: Int) -> Task<[TopicModel]> {
         
         //perform a request
-        let droskyTask = drosky.performRequest(forEndpoint: TopicsEndpoint(technologyId: technologyId))
+        let droskyTask = drosky.performRequest(forEndpoint: AppEndpoints.topics(technologyId: technologyId))
         
         //check the status code of the response
         let statusCodeTask = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<Data> in
