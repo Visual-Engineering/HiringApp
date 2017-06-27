@@ -101,7 +101,7 @@ class APIProvider: APIProviderType {
     func performContact(candidate: CandidateModel) -> Task<()> {
         
         var endpoint = CandidateEndpoint()
-        endpoint.parameters = candidate.toDict()
+        endpoint.parameters = candidate.dict as [String : AnyObject]
 
         //perform a request
         let droskyTask = drosky.performRequest(forEndpoint: endpoint)

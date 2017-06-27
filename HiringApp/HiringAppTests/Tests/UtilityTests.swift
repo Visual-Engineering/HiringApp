@@ -67,23 +67,5 @@ class UtilityTests: XCTestCase {
             XCTAssert(realmSubmittedTest == fakeTechModel.submittedTest?["status"])
         }
     }
-    
-    func testModelToJSON() {
-        //Given
-        let candidate = CandidateModel.fake
-        
-        //When
-        _ = candidate.toJSON().upon(.main) { (result) in
-            
-            //Then
-            switch result {
-            case .success(let value):
-                let jsonString = String(data: value, encoding: .utf8)
-                //print(jsonString)
-                XCTAssert(true)
-            case .failure:
-                XCTAssert(false)
-            }
-        }
-    }
+
 }

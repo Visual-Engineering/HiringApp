@@ -196,7 +196,7 @@ class ProvidersTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
     }
     
-    func testperformContact() {
+    func testPerformContact() {
         //Given
         let candidate = CandidateModel.fake
         let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
