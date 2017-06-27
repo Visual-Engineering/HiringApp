@@ -35,5 +35,3 @@ struct TopicsEndpoint: Endpoint {
         self.path = "/technologies/\(technologyId)/topics"
     }
 }
-
-struct TestEnd
