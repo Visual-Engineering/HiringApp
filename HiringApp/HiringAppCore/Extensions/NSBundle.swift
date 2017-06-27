@@ -30,3 +30,19 @@ extension Bundle {
         return try? Data(contentsOf: existingURL)
     }
 }
+
+
+extension Optional where Wrapped: Equatable {
+    static func  ==(left: Optional, right: Optional) -> Bool {
+        switch (left, right) {
+        case (nil, nil):
+            return true
+        case (nil, _):
+            return false
+        case (_, nil):
+            return false
+        default:
+            return left! == right!
+        }
+    }
+}

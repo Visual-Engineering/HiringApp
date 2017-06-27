@@ -20,6 +20,15 @@
 		780490F71EF189B300D03BEA /* AppManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490F61EF189B300D03BEA /* AppManager.swift */; };
 		B20917481EFAC4DF0064181D /* technologies.json in Resources */ = {isa = PBXBuildFile; fileRef = B20917471EFAC4DF0064181D /* technologies.json */; };
 		B209174D1EFAC6720064181D /* Data+JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = B209174C1EFAC6720064181D /* Data+JSON.swift */; };
+		B232E7E11F02B2BC00C37A1C /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E01F02B2BC00C37A1C /* AssetsLibrary.framework */; };
+		B232E7E91F02B2F500C37A1C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E21F02B2F500C37A1C /* AVFoundation.framework */; };
+		B232E7EA1F02B2F500C37A1C /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E31F02B2F500C37A1C /* CoreMedia.framework */; };
+		B232E7EB1F02B2F500C37A1C /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E41F02B2F500C37A1C /* CoreTelephony.framework */; };
+		B232E7EC1F02B2F500C37A1C /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E51F02B2F500C37A1C /* CoreText.framework */; };
+		B232E7ED1F02B2F500C37A1C /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E61F02B2F500C37A1C /* CoreVideo.framework */; };
+		B232E7EE1F02B2F500C37A1C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E71F02B2F500C37A1C /* QuartzCore.framework */; };
+		B232E7EF1F02B2F500C37A1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7E81F02B2F500C37A1C /* SystemConfiguration.framework */; };
+		B232E7F11F02B4E200C37A1C /* BuddyBuildSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B232E7F01F02B4E200C37A1C /* BuddyBuildSDK.framework */; };
 		B258391B1F0165F300B335AC /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B25839191F0165F300B335AC /* UtilityTests.swift */; };
 		B25839201F01664000B335AC /* CandidateModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258391D1F01664000B335AC /* CandidateModel+Fake.swift */; };
 		B25839211F01664000B335AC /* TechnologyModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B258391E1F01664000B335AC /* TechnologyModel+Fake.swift */; };
@@ -80,6 +89,16 @@
 		8F4143D62620272447D4F65C /* Pods_HiringAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B20917471EFAC4DF0064181D /* technologies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = technologies.json; path = json/technologies.json; sourceTree = "<group>"; };
 		B209174C1EFAC6720064181D /* Data+JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+JSON.swift"; sourceTree = "<group>"; };
+		B232E7DD1F02A56F00C37A1C /* HiringApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HiringApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		B232E7E01F02B2BC00C37A1C /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		B232E7E21F02B2F500C37A1C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		B232E7E31F02B2F500C37A1C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		B232E7E41F02B2F500C37A1C /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		B232E7E51F02B2F500C37A1C /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		B232E7E61F02B2F500C37A1C /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		B232E7E71F02B2F500C37A1C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B232E7E81F02B2F500C37A1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		B232E7F01F02B4E200C37A1C /* BuddyBuildSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = BuddyBuildSDK.framework; sourceTree = "<group>"; };
 		B25839191F0165F300B335AC /* UtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
 		B258391D1F01664000B335AC /* CandidateModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CandidateModel+Fake.swift"; sourceTree = "<group>"; };
 		B258391E1F01664000B335AC /* TechnologyModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TechnologyModel+Fake.swift"; sourceTree = "<group>"; };
@@ -97,6 +116,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B232E7E91F02B2F500C37A1C /* AVFoundation.framework in Frameworks */,
+				B232E7EA1F02B2F500C37A1C /* CoreMedia.framework in Frameworks */,
+				B232E7EB1F02B2F500C37A1C /* CoreTelephony.framework in Frameworks */,
+				B232E7EC1F02B2F500C37A1C /* CoreText.framework in Frameworks */,
+				B232E7ED1F02B2F500C37A1C /* CoreVideo.framework in Frameworks */,
+				B232E7F11F02B4E200C37A1C /* BuddyBuildSDK.framework in Frameworks */,
+				B232E7EE1F02B2F500C37A1C /* QuartzCore.framework in Frameworks */,
+				B232E7EF1F02B2F500C37A1C /* SystemConfiguration.framework in Frameworks */,
+				B232E7E11F02B2BC00C37A1C /* AssetsLibrary.framework in Frameworks */,
 				61A20D725099DDC4E11E3FB6 /* Pods_HiringApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +181,7 @@
 				780490EE1EF1881F00D03BEA /* Resources */,
 				780490EF1EF1881F00D03BEA /* Utils */,
 				780490BD1EF184E200D03BEA /* ViewController.swift */,
+				B232E7DD1F02A56F00C37A1C /* HiringApp-Bridging-Header.h */,
 			);
 			path = HiringApp;
 			sourceTree = "<group>";
@@ -278,6 +307,15 @@
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B232E7F01F02B4E200C37A1C /* BuddyBuildSDK.framework */,
+				B232E7E21F02B2F500C37A1C /* AVFoundation.framework */,
+				B232E7E31F02B2F500C37A1C /* CoreMedia.framework */,
+				B232E7E41F02B2F500C37A1C /* CoreTelephony.framework */,
+				B232E7E51F02B2F500C37A1C /* CoreText.framework */,
+				B232E7E61F02B2F500C37A1C /* CoreVideo.framework */,
+				B232E7E71F02B2F500C37A1C /* QuartzCore.framework */,
+				B232E7E81F02B2F500C37A1C /* SystemConfiguration.framework */,
+				B232E7E01F02B2BC00C37A1C /* AssetsLibrary.framework */,
 				179968D7E358D834AA151D9D /* Pods_HiringApp.framework */,
 				7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */,
 				8F4143D62620272447D4F65C /* Pods_HiringAppUITests.framework */,
@@ -364,6 +402,7 @@
 					780490B71EF184E200D03BEA = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = U57BHELK4C;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					780490CB1EF184E200D03BEA = {
@@ -714,6 +753,7 @@
 			baseConfigurationReference = 034B0441CD5C6F76FDCBD94F /* Pods-HiringApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -723,6 +763,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiringApp/HiringApp-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -732,6 +774,7 @@
 			baseConfigurationReference = 6BE93220D82AC46DE992C47D /* Pods-HiringApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -741,6 +784,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HiringApp/HiringApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
