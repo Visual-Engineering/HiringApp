@@ -42,11 +42,13 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
     func viewDidLoad() {
         self.view.walkthroughViewController.delegate = self
         //self.view.walkthroughViewController.scrollview.isPagingEnabled = true
-        let pageOneViewController = WakthroughPageOneViewController()
-        let pageTwoViewController = WakthroughPageTwoViewController()
+        let pageOneViewController = WalkthroughPageOneViewController()
+        let pageTwoViewController = WalkthroughPageTwoViewController()
+        let pageThreeViewController = WalkthroughPageThreeViewController(presenter: self)
 
         self.view.walkthroughViewController.add(viewController: pageOneViewController)
         self.view.walkthroughViewController.add(viewController: pageTwoViewController)
+        view.walkthroughViewController.add(viewController: pageThreeViewController)
 
     }
 }
@@ -63,4 +65,12 @@ extension WalkthroughPresenter: BWWalkthroughViewControllerDelegate {
     func walkthroughPageDidChange(pageNumber:Int){
         
     }
+}
+
+extension WalkthroughPresenter {
+    
+    func showModalMap() {
+        
+    }
+    
 }

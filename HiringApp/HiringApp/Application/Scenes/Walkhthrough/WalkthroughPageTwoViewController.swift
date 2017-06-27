@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WakthroughPageTwoViewController: UIViewController {
+class WalkthroughPageTwoViewController: UIViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
