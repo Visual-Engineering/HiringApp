@@ -37,4 +37,16 @@ extension CandidateModel {
             return Task(failure: error)
         }
     }
+    
+    func toDict() -> Dictionary<String, AnyObject> {
+        var dict = Dictionary<String, AnyObject>()
+        dict["id"] = self.id as AnyObject
+        dict["name"] = self.name as AnyObject
+        dict["lastname"] = self.lastname as AnyObject
+        dict["linkedin"] = self.linkedin as AnyObject
+        dict["phone"] = self.phone as AnyObject
+        dict["email"] = self.email as AnyObject
+
+        return dict
+    }
 }

@@ -89,13 +89,33 @@ class APIProvider: APIProviderType {
                 
                 let keychain = KeychainSwift()
                 keychain.set(token, forKey: "userToken")
-                print(keychain.get("userToken"))
                 return Task(success: token)
             } catch {
                 return Task(failure: APIError.errorWhileParsing)
             }
         }
         return modelTask
+    }
+    
+    
+    func performContact(candidate: CandidateModel) -> Task<()> {
+        
+        var endpoint = CandidateEndpoint()
+        endpoint.parameters = candidate.toDict()
+
+        //perform a request
+        let droskyTask = drosky.performRequest(forEndpoint: endpoint)
+        
+        //check the status code of the response
+        _ = droskyTask.andThen(upon: .global()) { (droskyResponse) -> Task<()> in
+            //Check if status code is in range od 200s
+            guard droskyResponse.statusCode >= 200 && droskyResponse.statusCode < 300 else {
+                return Task(failure: APIError.badStatusCode)
+            }
+            return Task(success: (()))
+        }
+        
+        return Task(success: ())
     }
     
 }

@@ -17,6 +17,8 @@ struct TechologiesEndpoint: Endpoint {
 struct CandidateEndpoint: Endpoint {
     var path: String { return "/contact" }
     var method: HTTPMethod = .POST
+    var parameters: [String : AnyObject]?
+    var httpHeaderFields: [String : String]? = ["Content-Type": "application/json"]
 }
 
 struct AuthenticateEndpoint: Endpoint {

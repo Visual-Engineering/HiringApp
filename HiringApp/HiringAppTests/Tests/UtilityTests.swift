@@ -8,6 +8,8 @@
 
 import XCTest
 @testable import HiringAppCore
+import Deferred
+@testable import BSWFoundation
 
 class UtilityTests: XCTestCase {
     
@@ -71,9 +73,17 @@ class UtilityTests: XCTestCase {
         let candidate = CandidateModel.fake
         
         //When
-        let json = candidate.toJSON()
-        
-        //Then
-        XCTAssertTrue(json != nil)
+        _ = candidate.toJSON().upon(.main) { (result) in
+            
+            //Then
+            switch result {
+            case .success(let value):
+                let jsonString = String(data: value, encoding: .utf8)
+                //print(jsonString)
+                XCTAssert(true)
+            case .failure:
+                XCTAssert(false)
+            }
+        }
     }
 }

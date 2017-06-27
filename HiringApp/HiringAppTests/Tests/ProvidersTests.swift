@@ -195,6 +195,26 @@ class ProvidersTests: XCTestCase {
         }
         waitForExpectations(timeout: 10, handler: nil)
     }
+    
+    func testperformContact() {
+        //Given
+        let candidate = CandidateModel.fake
+        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        
+        //When
+        let task: Task<()> = provider.performContact(candidate: candidate)
+        
+        //Then
+        task.upon(.main) { (result) in
+            switch result {
+            case .success(_):
+                XCTAssert(true)
+            case .failure(_):
+                XCTAssert(false)
+            }
+        }
+        
+    }
 }
 
 extension TechnologyRealm {
