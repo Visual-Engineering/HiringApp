@@ -9,8 +9,16 @@
 import Foundation
 import BSWFoundation
 
-struct DevelopmentEnvironment: Environment {
+enum EnvironmentType {
+    case development
+}
+
+extension EnvironmentType: Environment {
+    
     var basePath: String {
-        return "http://private-60454-visualtestapp.apiary-mock.com"
+        switch self {
+        case .development:
+            return "http://private-60454-visualtestapp.apiary-mock.com"
+        }
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Deferred
 
 struct CandidateModel {
     var id: Int

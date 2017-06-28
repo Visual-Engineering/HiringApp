@@ -34,7 +34,7 @@ extension TechnologyRealm {
             test.status = "blabla"
             techObj.submittedTest = test
             return techObj
-            }()
+        }()
     }
 }
 
@@ -42,7 +42,7 @@ extension TechnologyRealm {
 extension Array where Element == TechnologyRealm {
     static var fakeArray: [TechnologyRealm] {
         return [ TechnologyRealm.fake,
-                  TechnologyRealm.fakeWithTest,
-                  TechnologyRealm.fake]
+                 TechnologyRealm.fakeWithTest,
+                 TechnologyRealm.fake]
     }
 }

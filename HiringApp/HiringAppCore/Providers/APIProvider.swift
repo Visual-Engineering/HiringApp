@@ -13,7 +13,7 @@ import Decodable
 import KeychainSwift
 
 enum APIError: Error {
-    case badStatusCode
+    case badStatusCode(errorCode: Int)
     case errorWhileParsing
     case responseUnexpected
 }
@@ -32,47 +32,39 @@ class APIProvider: APIProviderType {
     
     let drosky: DroskyType
     
-    init(drosky: DroskyType = Drosky(environment: DevelopmentEnvironment())) {
+    init(drosky: DroskyType = Drosky(environment: EnvironmentType.development)) {
         self.drosky = drosky
     }
     
     func retrieveTechnologies() -> Task<[TechnologyModel]> {
-        
         let statusCodeTask = performRequest(endpoint: AppEndpoints.technologies)
         let modelTask: Task<[TechnologyModel]> = statusCodeTask.andThen(upon: .global(), start: parse)
         return modelTask
     }
     
     func performLogin() -> Task<String> {
-        
         let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate)
         
         let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<String> in
-            do {
-                let json = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>
-                guard let token = json?["authToken"] as? String else {
+            
+            guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>,
+                let token = json["authToken"] as? String else {
                     return Task(failure: APIError.errorWhileParsing)
-                }
-                
-                let keychain = KeychainSwift()
-                keychain.set(token, forKey: "userToken")
-                return Task(success: token)
-            } catch {
-                return Task(failure: APIError.errorWhileParsing)
             }
+            let keychain = KeychainSwift()
+            keychain.set(token, forKey: "userToken")
+            return Task(success: token)
         }
         return modelTask
     }
     
     
     func performContact(candidate: CandidateModel) -> Task<(Data)> {
-        
         let statusCodeTask = performRequest(endpoint: AppEndpoints.candidate(parameters: candidate.dict as [String : AnyObject]))
         return statusCodeTask
     }
     
     func retrieveTopics(technologyId: Int) -> Task<[TopicModel]> {
-        
         let statusCodeTask = performRequest(endpoint: AppEndpoints.topics(technologyId: technologyId))
         let modelTask: Task<[TopicModel]> = statusCodeTask.andThen(upon: .global(), start: parse)
         return modelTask
@@ -90,7 +82,7 @@ class APIProvider: APIProviderType {
     func checkStatusCode(fromDroskyResponse droskyResponse: DroskyResponse) -> Task<Data> {
         //Check if status code is in range od 200s
         guard droskyResponse.statusCode >= 200 && droskyResponse.statusCode < 300 else {
-            return Task(failure: APIError.badStatusCode)
+            return Task(failure: APIError.badStatusCode(errorCode: droskyResponse.statusCode))
         }
         
         return Task(success: droskyResponse.data)
@@ -105,7 +97,6 @@ class APIProvider: APIProviderType {
     }
     
     func parse<T: Decodable>(data: Data) -> Task<[T]> {
-        
         guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
             let data = try? [T].decode(json) else {
             return Task(failure: APIError.errorWhileParsing)

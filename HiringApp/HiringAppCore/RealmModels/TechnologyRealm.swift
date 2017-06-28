@@ -23,7 +23,7 @@ public class Test: Object {
 }
 
 extension TechnologyRealm {
-    func transformToTechnologyModel() -> TechnologyModel? {
+    var toModel: TechnologyModel {
         var submittedTest: [String: String]? = [String: String]()
         if let status = self.submittedTest?.status {
             submittedTest!["status"] = status
@@ -33,7 +33,7 @@ extension TechnologyRealm {
 }
 
 extension TechnologyModel {
-    func transformToTechnologyRealm() -> TechnologyRealm? {
+    var toRealmModel: TechnologyRealm {
         let techRealm = TechnologyRealm()
         techRealm.id = self.id
         techRealm.title = self.title

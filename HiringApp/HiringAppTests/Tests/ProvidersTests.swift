@@ -110,13 +110,13 @@ class ProvidersTests: XCTestCase {
             exp.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        waitForExpectations(timeout: 10, handler: nil)
     }
     
     func testRetrieveTechnologies() {
         let exp = expectation(description: "Wait for drosky to perform the taks")
         //Given
-        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         //When
         let task: Task<[TechnologyModel]> = provider.retrieveTechnologies()
         //Then
@@ -178,7 +178,7 @@ class ProvidersTests: XCTestCase {
         let exp = expectation(description: "Wait for drosky to perform the taks")
         
         //Given
-        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         
         //When
         let task: Task<String> = provider.performLogin()
@@ -201,7 +201,7 @@ class ProvidersTests: XCTestCase {
 
         //Given
         let candidate = CandidateModel.fake
-        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         
         //When
         let task: Task<(Data)> = provider.performContact(candidate: candidate)
@@ -223,7 +223,7 @@ class ProvidersTests: XCTestCase {
         let exp = expectation(description: "Wait for drosky to perform the taks")
 
         //Given
-        let provider = APIProvider(drosky: Drosky(environment: DevelopmentEnvironment()))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         let technologyId = 0
         
         //When

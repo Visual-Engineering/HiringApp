@@ -28,7 +28,7 @@ class Repository {
         self.dbProvider = dbProvider
     }
     
-    func retrieveTechnologies() -> Task<[TechnologyModel]> {
+    func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
         if let technologies = cacheProvider.getTechnologies() {
             return Task(success: technologies)
         }
@@ -51,25 +51,15 @@ class Repository {
         
         if let technologies = dbProvider.read() {
             technologies.forEach({ (tech) in
-                guard let techModel: TechnologyModel = tech.transformToTechnologyModel() else {
-                    return
-                }
-                techList.append(techModel)
+                techList.append(tech.toModel)
             })
-            
             return Task(success: techList)
             
         } else {
-            
             let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
-                
                 modelsArray.forEach({ (tech) in
-                    guard let techRealm = tech.transformToTechnologyRealm() else {
-                        return
-                    }
-                    _ = self.dbProvider.write(tech: techRealm)
+                    _ = self.dbProvider.write(tech: tech.toRealmModel)
                 })
-                
                 return Task(success: modelsArray)
            }
         

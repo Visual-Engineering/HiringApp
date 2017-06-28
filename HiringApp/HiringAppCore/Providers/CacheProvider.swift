@@ -37,10 +37,10 @@ class CacheProvider: CacheProviderType {
         let deferred = Deferred<TaskResult<()>>()
         
         var technologiesStorable = [[String: Any]]()
-        technologies.forEach { (tech) in
+        _ = technologies.map { (tech) in
             technologiesStorable.append(tech.technologiestoDict())
         }
-
+        
         defaults.setValue(technologiesStorable, forKey: "technologies")
         deferred.fill(with: .success(()))
         
