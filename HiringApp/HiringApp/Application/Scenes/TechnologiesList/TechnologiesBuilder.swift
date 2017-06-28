@@ -8,13 +8,14 @@
 
 import Foundation
 import Deferred
+import HiringAppCore
 
 protocol TechnologiesPresenterProtocol {
     func viewDidLoad()
 }
 
 protocol TechnologiesInteractorProtocol {
-    @discardableResult func retrieveData() -> Task<TechnologiesModel>
+    @discardableResult func retrieveData() -> Task<[TechnologyModel]>
 }
 
 protocol TechnologiesUserInterfaceProtocol: class {
@@ -28,11 +29,17 @@ protocol TechnologiesRouterProtocol {
 class TechnologiesBuilder {
 
     //MARK: - Configuration
-    static func build() -> TechnologiesViewController {
+    static func build() -> TechnologiesViewController? {
         let viewController = TechnologiesViewController()
         let router = TechnologiesRouter(view: viewController)
-        let interactor = TechnologiesInteractor()
-        let presenter = TechnologiesPresenter(router: router, interactor: interactor, view: viewController)
+        let interactor: TechnologiesInteractor? = TechnologiesInteractor()
+        
+        guard let interactorCopy = interactor else {
+            
+            return nil
+        }
+        
+        let presenter = TechnologiesPresenter(router: router, interactor: interactorCopy, view: viewController)
 
         viewController.presenter = presenter
 

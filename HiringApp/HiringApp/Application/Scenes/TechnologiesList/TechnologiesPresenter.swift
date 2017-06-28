@@ -42,15 +42,23 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
     func viewDidLoad() {
         
         interactor.retrieveData()
-            .map(upon: .main) { TechnologiesViewModel(fromModel: $0) }
+            .map(upon: .main) { $0.map({ (model) -> TechnologyViewModel in
+                return TechnologyViewModel(id: model.id,
+                                    title: model.title,
+                                    imageURL: model.imageURL,
+                                    testAvailable: model.testAvailable,
+                                    submittedTest: model.submittedTest) })
+            }
+        
             .upon(.main) { [weak self] result in
                 guard let strongSelf = self else { return }
                 switch result {
                 case .failure(let error):
                     strongSelf.state = .error(error)
                 case .success(let vm):
-                    strongSelf.state = .loaded(viewModel: vm)
-                    strongSelf.view.configureFor(viewModel: vm)
+                    let viewModel = TechnologiesViewModel(technologies: vm, title: "")
+                    strongSelf.state = .loaded(viewModel: viewModel)
+                    strongSelf.view.configureFor(viewModel: viewModel)
                 }
         }
     }

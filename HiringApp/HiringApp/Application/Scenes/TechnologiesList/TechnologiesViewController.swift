@@ -69,9 +69,9 @@ extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
         
         technologiesStackView.clear()
         
-        viewModel.technologies.forEach { (technology) in
+        viewModel.techs.forEach { (technology) in
             let button = UIButton()
-            button.setTitle(technology, for: .normal)
+            button.setTitle(technology.title, for: .normal)
             button.backgroundColor = Constants.brandWhite
             button.setTitleColor(Constants.brandBlue, for: .normal)
             technologiesStackView.addArrangedSubview(button)

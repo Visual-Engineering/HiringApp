@@ -1,5 +1,5 @@
 //
-//  TechnologiesRepository.swift
+//  TechsRepository.swift
 //  Pods
 //
 //  Created by Alba Luján on 21/6/17.
@@ -15,20 +15,27 @@ enum RepositoryError: Error {
     case cantSave
 }
 
-class Repository {
+public class TechsRepository {
     
     //MARK: - Stored properties
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
     let dbProvider: DBProviderType
     
-    init(apiProvider: APIProviderType, cacheProvider: CacheProviderType, dbProvider: DBProviderType) {
+    public init?(apiProvider: APIProviderType = APIProvider(),
+         cacheProvider: CacheProviderType = CacheProvider(),
+         dbProvider: DBProviderType? = DBProvider()) {
+        
+        guard let dbProv = dbProvider else {
+            return nil
+        }
+        
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
-        self.dbProvider = dbProvider
+        self.dbProvider = dbProv
     }
     
-    func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
+    public func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
         if let technologies = cacheProvider.getTechnologies() {
             return Task(success: technologies)
         }

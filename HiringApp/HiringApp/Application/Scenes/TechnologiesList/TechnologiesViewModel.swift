@@ -7,17 +7,24 @@
 //
 
 import Foundation
+import HiringAppCore
 
 struct TechnologiesViewModel {
-    let technologies: [String]
-}
-
-struct TechnologiesModel {
-    let technologies: [String]
+    let title: String
+    let techs: [TechnologyViewModel]
 }
 
 extension TechnologiesViewModel {
-    init(fromModel model: TechnologiesModel) {
-        self.technologies = model.technologies
+    init(technologies: [TechnologyViewModel], title: String) {
+        self.techs = technologies
+        self.title = title
     }
+}
+
+struct TechnologyViewModel {
+    public let id: Int
+    public let title: String
+    public let imageURL: String
+    public let testAvailable: Bool
+    public let submittedTest: [String : String]?
 }
