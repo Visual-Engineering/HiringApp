@@ -14,7 +14,7 @@ private enum Constants {
     static let stackViewTopMargin: CGFloat = 30.0
     static let stackViewHorizontalMargin: CGFloat = 20.0
     
-    static let brandBlue: UIColor = .blue
+    static let brandBlue: UIColor =  UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
     static let brandWhite: UIColor = .white
 }
 
