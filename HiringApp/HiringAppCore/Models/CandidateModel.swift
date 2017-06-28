@@ -8,13 +8,13 @@
 
 import Foundation
 
-struct CandidateModel {
-    var id: Int
-    var name: String
-    var lastname: String
-    var linkedin: String
-    var phone: String
-    var email: String
+public struct CandidateModel {
+    public let id: Int
+    public let name: String
+    public let lastname: String
+    public let linkedin: String
+    public let phone: String
+    public let email: String
 }
 
 extension CandidateModel {
