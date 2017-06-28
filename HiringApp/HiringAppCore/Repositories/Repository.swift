@@ -15,7 +15,7 @@ enum RepositoryError: Error {
     case cantSave
 }
 
-class Repository {
+public class Repository {
     
     //MARK: - Stored properties
     let apiProvider: APIProviderType

@@ -13,10 +13,17 @@ target 'HiringApp' do
     # Pods for testing
     pod 'Decodable'
   end
+  
+  target 'HiringAppCoreTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Decodable'
+  end
 
   target 'HiringAppUITests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'FBSnapshotTestCase'
   end
 
 post_install do |installer|
