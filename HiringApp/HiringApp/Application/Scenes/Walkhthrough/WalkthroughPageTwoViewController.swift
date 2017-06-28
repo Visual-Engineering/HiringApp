@@ -15,9 +15,8 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         static let labelsTextColor: UIColor = .white
         
         static let topMarginMultiplierStackViewContainer: CGFloat = 0.05
-        static let heightMultiplierStackViewContainer: CGFloat = 0.62
+        static let heightMultiplierStackViewContainer: CGFloat = 0.6
         static let lateralSpacingStackViewContainer: CGFloat = 40
-        static let heightMultiplierStackViewChild: CGFloat = 0.2
         
         static let labelsFontType: String = "Arial"
         static let titleLabelsFontSize: CGFloat = 20.0
@@ -78,15 +77,14 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         
         view.addSubviewWithAutolayout(stackViewContainer)
       
-//        stackViewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant:self.view.frame.size.height*Constants.topMarginMultiplierStackViewContainer+navigationController?.navigationBar).isActive = true
         stackViewContainer.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewContainer).isActive = true
         stackViewContainer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.lateralSpacingStackViewContainer).isActive = true
         stackViewContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Constants.lateralSpacingStackViewContainer).isActive = true
         stackViewContainer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
 
-        stackViewLabelsTop.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewChild).isActive = true
-        stackViewLabelsMedium.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewChild).isActive = true
-        stackViewLogos.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewChild).isActive = true
+        stackViewLabelsTop.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewContainer/3).isActive = true
+        stackViewLabelsMedium.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewContainer/3).isActive = true
+        stackViewLogos.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewContainer/3).isActive = true
 
         stackViewContainer.addArrangedSubview(stackViewLabelsTop)
         stackViewContainer.addArrangedSubview(stackViewLabelsMedium)
