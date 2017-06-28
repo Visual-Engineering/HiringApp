@@ -15,17 +15,25 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
+        static let labelsTextColor: UIColor = .white
+        
         static let heightStackView : CGFloat = 0.6
+        static let stackViewSpacing: CGFloat = 20.0
+        static let stackViewSidesMargin: CGFloat = 40.0
+        
+        static let topLabelFontSize: CGFloat = 20.0
+        static let bottomLabelFontSize: CGFloat = 14.0
+        static let labelsFontType: String = "Arial"
     }
     
     let labelTop : UILabel = {
         let label = UILabel()
         label.text = "¿Dónde estamos?"
-        label.font = UIFont(name: "Arial", size: 20.0)
+        label.font = UIFont(name: Constants.labelsFontType, size: Constants.topLabelFontSize)
         label.numberOfLines = 1
         label.sizeToFit()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = Constants.labelsTextColor
         return label
     }()
     
@@ -39,11 +47,11 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     let labelBottom : UILabel = {
         let label = UILabel()
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        label.font = UIFont(name: "Arial", size: 14.0)
+        label.font = UIFont(name: Constants.labelsFontType, size: Constants.bottomLabelFontSize)
         label.numberOfLines = 3
         label.sizeToFit()
         label.textAlignment = .center
-        label.textColor = .white
+        label.textColor = Constants.labelsTextColor
         return label
     }()
     
@@ -52,7 +60,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
-        stackView.spacing = 20.0
+        stackView.spacing = Constants.stackViewSpacing
         return stackView
     }()
     
@@ -69,8 +77,8 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         
         stackView.heightAnchor.constraint(equalToConstant: view.frame.size.height * Constants.heightStackView).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
     }
     
     private func setup() {

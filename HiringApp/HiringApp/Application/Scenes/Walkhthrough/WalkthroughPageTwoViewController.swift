@@ -13,10 +13,16 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
+        static let labelsTextColor: UIColor = .white
+        
         static let topMarginMultiplierStackViewContainer: CGFloat = 0.05
         static let heightMultiplierStackViewContainer: CGFloat = 0.62
         static let lateralSpacingStackViewContainer: CGFloat = 40
         static let heightMultiplierStackViewChild: CGFloat = 0.2
+        
+        static let labelsFontType: String = "Arial"
+        static let titleLabelsFontSize: CGFloat = 20.0
+        static let subtitleLabelsFontSize: CGFloat = 14.0
     }
     
     private let arrayStringLogos = ["apple-logo","android-logo","windowsp-logo","js-logo"]
@@ -110,22 +116,22 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     private func getLabelTitleWithText(_ text: String) -> UILabel {
         let label = UILabel()
         label.numberOfLines = 1
-        label.textColor = .white
+        label.textColor = Constants.labelsTextColor
         label.text = text
         label.sizeToFit()
         label.textAlignment = .center
-        label.font = UIFont(name: "Arial", size: 20.0)
+        label.font = UIFont(name: Constants.labelsFontType, size: Constants.titleLabelsFontSize)
         return label
     }
     
     private func getLabelSubtitleWithText(_ text: String) -> UILabel {
         let label = UILabel()
         label.numberOfLines = 3
-        label.textColor = .white
+        label.textColor = Constants.labelsTextColor
         label.text = text
         label.sizeToFit()
         label.textAlignment = .center
-        label.font = UIFont(name: "Arial", size: 14.0)
+        label.font = UIFont(name: Constants.labelsFontType, size: Constants.subtitleLabelsFontSize)
         return label
     }
     

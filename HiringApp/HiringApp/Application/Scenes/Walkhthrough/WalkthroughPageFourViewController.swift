@@ -15,11 +15,18 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
         static let buttonBackgroundColor: UIColor = .white
         static let buttonFontColor: UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
+        
+        static let stackViewSpacing: CGFloat = 100.0
+        static let stackViewSidesMargin: CGFloat = 30.0
+        static let stackViewHeightAnchorMultiplier: CGFloat = 0.3
+        
+        static let buttonsFontSize: CGFloat = 16.0
+        static let buttonsFontType: String = "Arial"
     }
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
-        stackView.spacing = 100.0
+        stackView.spacing = Constants.stackViewSpacing
         stackView.alignment = .fill
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
@@ -31,6 +38,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         button.setTitle("Saber más sobre Visual Engineering", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
         return button
     }()
     
@@ -39,6 +47,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         button.setTitle("Trabajar con nostros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
+        button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
         return button
     }()
     
@@ -53,9 +62,9 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     private func layout() {
         view.addSubviewWithAutolayout(stackView)
         
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.3).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: view.frame.height * Constants.stackViewHeightAnchorMultiplier).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
