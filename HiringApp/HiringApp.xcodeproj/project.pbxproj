@@ -276,13 +276,13 @@
 		E4F5F1141F024B2D0009F6AF /* Walkhthrough */ = {
 			isa = PBXGroup;
 			children = (
-				E43472B01F02BE060001B9BB /* Walkthrough.storyboard */,
 				E43472AD1F02A5240001B9BB /* Map controller */,
+				E43472AB1F0285320001B9BB /* Pages */,
+				E43472B01F02BE060001B9BB /* Walkthrough.storyboard */,
 				E4F5F1151F024B500009F6AF /* WalkthroughBuilder.swift */,
 				E4F5F1171F024B500009F6AF /* WalkthroughPresenter.swift */,
 				E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */,
 				E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */,
-				E43472AB1F0285320001B9BB /* Pages */,
 			);
 			path = Walkhthrough;
 			sourceTree = "<group>";
