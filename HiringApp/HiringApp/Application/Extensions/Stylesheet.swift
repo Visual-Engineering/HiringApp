@@ -24,7 +24,7 @@ enum Style {
 }
 
 extension Style {
-
+    
     func styleDictionary() -> [String : Any] {
         
         switch self {
@@ -48,7 +48,7 @@ extension Style {
             ]
         case .caption2:
             return [
-                NSFontAttributeName: AvenirTypeface.caption2
+                NSFontAttributeName: AvenirTypeface.caption2,
             ]
         case .footnote:
             return [
@@ -85,173 +85,106 @@ protocol TextStylable {
     var style: Style? { get set }
 }
 
+protocol TextPropertiesInterface {
+    var opaqueAttributedText: NSAttributedString? { get set }
+    var opaqueText: String? { get set }
+}
+
+var keyPointer: NSString = ""
+
+extension TextStylable where Self: TextPropertiesInterface {
+    
+    var styledText: String? {
+        set {
+            guard let style = style else {
+                opaqueText = newValue
+                return
+            }
+            
+            if let newValue = newValue {
+                opaqueAttributedText = newValue.attributedWith(style: style)
+            } else {
+                opaqueText = nil
+            }
+        }
+        get {
+            return opaqueText
+        }
+    }
+    
+    var style: Style? {
+        set {
+            if style != newValue {
+                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                if let text = opaqueText {
+                    styledText = text
+                }
+            }
+        }
+        
+        get {
+            
+            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
+                return associatedObject
+            }
+            return nil
+        }
+    }
+}
+
+
 //MARK: - UIKit extensions
 
-var keyPointer: String = ""
-
-extension TextStylable where Self: UILabel {
+extension UILabel: TextPropertiesInterface, TextStylable {
     
-    var styledText: String? {
-        set {
-            guard let style = style else {
-                text = newValue
-                return
-            }
-            
-            if let newValue = newValue {
-                attributedText = newValue.attributedWith(style: style)
-            } else {
-                text = nil
-            }
-        }
-        get {
-            return text
-        }
+    var opaqueAttributedText: NSAttributedString? {
+        get { return attributedText }
+        set { attributedText = newValue}
     }
-    
-    var style: Style? {
-        set {
-            if style != newValue {
-                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let text = text {
-                    styledText = text
-                }
-            }
-        }
-        
-        get {
-            
-            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
-                return associatedObject
-            }
-            return nil
-        }
+    var opaqueText: String? {
+        get { return text }
+        set { text = newValue}
     }
 }
 
-extension UILabel: TextStylable { }
-
-extension TextStylable where Self: UITextView {
+extension UITextField: TextPropertiesInterface, TextStylable {
     
-    var styledText: String? {
-        set {
-            guard let style = style else {
-                text = newValue
-                return
-            }
-            
-            if let newValue = newValue {
-                attributedText = newValue.attributedWith(style: style)
-            } else {
-                text = nil
-            }
-        }
-        get {
-            return text
-        }
+    var opaqueAttributedText: NSAttributedString? {
+        get { return attributedText }
+        set { attributedText = newValue}
     }
-    
-    var style: Style? {
-        set {
-            if style != newValue {
-                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let text = text {
-                    styledText = text
-                }
-            }
-        }
-        
-        get {
-            
-            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
-                return associatedObject
-            }
-            return nil
-        }
+    var opaqueText: String? {
+        get { return text }
+        set { text = newValue}
     }
 }
 
-extension UITextView: TextStylable { }
-
-extension TextStylable where Self: UITextField {
+extension UITextView: TextPropertiesInterface, TextStylable {
     
-    var styledText: String? {
-        set {
-            guard let style = style else {
-                text = newValue
-                return
-            }
-            
-            if let newValue = newValue {
-                attributedText = newValue.attributedWith(style: style)
-            } else {
-                text = nil
-            }
-        }
-        get {
-            return text
-        }
+    var opaqueAttributedText: NSAttributedString? {
+        get { return attributedText }
+        set { attributedText = newValue}
     }
-    
-    var style: Style? {
-        set {
-            if style != newValue {
-                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let text = text {
-                    styledText = text
-                }
-            }
-        }
-        
-        get {
-            
-            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
-                return associatedObject
-            }
-            return nil
-        }
+    var opaqueText: String? {
+        get { return text }
+        set { text = newValue}
     }
 }
 
-extension UITextField: TextStylable { }
-
-extension TextStylable where Self: UIButton {
-
-    var styledText: String? {
-        set {
-            guard let style = style else {
-                setTitle(newValue, for: .normal)
-                return
-            }
-
-            if let newValue = newValue {
-                setAttributedTitle(newValue.attributedWith(style: style), for: .normal)
-            } else {
-                setTitle(nil, for: .normal)
-            }
-        }
-        get {
-            return title(for: .normal)
-        }
+extension UIButton: TextPropertiesInterface, TextStylable {
+    
+    var opaqueAttributedText: NSAttributedString? {
+        get { return attributedTitle(for: .normal) }
+        set { setAttributedTitle(newValue, for: .normal) }
     }
-
-    var style: Style? {
-        set {
-            if style != newValue {
-                objc_setAssociatedObject(self, &keyPointer, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-                if let text = title(for: .normal) {
-                    styledText = text
-                }
-            }
-        }
-
-        get {
-            if let associatedObject: Style = objc_getAssociatedObject(self, &keyPointer) as? Style {
-                return associatedObject
-            }
-            return nil
-        }
+    var opaqueText: String? {
+        get { return title(for: .normal) }
+        set { setTitle(newValue, for: .normal)}
+    }
+    
+    //Fix UIKit issue when handling title color and NSAttributedStrings (setTitleColor fails to update titleLabel color)
+    func setStyledTitleColor(_ color: UIColor) {
+        setTitleColor(color, for: .normal)
+        titleLabel?.textColor = color
     }
 }
-
-extension UIButton: TextStylable { }
