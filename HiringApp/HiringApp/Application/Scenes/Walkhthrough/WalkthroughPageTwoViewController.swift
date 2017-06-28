@@ -12,7 +12,6 @@ import BWWalkthrough
 class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     enum Constants {
-        static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
         static let labelsTextColor: UIColor = .white
         
         static let topMarginMultiplierStackViewContainer: CGFloat = 0.05
@@ -152,4 +151,3 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi*2)  * (1.0 - offset), 0.5,1, 0.2)
     }
 }
-

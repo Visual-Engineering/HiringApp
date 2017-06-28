@@ -25,20 +25,24 @@ class WalkthroughViewController: UIViewController {
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setup()
         layout()
         presenter.viewDidLoad()
     }
 
     //MARK: - Private API
     private func layout() {
-        navigationController?.navigationBar.isHidden = true
-        edgesForExtendedLayout = []
-        
         guard let walkVC = walkthroughViewController else { return }
-        walkVC.delegate = self as BWWalkthroughViewControllerDelegate
+        
         view.addSubviewWithAutolayout(walkVC.view)
         walkVC.view.translatesAutoresizingMaskIntoConstraints = false
         walkVC.view.fillSuperview()
+    }
+    
+    private func setup() {
+        navigationController?.navigationBar.isHidden = true
+        edgesForExtendedLayout = []
     }
 }
 
@@ -53,7 +57,4 @@ extension WalkthroughViewController: BWWalkthroughViewControllerDelegate {
             viewController.view.transform = CGAffineTransform.identity
         }
     }
-
 }
-
-

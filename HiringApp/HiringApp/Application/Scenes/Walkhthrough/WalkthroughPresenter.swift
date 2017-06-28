@@ -12,16 +12,14 @@ import BWWalkthrough
 class WalkthroughPresenter {
 
     //MARK: - Stored properties
-    fileprivate let router: WalkthroughRouterProtocol
-    fileprivate let interactor: WalkthroughInteractorProtocol
+    fileprivate let router: WalkthroughRouter
     fileprivate unowned let view: WalkthroughViewController
 
     var viewControllers = [BWWalkthroughPageViewController]()
 
     //MARK: - Initializer
-    init(router: WalkthroughRouterProtocol, interactor: WalkthroughInteractorProtocol, view: WalkthroughViewController) {
+    init(router: WalkthroughRouter, view: WalkthroughViewController) {
         self.router = router
-        self.interactor = interactor
         self.view = view
     }
 }
@@ -35,14 +33,19 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
     func configureWalkthoughContainer() {
         guard let walkViewController = view.walkthroughViewController else { return }
         let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+        
 
         let pageOneViewController = storyboard.instantiateViewController(withIdentifier: "page_1")
         let pageTwoViewController = storyboard.instantiateViewController(withIdentifier: "page_2")
+        
         guard let pageThreeViewController = storyboard.instantiateViewController(withIdentifier: "page_3") as? WalkthroughPageThreeViewController else { return }
-        pageThreeViewController.presenter = self
-        let pageFourViewController = storyboard.instantiateViewController(withIdentifier: "page_4")
+        pageThreeViewController.router = router
+        
+        guard let pageFourViewController = storyboard.instantiateViewController(withIdentifier: "page_4") as? WalkthroughPageFourViewController else { return }
+        pageFourViewController.router = router
         
         walkViewController.pageControl?.numberOfPages = 4
+        walkViewController.delegate = view
         walkViewController.add(viewController: pageOneViewController)
         walkViewController.add(viewController: pageTwoViewController)
         walkViewController.add(viewController: pageThreeViewController)
@@ -50,17 +53,7 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         
         viewControllers.append(pageOneViewController as! BWWalkthroughPageViewController)
         viewControllers.append(pageTwoViewController as! BWWalkthroughPageViewController)
-        viewControllers.append(pageThreeViewController as BWWalkthroughPageViewController)
-        viewControllers.append(pageFourViewController as! BWWalkthroughPageViewController)
+        viewControllers.append(pageThreeViewController)
+        viewControllers.append(pageFourViewController)
     }
-}
-
-extension WalkthroughPresenter {
-    
-    func showModalMap() {
-        let mapViewController = WalkthroughMapViewController()
-        let navigationController = UINavigationController(rootViewController: mapViewController)
-        view.present(navigationController, animated: true)
-    }
-    
 }

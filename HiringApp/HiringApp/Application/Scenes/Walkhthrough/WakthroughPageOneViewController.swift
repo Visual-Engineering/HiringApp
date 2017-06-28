@@ -11,10 +11,6 @@ import BWWalkthrough
 
 class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         
-    enum Constants {
-        static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
-    }
-    
     let imageView : UIImageView = {
         let image = UIImage(named: "visual-engin-logo")
         let imageView = UIImageView(image: image)

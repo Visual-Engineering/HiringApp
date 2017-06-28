@@ -13,10 +13,6 @@ protocol WalkthroughPresenterProtocol {
     func viewDidLoad()
 }
 
-protocol WalkthroughInteractorProtocol {
-    //    func retrieveData() -> Task<WalkthroughViewModel>
-}
-
 protocol WalkthroughUserInterfaceProtocol: class {
 
 }
@@ -31,8 +27,7 @@ class WalkthroughBuilder {
     static func build() -> WalkthroughViewController {
         let viewController = WalkthroughViewController()
         let router = WalkthroughRouter(view: viewController)
-        let interactor = WalkthroughInteractor()
-        let presenter = WalkthroughPresenter(router: router, interactor: interactor, view: viewController)
+        let presenter = WalkthroughPresenter(router: router, view: viewController)
 
         viewController.presenter = presenter
 

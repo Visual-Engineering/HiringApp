@@ -6,7 +6,7 @@
 //  Copyright (c) 2017 Visual Engineering. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class WalkthroughRouter {
 
@@ -24,4 +24,19 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     func navigateToNextScene() {
 
     }
+    
+    func showModalMap() {
+        let mapViewController = WalkthroughMapViewController()
+        let navigationController = UINavigationController(rootViewController: mapViewController)
+        view.present(navigationController, animated: true)
+    }
+    
+    func navigateToKnowMoreScene() {
+        
+    }
+    
+    func navigateToWorkWithUsScene() {
+        
+    }
+
 }

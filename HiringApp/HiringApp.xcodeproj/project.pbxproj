@@ -27,11 +27,9 @@
 		E48F517B1F025167006B3065 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F517A1F025167006B3065 /* WalkthroughPageFourViewController.swift */; };
 		E48F517D1F025274006B3065 /* Scene+Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48F517C1F025274006B3065 /* Scene+Common.swift */; };
 		E4F5F11B1F024B500009F6AF /* WalkthroughBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1151F024B500009F6AF /* WalkthroughBuilder.swift */; };
-		E4F5F11C1F024B500009F6AF /* WalkthroughInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1161F024B500009F6AF /* WalkthroughInteractor.swift */; };
 		E4F5F11D1F024B500009F6AF /* WalkthroughPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1171F024B500009F6AF /* WalkthroughPresenter.swift */; };
 		E4F5F11E1F024B500009F6AF /* WalkthroughRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */; };
 		E4F5F11F1F024B500009F6AF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */; };
-		E4F5F1201F024B500009F6AF /* WalkthroughViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */; };
 		E4FB01AF1F03AACA00BA9978 /* WalkthroughContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB01AE1F03AACA00BA9978 /* WalkthroughContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,11 +82,9 @@
 		E48F517A1F025167006B3065 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
 		E48F517C1F025274006B3065 /* Scene+Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scene+Common.swift"; sourceTree = "<group>"; };
 		E4F5F1151F024B500009F6AF /* WalkthroughBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughBuilder.swift; sourceTree = "<group>"; };
-		E4F5F1161F024B500009F6AF /* WalkthroughInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughInteractor.swift; sourceTree = "<group>"; };
 		E4F5F1171F024B500009F6AF /* WalkthroughPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPresenter.swift; sourceTree = "<group>"; };
 		E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughRouter.swift; sourceTree = "<group>"; };
 		E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
-		E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewModel.swift; sourceTree = "<group>"; };
 		E4FB01AE1F03AACA00BA9978 /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
 		E670AEBA67B044FFC3DC263E /* Pods-HiringApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,11 +279,9 @@
 				E43472B01F02BE060001B9BB /* Walkthrough.storyboard */,
 				E43472AD1F02A5240001B9BB /* Map controller */,
 				E4F5F1151F024B500009F6AF /* WalkthroughBuilder.swift */,
-				E4F5F1161F024B500009F6AF /* WalkthroughInteractor.swift */,
 				E4F5F1171F024B500009F6AF /* WalkthroughPresenter.swift */,
 				E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */,
 				E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */,
-				E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */,
 				E43472AB1F0285320001B9BB /* Pages */,
 			);
 			path = Walkhthrough;
@@ -577,7 +571,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
-				E4F5F11C1F024B500009F6AF /* WalkthroughInteractor.swift in Sources */,
 				E48F51791F025158006B3065 /* WalkthroughPageThreeViewController.swift in Sources */,
 				E48F51771F02514C006B3065 /* WalkthroughPageTwoViewController.swift in Sources */,
 				E48F51751F02513C006B3065 /* WakthroughPageOneViewController.swift in Sources */,
@@ -586,7 +579,6 @@
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				E48F517D1F025274006B3065 /* Scene+Common.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
-				E4F5F1201F024B500009F6AF /* WalkthroughViewModel.swift in Sources */,
 				E43472AF1F02A5500001B9BB /* WalkthroughMapViewController.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,

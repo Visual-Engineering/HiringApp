@@ -11,8 +11,9 @@ import BWWalkthrough
 
 class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
+    var router: WalkthroughRouter?
+    
     enum Constants {
-        static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
         static let buttonBackgroundColor: UIColor = .white
         static let buttonFontColor: UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
         
@@ -39,6 +40,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
+        button.addTarget(self, action: #selector(didTouchKnowMoreButton), for: .touchUpInside)
         return button
     }()
     
@@ -48,6 +50,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
+        button.addTarget(self, action: #selector(didTouchWorkWithUsButton), for: .touchUpInside)
         return button
     }()
     
@@ -80,6 +83,12 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         tr.m34 = -1/1000.0
         view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi)  * (1.0 - offset), 0.5,1, 0.2)
     }
+    
+    func didTouchKnowMoreButton() {
+        router?.navigateToKnowMoreScene()
+    }
+    
+    func didTouchWorkWithUsButton() {
+        router?.navigateToWorkWithUsScene()
+    }
 }
-
-
