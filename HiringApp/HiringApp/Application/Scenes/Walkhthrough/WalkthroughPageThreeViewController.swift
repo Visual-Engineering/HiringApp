@@ -14,6 +14,7 @@ class WalkthroughPageThreeViewController: UIViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
+        static let heightStackView : CGFloat = 0.6
     }
     
     let labelTop : UILabel = {
@@ -50,6 +51,7 @@ class WalkthroughPageThreeViewController: UIViewController {
         stackView.alignment = .fill
         stackView.axis = .vertical
         stackView.distribution = .fillProportionally
+        stackView.spacing = 20.0
         return stackView
     }()
     
@@ -64,8 +66,8 @@ class WalkthroughPageThreeViewController: UIViewController {
     private func layout() {
         view.backgroundColor = Constants.blueBackground
         
-        stackView.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: view.frame.height * 0.2).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomLayoutGuide.topAnchor, constant: -view.frame.height * 0.2).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: view.frame.size.height * Constants.heightStackView).isActive = true
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }

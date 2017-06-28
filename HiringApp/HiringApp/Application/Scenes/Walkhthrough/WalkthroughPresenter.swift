@@ -41,14 +41,16 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
 
     func viewDidLoad() {
         self.view.walkthroughViewController.delegate = self
-        //self.view.walkthroughViewController.scrollview.isPagingEnabled = true
+        self.view.walkthroughViewController.scrollview.isPagingEnabled = true
         let pageOneViewController = WalkthroughPageOneViewController()
         let pageTwoViewController = WalkthroughPageTwoViewController()
         let pageThreeViewController = WalkthroughPageThreeViewController(presenter: self)
+        let pageFourViewController = WalkthroughPageFourViewController()
 
-        self.view.walkthroughViewController.add(viewController: pageOneViewController)
-        self.view.walkthroughViewController.add(viewController: pageTwoViewController)
+        view.walkthroughViewController.add(viewController: pageOneViewController)
+        view.walkthroughViewController.add(viewController: pageTwoViewController)
         view.walkthroughViewController.add(viewController: pageThreeViewController)
+        view.walkthroughViewController.add(viewController: pageFourViewController)
 
     }
 }

@@ -70,10 +70,11 @@ class WalkthroughPageTwoViewController: UIViewController {
         
         view.addSubviewWithAutolayout(stackViewContainer)
       
-        stackViewContainer.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant:self.view.frame.size.height*Constants.topMarginMultiplierStackViewContainer).isActive = true
+//        stackViewContainer.topAnchor.constraint(equalTo: view.topAnchor, constant:self.view.frame.size.height*Constants.topMarginMultiplierStackViewContainer+navigationController?.navigationBar).isActive = true
         stackViewContainer.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewContainer).isActive = true
         stackViewContainer.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: Constants.lateralSpacingStackViewContainer).isActive = true
         stackViewContainer.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -Constants.lateralSpacingStackViewContainer).isActive = true
+        stackViewContainer.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
 
         stackViewLabelsTop.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewChild).isActive = true
         stackViewLabelsMedium.heightAnchor.constraint(equalToConstant: self.view.frame.size.height*Constants.heightMultiplierStackViewChild).isActive = true

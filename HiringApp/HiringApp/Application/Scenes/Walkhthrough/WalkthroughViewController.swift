@@ -15,6 +15,8 @@ class WalkthroughViewController: UIViewController {
     var presenter: WalkthroughPresenterProtocol!
     let walkthroughViewController = BWWalkthroughViewController()
     
+    @IBOutlet weak var pageControlWalkthrough: UIPageControl!
+    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,3 +39,5 @@ class WalkthroughViewController: UIViewController {
 extension WalkthroughViewController: WalkthroughUserInterfaceProtocol {
     
 }
+
+
