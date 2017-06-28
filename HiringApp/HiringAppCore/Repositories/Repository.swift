@@ -21,6 +21,7 @@ public class Repository {
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
     let dbProvider: DBProviderType
+    let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
     init(apiProvider: APIProviderType, cacheProvider: CacheProviderType, dbProvider: DBProviderType) {
         self.apiProvider = apiProvider

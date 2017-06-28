@@ -42,9 +42,8 @@ class APIProvider: APIProviderType {
         return modelTask
     }
     
-    func performLogin() -> Task<String> {
-        let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate)
-        
+    func performLogin(deviceID: String) -> Task<String> {
+        let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate(deviceID: deviceID))
         let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<String> in
             
             guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>,

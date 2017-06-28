@@ -181,7 +181,11 @@ class ProvidersTests: XCTestCase {
         let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         
         //When
-        let task: Task<String> = provider.performLogin()
+        guard let deviceID =  UIDevice.current.identifierForVendor?.uuidString else {
+            XCTAssert(false)
+            return
+        }
+        let task: Task<String> = provider.performLogin(deviceID: deviceID)
         
         //Then
         task.upon(.main) { (result) in
