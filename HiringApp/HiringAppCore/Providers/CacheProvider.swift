@@ -57,13 +57,13 @@ extension TechnologyModel {
         
         let otherSelf = Mirror(reflecting: self)
         
-        var optionalKeys = [String]()
-        for (property, value) in otherSelf.children {
-            if String(describing: type(of: value)).contains("Optional") {
-                optionalKeys.append(property!)
+        let optionalKeys = otherSelf.children.flatMap { (child) -> String? in
+            if String(describing: type(of: child.value)).contains("Optional") {
+                return child.label!
             }
+            return nil
         }
-        
+
         var dict = [String:Any]()
         for child in otherSelf.children {
             if let key = child.label {

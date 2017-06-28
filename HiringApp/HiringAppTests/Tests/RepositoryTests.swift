@@ -12,28 +12,6 @@ import Deferred
 
 class RepositoryTests: XCTestCase {
     
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-    
     func testRepositoryProvidersCacheEmpty() {
         
         // CASE 1 : cache is empty, call api provider
@@ -46,7 +24,7 @@ class RepositoryTests: XCTestCase {
         let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
         
         //When
-        let task: Task<[TechnologyModel]> = repository.retrieveTechnologies()
+        let task: Task<[TechnologyModel]> = repository.retrieveAPITechnologies()
         task.upon(.main) { (result) in
             switch result {
             case .success(_):
@@ -84,7 +62,7 @@ class RepositoryTests: XCTestCase {
         let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
         
         //When
-        let _ = repository.retrieveTechnologies()
+        let _ = repository.retrieveAPITechnologies()
         
         //Then
         if apiSpy.isCalled {
@@ -120,10 +98,9 @@ class RepositoryTests: XCTestCase {
         waitForExpectations(timeout: 10, handler: nil)
         
         //Then
-        if apiSpy.isCalled {
-            XCTAssert(true)
-        } else {
+        guard apiSpy.isCalled else {
             XCTAssert(false)
+            return
         }
     }
     
@@ -141,10 +118,9 @@ class RepositoryTests: XCTestCase {
         let _ = repository.retrieveDBTechnologies()
         
         //Then
-        if apiSpy.isCalled {
+        guard !apiSpy.isCalled else {
             XCTAssert(false)
-        } else {
-            XCTAssert(true)
+            return
         }
     }
 

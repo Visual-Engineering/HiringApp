@@ -10,6 +10,10 @@ import Foundation
 import RealmSwift
 import Deferred
 
+enum DBErrors: Error {
+    case unableToWrite
+}
+
 protocol DBProviderType {
     func write(tech: TechnologyRealm) -> Task<()>
     func read() -> [TechnologyRealm]?
@@ -17,22 +21,18 @@ protocol DBProviderType {
 
 class DBProvider: DBProviderType {
     
-    var realm: Realm?
+    var realm: Realm
     
-    init() {
-        do {
-            realm = try Realm()
-        } catch let error as NSError {
-            print(error.localizedDescription)
-        }
+    init() throws {
+        realm = try Realm()
     }
     
     func write(tech: TechnologyRealm) -> Task<()> {
         let deferred = Deferred<TaskResult<()>>()
 
         do {
-            try realm?.write {
-                _ = realm?.add(tech)
+            try realm.write {
+                _ = realm.add(tech)
             }
             deferred.fill(with: .success(()))
         } catch {
@@ -43,17 +43,17 @@ class DBProvider: DBProviderType {
     }
     
     func read() -> [TechnologyRealm]? {
-        let results = realm?.objects(TechnologyRealm.self)
+        let results = realm.objects(TechnologyRealm.self)
         var technologies = [TechnologyRealm]()
-        results?.forEach({ (tech) in
+        results.forEach({ (tech) in
             technologies.append(tech)
         })
         return technologies
     }
     
     func clearAll() {
-        try! realm?.write {
-            realm?.deleteAll()
+        try! realm.write {
+            realm.deleteAll()
         }
     }
     

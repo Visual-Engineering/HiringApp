@@ -31,39 +31,30 @@ class UtilityTests: XCTestCase {
     func testTransformTechnologyRealmToTechnologyModel() {
         
         let fakeTechRealm = TechnologyRealm.fake
-        let fakeTechModel = fakeTechRealm.transformToTechnologyModel()
+        let fakeTechModel = fakeTechRealm.toModel
         
-        guard let fakeTechModelReceived = fakeTechModel else {
-            XCTAssert(false)
-            return
-        }
-        
-        XCTAssert(fakeTechRealm.id == fakeTechModelReceived.id)
-        XCTAssert(fakeTechRealm.title == fakeTechModelReceived.title)
-        XCTAssert(fakeTechRealm.imageURL == fakeTechModelReceived.imageURL)
-        XCTAssert(fakeTechRealm.testAvailable == fakeTechModelReceived.testAvailable)
+        XCTAssert(fakeTechRealm.id == fakeTechModel.id)
+        XCTAssert(fakeTechRealm.title == fakeTechModel.title)
+        XCTAssert(fakeTechRealm.imageURL == fakeTechModel.imageURL)
+        XCTAssert(fakeTechRealm.testAvailable == fakeTechModel.testAvailable)
         
         if let realmSubmittedTest: String = fakeTechRealm.submittedTest?["status"] as? String {
-            XCTAssert(realmSubmittedTest == fakeTechModelReceived.submittedTest?["status"])
+            XCTAssert(realmSubmittedTest == fakeTechModel.submittedTest?["status"])
         }
     }
     
     func testTransformTechnologyModelToTechnologyRealm() {
         
         let fakeTechModel = TechnologyModel.fake
-        let fakeTechRealm = fakeTechModel.transformToTechnologyRealm()
+        let fakeTechRealm = fakeTechModel.toRealmModel
+
         
-        guard let fakeTechRealmReceived = fakeTechRealm else {
-            XCTAssert(false)
-            return
-        }
+        XCTAssert(fakeTechModel.id == fakeTechRealm.id)
+        XCTAssert(fakeTechModel.title == fakeTechRealm.title)
+        XCTAssert(fakeTechModel.imageURL == fakeTechRealm.imageURL)
+        XCTAssert(fakeTechModel.testAvailable == fakeTechRealm.testAvailable)
         
-        XCTAssert(fakeTechModel.id == fakeTechRealmReceived.id)
-        XCTAssert(fakeTechModel.title == fakeTechRealmReceived.title)
-        XCTAssert(fakeTechModel.imageURL == fakeTechRealmReceived.imageURL)
-        XCTAssert(fakeTechModel.testAvailable == fakeTechRealmReceived.testAvailable)
-        
-        if let realmSubmittedTest: String = fakeTechRealmReceived.submittedTest?["status"] as? String {
+        if let realmSubmittedTest: String = fakeTechRealm.submittedTest?["status"] as? String {
             XCTAssert(realmSubmittedTest == fakeTechModel.submittedTest?["status"])
         }
     }

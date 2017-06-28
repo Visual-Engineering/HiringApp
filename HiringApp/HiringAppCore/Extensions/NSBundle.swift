@@ -20,10 +20,7 @@ extension Bundle {
     }
     
     class func jsonData(named: String) -> Data? {
-        
-        let resourceURL = currentBundle().url(forResource: named, withExtension: "json")
-        
-        guard let existingURL = resourceURL else {
+        guard let existingURL = currentBundle().url(forResource: named, withExtension: "json") else {
             return nil
         }
         
