@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.backgroundColor = .white
             window.makeKeyAndVisible()
             self.window = window
+            
+            BuddyBuildSDK.setup()
 
             return true
         } else {
