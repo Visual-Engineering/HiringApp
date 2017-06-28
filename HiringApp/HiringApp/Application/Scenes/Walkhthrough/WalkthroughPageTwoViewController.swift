@@ -7,14 +7,15 @@
 //
 
 import UIKit
+import BWWalkthrough
 
-class WalkthroughPageTwoViewController: UIViewController {
+class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
         static let topMarginMultiplierStackViewContainer: CGFloat = 0.05
         static let heightMultiplierStackViewContainer: CGFloat = 0.62
-        static let lateralSpacingStackViewContainer: CGFloat = 20
+        static let lateralSpacingStackViewContainer: CGFloat = 40
         static let heightMultiplierStackViewChild: CGFloat = 0.2
     }
     
@@ -41,6 +42,7 @@ class WalkthroughPageTwoViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
+        stackView.tag = 1
         
         return stackView
     }()
@@ -50,6 +52,7 @@ class WalkthroughPageTwoViewController: UIViewController {
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fillProportionally
+        stackView.tag = 2
         
         return stackView
     }()
@@ -61,10 +64,10 @@ class WalkthroughPageTwoViewController: UIViewController {
         configureStackViewIcons()
         layout()
     }
-    
+
     //MARK: - Private API
     private func layout() {
-        view.backgroundColor = Constants.blueBackground
+        view.backgroundColor = .clear
         
         edgesForExtendedLayout = []
         
@@ -136,4 +139,11 @@ class WalkthroughPageTwoViewController: UIViewController {
         }
         return arrayLogos
     }
+    
+    override func walkthroughDidScroll(to position: CGFloat, offset: CGFloat) {        
+        var tr = CATransform3DIdentity
+        tr.m34 = -1/1000.0
+        view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi*2)  * (1.0 - offset), 0.5,1, 0.2)
+    }
 }
+

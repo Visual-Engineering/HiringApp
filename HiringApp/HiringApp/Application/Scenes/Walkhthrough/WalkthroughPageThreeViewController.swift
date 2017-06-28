@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import BWWalkthrough
 
-class WalkthroughPageThreeViewController: UIViewController {
+class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     var presenter: WalkthroughPresenter?
     
@@ -64,12 +65,12 @@ class WalkthroughPageThreeViewController: UIViewController {
     
     //MARK: - Private API
     private func layout() {
-        view.backgroundColor = Constants.blueBackground
+        view.backgroundColor = .clear
         
         stackView.heightAnchor.constraint(equalToConstant: view.frame.size.height * Constants.heightStackView).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
     }
     
     private func setup() {
@@ -83,15 +84,15 @@ class WalkthroughPageThreeViewController: UIViewController {
         stackView.addArrangedSubview(imageMapView)
         stackView.addArrangedSubview(labelBottom)
     }
+    
+    override func walkthroughDidScroll(to position: CGFloat, offset: CGFloat) {
+        var tr = CATransform3DIdentity
+        tr.m34 = -1/500.0
+        view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi*2)  * (1.0 - offset), 0.5,1, 0.2)
+    }
 }
 
 extension WalkthroughPageThreeViewController {
-    convenience init(presenter: WalkthroughPresenter) {
-        self.init()
-        
-        self.presenter = presenter
-    }
-    
     func didTapOnMap() {
         presenter?.showModalMap()
     }

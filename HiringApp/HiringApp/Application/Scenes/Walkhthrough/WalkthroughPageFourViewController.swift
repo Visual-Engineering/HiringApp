@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import BWWalkthrough
 
-class WalkthroughPageFourViewController: UIViewController {
+class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     enum Constants {
         static let blueBackground : UIColor = UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
@@ -52,16 +53,24 @@ class WalkthroughPageFourViewController: UIViewController {
     private func layout() {
         view.addSubviewWithAutolayout(stackView)
         
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: view.frame.height * 0.3).isActive = true
         stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
     private func setup() {
-        view.backgroundColor = Constants.blueBackground
+        view.backgroundColor = .clear
         
         stackView.addArrangedSubview(buttonTop)
         stackView.addArrangedSubview(buttonBottom)
     }
+    
+    override func walkthroughDidScroll(to position: CGFloat, offset: CGFloat) {
+        var tr = CATransform3DIdentity
+        tr.m34 = -1/1000.0
+        view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi)  * (1.0 - offset), 0.5,1, 0.2)
+    }
 }
+
+

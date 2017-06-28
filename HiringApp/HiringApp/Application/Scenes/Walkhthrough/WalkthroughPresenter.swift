@@ -16,18 +16,7 @@ class WalkthroughPresenter {
     fileprivate let interactor: WalkthroughInteractorProtocol
     fileprivate unowned let view: WalkthroughViewController
 
-    var state: LoadingState<WalkthroughViewModel> = .loading
-
-    var viewModel: WalkthroughViewModel? {
-        didSet {
-            guard let viewModel = viewModel else {
-                state = .error(AppError.unknown)
-                return
-            }
-
-            state = .loaded(viewModel: viewModel)
-        }
-    }
+    var viewControllers = [BWWalkthroughPageViewController]()
 
     //MARK: - Initializer
     init(router: WalkthroughRouterProtocol, interactor: WalkthroughInteractorProtocol, view: WalkthroughViewController) {
@@ -40,32 +29,29 @@ class WalkthroughPresenter {
 extension WalkthroughPresenter: WalkthroughPresenterProtocol {
 
     func viewDidLoad() {
-        self.view.walkthroughViewController.delegate = self
-        self.view.walkthroughViewController.scrollview.isPagingEnabled = true
-        let pageOneViewController = WalkthroughPageOneViewController()
-        let pageTwoViewController = WalkthroughPageTwoViewController()
-        let pageThreeViewController = WalkthroughPageThreeViewController(presenter: self)
-        let pageFourViewController = WalkthroughPageFourViewController()
-
-        view.walkthroughViewController.add(viewController: pageOneViewController)
-        view.walkthroughViewController.add(viewController: pageTwoViewController)
-        view.walkthroughViewController.add(viewController: pageThreeViewController)
-        view.walkthroughViewController.add(viewController: pageFourViewController)
-
-    }
-}
-
-extension WalkthroughPresenter: BWWalkthroughViewControllerDelegate {
-    func walkthroughNextButtonPressed(){
-        
+        configureWalkthoughContainer()
     }
     
-    func walkthroughPrevButtonPressed(){
+    func configureWalkthoughContainer() {
+        guard let walkViewController = view.walkthroughViewController else { return }
+        let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+
+        let pageOneViewController = storyboard.instantiateViewController(withIdentifier: "page_1")
+        let pageTwoViewController = storyboard.instantiateViewController(withIdentifier: "page_2")
+        guard let pageThreeViewController = storyboard.instantiateViewController(withIdentifier: "page_3") as? WalkthroughPageThreeViewController else { return }
+        pageThreeViewController.presenter = self
+        let pageFourViewController = storyboard.instantiateViewController(withIdentifier: "page_4")
         
-    }
-    
-    func walkthroughPageDidChange(pageNumber:Int){
+        walkViewController.pageControl?.numberOfPages = 4
+        walkViewController.add(viewController: pageOneViewController)
+        walkViewController.add(viewController: pageTwoViewController)
+        walkViewController.add(viewController: pageThreeViewController)
+        walkViewController.add(viewController: pageFourViewController)
         
+        viewControllers.append(pageOneViewController as! BWWalkthroughPageViewController)
+        viewControllers.append(pageTwoViewController as! BWWalkthroughPageViewController)
+        viewControllers.append(pageThreeViewController as BWWalkthroughPageViewController)
+        viewControllers.append(pageFourViewController as! BWWalkthroughPageViewController)
     }
 }
 

@@ -32,6 +32,7 @@
 		E4F5F11E1F024B500009F6AF /* WalkthroughRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */; };
 		E4F5F11F1F024B500009F6AF /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */; };
 		E4F5F1201F024B500009F6AF /* WalkthroughViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */; };
+		E4FB01AF1F03AACA00BA9978 /* WalkthroughContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FB01AE1F03AACA00BA9978 /* WalkthroughContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		E4F5F1181F024B500009F6AF /* WalkthroughRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughRouter.swift; sourceTree = "<group>"; };
 		E4F5F1191F024B500009F6AF /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		E4F5F11A1F024B500009F6AF /* WalkthroughViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewModel.swift; sourceTree = "<group>"; };
+		E4FB01AE1F03AACA00BA9978 /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
 		E670AEBA67B044FFC3DC263E /* Pods-HiringApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -249,6 +251,7 @@
 		E43472AB1F0285320001B9BB /* Pages */ = {
 			isa = PBXGroup;
 			children = (
+				E4FB01AE1F03AACA00BA9978 /* WalkthroughContainerViewController.swift */,
 				E48F51741F02513C006B3065 /* WakthroughPageOneViewController.swift */,
 				E48F51761F02514C006B3065 /* WalkthroughPageTwoViewController.swift */,
 				E48F51781F025158006B3065 /* WalkthroughPageThreeViewController.swift */,
@@ -578,6 +581,7 @@
 				E48F51791F025158006B3065 /* WalkthroughPageThreeViewController.swift in Sources */,
 				E48F51771F02514C006B3065 /* WalkthroughPageTwoViewController.swift in Sources */,
 				E48F51751F02513C006B3065 /* WakthroughPageOneViewController.swift in Sources */,
+				E4FB01AF1F03AACA00BA9978 /* WalkthroughContainerViewController.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				E48F517D1F025274006B3065 /* Scene+Common.swift in Sources */,

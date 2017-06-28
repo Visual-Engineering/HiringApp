@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Walkthrough Page View Controller-->
+        <!--Walkthrough Container View Controller-->
         <scene sceneID="8v5-Ga-k4n">
             <objects>
-                <viewController storyboardIdentifier="container" id="Ey0-fa-gzY" customClass="BWWalkthroughPageViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="container" id="Ey0-fa-gzY" customClass="WalkthroughContainerViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iCr-OH-J1t"/>
                         <viewControllerLayoutGuide type="bottom" id="ekU-gx-14h"/>
@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="5zF-rd-EDj">
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="5zF-rd-EDj">
                                 <rect key="frame" x="113" y="622" width="150" height="37"/>
                             </pageControl>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="5zF-rd-EDj" firstAttribute="width" secondItem="XZf-M3-agI" secondAttribute="width" multiplier="0.4" id="Dxq-Vp-aMy"/>
                             <constraint firstItem="5zF-rd-EDj" firstAttribute="centerX" secondItem="XZf-M3-agI" secondAttribute="centerX" id="GMM-0m-clu"/>
@@ -33,12 +33,126 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="pageControl" destination="5zF-rd-EDj" id="WqN-hQ-etn"/>
+                        <outlet property="pageControl" destination="5zF-rd-EDj" id="dVr-zL-iHJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wvf-BL-jvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-266.39999999999998" y="127.28635682158921"/>
+            <point key="canvasLocation" x="-1692" y="-39"/>
+        </scene>
+        <!--Walkthrough Page One View Controller-->
+        <scene sceneID="lI8-7M-cJA">
+            <objects>
+                <viewController storyboardIdentifier="page_1" id="jQJ-zQ-aod" customClass="WalkthroughPageOneViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ccT-8e-0rs"/>
+                        <viewControllerLayoutGuide type="bottom" id="m7s-7N-bRA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VTV-jn-evt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="staticTags" value="256"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2hy-Ko-Xe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2441" y="642"/>
+        </scene>
+        <!--Walkthrough Page Two View Controller-->
+        <scene sceneID="sHt-fh-zvF">
+            <objects>
+                <viewController storyboardIdentifier="page_2" id="Ibd-e6-GSp" customClass="WalkthroughPageTwoViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9FQ-7J-aef"/>
+                        <viewControllerLayoutGuide type="bottom" id="jVJ-AP-ZwU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dd2-8A-RfX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="staticTags" value="1,2"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i0R-do-sxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1553" y="642"/>
+        </scene>
+        <!--Walkthrough Page Three View Controller-->
+        <scene sceneID="VJ0-bK-Xkw">
+            <objects>
+                <viewController storyboardIdentifier="page_3" id="u8n-i8-Kky" customClass="WalkthroughPageThreeViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Z8X-7w-vkE"/>
+                        <viewControllerLayoutGuide type="bottom" id="oPT-Pr-ton"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y9z-Aq-zxI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRj-bB-1uF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-774" y="642"/>
+        </scene>
+        <!--Walkthrough Page Four View Controller-->
+        <scene sceneID="Ooa-sU-Ox3">
+            <objects>
+                <viewController storyboardIdentifier="page_4" id="brU-AC-OGX" customClass="WalkthroughPageFourViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="L6K-7w-wC4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lon-ew-p5e"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XCS-cH-VuW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="1" y="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6N-hb-cpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-22" y="627"/>
         </scene>
     </scenes>
 </document>

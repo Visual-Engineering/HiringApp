@@ -12,8 +12,13 @@ import BWWalkthrough
 class WalkthroughViewController: UIViewController {
 
     //MARK: - Stored properties
-    var presenter: WalkthroughPresenterProtocol!
-    let walkthroughViewController = BWWalkthroughViewController()
+    var presenter: WalkthroughPresenter!
+    var walkthroughViewController: WalkthroughContainerViewController? = {
+        let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+        let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "container")
+        guard let walkVC = walkthroughViewController as? WalkthroughContainerViewController else { return nil }
+        return walkVC
+    }()
     
     @IBOutlet weak var pageControlWalkthrough: UIPageControl!
     
@@ -29,15 +34,26 @@ class WalkthroughViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
         edgesForExtendedLayout = []
         
-        view.addSubviewWithAutolayout(walkthroughViewController.view)
-        walkthroughViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        
-        walkthroughViewController.view.fillSuperview()
+        guard let walkVC = walkthroughViewController else { return }
+        walkVC.delegate = self as BWWalkthroughViewControllerDelegate
+        view.addSubviewWithAutolayout(walkVC.view)
+        walkVC.view.translatesAutoresizingMaskIntoConstraints = false
+        walkVC.view.fillSuperview()
     }
 }
 
 extension WalkthroughViewController: WalkthroughUserInterfaceProtocol {
     
+}
+
+extension WalkthroughViewController: BWWalkthroughViewControllerDelegate {
+    @objc func walkthroughPageDidChange(_ pageNumber:Int){
+        let viewControllers = presenter.viewControllers
+        for viewController in viewControllers {
+            viewController.view.transform = CGAffineTransform.identity
+        }
+    }
+
 }
 
 
