@@ -37,6 +37,8 @@
 		B24D16631F03BCD40030D5C2 /* ProvidersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16581F03BCD40030D5C2 /* ProvidersTests.swift */; };
 		B24D16641F03BCD40030D5C2 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16591F03BCD40030D5C2 /* RepositoryTests.swift */; };
 		B24D16651F03BCD40030D5C2 /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D165A1F03BCD40030D5C2 /* UtilityTests.swift */; };
+		B24D166B1F03CAED0030D5C2 /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D166A1F03CAED0030D5C2 /* SnapshotTestCase.swift */; };
+		B24D166D1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D166C1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,8 @@
 		B24D16581F03BCD40030D5C2 /* ProvidersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvidersTests.swift; sourceTree = "<group>"; };
 		B24D16591F03BCD40030D5C2 /* RepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepositoryTests.swift; sourceTree = "<group>"; };
 		B24D165A1F03BCD40030D5C2 /* UtilityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UtilityTests.swift; sourceTree = "<group>"; };
+		B24D166A1F03CAED0030D5C2 /* SnapshotTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotTestCase.swift; sourceTree = "<group>"; };
+		B24D166C1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSnapshoTestCase.swift; sourceTree = "<group>"; };
 		CE86F7E57BA66E35C6F9E100 /* Pods-HiringAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D5E6658F1F115D7D69C42E18 /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8A2C85A5DD7300D050F24CB /* Pods-HiringAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -214,7 +218,9 @@
 		780490CF1EF184E200D03BEA /* HiringAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				B24D166C1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift */,
 				780490D21EF184E200D03BEA /* Info.plist */,
+				B24D166A1F03CAED0030D5C2 /* SnapshotTestCase.swift */,
 			);
 			path = HiringAppTests;
 			sourceTree = "<group>";
@@ -466,6 +472,7 @@
 					780490CB1EF184E200D03BEA = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = U57BHELK4C;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 780490B71EF184E200D03BEA;
 					};
@@ -738,6 +745,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B24D166D1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift in Sources */,
+				B24D166B1F03CAED0030D5C2 /* SnapshotTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -925,6 +934,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -941,6 +951,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/HiringApp.app/HiringApp";
 			};
@@ -952,6 +963,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = U57BHELK4C;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
