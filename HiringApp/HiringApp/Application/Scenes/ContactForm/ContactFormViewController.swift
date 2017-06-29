@@ -30,14 +30,31 @@ class ContactFormViewController: UIViewController {
         return stack
     }()
     
+    let verticalStackView: UIStackView = {
+        let stack = UIStackView()
+        stack.axis = .vertical
+        stack.distribution = .fill
+        return stack
+    }()
+    
     let formLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .black
         lbl.backgroundColor = .white
+        lbl.text = "Nombre: "
         lbl.textAlignment = .center
         return lbl
     }()
     
+    let textField: UITextField = {
+       let textField = UITextField()
+        textField.textColor = UIColor.lightGray
+        textField.backgroundColor = .white
+        textField.font = UIFont.systemFont(ofSize: 15.0)
+        textField.textAlignment = .left
+        textField.text = "Type here..."
+        return textField
+    }()
 
     //MARK: - View lifecycle
     override func viewDidLoad() {
@@ -45,6 +62,18 @@ class ContactFormViewController: UIViewController {
         
         self.view.backgroundColor = .blue
         self.view.addSubview(titleLabel)
+        
+        let formFieldNames: [String] = ["Nombre", "Apellidos", "LinkedIn", "Correo", "Teléfono"]
+        for field in formFieldNames {
+            verticalStackView.addArrangedSubview(horizontalStackView)
+            formLabel.text = field
+            horizontalStackView.addArrangedSubview(formLabel)
+            horizontalStackView.addArrangedSubview(textField)
+        }
+        
+        
+        
+        self.view.addSubview(verticalStackView)
         layout()
         presenter.viewDidLoad()
     }
@@ -56,6 +85,17 @@ class ContactFormViewController: UIViewController {
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 30.0 + navigationBarHeight).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15.0).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15.0).isActive = true
+        
+        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
+        horizontalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        horizontalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        horizontalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        
+        formLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.25).isActive = true
+    }
+    
+    private func configureLabel() {
+    
     }
 }
 
