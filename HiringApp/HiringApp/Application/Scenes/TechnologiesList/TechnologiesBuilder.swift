@@ -32,14 +32,12 @@ class TechnologiesBuilder {
     static func build() -> TechnologiesViewController? {
         let viewController = TechnologiesViewController()
         let router = TechnologiesRouter(view: viewController)
-        let interactor: TechnologiesInteractor? = TechnologiesInteractor()
         
-        guard let interactorCopy = interactor else {
-            
+        guard let interactor = TechnologiesInteractor() else {
             return nil
         }
         
-        let presenter = TechnologiesPresenter(router: router, interactor: interactorCopy, view: viewController)
+        let presenter = TechnologiesPresenter(router: router, interactor: interactor, view: viewController)
 
         viewController.presenter = presenter
 

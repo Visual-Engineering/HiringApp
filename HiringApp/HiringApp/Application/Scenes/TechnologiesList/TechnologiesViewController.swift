@@ -23,7 +23,7 @@ class TechnologiesViewController: UIViewController {
     //MARK: - Stored properties
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "¿Cuál es tu tecnología?"
+        label.text = ""
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.brandWhite
         return label
@@ -68,6 +68,8 @@ extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
     func configureFor(viewModel: TechnologiesViewModel) {
         
         technologiesStackView.clear()
+        
+        titleLabel.text = viewModel.title
         
         viewModel.techs.forEach { (technology) in
             let button = UIButton()

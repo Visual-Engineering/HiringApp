@@ -15,7 +15,7 @@ target 'HiringApp' do
     # Pods for testing
     pod 'FBSnapshotTestCase'
     pod 'Decodable'
-    pod 'FBSnapshotTestCase'
+    pod 'BNRDeferred'
   end
   
   target 'HiringAppCoreTests' do

@@ -10,6 +10,8 @@
 		0652654FE74B2F2EA5F4FB96 /* Pods_HiringAppCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */; };
 		499961F64855B800470B62AC /* Pods_HiringAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */; };
 		61A20D725099DDC4E11E3FB6 /* Pods_HiringApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179968D7E358D834AA151D9D /* Pods_HiringApp.framework */; };
+		6E3FEB5E1F05131000D78426 /* TechnologyModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16501F03BCD40030D5C2 /* TechnologyModel+Fake.swift */; };
+		6E3FEB6A1F0559E800D78426 /* TechnologiesViewModel+Fake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E3FEB691F0559E800D78426 /* TechnologiesViewModel+Fake.swift */; };
 		780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BB1EF184E200D03BEA /* AppDelegate.swift */; };
 		780490BE1EF184E200D03BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BD1EF184E200D03BEA /* ViewController.swift */; };
 		780490C31EF184E200D03BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780490C21EF184E200D03BEA /* Assets.xcassets */; };
@@ -93,6 +95,7 @@
 		179968D7E358D834AA151D9D /* Pods_HiringApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE93220D82AC46DE992C47D /* Pods-HiringApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.release.xcconfig"; sourceTree = "<group>"; };
+		6E3FEB691F0559E800D78426 /* TechnologiesViewModel+Fake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "TechnologiesViewModel+Fake.swift"; path = "Fake models.swift/TechnologiesViewModel+Fake.swift"; sourceTree = "<group>"; };
 		780490B81EF184E200D03BEA /* HiringApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiringApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		780490BB1EF184E200D03BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		780490BD1EF184E200D03BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +192,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6E3FEB5B1F050D7B00D78426 /* Fake models */ = {
+			isa = PBXGroup;
+			children = (
+				6E3FEB691F0559E800D78426 /* TechnologiesViewModel+Fake.swift */,
+			);
+			name = "Fake models";
+			sourceTree = "<group>";
+		};
 		780490AF1EF184E200D03BEA = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +243,7 @@
 		780490CF1EF184E200D03BEA /* HiringAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				6E3FEB5B1F050D7B00D78426 /* Fake models */,
 				8A5894981F04EB0F0096F59B /* Test technologies */,
 				B24D166C1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift */,
 				780490D21EF184E200D03BEA /* Info.plist */,
@@ -742,8 +754,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E3FEB6A1F0559E800D78426 /* TechnologiesViewModel+Fake.swift in Sources */,
 				B24D166D1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift in Sources */,
 				B24D166B1F03CAED0030D5C2 /* SnapshotTestCase.swift in Sources */,
+				6E3FEB5E1F05131000D78426 /* TechnologyModel+Fake.swift in Sources */,
 				8A58949A1F04EB390096F59B /* TechnologiesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

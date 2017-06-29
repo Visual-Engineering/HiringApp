@@ -7,18 +7,10 @@
 //
 
 import Foundation
-import HiringAppCore
 
 struct TechnologiesViewModel {
     let title: String
     let techs: [TechnologyViewModel]
-}
-
-extension TechnologiesViewModel {
-    init(technologies: [TechnologyViewModel], title: String) {
-        self.techs = technologies
-        self.title = title
-    }
 }
 
 struct TechnologyViewModel {
@@ -28,3 +20,38 @@ struct TechnologyViewModel {
     public let testAvailable: Bool
     public let submittedTest: [String : String]?
 }
+
+extension TechnologyViewModel: Equatable {
+    
+    public static func ==(lhs: TechnologyViewModel, rhs: TechnologyViewModel) -> Bool {
+        
+        let idsEqual = (lhs.id == rhs.id)
+        let titleEqual = (lhs.title == rhs.title)
+        let imgEqual = (lhs.imageURL == rhs.imageURL)
+        let testEqual = (lhs.testAvailable == rhs.testAvailable)
+        let submittedEqual: Bool = {
+            switch (lhs.submittedTest, rhs.submittedTest) {
+            case (nil, nil):
+                return true
+            case (_, nil):
+                return false
+            case (nil, _):
+                return false
+            default:
+                guard let leftText = lhs.submittedTest, let rightText = rhs.submittedTest else { fatalError() }
+                return leftText == rightText
+            }
+        }()
+        return idsEqual && titleEqual && imgEqual && testEqual && submittedEqual
+    }
+}
+
+extension TechnologiesViewModel: Equatable {
+    
+    public static func ==(lhs: TechnologiesViewModel, rhs: TechnologiesViewModel) -> Bool {
+        let titleEqual = (lhs.title == rhs.title)
+        let techsEqual = (lhs.techs == rhs.techs)
+        return titleEqual && techsEqual
+    }
+}
+
