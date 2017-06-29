@@ -14,7 +14,8 @@ class TechnologiesTests: SnapshotTestCase {
     func testSnapshotTechnologies() {
         
         let technologiesVC = TechnologiesBuilder.build()
-        verifyViewController(technologiesVC)
+        guard let techsVC = technologiesVC else { fatalError() }
+        verifyViewController(techsVC)
     }
     
 }
