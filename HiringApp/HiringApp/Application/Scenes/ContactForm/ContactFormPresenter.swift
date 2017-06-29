@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import BSWFoundation
 
 class ContactFormPresenter {
 
@@ -48,5 +49,31 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
         //                self.state = .loaded(viewModel: vm)
         //            }
         //        }
+    }
+    
+    func tappedSendButton() {
+//        let task = interactor.sendContactFormData(data: Data).upon(.main) { result in
+//            switch result {
+//            case .failure(let error):
+//                self.state = .error(error)
+//                //TODO: Show some alert that sending contact data failed?
+//            case .success(): break
+//                //TODO: Navigate back to some screen (?)
+//            }
+//        }
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.text == "Type here..." {
+            self.view.emptyTextInTextField(textField: textField)
+        }
+        self.view.changeTextColorForTextField(textField: textField, color: UIColor.darkGray)
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType){
+        if text.isEmpty {
+            self.view.restartTextFieldToDefault(textField: textField)
+        }
+        print("I am in the textFieldDidEndEditing")
     }
 }

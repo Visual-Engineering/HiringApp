@@ -8,6 +8,14 @@
 
 import UIKit
 
+enum InputTextType {
+    case name
+    case surname
+    case linkedin
+    case address
+    case phoneNumber
+}
+
 class ContactFormViewController: UIViewController {
 
     //MARK: - Stored properties
@@ -41,20 +49,33 @@ class ContactFormViewController: UIViewController {
         button.backgroundColor = .white
         return button
     }()
+    
+    var nameTextField: UITextField!
+    var surnameTextField: UITextField!
+    var linkedInTextField: UITextField!
+    var addressTextField: UITextField!
+    var phoneTextField: UITextField!
 
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameTextField = self.createTextField()
+        surnameTextField = self.createTextField()
+        linkedInTextField = self.createTextField()
+        addressTextField = self.createTextField()
+        phoneTextField = self.createTextField()
         
         self.view.backgroundColor = .blue
         self.view.addSubview(titleLabel)
         
         self.addColoredViewToStackView(stackView: verticalStackView, color: .white)
         
-        let formFieldNames: [String] = ["Nombre", "Apellidos", "LinkedIn", "Correo", "Teléfono"]
-        for field in formFieldNames {
-            configureHorizontalStackView(field: field)
-        }
+        configureHorizontalStackView(field: "Nombre", textField: nameTextField)
+        configureHorizontalStackView(field: "Apellidos", textField: surnameTextField)
+        configureHorizontalStackView(field: "LinkedIn", textField: linkedInTextField, keyboardType: .URL)
+        configureHorizontalStackView(field: "Correo", textField: addressTextField, keyboardType: .emailAddress)
+        configureHorizontalStackView(field: "Teléfono", textField: phoneTextField, keyboardType: .numberPad)
         
         self.view.addSubview(sendButton)
         self.view.addSubview(verticalStackView)
@@ -64,6 +85,17 @@ class ContactFormViewController: UIViewController {
     }
 
     //MARK: - Private API
+    private func createTextField() -> UITextField {
+        let textField = UITextField()
+        textField.textColor = UIColor.lightGray
+        textField.backgroundColor = .white
+        textField.font = UIFont.systemFont(ofSize: 15.0)
+        textField.textAlignment = .left
+        textField.text = "Type here..."
+        textField.delegate = self
+        return textField
+    }
+    
     private func layout() {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         let navigationBarHeight: CGFloat = self.navigationController?.navigationBar.frame.size.height ?? 0.0
@@ -83,7 +115,7 @@ class ContactFormViewController: UIViewController {
         verticalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0).isActive = true
     }
     
-    private func configureHorizontalStackView(field: String) {
+    private func configureHorizontalStackView(field: String, textField: UITextField, keyboardType: UIKeyboardType = .default) {
         let horizontalStackView: UIStackView = {
             let stack = UIStackView()
             stack.axis = .horizontal
@@ -102,15 +134,7 @@ class ContactFormViewController: UIViewController {
             return lbl
         }()
         
-        let textField: UITextField = {
-            let textField = UITextField()
-            textField.textColor = UIColor.lightGray
-            textField.backgroundColor = .white
-            textField.font = UIFont.systemFont(ofSize: 15.0)
-            textField.textAlignment = .left
-            textField.text = "Type here..."
-            return textField
-        }()
+        textField.keyboardType = keyboardType
         
         horizontalStackView.addArrangedSubview(formLabel)
         horizontalStackView.addArrangedSubview(textField)
@@ -121,6 +145,7 @@ class ContactFormViewController: UIViewController {
         horizontalStackView.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
         
         formLabel.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.25).isActive = true
+        sendButton.addTarget(self, action: #selector(tappedSendButton), for: .touchUpInside)
     }
     
     private func addColoredViewToStackView(stackView: UIStackView, color: UIColor) {
@@ -139,4 +164,59 @@ class ContactFormViewController: UIViewController {
 
 extension ContactFormViewController: ContactFormUserInterfaceProtocol {
     
+    func changeTextColorForTextField(textField: UITextField, color: UIColor) {
+        textField.textColor = color
+    }
+    
+    func emptyTextInTextField(textField: UITextField) {
+        textField.text = ""
+    }
+    
+    func restartTextFieldToDefault(textField: UITextField) {
+        textField.text = "Type here..."
+        textField.textColor = UIColor.lightGray
+    }
+}
+
+//MARK: - User interaction
+
+extension ContactFormViewController {
+    func tappedSendButton() {
+        presenter.tappedSendButton()
+    }
+}
+
+extension ContactFormViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        presenter.textFieldDidBeginEditing(textField: textField)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let text = textField.text else {
+            return
+        }
+        
+        var field: InputTextType
+        switch textField {
+        case nameTextField:
+            field = .name
+            break
+        case surnameTextField:
+            field = .surname
+            break
+        case linkedInTextField:
+            field = .linkedin
+            break
+        case addressTextField:
+            field = .address
+            break
+        case phoneTextField:
+            field = .phoneNumber
+            break
+        default:
+            return
+        }
+        presenter.textFieldDidEndEditing(textField: textField, withText: text, forField: field)
+    }
 }

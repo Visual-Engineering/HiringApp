@@ -7,18 +7,23 @@
 //
 
 import Foundation
-//import Deferred
+import Deferred
 
 protocol ContactFormPresenterProtocol {
     func viewDidLoad()
+    func tappedSendButton()
+    func textFieldDidBeginEditing(textField: UITextField)
+    func textFieldDidEndEditing(textField: UITextField, withText: String, forField: InputTextType)
 }
 
 protocol ContactFormInteractorProtocol {
-    //    func retrieveData() -> Task<ContactFormViewModel>
+    func sendContactFormData() -> Task<()>
 }
 
 protocol ContactFormUserInterfaceProtocol: class {
-
+    func changeTextColorForTextField(textField: UITextField, color: UIColor)
+    func emptyTextInTextField(textField: UITextField)
+    func restartTextFieldToDefault(textField: UITextField)
 }
 
 protocol ContactFormRouterProtocol {

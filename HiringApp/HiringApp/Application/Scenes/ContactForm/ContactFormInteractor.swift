@@ -7,7 +7,8 @@
 //
 
 import Foundation
-//import Deferred
+import Deferred
+import BSWFoundation
 
 class ContactFormInteractor {
 
@@ -23,7 +24,7 @@ class ContactFormInteractor {
 
 extension ContactFormInteractor: ContactFormInteractorProtocol {
 
-    //    func retrieveData() -> Task<ContactFormModel> {
-    //
-    //    }
+    func sendContactFormData() -> Task<()> {
+        return undefined()
+    }
 }
