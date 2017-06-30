@@ -26,6 +26,7 @@ public class TechsRepository {
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
     let dbProvider: DBProviderType
+    let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
     public init?(apiProvider: APIProviderType = APIProvider(),
          cacheProvider: CacheProviderType = CacheProvider(),

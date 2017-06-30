@@ -18,11 +18,11 @@ PODS:
     - RealmSwift
   - KeychainAccess (3.0.2)
   - KeychainSwift (8.0.2)
-  - Realm (2.8.3):
-    - Realm/Headers (= 2.8.3)
-  - Realm/Headers (2.8.3)
-  - RealmSwift (2.8.3):
-    - Realm (= 2.8.3)
+  - Realm (2.7.0):
+    - Realm/Headers (= 2.7.0)
+  - Realm/Headers (2.7.0)
+  - RealmSwift (2.7.0):
+    - Realm (= 2.7.0)
 
 DEPENDENCIES:
   - BNRDeferred
@@ -43,9 +43,9 @@ SPEC CHECKSUMS:
   HiringAppCore: 63273ee41a846e338320efe7201be6f522fed150
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   KeychainSwift: 213db04dfe7244988e61f77c72a2afb2f775954a
-  Realm: 3601ef091c8c499a31101d8563b991e75546cdce
-  RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
+  Realm: 07e5d3a9e0e41d65fd5f9f05150ed6295d0f093b
+  RealmSwift: 6d06425d3900c86473c4f323bf6949b43fca22bc
 
-PODFILE CHECKSUM: c6a18b56b8eae94c80e203bf95b0655cbf923a79
+PODFILE CHECKSUM: febae9ecd778c963705cdc0ab5d03ae97e0edc86
 
 COCOAPODS: 1.2.1
