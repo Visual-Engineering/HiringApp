@@ -39,6 +39,10 @@
 		B24D16651F03BCD40030D5C2 /* UtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D165A1F03BCD40030D5C2 /* UtilityTests.swift */; };
 		B24D166B1F03CAED0030D5C2 /* SnapshotTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D166A1F03CAED0030D5C2 /* SnapshotTestCase.swift */; };
 		B24D166D1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D166C1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift */; };
+		8D7FCA781F01487A0049DFA8 /* Typeface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FCA771F01487A0049DFA8 /* Typeface.swift */; };
+		8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FCA791F0159970049DFA8 /* AvenirTypeface.swift */; };
+		8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FCA7B1F0260E40049DFA8 /* Stylesheet.swift */; };
+		8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D7FCA8B1F026A180049DFA8 /* NSString.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -128,6 +132,10 @@
 		D5E6658F1F115D7D69C42E18 /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8A2C85A5DD7300D050F24CB /* Pods-HiringAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		F60BB60F97C6F0B0284D7E79 /* Pods-HiringAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppUITests/Pods-HiringAppUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8D7FCA771F01487A0049DFA8 /* Typeface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Typeface.swift; sourceTree = "<group>"; };
+		8D7FCA791F0159970049DFA8 /* AvenirTypeface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvenirTypeface.swift; sourceTree = "<group>"; };
+		8D7FCA7B1F0260E40049DFA8 /* Stylesheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
+		8D7FCA8B1F026A180049DFA8 /* NSString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSString.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +259,10 @@
 			isa = PBXGroup;
 			children = (
 				780490F21EF1886D00D03BEA /* UIView.swift */,
+				8D7FCA771F01487A0049DFA8 /* Typeface.swift */,
+				8D7FCA791F0159970049DFA8 /* AvenirTypeface.swift */,
+				8D7FCA7B1F0260E40049DFA8 /* Stylesheet.swift */,
+				8D7FCA8B1F026A180049DFA8 /* NSString.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -734,10 +746,14 @@
 			files = (
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
+				8D7FCA781F01487A0049DFA8 /* Typeface.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
+				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
+				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
+				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,7 +851,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -879,7 +895,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -899,6 +915,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HiringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -920,6 +937,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = HiringApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.visualengin.HiringApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
