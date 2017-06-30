@@ -13,41 +13,12 @@ import Foundation
 extension TechnologiesViewModel {
     static var fake: TechnologiesViewModel {
         
-        return TechnologiesViewModel(title: "¿Cuál es tu tecnología?", techs: [TechnologyViewModel].fakeHiringAppTest)
-    }
-}
-
-
-// Both TechnologyModel and TechnologyViewModel fakeHiringAppTest must always have the same data
-extension Array where Element == TechnologyModel {
-    static var fakeHiringAppTest: [TechnologyModel] {
-        return [
-            TechnologyModel(
-                id: 1,
-                title: "iOS",
-                imageURL: "",
-                testAvailable: true,
-                submittedTest: ["status": "open"]
-            ),
-            TechnologyModel(
-                id: 2,
-                title: "android",
-                imageURL: "",
-                testAvailable: true,
-                submittedTest: nil
-            ),
-            TechnologyModel(
-                id: 3,
-                title: "backend",
-                imageURL: "",
-                testAvailable: true,
-                submittedTest: nil
-            )]
+        return TechnologiesViewModel(title: "¿Cuál es tu tecnología?", techs: [TechnologyViewModel].fake)
     }
 }
 
 extension Array where Element == TechnologyViewModel {
-    static var fakeHiringAppTest: [TechnologyViewModel] {
+    static var fake: [TechnologyViewModel] {
         return [
             TechnologyViewModel(
                 id: 1,

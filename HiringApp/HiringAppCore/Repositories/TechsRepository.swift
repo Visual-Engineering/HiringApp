@@ -15,6 +15,11 @@ enum RepositoryError: Error {
     case cantSave
 }
 
+public protocol TechsRepositoryProtocol {
+    func retrieveAPITechnologies() -> Task<[TechnologyModel]>
+    func retrieveDBTechnologies() -> Task<[TechnologyModel]>
+}
+
 public class TechsRepository {
     
     //MARK: - Stored properties
@@ -34,12 +39,15 @@ public class TechsRepository {
         self.cacheProvider = cacheProvider
         self.dbProvider = dbProv
     }
+}
+
+extension TechsRepository: TechsRepositoryProtocol {
     
     public func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
         if let technologies = cacheProvider.getTechnologies() {
             return Task(success: technologies)
         }
-                
+        
         let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
             return self.cacheProvider
                 .saveTechnologies(technologies: modelsArray) //Save modelsArray into cache
@@ -52,7 +60,7 @@ public class TechsRepository {
         return techTask
     }
     
-    func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+    public func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
         
         var techList = [TechnologyModel]()
         
@@ -68,8 +76,8 @@ public class TechsRepository {
                     _ = self.dbProvider.write(tech: tech.toRealmModel)
                 })
                 return Task(success: modelsArray)
-           }
-        
+            }
+            
             return techTask
         }
     }

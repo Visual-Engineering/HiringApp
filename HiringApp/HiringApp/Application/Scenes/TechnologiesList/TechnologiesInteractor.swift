@@ -13,10 +13,10 @@ import HiringAppCore
 class TechnologiesInteractor {
 
     //MARK: - Stored properties
-    let repository: TechsRepository
+    let repository: TechsRepositoryProtocol
 
     //MARK: - Initializer
-    init?(repository: TechsRepository? = TechsRepository()) {
+    init?(repository: TechsRepositoryProtocol? = TechsRepository()) {
         
         guard let repo = repository else {
             return nil

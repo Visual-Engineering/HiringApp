@@ -11,7 +11,7 @@ import XCTest
 @testable import HiringAppCore
 import Deferred
 
-class TechnologiesPresenterFake: TechnologiesPresenterProtocol {
+class PresenterFake: TechnologiesPresenterProtocol {
     let view: TechnologiesUserInterfaceProtocol
     
     init(view: TechnologiesUserInterfaceProtocol) {
@@ -24,11 +24,11 @@ class TechnologiesPresenterFake: TechnologiesPresenterProtocol {
     }
 }
 
-class TechnologiesBuilderFake {
+class BuilderFake {
     
     static func build() -> TechnologiesViewController {
         let viewController = TechnologiesViewController()
-        let presenter = TechnologiesPresenterFake(view: viewController)
+        let presenter = PresenterFake(view: viewController)
         
         viewController.presenter = presenter
         
@@ -36,9 +36,23 @@ class TechnologiesBuilderFake {
     }
 }
 
-class TechnologiesInteractorFake: TechnologiesInteractorProtocol {
+class RepositoryFake: TechsRepositoryProtocol {
+    
+    var isCalled = false
+    
+    func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
+        isCalled = true
+        return Task(success: [TechnologyModel].fake)
+    }
+    
+    func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+        return Task(success: [TechnologyModel].fake)
+    }
+}
+
+class InteractorFake: TechnologiesInteractorProtocol {
     func retrieveData() -> Task<[TechnologyModel]> {
-        return Task(success: [TechnologyModel].fakeHiringAppTest)
+        return Task(success: [TechnologyModel].fake)
     }
 }
 
@@ -65,7 +79,7 @@ class TechnologiesTests: SnapshotTestCase {
     
     func testSnapshotTechnologies() {
 //        recordMode = true
-        let technologiesVC = TechnologiesBuilderFake.build()
+        let technologiesVC = BuilderFake.build()
         verifyViewController(technologiesVC)
     }
     
@@ -76,7 +90,7 @@ class TechnologiesTests: SnapshotTestCase {
         // Given
         let presenter = TechnologiesPresenter(
             router: RouterDummy(),
-            interactor: TechnologiesInteractorFake(),
+            interactor: InteractorFake(),
             view: view
         )
         
@@ -100,4 +114,37 @@ class TechnologiesTests: SnapshotTestCase {
         XCTAssert(view.isCalled)
     }
     
+    func testTechnologiesInteractor() {
+        
+        let repository = RepositoryFake()
+        
+        // Given
+        guard let interactor = TechnologiesInteractor(repository: repository) else {
+            XCTAssert(false)
+            return
+        }
+        
+        // When
+        let data = interactor.retrieveData()
+        
+        let exp = expectation(description: "wait for retrieveData() to complete")
+        
+        // Then
+        let repo = interactor.repository as? RepositoryFake
+        XCTAssertNotNil(repo)
+        XCTAssert(repo! === repository)
+        XCTAssert(repository.isCalled)
+        
+        data.upon(.main) { (result) in
+            switch result {
+            case .failure(_):
+                XCTAssert(false)
+            case .success(let models):
+                XCTAssert(models == [TechnologyModel].fake)
+            }
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 10, handler: nil)
+    }
 }
