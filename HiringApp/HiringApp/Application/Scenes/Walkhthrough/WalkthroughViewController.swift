@@ -45,16 +45,3 @@ class WalkthroughViewController: UIViewController {
         edgesForExtendedLayout = []
     }
 }
-
-extension WalkthroughViewController: WalkthroughUserInterfaceProtocol {
-    
-}
-
-extension WalkthroughViewController: BWWalkthroughViewControllerDelegate {
-    @objc func walkthroughPageDidChange(_ pageNumber:Int){
-        let viewControllers = presenter.viewControllers
-        for viewController in viewControllers {
-            viewController.view.transform = CGAffineTransform.identity
-        }
-    }
-}

@@ -55,14 +55,13 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="1"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Zoom"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="staticTags" value="256"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2hy-Ko-Xe7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,19 +83,18 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="2"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Linear"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="staticTags" value="1,2"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0R-do-sxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1553" y="642"/>
+            <point key="canvasLocation" x="-1745" y="642"/>
         </scene>
         <!--Walkthrough Page Three View Controller-->
         <scene sceneID="VJ0-bK-Xkw">
@@ -112,19 +110,19 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Curve"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
                             <point key="value" x="1" y="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="0.5"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mRj-bB-1uF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-774" y="642"/>
+            <point key="canvasLocation" x="-1063" y="642"/>
         </scene>
         <!--Walkthrough Page Four View Controller-->
         <scene sceneID="Ooa-sU-Ox3">
@@ -141,10 +139,10 @@
                     </view>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.0" y="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="1" y="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="InOut"/>
@@ -152,7 +150,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e6N-hb-cpI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-22" y="627"/>
+            <point key="canvasLocation" x="-370" y="642"/>
         </scene>
     </scenes>
 </document>

@@ -56,9 +56,10 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
-        super.viewDidLoad()
         setup()
         layout()
+        
+        super.viewDidLoad()
     }
     
     //MARK: - Private API
@@ -77,13 +78,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         stackView.addArrangedSubview(buttonTop)
         stackView.addArrangedSubview(buttonBottom)
     }
-    
-    override func walkthroughDidScroll(to position: CGFloat, offset: CGFloat) {
-        var tr = CATransform3DIdentity
-        tr.m34 = -1/1000.0
-        view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi)  * (1.0 - offset), 0.5,1, 0.2)
-    }
-    
+
     func didTouchKnowMoreButton() {
         router?.navigateToKnowMoreScene()
     }

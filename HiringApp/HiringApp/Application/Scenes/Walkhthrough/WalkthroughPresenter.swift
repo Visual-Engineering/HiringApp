@@ -34,7 +34,6 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         guard let walkViewController = view.walkthroughViewController else { return }
         let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
         
-
         let pageOneViewController = storyboard.instantiateViewController(withIdentifier: "page_1")
         let pageTwoViewController = storyboard.instantiateViewController(withIdentifier: "page_2")
         
@@ -45,7 +44,6 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         pageFourViewController.router = router
         
         walkViewController.pageControl?.numberOfPages = 4
-        walkViewController.delegate = view
         walkViewController.add(viewController: pageOneViewController)
         walkViewController.add(viewController: pageTwoViewController)
         walkViewController.add(viewController: pageThreeViewController)

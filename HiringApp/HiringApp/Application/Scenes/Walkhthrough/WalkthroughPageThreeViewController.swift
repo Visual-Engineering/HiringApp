@@ -65,9 +65,10 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
-        super.viewDidLoad()
         setup()
         layout()
+        
+        super.viewDidLoad()
     }
     
     //MARK: - Private API
@@ -90,12 +91,6 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         stackView.addArrangedSubview(labelTop)
         stackView.addArrangedSubview(imageMapView)
         stackView.addArrangedSubview(labelBottom)
-    }
-    
-    override func walkthroughDidScroll(to position: CGFloat, offset: CGFloat) {
-        var tr = CATransform3DIdentity
-        tr.m34 = -1/500.0
-        view.layer.transform = CATransform3DRotate(tr, CGFloat(Double.pi*2)  * (1.0 - offset), 0.5,1, 0.2)
     }
 }
 
