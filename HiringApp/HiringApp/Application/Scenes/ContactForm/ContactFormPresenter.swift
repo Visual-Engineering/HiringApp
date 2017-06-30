@@ -49,9 +49,14 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
         //                self.state = .loaded(viewModel: vm)
         //            }
         //        }
+        self.viewModel = ContactFormViewModel()
     }
     
     func tappedSendButton() {
+        guard self.viewModel?.validate() == true else {
+            return
+        }
+        
 //        let task = interactor.sendContactFormData(data: Data).upon(.main) { result in
 //            switch result {
 //            case .failure(let error):
@@ -71,9 +76,45 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
     }
     
     func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType){
+        guard var viewModel = self.viewModel else {
+            return
+        }
+        
         if text.isEmpty {
             self.view.restartTextFieldToDefault(textField: textField)
         }
-        print("I am in the textFieldDidEndEditing")
+        
+        switch field {
+        case .name:
+            viewModel.name = text
+            if !viewModel.nameIsValid() {
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Nombre no valido")
+            }
+
+        case .surname:
+            viewModel.lastname = text
+            if !viewModel.lastnameIsValid(){
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Apellidos no son validos")
+            }
+        case .linkedin:
+            viewModel.linkedin = text
+            if !viewModel.linkedInIsValid() {
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "URL no valido")
+            }
+        case .address:
+            viewModel.email = text
+            if !viewModel.emailIsValid() {
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Email no valido")
+            }
+        case .phoneNumber:
+            viewModel.phone = text
+            if !viewModel.phoneIsValid() {
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Teléfono no valido")
+            }
+        }
+    }
+    
+    func presentAlert(title: String, message: String) {
+        showAlert(baseView: self.view as! UIViewController, title: title, message: message)
     }
 }

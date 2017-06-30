@@ -65,17 +65,22 @@ class ContactFormViewController: UIViewController {
         linkedInTextField = self.createTextField()
         addressTextField = self.createTextField()
         phoneTextField = self.createTextField()
+        nameTextField.tag = 0
+        surnameTextField.tag = 1
+        linkedInTextField.tag = 2
+        addressTextField.tag = 3
+        phoneTextField.tag = 4
         
         self.view.backgroundColor = .blue
         self.view.addSubview(titleLabel)
         
         self.addColoredViewToStackView(stackView: verticalStackView, color: .white)
         
-        configureHorizontalStackView(field: "Nombre", textField: nameTextField)
-        configureHorizontalStackView(field: "Apellidos", textField: surnameTextField)
+        configureHorizontalStackView(field: "*Nombre", textField: nameTextField)
+        configureHorizontalStackView(field: "*Apellidos", textField: surnameTextField)
         configureHorizontalStackView(field: "LinkedIn", textField: linkedInTextField, keyboardType: .URL)
-        configureHorizontalStackView(field: "Correo", textField: addressTextField, keyboardType: .emailAddress)
-        configureHorizontalStackView(field: "Teléfono", textField: phoneTextField, keyboardType: .numberPad)
+        configureHorizontalStackView(field: "*Correo", textField: addressTextField, keyboardType: .emailAddress)
+        configureHorizontalStackView(field: "*Teléfono", textField: phoneTextField, keyboardType: .numberPad)
         
         self.view.addSubview(sendButton)
         self.view.addSubview(verticalStackView)
@@ -135,6 +140,7 @@ class ContactFormViewController: UIViewController {
         }()
         
         textField.keyboardType = keyboardType
+        textField.autocorrectionType = .no
         
         horizontalStackView.addArrangedSubview(formLabel)
         horizontalStackView.addArrangedSubview(textField)
@@ -187,6 +193,27 @@ extension ContactFormViewController {
 }
 
 extension ContactFormViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        var nextField: UITextField
+        switch textField.tag {
+        case 0:
+            nextField = surnameTextField
+            
+        case 1:
+            nextField = linkedInTextField
+        case 2:
+            nextField = addressTextField
+        case 3:
+            nextField = phoneTextField
+        default:
+            textField.resignFirstResponder()
+            return false
+        }
+        nextField.becomeFirstResponder()
+        return false
+    }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         presenter.textFieldDidBeginEditing(textField: textField)

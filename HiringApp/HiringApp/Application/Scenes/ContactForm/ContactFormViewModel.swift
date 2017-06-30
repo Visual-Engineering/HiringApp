@@ -11,10 +11,52 @@ import Foundation
 struct ContactFormViewModel {
     
     //MARK: - Stored properties
-    var id: Int
     var name: String
     var lastname: String
     var linkedin: String
     var phone: String
     var email: String
+}
+
+extension ContactFormViewModel {
+    init() {
+        self.name = ""
+        self.lastname = ""
+        self.linkedin = ""
+        self.phone = ""
+        self.email = ""
+    }
+    
+    func validate() -> Bool {
+        return nameIsValid() && lastnameIsValid() && linkedInIsValid() && phoneIsValid() && emailIsValid()
+    }
+    
+    func nameIsValid() -> Bool  {
+        return !name.isEmpty
+    }
+    
+    func lastnameIsValid() -> Bool {
+        return !lastname.isEmpty
+    }
+    
+    func linkedInIsValid() -> Bool {
+        guard let url = URL(string: linkedin), UIApplication.shared.canOpenURL(url) else {
+            return false
+        }
+        return true
+    }
+    
+    func phoneIsValid() -> Bool {
+        guard phone.characters.count > 0 else {
+            return false
+        }
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+        return Set(phone.characters).isSubset(of: nums)
+    }
+    
+    func emailIsValid() -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
+    }
 }
