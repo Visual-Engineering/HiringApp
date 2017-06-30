@@ -48,7 +48,6 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         let labelTopTitle = self.getLabelTitleWithText("¿Quiénes somos?")
         view.addSubviewWithAutolayout(labelTopTitle)
 
-        labelTopTitle.topAnchor.constraint(equalTo: view.topAnchor, constant:self.view.frame.height * CGFloat(0.2)).isActive = true
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
@@ -65,6 +64,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
         labelMiddleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelMiddleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
+        labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         labelMiddleSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelMiddleSubtitle)

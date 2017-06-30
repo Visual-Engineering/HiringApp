@@ -85,11 +85,12 @@
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
                             <point key="value" x="2" y="0.0"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Linear"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="0.10000000000000001" y="0.0"/>
+                            <point key="value" x="1" y="0.0"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="staticTags" value="1"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Linear"/>
                     </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0R-do-sxt" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,13 +111,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Curve"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Linear"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="YES"/>
                         <userDefinedRuntimeAttribute type="point" keyPath="speed">
-                            <point key="value" x="1" y="1"/>
+                            <point key="value" x="0.10000000000000001" y="0.0"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
-                            <point key="value" x="0.0" y="0.5"/>
+                            <point key="value" x="3" y="0.0"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </viewController>

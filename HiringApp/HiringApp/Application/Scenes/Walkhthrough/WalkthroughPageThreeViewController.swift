@@ -39,7 +39,8 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     let imageMapView : UIImageView = {
         let image = UIImage(named: "map-screenshot")
         let imageView = UIImageView(image: image)
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -54,15 +55,6 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         return label
     }()
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.alignment = .fill
-        stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
-        stackView.spacing = Constants.stackViewSpacing
-        return stackView
-    }()
-    
     //MARK: - View lifecycle
     override func viewDidLoad() {
         setup()
@@ -74,11 +66,6 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     //MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
-        
-        stackView.heightAnchor.constraint(equalToConstant: view.frame.size.height * Constants.heightStackView).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
     }
     
     private func setup() {
@@ -86,11 +73,22 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         imageMapView.addGestureRecognizer(tapGesture)
         imageMapView.isUserInteractionEnabled = true
         
-        view.addSubviewWithAutolayout(stackView)
+        view.addSubviewWithAutolayout(labelTop)
+        view.addSubviewWithAutolayout(imageMapView)
+        view.addSubviewWithAutolayout(labelBottom)
+
+        labelTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
+        labelTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
         
-        stackView.addArrangedSubview(labelTop)
-        stackView.addArrangedSubview(imageMapView)
-        stackView.addArrangedSubview(labelBottom)
+        imageMapView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.15)).isActive = true
+        imageMapView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.15))).isActive = true
+        imageMapView.topAnchor.constraint(equalTo: labelTop.bottomAnchor, constant: 20).isActive = true
+        imageMapView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageMapView.heightAnchor.constraint(equalToConstant: view.frame.height * CGFloat(0.3)).isActive = true
+        
+        labelBottom.topAnchor.constraint(equalTo: imageMapView.bottomAnchor, constant: 20).isActive = true
+        labelBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
+        labelBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
     }
 }
 
