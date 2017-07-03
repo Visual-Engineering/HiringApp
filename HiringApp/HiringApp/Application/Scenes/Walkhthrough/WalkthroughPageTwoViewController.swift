@@ -67,7 +67,8 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
         labelMiddleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelMiddleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
-        
+        labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+
         //MARK: TODO - Localize this string
         labelMiddleSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
@@ -80,29 +81,34 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     private func configureIcons() {
         let arrayImageLogos = getArrayImagesLogos()
         
-        for (index,imageView) in arrayImageLogos.enumerated() {
-            view.addSubviewWithAutolayout(imageView)
+        for (index,logo) in arrayImageLogos.enumerated() {
+            view.addSubviewWithAutolayout(logo)
             
-            var leadingAnchor = NSLayoutXAxisAnchor()
-            var previousImage = UIImageView()
+            var previousImageShown = UIImageView()
             if index > 0 {
-                previousImage = arrayImageLogos[index-1]
+                previousImageShown = arrayImageLogos[index-1]
             }
-            let previousLeadingAnchor = previousImage.leadingAnchor
+            
+            let previousLeadingAnchor = previousImageShown.leadingAnchor
+            var leadingAnchorParentView = NSLayoutXAxisAnchor()
+            leadingAnchorParentView = (index == 0) ? view.leadingAnchor : previousLeadingAnchor
+            
+            let constantLeadingAnchor = (index == 0) ? view.frame.width * CGFloat(0.1) : logo.frame.width + view.frame.width * CGFloat(0.1)
 
-            leadingAnchor = (index == 0) ? view.leadingAnchor : previousLeadingAnchor
-            let constant = (index == 0) ? view.frame.width * CGFloat(0.1) : imageView.frame.width + view.frame.width * CGFloat(0.1)
-
-            if index > 0 {
-                imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: constant).isActive = true
-            }
-            if index == 1 {
-                imageView.trailingAnchor.constraint(equalTo: labelMiddleSubtitle.centerXAnchor).isActive = true
-            }
-            imageView.topAnchor.constraint(equalTo: labelMiddleSubtitle.bottomAnchor, constant: 20).isActive = true
-            imageView.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
-            imageView.heightAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
+            addLogoConstraints(logo: logo, index: index, constantLeadingAnchor: constantLeadingAnchor, leadingAnchor: leadingAnchorParentView)
         }
+    }
+    
+    private func addLogoConstraints(logo: UIImageView, index: Int, constantLeadingAnchor: CGFloat, leadingAnchor: NSLayoutXAxisAnchor){
+        if index > 0 {
+            logo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: constantLeadingAnchor).isActive = true
+            if index == 1 {
+                logo.trailingAnchor.constraint(equalTo: labelMiddleSubtitle.centerXAnchor).isActive = true
+            }
+        }
+        logo.topAnchor.constraint(equalTo: labelMiddleSubtitle.bottomAnchor, constant: 20).isActive = true
+        logo.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
+        logo.heightAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
     }
     
     private func getLabelTitleWithText(_ text: String) -> UILabel {
