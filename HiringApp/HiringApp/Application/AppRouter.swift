@@ -25,7 +25,11 @@ class AppRouter {
 
     //MARK: - Public API
     func startApplication() {
-        let controller = UIViewController()
+//        let controller = UIViewController()
+//        let navigationController = UINavigationController(rootViewController: controller)
+//        rootViewController.transitionToRootViewController(navigationController)
+        
+        let controller = ContactFormBuilder.build()
         let navigationController = UINavigationController(rootViewController: controller)
         rootViewController.transitionToRootViewController(navigationController)
     }
