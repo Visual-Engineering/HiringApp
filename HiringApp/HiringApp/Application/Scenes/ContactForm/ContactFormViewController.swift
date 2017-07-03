@@ -200,7 +200,6 @@ extension ContactFormViewController: UITextFieldDelegate {
         switch textField.tag {
         case 0:
             nextField = surnameTextField
-            
         case 1:
             nextField = linkedInTextField
         case 2:
