@@ -29,6 +29,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
+        setupWalkthroughTransitionValues()
         configureLabels()
         configureIcons()
         layout()
@@ -41,6 +42,18 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         view.backgroundColor = .clear
         
         edgesForExtendedLayout = []
+    }
+    
+    private func setupWalkthroughTransitionValues(){
+        let speed = CGPoint(x: 0.1, y: 0)
+        let speedVariance = CGPoint(x:3, y: 0)
+        let animationType = "Linear"
+        let animateAlpha = true
+        
+        self.setValue(speed, forKey: "speed")
+        self.setValue(speedVariance, forKey: "speedVariance")
+        self.setValue(animationType, forKey: "animationType")
+        self.setValue(animateAlpha, forKey: "animateAlpha")
     }
     
     private func configureLabels() {

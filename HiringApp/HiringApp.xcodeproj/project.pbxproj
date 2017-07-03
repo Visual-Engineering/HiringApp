@@ -261,13 +261,13 @@
 			isa = PBXGroup;
 			children = (
 				7801E98F1F0A5682005A68A8 /* Map controller */,
-				7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */,
 				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
 				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
 				7801E9941F0A5682005A68A8 /* WalkthroughContainerViewController.swift */,
 				7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */,
 				7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */,
 				7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */,
+				7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */,
 				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
 				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
 				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,

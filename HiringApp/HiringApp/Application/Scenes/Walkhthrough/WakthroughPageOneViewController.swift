@@ -20,6 +20,7 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
     
     //MARK: - View lifecycle
     override func viewDidLoad() {
+        setupWalkthroughTransitionValues()
         layout()
 
         super.viewDidLoad()
@@ -36,6 +37,18 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
 
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    }
+    
+    private func setupWalkthroughTransitionValues(){
+        let speed = CGPoint(x: 0, y: 1)
+        let speedVariance = CGPoint(x:0, y: 1)
+        let animationType = "Zoom"
+        let animateAlpha = true
+        
+        self.setValue(speed, forKey: "speed")
+        self.setValue(speedVariance, forKey: "speedVariance")
+        self.setValue(animationType, forKey: "animationType")
+        self.setValue(animateAlpha, forKey: "animateAlpha")
     }
 }
 

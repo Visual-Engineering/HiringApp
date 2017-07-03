@@ -51,6 +51,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     override func viewDidLoad() {
         setup()
         layout()
+        setupWalkthroughTransitionValues()
         
         super.viewDidLoad()
     }
@@ -66,6 +67,18 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         buttonBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
         buttonBottom.topAnchor.constraint(equalTo: buttonTop.bottomAnchor, constant: view.frame.height*CGFloat(0.2)).isActive = true
         buttonBottom.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+    }
+    
+    private func setupWalkthroughTransitionValues(){
+        let speed = CGPoint(x: 0, y: 1)
+        let speedVariance = CGPoint(x:0, y: 1)
+        let animationType = "Zoom"
+        let animateAlpha = true
+        
+        self.setValue(speed, forKey: "speed")
+        self.setValue(speedVariance, forKey: "speedVariance")
+        self.setValue(animationType, forKey: "animationType")
+        self.setValue(animateAlpha, forKey: "animateAlpha")
     }
     
     private func setup() {
