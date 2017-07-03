@@ -41,7 +41,6 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         view.backgroundColor = .clear
         
         edgesForExtendedLayout = []
-        
     }
     
     private func configureLabels() {

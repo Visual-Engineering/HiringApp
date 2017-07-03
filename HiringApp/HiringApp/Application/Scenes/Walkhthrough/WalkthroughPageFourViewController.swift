@@ -36,6 +36,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     let buttonTop: UIButton = {
         let button = UIButton()
+        //MARK: TODO - Localize text
         button.setTitle("Saber más sobre Visual Engineering", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
@@ -46,6 +47,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     let buttonBottom: UIButton = {
         let button = UIButton()
+        //MARK: TODO - Localize text
         button.setTitle("Trabajar con nostros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
