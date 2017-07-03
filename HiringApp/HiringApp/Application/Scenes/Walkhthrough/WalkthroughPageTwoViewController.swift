@@ -45,12 +45,14 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     }
     
     private func configureLabels() {
+        //MARK: TODO - Localize this string
         let labelTopTitle = self.getLabelTitleWithText("¿Quiénes somos?")
         view.addSubviewWithAutolayout(labelTopTitle)
 
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
+        //MARK: TODO - Localize this string
         let labelTopSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelTopSubtitle)
 
@@ -58,14 +60,15 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelTopSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
+        //MARK: TODO - Localize this string
         let labelMiddleTitle = self.getLabelTitleWithText("¿Qué hacemos?")
         view.addSubviewWithAutolayout(labelMiddleTitle)
 
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
         labelMiddleTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelMiddleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
-        labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
+        //MARK: TODO - Localize this string
         labelMiddleSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
 
