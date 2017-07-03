@@ -11,10 +11,6 @@ import MapKit
 
 class WalkthroughMapViewController: UIViewController {
     
-    enum Constants {
-        
-    }
-    
     let mapView : MKMapView = {
         let map = MKMapView()
         return map

@@ -7,14 +7,9 @@
 //
 
 import Foundation
-//import Deferred
 
 protocol WalkthroughPresenterProtocol {
     func viewDidLoad()
-}
-
-protocol WalkthroughUserInterfaceProtocol: class {
-
 }
 
 protocol WalkthroughRouterProtocol {
