@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HiringAppCore
 
 struct ContactFormViewModel {
     
@@ -16,6 +17,18 @@ struct ContactFormViewModel {
     var linkedin: String
     var phone: String
     var email: String
+}
+
+extension ContactFormViewModel {
+    var candidateModel: CandidateModel {
+        return CandidateModel(
+            name: self.name,
+            lastname: self.lastname,
+            linkedin: self.linkedin,
+            phone: self.phone,
+            email: self.email
+        )
+    }
 }
 
 extension ContactFormViewModel {

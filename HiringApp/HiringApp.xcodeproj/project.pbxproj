@@ -509,7 +509,7 @@
 				TargetAttributes = {
 					780490B71EF184E200D03BEA = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = U57BHELK4C;
+						DevelopmentTeam = 8TPCY3528B;
 						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
@@ -949,7 +949,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = U57BHELK4C;
+				DEVELOPMENT_TEAM = 8TPCY3528B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -971,7 +971,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = U57BHELK4C;
+				DEVELOPMENT_TEAM = 8TPCY3528B;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",

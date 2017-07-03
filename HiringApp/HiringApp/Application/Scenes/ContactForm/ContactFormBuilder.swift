@@ -17,7 +17,7 @@ protocol ContactFormPresenterProtocol {
 }
 
 protocol ContactFormInteractorProtocol {
-    func sendContactFormData() -> Task<()>
+    func sendContactFormData(candidate: ContactFormViewModel) -> Task<()>
 }
 
 protocol ContactFormUserInterfaceProtocol: class {
@@ -33,10 +33,11 @@ protocol ContactFormRouterProtocol {
 class ContactFormBuilder {
 
     //MARK: - Configuration
-    static func build() -> ContactFormViewController {
+    static func build() -> ContactFormViewController? {
         let viewController = ContactFormViewController()
         let router = ContactFormRouter(view: viewController)
-        let interactor = ContactFormInteractor()
+        guard let interactor = ContactFormInteractor() else { return nil }
+        
         let presenter = ContactFormPresenter(router: router, interactor: interactor, view: viewController)
 
         viewController.presenter = presenter

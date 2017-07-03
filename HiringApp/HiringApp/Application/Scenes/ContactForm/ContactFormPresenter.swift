@@ -40,32 +40,23 @@ class ContactFormPresenter {
 extension ContactFormPresenter: ContactFormPresenterProtocol {
 
     func viewDidLoad() {
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = ContactFormViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
         self.viewModel = ContactFormViewModel()
     }
     
     func tappedSendButton() {
-        guard self.viewModel?.validate() == true else {
+        guard let unwrappedViewModel = viewModel, self.viewModel?.validate() == true else {
             return
         }
         
-//        let task = interactor.sendContactFormData(data: Data).upon(.main) { result in
-//            switch result {
-//            case .failure(let error):
-//                self.state = .error(error)
-//                //TODO: Show some alert that sending contact data failed?
-//            case .success(): break
-//                //TODO: Navigate back to some screen (?)
-//            }
-//        }
+        let task = interactor.sendContactFormData(candidate: unwrappedViewModel).upon(.main) { result in
+            switch result {
+            case .failure(let error):
+                self.state = .error(error)
+                //TODO: Show some alert that sending contact data failed?
+            case .success(): break
+                //TODO: Navigate back to some screen (?)
+            }
+        }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -75,9 +66,13 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
         self.view.changeTextColorForTextField(textField: textField, color: UIColor.darkGray)
     }
     
-    func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType){
+    func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType) {
         guard var viewModel = self.viewModel else {
             return
+        }
+        
+        defer {
+            self.viewModel = viewModel
         }
         
         if text.isEmpty {

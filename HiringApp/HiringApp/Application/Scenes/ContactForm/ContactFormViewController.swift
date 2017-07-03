@@ -98,6 +98,7 @@ class ContactFormViewController: UIViewController {
         textField.textAlignment = .left
         textField.text = "Type here..."
         textField.delegate = self
+        textField.returnKeyType = .done
         return textField
     }
     

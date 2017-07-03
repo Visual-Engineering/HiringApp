@@ -29,7 +29,9 @@ class AppRouter {
 //        let navigationController = UINavigationController(rootViewController: controller)
 //        rootViewController.transitionToRootViewController(navigationController)
         
-        let controller = ContactFormBuilder.build()
+        guard let controller = ContactFormBuilder.build() else {
+            return
+        }
         let navigationController = UINavigationController(rootViewController: controller)
         rootViewController.transitionToRootViewController(navigationController)
     }
