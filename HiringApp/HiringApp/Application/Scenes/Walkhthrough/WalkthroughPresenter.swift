@@ -28,3 +28,17 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         
     }
 }
+
+extension WalkthroughPresenter : WalkthroughUserActionsProtocol {
+    func showModalMap() {
+        router.showModalMap()
+    }
+    
+    func navigateToKnowMoreScene() {
+        router.navigateToKnowMoreScene()
+    }
+    
+    func navigateToWorkWithUsScene() {
+        router.navigateToWorkWithUsScene()
+    }
+}

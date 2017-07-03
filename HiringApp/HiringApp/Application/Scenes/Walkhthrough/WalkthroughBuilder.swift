@@ -12,6 +12,12 @@ protocol WalkthroughPresenterProtocol {
     func viewDidLoad()
 }
 
+protocol WalkthroughUserActionsProtocol {
+    func showModalMap()
+    func navigateToKnowMoreScene()
+    func navigateToWorkWithUsScene() 
+}
+
 protocol WalkthroughRouterProtocol {
     func navigateToNextScene()
 }

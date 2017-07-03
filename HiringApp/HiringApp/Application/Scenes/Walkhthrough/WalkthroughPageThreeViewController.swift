@@ -11,7 +11,7 @@ import BWWalkthrough
 
 class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
-    var router: WalkthroughRouter?
+    var presenter: WalkthroughPresenter?
     
     enum Constants {
         static let labelsTextColor: UIColor = .white
@@ -109,6 +109,6 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
 
 extension WalkthroughPageThreeViewController {
     func didTapOnMap() {
-        router?.showModalMap()
+        presenter?.showModalMap()
     }
 }

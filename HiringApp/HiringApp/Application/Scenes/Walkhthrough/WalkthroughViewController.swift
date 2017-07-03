@@ -54,9 +54,10 @@ class WalkthroughViewController: UIViewController {
         let pageTwoViewController = WalkthroughPageTwoViewController()
         
         let pageThreeViewController = WalkthroughPageThreeViewController()
-        pageThreeViewController.router = presenter.router
+        pageThreeViewController.presenter = presenter
         
         let pageFourViewController = WalkthroughPageFourViewController()
+        pageFourViewController.presenter = presenter
         
         walkViewController.pageControl?.numberOfPages = 4
         walkViewController.add(viewController: pageOneViewController)
