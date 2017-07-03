@@ -27,7 +27,7 @@ class ContactFormInteractor {
 extension ContactFormInteractor: ContactFormInteractorProtocol {
 
     func sendContactFormData(candidate: ContactFormViewModel) -> Task<()> {
-        return repository.sendContactFormData(candidate: candidate.toModel)
+        return repository.sendContactFormData(candidate: candidate.candidateModel)
     }
     
     
