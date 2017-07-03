@@ -20,6 +20,8 @@ class WalkthroughViewController: UIViewController {
         return walkVC
     }()
     
+    var viewControllers = [BWWalkthroughPageViewController]()
+    
     @IBOutlet weak var pageControlWalkthrough: UIPageControl!
     
     //MARK: - View lifecycle
@@ -28,7 +30,7 @@ class WalkthroughViewController: UIViewController {
         
         setup()
         layout()
-        presenter.viewDidLoad()
+        configureWalkthoughContainer()
     }
 
     //MARK: - Private API
@@ -43,5 +45,28 @@ class WalkthroughViewController: UIViewController {
     private func setup() {
         navigationController?.navigationBar.isHidden = true
         edgesForExtendedLayout = []
+    }
+    
+    func configureWalkthoughContainer() {
+        guard let walkViewController = walkthroughViewController else { return }
+        
+        let pageOneViewController = WalkthroughPageOneViewController()
+        let pageTwoViewController = WalkthroughPageTwoViewController()
+        
+        let pageThreeViewController = WalkthroughPageThreeViewController()
+        pageThreeViewController.router = presenter.router
+        
+        let pageFourViewController = WalkthroughPageFourViewController()
+        
+        walkViewController.pageControl?.numberOfPages = 4
+        walkViewController.add(viewController: pageOneViewController)
+        walkViewController.add(viewController: pageTwoViewController)
+        walkViewController.add(viewController: pageThreeViewController)
+        walkViewController.add(viewController: pageFourViewController)
+        
+        viewControllers.append(pageOneViewController)
+        viewControllers.append(pageTwoViewController)
+        viewControllers.append(pageThreeViewController)
+        viewControllers.append(pageFourViewController)
     }
 }
