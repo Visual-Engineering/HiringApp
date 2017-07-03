@@ -16,7 +16,7 @@ class WalkthroughViewController: UIViewController {
     var walkthroughViewController: WalkthroughContainerViewController? = {
         let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
         let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "container")
-        return walkVC = walkthroughViewController as? WalkthroughContainerViewController
+        return walkthroughViewController as? WalkthroughContainerViewController
     }()
     
     var viewControllers = [BWWalkthroughPageViewController]()
