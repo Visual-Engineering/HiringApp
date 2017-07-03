@@ -21,7 +21,7 @@ class RepositoryTests: XCTestCase {
         fakeCache.isEmpty = true
         let apiSpy = APIProviderSpy()
         let dbProvider = DBProviderFake()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
+        guard let repository = TechsRepository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider) else { fatalError() }
         
         //When
         let task: Task<[TechnologyModel]> = repository.retrieveAPITechnologies()
@@ -59,7 +59,7 @@ class RepositoryTests: XCTestCase {
         fakeCache.isEmpty = false
         let apiSpy = APIProviderSpy()
         let dbProvider = DBProviderFake()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider)
+        guard let repository = TechsRepository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: dbProvider) else { fatalError() }
         
         //When
         let _ = repository.retrieveAPITechnologies()
@@ -81,7 +81,7 @@ class RepositoryTests: XCTestCase {
         let fakeDB = DBProviderFake()
         fakeDB.returnsData = false
         let apiSpy = APIProviderSpy()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB)
+        guard let repository = TechsRepository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB) else { fatalError() }
         
         //When
         let task: Task<[TechnologyModel]> = repository.retrieveDBTechnologies()
@@ -112,7 +112,7 @@ class RepositoryTests: XCTestCase {
         let fakeDB = DBProviderFake()
         fakeDB.returnsData = true
         let apiSpy = APIProviderSpy()
-        let repository = Repository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB)
+        guard let repository = TechsRepository(apiProvider: apiSpy, cacheProvider: fakeCache, dbProvider: fakeDB) else { fatalError() }
         
         //When
         let _ = repository.retrieveDBTechnologies()

@@ -2,7 +2,7 @@
 //  Scene+Common.swift
 //  HiringApp
 //
-//  Created by Alejandro Garcia on 19/6/17.
+//  Created by Pia Muñoz on 23/6/17.
 //  Copyright (c) 2017 Visual Engineering. All rights reserved.
 //
 
@@ -37,4 +37,10 @@ extension LoadingState {
 
 enum AppError: Error {
     case unknown
+}
+
+
+protocol ViewModelConfigurable {
+    associatedtype VM
+    func configureFor(viewModel: VM)
 }

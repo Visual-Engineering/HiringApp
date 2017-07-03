@@ -24,7 +24,7 @@ protocol DroskyType {
 
 extension Drosky: DroskyType {}
 
-protocol APIProviderType {
+public protocol APIProviderType {
     func retrieveTechnologies() -> Task<[TechnologyModel]>
 }
 

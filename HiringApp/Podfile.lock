@@ -26,6 +26,7 @@ PODS:
     - Realm (= 2.8.3)
 
 DEPENDENCIES:
+  - BNRDeferred
   - Decodable
   - FBSnapshotTestCase
   - HiringAppCore (from `HiringAppCore`)
@@ -48,6 +49,6 @@ SPEC CHECKSUMS:
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: 753bc2938a0502a095b2ddc6b95038d868e5d298
+PODFILE CHECKSUM: 0bbf39ad197a16b89c037fd4240fa7fa8fa407ed
 
 COCOAPODS: 1.2.0

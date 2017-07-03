@@ -14,7 +14,7 @@ enum DBErrors: Error {
     case unableToWrite
 }
 
-protocol DBProviderType {
+public protocol DBProviderType {
     func write(tech: TechnologyRealm) -> Task<()>
     func read() -> [TechnologyRealm]?
 }
@@ -23,8 +23,11 @@ class DBProvider: DBProviderType {
     
     var realm: Realm
     
-    init() throws {
-        realm = try Realm()
+    init?() {
+        guard let realm = try? Realm() else {
+            return nil
+        }
+        self.realm = realm
     }
     
     func write(tech: TechnologyRealm) -> Task<()> {

@@ -84,7 +84,7 @@ class ProvidersTests: XCTestCase {
         let  cacheProvider = CacheProvider()
         cacheProvider.removeTechnologies()
         
-        guard let dbProvider = try? DBProvider() else { fatalError() }
+        guard let dbProvider = DBProvider() else { fatalError() }
         dbProvider.clearAll()
         super.tearDown()
     }
@@ -154,7 +154,7 @@ class ProvidersTests: XCTestCase {
     func testDBProvider() {
         let fakeTech = [TechnologyRealm].fakeArray
         //Given
-        guard let dbProvider = try? DBProvider() else { fatalError() }
+        guard let dbProvider = DBProvider() else { fatalError() }
         fakeTech.forEach { (tech) in
             _ = dbProvider.write(tech: tech)
         }

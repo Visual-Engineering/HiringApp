@@ -1,5 +1,5 @@
 //
-//  TechnologiesRepository.swift
+//  TechsRepository.swift
 //  Pods
 //
 //  Created by Alba Luján on 21/6/17.
@@ -15,7 +15,12 @@ enum RepositoryError: Error {
     case cantSave
 }
 
-public class Repository {
+public protocol TechsRepositoryProtocol {
+    func retrieveAPITechnologies() -> Task<[TechnologyModel]>
+    func retrieveDBTechnologies() -> Task<[TechnologyModel]>
+}
+
+public class TechsRepository {
     
     //MARK: - Stored properties
     let apiProvider: APIProviderType
@@ -23,17 +28,27 @@ public class Repository {
     let dbProvider: DBProviderType
     let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
-    init(apiProvider: APIProviderType, cacheProvider: CacheProviderType, dbProvider: DBProviderType) {
+    public init?(apiProvider: APIProviderType = APIProvider(),
+         cacheProvider: CacheProviderType = CacheProvider(),
+         dbProvider: DBProviderType? = DBProvider()) {
+        
+        guard let dbProv = dbProvider else {
+            return nil
+        }
+        
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
-        self.dbProvider = dbProvider
+        self.dbProvider = dbProv
     }
+}
+
+extension TechsRepository: TechsRepositoryProtocol {
     
-    func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
+    public func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
         if let technologies = cacheProvider.getTechnologies() {
             return Task(success: technologies)
         }
-                
+        
         let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
             return self.cacheProvider
                 .saveTechnologies(technologies: modelsArray) //Save modelsArray into cache
@@ -46,7 +61,7 @@ public class Repository {
         return techTask
     }
     
-    func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+    public func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
         
         var techList = [TechnologyModel]()
         
@@ -62,8 +77,8 @@ public class Repository {
                     _ = self.dbProvider.write(tech: tech.toRealmModel)
                 })
                 return Task(success: modelsArray)
-           }
-        
+            }
+            
             return techTask
         }
     }
