@@ -41,7 +41,7 @@ extension ContactFormViewModel {
     }
     
     func validate() -> Bool {
-        return nameIsValid() && lastnameIsValid() && linkedInIsValid() && phoneIsValid() && emailIsValid()
+        return nameIsValid() && lastnameIsValid() && phoneIsValid() && emailIsValid()
     }
     
     func nameIsValid() -> Bool  {

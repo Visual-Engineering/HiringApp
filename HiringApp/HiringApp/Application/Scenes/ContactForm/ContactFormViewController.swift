@@ -16,6 +16,11 @@ enum InputTextType {
     case phoneNumber
 }
 
+private enum Constants {
+    static let brandBlue: UIColor =  UIColor(red: 101/255.0, green: 174/255.0, blue: 242/255.0, alpha: 1.0)
+    static let highlightedButtonColor: UIColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.5)
+}
+
 class ContactFormViewController: UIViewController {
 
     //MARK: - Stored properties
@@ -24,8 +29,9 @@ class ContactFormViewController: UIViewController {
     let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .white
-        lbl.backgroundColor = .blue
-        lbl.text = "Si quieres aplicar para la posición de backend, déjanos tus datos y te contactamos en la mayor brevedad posible. Gracias!"
+        lbl.backgroundColor = Constants.brandBlue
+        lbl.style = Style.title3
+        lbl.styledText = "Si quieres aplicar para la posición de backend, déjanos tus datos y te contactamos en la mayor brevedad posible. Gracias!"
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         return lbl
@@ -44,11 +50,15 @@ class ContactFormViewController: UIViewController {
     
     let sendButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Enviar", for: .normal)
-        button.setTitleColor(UIColor.blue, for: .normal)
+        button.style = Style.headline
+        button.styledText = "Enviar"
+        button.setStyledTitleColor(Constants.brandBlue)
         button.backgroundColor = .white
+        button.isEnabled = false
         return button
     }()
+    
+    
     
     var nameTextField: UITextField!
     var surnameTextField: UITextField!
@@ -71,16 +81,16 @@ class ContactFormViewController: UIViewController {
         addressTextField.tag = 3
         phoneTextField.tag = 4
         
-        self.view.backgroundColor = .blue
+        self.view.backgroundColor = Constants.brandBlue
         self.view.addSubview(titleLabel)
         
         self.addColoredViewToStackView(stackView: verticalStackView, color: .white)
         
-        configureHorizontalStackView(field: "*Nombre", textField: nameTextField)
-        configureHorizontalStackView(field: "*Apellidos", textField: surnameTextField)
+        configureHorizontalStackView(field: "Nombre *", textField: nameTextField)
+        configureHorizontalStackView(field: "Apellidos *", textField: surnameTextField)
         configureHorizontalStackView(field: "LinkedIn", textField: linkedInTextField, keyboardType: .URL)
-        configureHorizontalStackView(field: "*Correo", textField: addressTextField, keyboardType: .emailAddress)
-        configureHorizontalStackView(field: "*Teléfono", textField: phoneTextField, keyboardType: .numberPad)
+        configureHorizontalStackView(field: "Correo *", textField: addressTextField, keyboardType: .emailAddress)
+        configureHorizontalStackView(field: "Teléfono *", textField: phoneTextField, keyboardType: .numberPad)
         
         self.view.addSubview(sendButton)
         self.view.addSubview(verticalStackView)
@@ -88,15 +98,21 @@ class ContactFormViewController: UIViewController {
         layout()
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.layoutIfNeeded()
+        sendButton.layer.cornerRadius = sendButton.frame.size.height * 0.5
+    }
 
     //MARK: - Private API
     private func createTextField() -> UITextField {
         let textField = UITextField()
         textField.textColor = UIColor.lightGray
         textField.backgroundColor = .white
-        textField.font = UIFont.systemFont(ofSize: 15.0)
         textField.textAlignment = .left
-        textField.text = "Type here..."
+        textField.style = .body
+        textField.placeholder = "Type here..."
         textField.delegate = self
         textField.returnKeyType = .done
         return textField
@@ -112,13 +128,14 @@ class ContactFormViewController: UIViewController {
         sendButton.translatesAutoresizingMaskIntoConstraints = false
         sendButton.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: 30.0).isActive = true
         sendButton.heightAnchor.constraint(equalToConstant: 30.0).isActive = true
-        sendButton.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 0.0).isActive = true
-        sendButton.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: 0.0).isActive = true
+        sendButton.widthAnchor.constraint(equalToConstant: view.frame.width * 0.5).isActive = true
+        sendButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         verticalStackView.translatesAutoresizingMaskIntoConstraints = false
         verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         verticalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20.0).isActive = true
+        
     }
     
     private func configureHorizontalStackView(field: String, textField: UITextField, keyboardType: UIKeyboardType = .default) {
@@ -135,8 +152,9 @@ class ContactFormViewController: UIViewController {
             let lbl = UILabel()
             lbl.textColor = .black
             lbl.backgroundColor = .white
-            lbl.text = field
-            lbl.textAlignment = .center
+            lbl.styledText = field
+            lbl.textAlignment = .left
+            lbl.style = Style.body
             return lbl
         }()
         
@@ -148,8 +166,8 @@ class ContactFormViewController: UIViewController {
         verticalStackView.addArrangedSubview(horizontalStackView)
         
         horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor).isActive = true
-        horizontalStackView.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor).isActive = true
+        horizontalStackView.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: 10.0).isActive = true
+        horizontalStackView.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: 10.0).isActive = true
         
         formLabel.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: 0.25).isActive = true
         sendButton.addTarget(self, action: #selector(tappedSendButton), for: .touchUpInside)
@@ -179,9 +197,8 @@ extension ContactFormViewController: ContactFormUserInterfaceProtocol {
         textField.text = ""
     }
     
-    func restartTextFieldToDefault(textField: UITextField) {
-        textField.text = "Type here..."
-        textField.textColor = UIColor.lightGray
+    func setButtonState(enabled: Bool) {
+        sendButton.isEnabled = enabled
     }
 }
 

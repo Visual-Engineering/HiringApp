@@ -48,13 +48,14 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
             return
         }
         
-        let task = interactor.sendContactFormData(candidate: unwrappedViewModel).upon(.main) { result in
+        interactor.sendContactFormData(candidate: unwrappedViewModel).upon(.main) { result in
             switch result {
             case .failure(let error):
                 self.state = .error(error)
                 //TODO: Show some alert that sending contact data failed?
             case .success(): break
                 //TODO: Navigate back to some screen (?)
+                self.view.setButtonState(enabled: false)
             }
         }
     }
@@ -75,37 +76,55 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
             self.viewModel = viewModel
         }
         
-        if text.isEmpty {
-            self.view.restartTextFieldToDefault(textField: textField)
-        }
-        
         switch field {
         case .name:
             viewModel.name = text
             if !viewModel.nameIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Nombre no valido")
+                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Nombre no valido")
+                self.view.changeTextColorForTextField(textField: textField, color: .red)
+            } else {
+                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
             }
 
         case .surname:
             viewModel.lastname = text
             if !viewModel.lastnameIsValid(){
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Apellidos no son validos")
+                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Apellidos no son validos")
+                self.view.changeTextColorForTextField(textField: textField, color: .red)
+            } else {
+                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
             }
+            
         case .linkedin:
             viewModel.linkedin = text
             if !viewModel.linkedInIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "URL no valido")
+                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "URL no valido")
+                self.view.changeTextColorForTextField(textField: textField, color: .red)
+            } else {
+                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
             }
+            
         case .address:
             viewModel.email = text
             if !viewModel.emailIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Email no valido")
+                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Email no valido")
+                self.view.changeTextColorForTextField(textField: textField, color: .red)
+            } else {
+                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
             }
+            
         case .phoneNumber:
             viewModel.phone = text
             if !viewModel.phoneIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Teléfono no valido")
+                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Teléfono no valido")
+                self.view.changeTextColorForTextField(textField: textField, color: .red)
+            } else {
+                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
             }
+        }
+        
+        if viewModel.validate() {
+            self.view.setButtonState(enabled: true)
         }
     }
     

@@ -21,7 +21,6 @@ class ContactFormInteractor {
         guard let repo = repository else { return nil }
         self.repository = repo
     }
-
 }
 
 extension ContactFormInteractor: ContactFormInteractorProtocol {
@@ -29,6 +28,4 @@ extension ContactFormInteractor: ContactFormInteractorProtocol {
     func sendContactFormData(candidate: ContactFormViewModel) -> Task<()> {
         return repository.sendContactFormData(candidate: candidate.candidateModel)
     }
-    
-    
 }
