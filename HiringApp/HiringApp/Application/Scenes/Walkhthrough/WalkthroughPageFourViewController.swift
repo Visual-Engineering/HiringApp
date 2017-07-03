@@ -25,15 +25,6 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         static let buttonsFontType: String = "Arial"
     }
     
-    let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.spacing = Constants.stackViewSpacing
-        stackView.alignment = .fill
-        stackView.distribution = .fillEqually
-        stackView.axis = .vertical
-        return stackView
-    }()
-    
     let buttonTop: UIButton = {
         let button = UIButton()
         //MARK: TODO - Localize text
@@ -66,19 +57,20 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     //MARK: - Private API
     private func layout() {
-        view.addSubviewWithAutolayout(stackView)
-        
-        stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
-        stackView.heightAnchor.constraint(equalToConstant: view.frame.height * Constants.stackViewHeightAnchorMultiplier).isActive = true
-        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        buttonTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
+        buttonTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
+        buttonTop.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height*CGFloat(0.1)).isActive = true
+
+        buttonBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
+        buttonBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
+        buttonBottom.topAnchor.constraint(equalTo: buttonTop.bottomAnchor, constant: view.frame.height*CGFloat(0.2)).isActive = true
     }
     
     private func setup() {
         view.backgroundColor = .clear
         
-        stackView.addArrangedSubview(buttonTop)
-        stackView.addArrangedSubview(buttonBottom)
+        view.addSubviewWithAutolayout(buttonTop)
+        view.addSubviewWithAutolayout(buttonBottom)
     }
 
     func didTouchKnowMoreButton() {
