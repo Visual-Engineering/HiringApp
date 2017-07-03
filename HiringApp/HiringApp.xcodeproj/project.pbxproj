@@ -18,6 +18,17 @@
 		7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9851F0A5518005A68A8 /* TechnologiesRouter.swift */; };
 		7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9861F0A5518005A68A8 /* TechnologiesViewController.swift */; };
 		7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9871F0A5518005A68A8 /* TechnologiesViewModel.swift */; };
+		7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9901F0A5682005A68A8 /* WalkthroughMapViewController.swift */; };
+		7801E99C1F0A5682005A68A8 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */; };
+		7801E99D1F0A5682005A68A8 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */; };
+		7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */; };
+		7801E99F1F0A5682005A68A8 /* WalkthroughContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9941F0A5682005A68A8 /* WalkthroughContainerViewController.swift */; };
+		7801E9A01F0A5682005A68A8 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */; };
+		7801E9A11F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */; };
+		7801E9A21F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */; };
+		7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */; };
+		7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */; };
+		7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */; };
 		780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BB1EF184E200D03BEA /* AppDelegate.swift */; };
 		780490BE1EF184E200D03BEA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780490BD1EF184E200D03BEA /* ViewController.swift */; };
 		780490C31EF184E200D03BEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 780490C21EF184E200D03BEA /* Assets.xcassets */; };
@@ -113,6 +124,17 @@
 		7801E9851F0A5518005A68A8 /* TechnologiesRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesRouter.swift; sourceTree = "<group>"; };
 		7801E9861F0A5518005A68A8 /* TechnologiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewController.swift; sourceTree = "<group>"; };
 		7801E9871F0A5518005A68A8 /* TechnologiesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewModel.swift; sourceTree = "<group>"; };
+		7801E9901F0A5682005A68A8 /* WalkthroughMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughMapViewController.swift; sourceTree = "<group>"; };
+		7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
+		7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
+		7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughBuilder.swift; sourceTree = "<group>"; };
+		7801E9941F0A5682005A68A8 /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
+		7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
+		7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
+		7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
+		7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPresenter.swift; sourceTree = "<group>"; };
+		7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughRouter.swift; sourceTree = "<group>"; };
+		7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
 		780490B81EF184E200D03BEA /* HiringApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HiringApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		780490BB1EF184E200D03BEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		780490BD1EF184E200D03BEA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +257,32 @@
 			path = TechnologiesList;
 			sourceTree = "<group>";
 		};
+		7801E98E1F0A5682005A68A8 /* Walkhthrough */ = {
+			isa = PBXGroup;
+			children = (
+				7801E98F1F0A5682005A68A8 /* Map controller */,
+				7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */,
+				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
+				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
+				7801E9941F0A5682005A68A8 /* WalkthroughContainerViewController.swift */,
+				7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */,
+				7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */,
+				7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */,
+				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
+				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
+				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,
+			);
+			path = Walkhthrough;
+			sourceTree = "<group>";
+		};
+		7801E98F1F0A5682005A68A8 /* Map controller */ = {
+			isa = PBXGroup;
+			children = (
+				7801E9901F0A5682005A68A8 /* WalkthroughMapViewController.swift */,
+			);
+			path = "Map controller";
+			sourceTree = "<group>";
+		};
 		780490AF1EF184E200D03BEA = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +390,7 @@
 				B24D166E1F03D0450030D5C2 /* ContactForm */,
 				B24D166F1F03D0450030D5C2 /* Scene+Common.swift */,
 				7801E9811F0A5518005A68A8 /* TechnologiesList */,
+				7801E98E1F0A5682005A68A8 /* Walkhthrough */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -604,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				780490C31EF184E200D03BEA /* Assets.xcassets in Resources */,
+				7801E99D1F0A5682005A68A8 /* Walkthrough.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -780,10 +830,15 @@
 				B24D167C1F03D0660030D5C2 /* ContactFormViewModel.swift in Sources */,
 				7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */,
 				B24D16791F03D0650030D5C2 /* ContactFormPresenter.swift in Sources */,
+				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
+				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
+				7801E9A21F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift in Sources */,
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
 				B24D16771F03D0650030D5C2 /* ContactFormBuilder.swift in Sources */,
+				7801E99C1F0A5682005A68A8 /* WakthroughPageOneViewController.swift in Sources */,
+				7801E9A01F0A5682005A68A8 /* WalkthroughPageFourViewController.swift in Sources */,
 				B24D167A1F03D0650030D5C2 /* ContactFormRouter.swift in Sources */,
 				8D7FCA781F01487A0049DFA8 /* Typeface.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
@@ -792,13 +847,18 @@
 				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
 				B2757B141F065F1C0010B2C5 /* Utils.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
+				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,
 				B24D167B1F03D0650030D5C2 /* ContactFormViewController.swift in Sources */,
 				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
+				7801E99F1F0A5682005A68A8 /* WalkthroughContainerViewController.swift in Sources */,
 				8A5894AB1F04EC0D0096F59B /* UIStackView+Utilities.swift in Sources */,
 				7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */,
+				7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
 				B24D16701F03D0450030D5C2 /* Scene+Common.swift in Sources */,
+				7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */,
 				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,
+				7801E9A11F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

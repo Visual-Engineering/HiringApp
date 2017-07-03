@@ -6,6 +6,7 @@ PODS:
     - BNRDeferred (= 3.0.0)
     - Decodable (~> 0.5)
     - KeychainAccess (~> 3.0.1)
+  - BWWalkthrough (2.1.1)
   - Decodable (0.5)
   - FBSnapshotTestCase (2.1.4):
     - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
@@ -27,6 +28,7 @@ PODS:
 
 DEPENDENCIES:
   - BNRDeferred
+  - BWWalkthrough
   - Decodable
   - FBSnapshotTestCase
   - HiringAppCore (from `HiringAppCore`)
@@ -40,6 +42,7 @@ SPEC CHECKSUMS:
   Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
   BNRDeferred: 0757b256613622d3f3db21bd126ba63031ca3deb
   BSWFoundation: a9bc24005e587b21e4295bcf9f51fbfb7695ca3e
+  BWWalkthrough: b8e3f38beb77349d9fa7f30e1dafeaa39e50e007
   Decodable: 7c90acc68d357b71d0d6efc120faf9c53c644b7e
   FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
   HiringAppCore: 63273ee41a846e338320efe7201be6f522fed150
@@ -49,6 +52,6 @@ SPEC CHECKSUMS:
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: 0bbf39ad197a16b89c037fd4240fa7fa8fa407ed
+PODFILE CHECKSUM: 7ce264629d9a65be570f08b0bd5ef5646cf1711c
 
 COCOAPODS: 1.2.0

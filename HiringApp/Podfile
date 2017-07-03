@@ -9,6 +9,7 @@ target 'HiringApp' do
   pod 'BNRDeferred'
   pod 'HiringAppCore', :path => 'HiringAppCore'
   pod 'IQKeyboardManager'
+  pod 'BWWalkthrough'
 
 
   target 'HiringAppTests' do
