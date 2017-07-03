@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0652654FE74B2F2EA5F4FB96 /* Pods_HiringAppCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */; };
 		0EFE143F1F0A89190015F421 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFE143E1F0A89190015F421 /* UIButton.swift */; };
+		0EFE14451F0AA0190015F421 /* ContactFormSent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EFE14441F0AA0190015F421 /* ContactFormSent.swift */; };
 		210F7CECDAED2D670032FFDB /* Pods_HiringAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F4143D62620272447D4F65C /* Pods_HiringAppUITests.framework */; };
 		499961F64855B800470B62AC /* Pods_HiringAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */; };
 		61A20D725099DDC4E11E3FB6 /* Pods_HiringApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 179968D7E358D834AA151D9D /* Pods_HiringApp.framework */; };
@@ -96,6 +97,7 @@
 		0895AA4230E3280BEBE593BB /* Pods-HiringAppCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		0ACB5A7BA75307C18CB655DA /* Pods-HiringAppCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0EFE143E1F0A89190015F421 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		0EFE14441F0AA0190015F421 /* ContactFormSent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSent.swift; sourceTree = "<group>"; };
 		179968D7E358D834AA151D9D /* Pods_HiringApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BE93220D82AC46DE992C47D /* Pods-HiringApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -201,6 +203,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0EFE14431F0A9FE40015F421 /* ContactFormSent */ = {
+			isa = PBXGroup;
+			children = (
+				0EFE14441F0AA0190015F421 /* ContactFormSent.swift */,
+			);
+			path = ContactFormSent;
+			sourceTree = "<group>";
+		};
 		780490AF1EF184E200D03BEA = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +313,7 @@
 		780490ED1EF1881F00D03BEA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0EFE14431F0A9FE40015F421 /* ContactFormSent */,
 				B24D166E1F03D0450030D5C2 /* ContactForm */,
 				B24D166F1F03D0450030D5C2 /* Scene+Common.swift */,
 			);
@@ -785,6 +796,7 @@
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
 				B24D16771F03D0650030D5C2 /* ContactFormBuilder.swift in Sources */,
 				B24D167A1F03D0650030D5C2 /* ContactFormRouter.swift in Sources */,
+				0EFE14451F0AA0190015F421 /* ContactFormSent.swift in Sources */,
 				0EFE143F1F0A89190015F421 /* UIButton.swift in Sources */,
 				8D7FCA781F01487A0049DFA8 /* Typeface.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,

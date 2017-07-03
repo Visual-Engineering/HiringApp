@@ -53,9 +53,8 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
             case .failure(let error):
                 self.state = .error(error)
                 //TODO: Show some alert that sending contact data failed?
-            case .success(): break
-                //TODO: Navigate back to some screen (?)
-                self.view.setButtonState(enabled: false)
+            case .success():
+                self.router.navigateToNextScene()
             }
         }
     }
