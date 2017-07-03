@@ -11,6 +11,11 @@ import MapKit
 
 class WalkthroughMapViewController: UIViewController {
     
+    enum Constants {
+        static let latitude = 41.380951
+        static let longitude = 2.1832373
+    }
+    
     let mapView : MKMapView = {
         let map = MKMapView()
         return map
@@ -42,7 +47,7 @@ class WalkthroughMapViewController: UIViewController {
     private func setMapRegion() {
         
         // Center map region
-        let location = CLLocationCoordinate2D(latitude: 41.380951, longitude: 2.1832373)
+        let location = CLLocationCoordinate2D(latitude: Constants.latitude, longitude: Constants.longitude)
         let span: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let coordianteRegion = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(coordianteRegion, animated: true)

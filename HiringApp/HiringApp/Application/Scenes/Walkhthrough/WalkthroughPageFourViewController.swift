@@ -28,7 +28,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     let buttonTop: UIButton = {
         let button = UIButton()
         //MARK: TODO - Localize text
-        button.setTitle("Saber más sobre Visual Engineering", for: .normal)
+        button.setTitle("Saber más sobre nosotros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
@@ -59,11 +59,13 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     private func layout() {
         buttonTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
         buttonTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
+        buttonTop.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
         buttonTop.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -view.frame.height*CGFloat(0.1)).isActive = true
 
         buttonBottom.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
         buttonBottom.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
         buttonBottom.topAnchor.constraint(equalTo: buttonTop.bottomAnchor, constant: view.frame.height*CGFloat(0.2)).isActive = true
+        buttonBottom.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     }
     
     private func setup() {
