@@ -12,8 +12,8 @@ import Deferred
 protocol ContactFormPresenterProtocol {
     func viewDidLoad()
     func tappedSendButton()
-    func textFieldDidBeginEditing(textField: UITextField)
-    func textFieldDidEndEditing(textField: UITextField, withText: String, forField: InputTextType)
+    func textFieldDidBeginEditing(field: InputTextType)
+    func textFieldDidEndEditing(withText: String, forField: InputTextType)
 }
 
 protocol ContactFormInteractorProtocol {
@@ -21,7 +21,8 @@ protocol ContactFormInteractorProtocol {
 }
 
 protocol ContactFormUserInterfaceProtocol: class {
-    func changeTextColorForTextField(textField: UITextField, color: UIColor)
+    func changeTextColorToWrongInput(field: InputTextType)
+    func changeTextColorToCorrectInput(field: InputTextType)
     func setButtonState(enabled: Bool)
     func showActivityIndicator()
     func hideActivityIndicator()

@@ -35,6 +35,20 @@ class ContactFormPresenter {
         self.interactor = interactor
         self.view = view
     }
+    
+    //MARK: - Private API
+    fileprivate func sendContactFormData(candidate: ContactFormViewModel) {
+        interactor.sendContactFormData(candidate: candidate).upon(.main) { result in
+            switch result {
+            case .failure(let error):
+                self.state = .error(error)
+                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Error occured, please try again.")
+            case .success():
+                self.view.hideActivityIndicator()
+                self.router.navigateToNextScene()
+            }
+        }
+    }
 }
 
 extension ContactFormPresenter: ContactFormPresenterProtocol {
@@ -49,24 +63,14 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
         }
         
         view.showActivityIndicator()
-        
-        interactor.sendContactFormData(candidate: unwrappedViewModel).upon(.main) { result in
-            switch result {
-            case .failure(let error):
-                self.state = .error(error)
-                //TODO: Show some alert that sending contact data failed?
-            case .success():
-                self.view.hideActivityIndicator()
-                self.router.navigateToNextScene()
-            }
-        }
+        self.sendContactFormData(candidate: unwrappedViewModel)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        self.view.changeTextColorForTextField(textField: textField, color: UIColor.darkGray)
+    func textFieldDidBeginEditing(field: InputTextType) {
+        self.view.changeTextColorToCorrectInput(field: field)
     }
     
-    func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType) {
+    func textFieldDidEndEditing(withText text: String, forField field: InputTextType) {
         guard var viewModel = self.viewModel else {
             return
         }
@@ -79,55 +83,46 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
         case .name:
             viewModel.name = text
             if !viewModel.nameIsValid() {
-                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Nombre no valido")
-                self.view.changeTextColorForTextField(textField: textField, color: .red)
+                self.view.changeTextColorToWrongInput(field: field)
             } else {
-                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
+                self.view.changeTextColorToCorrectInput(field: field)
             }
 
         case .surname:
             viewModel.lastname = text
             if !viewModel.lastnameIsValid(){
-                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Apellidos no son validos")
-                self.view.changeTextColorForTextField(textField: textField, color: .red)
+                self.view.changeTextColorToWrongInput(field: field)
             } else {
-                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
+                self.view.changeTextColorToCorrectInput(field: field)
             }
             
         case .linkedin:
             viewModel.linkedin = text
             if !viewModel.linkedInIsValid() {
-                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "URL no valido")
-                self.view.changeTextColorForTextField(textField: textField, color: .red)
+                self.view.changeTextColorToWrongInput(field: field)
             } else {
-                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
+                self.view.changeTextColorToCorrectInput(field: field)
             }
             
         case .address:
             viewModel.email = text
             if !viewModel.emailIsValid() {
-                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Email no valido")
-                self.view.changeTextColorForTextField(textField: textField, color: .red)
+                self.view.changeTextColorToWrongInput(field: field)
             } else {
-                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
+                self.view.changeTextColorToCorrectInput(field: field)
             }
             
         case .phoneNumber:
             viewModel.phone = text
             if !viewModel.phoneIsValid() {
-                //showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Teléfono no valido")
-                self.view.changeTextColorForTextField(textField: textField, color: .red)
+                self.view.changeTextColorToWrongInput(field: field)
             } else {
-                self.view.changeTextColorForTextField(textField: textField, color: .darkGray)
+                self.view.changeTextColorToCorrectInput(field: field)
             }
         }
         
         if viewModel.validate() {
             self.view.setButtonState(enabled: true)
         }
-    }
-    
-    func presentAlert(title: String, message: String) {
-        showAlert(baseView: self.view as! UIViewController, title: title, message: message)
     }
 }

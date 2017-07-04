@@ -24,6 +24,8 @@ private enum Constants {
     static let titleLabelTextColor: UIColor = .white
     static let stackViewBackgroundColor: UIColor = .white
     static let formLabelTextColor: UIColor = .black
+    static let wrongInputColor: UIColor = .red
+    static let correctInputColor: UIColor = .darkGray
     
     // Text
     static let titleLabelText = "Si quieres aplicar para la posición de backend, déjanos tus datos y te contactamos en la mayor brevedad posible. ¡Gracias!"
@@ -222,8 +224,34 @@ class ContactFormViewController: UIViewController {
 
 extension ContactFormViewController: ContactFormUserInterfaceProtocol {
     
-    func changeTextColorForTextField(textField: UITextField, color: UIColor) {
-        textField.textColor = color
+    func changeTextColorToWrongInput(field: InputTextType) {
+        switch field {
+        case .name:
+            nameTextField.textColor = Constants.wrongInputColor
+        case .surname:
+            surnameTextField.textColor = Constants.wrongInputColor
+        case .linkedin:
+            linkedInTextField.textColor = Constants.wrongInputColor
+        case .address:
+            addressTextField.textColor = Constants.wrongInputColor
+        case .phoneNumber:
+            phoneTextField.textColor = Constants.wrongInputColor
+        }
+    }
+    
+    func changeTextColorToCorrectInput(field: InputTextType) {
+        switch field {
+        case .name:
+            nameTextField.textColor = Constants.correctInputColor
+        case .surname:
+            surnameTextField.textColor = Constants.correctInputColor
+        case .linkedin:
+            linkedInTextField.textColor = Constants.correctInputColor
+        case .address:
+            addressTextField.textColor = Constants.correctInputColor
+        case .phoneNumber:
+            phoneTextField.textColor = Constants.correctInputColor
+        }
     }
         
     func setButtonState(enabled: Bool) {
@@ -270,7 +298,27 @@ extension ContactFormViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        presenter.textFieldDidBeginEditing(textField: textField)
+        var field: InputTextType
+        switch textField {
+        case nameTextField:
+            field = .name
+            break
+        case surnameTextField:
+            field = .surname
+            break
+        case linkedInTextField:
+            field = .linkedin
+            break
+        case addressTextField:
+            field = .address
+            break
+        case phoneTextField:
+            field = .phoneNumber
+            break
+        default:
+            return
+        }
+        presenter.textFieldDidBeginEditing(field: field)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -298,6 +346,6 @@ extension ContactFormViewController: UITextFieldDelegate {
         default:
             return
         }
-        presenter.textFieldDidEndEditing(textField: textField, withText: text, forField: field)
+        presenter.textFieldDidEndEditing(withText: text, forField: field)
     }
 }

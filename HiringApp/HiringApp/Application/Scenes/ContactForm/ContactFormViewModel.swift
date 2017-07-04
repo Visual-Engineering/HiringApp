@@ -73,3 +73,15 @@ extension ContactFormViewModel {
         return emailTest.evaluate(with: email)
     }
 }
+
+extension ContactFormViewModel: Equatable {
+    public static func ==(lhs: ContactFormViewModel, rhs: ContactFormViewModel) -> Bool {
+        let name = (lhs.name == rhs.name)
+        let lastname = (lhs.lastname == rhs.lastname)
+        let linkedin = (lhs.linkedin == rhs.linkedin)
+        let phone = (lhs.phone == rhs.phone)
+        let email = (lhs.email == rhs.email)
+        
+        return name && lastname && linkedin && phone && email
+    }
+}
