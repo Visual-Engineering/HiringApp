@@ -48,12 +48,15 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
             return
         }
         
+        view.showActivityIndicator()
+        
         interactor.sendContactFormData(candidate: unwrappedViewModel).upon(.main) { result in
             switch result {
             case .failure(let error):
                 self.state = .error(error)
                 //TODO: Show some alert that sending contact data failed?
             case .success():
+                self.view.hideActivityIndicator()
                 self.router.navigateToNextScene()
             }
         }

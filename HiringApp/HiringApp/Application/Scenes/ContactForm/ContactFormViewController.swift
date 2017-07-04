@@ -82,7 +82,12 @@ class ContactFormViewController: UIViewController {
         return button
     }()
     
-    
+    let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        return indicator
+    }()
     
     var nameTextField: UITextField!
     var surnameTextField: UITextField!
@@ -119,8 +124,14 @@ class ContactFormViewController: UIViewController {
         self.view.addSubview(sendButton)
         self.view.addSubview(verticalStackView)
 
+        // layout activity indicator
+        view.addSubview(activityIndicator)
+        activityIndicator.bringSubview(toFront: view)
+        activityIndicator.center = view.center
+
         layout()
         presenter.viewDidLoad()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -217,6 +228,14 @@ extension ContactFormViewController: ContactFormUserInterfaceProtocol {
         
     func setButtonState(enabled: Bool) {
         sendButton.isEnabled = enabled
+    }
+    
+    func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    func hideActivityIndicator() {
+        activityIndicator.stopAnimating()
     }
 }
 
