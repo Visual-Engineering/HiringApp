@@ -22,7 +22,6 @@ protocol ContactFormInteractorProtocol {
 
 protocol ContactFormUserInterfaceProtocol: class {
     func changeTextColorForTextField(textField: UITextField, color: UIColor)
-    func emptyTextInTextField(textField: UITextField)
     func setButtonState(enabled: Bool)
 }
 

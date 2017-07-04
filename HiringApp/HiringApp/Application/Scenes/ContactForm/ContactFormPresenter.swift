@@ -60,9 +60,6 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "Type here..." {
-            self.view.emptyTextInTextField(textField: textField)
-        }
         self.view.changeTextColorForTextField(textField: textField, color: UIColor.darkGray)
     }
     
