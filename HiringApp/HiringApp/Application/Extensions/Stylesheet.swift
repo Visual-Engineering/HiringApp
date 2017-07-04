@@ -80,12 +80,12 @@ extension Style {
 
 //MARK: - TextStylable protocol
 
-protocol TextStylable {
+protocol TextStylable: class {
     var styledText: String? { get set }
     var style: Style? { get set }
 }
 
-protocol TextPropertiesInterface {
+protocol TextPropertiesInterface: class {
     var opaqueAttributedText: NSAttributedString? { get set }
     var opaqueText: String? { get set }
 }
