@@ -8,12 +8,17 @@
 
 import UIKit
 
-enum InputTextType {
-    case name
+enum InputTextType: Int {
+    case name = 0
     case surname
     case linkedin
     case address
     case phoneNumber
+}
+
+enum TextViewInputState {
+    case correct
+    case incorrect
 }
 
 private enum Constants {
@@ -106,11 +111,11 @@ class ContactFormViewController: UIViewController {
         linkedInTextField = self.createTextField()
         addressTextField = self.createTextField()
         phoneTextField = self.createTextField()
-        nameTextField.tag = 0
-        surnameTextField.tag = 1
-        linkedInTextField.tag = 2
-        addressTextField.tag = 3
-        phoneTextField.tag = 4
+        nameTextField.tag = InputTextType.name.rawValue
+        surnameTextField.tag = InputTextType.surname.rawValue
+        linkedInTextField.tag = InputTextType.linkedin.rawValue
+        addressTextField.tag = InputTextType.address.rawValue
+        phoneTextField.tag = InputTextType.phoneNumber.rawValue
         
         self.view.backgroundColor = Constants.brandBlue
         self.view.addSubview(titleLabel)
@@ -149,6 +154,7 @@ class ContactFormViewController: UIViewController {
         textField.textAlignment = .left
         textField.style = .body
         textField.placeholder = Constants.textFieldsPlaceholder
+        textField.textColor = Constants.correctInputColor
         textField.delegate = self
         textField.returnKeyType = .done
         return textField
@@ -224,36 +230,15 @@ class ContactFormViewController: UIViewController {
 
 extension ContactFormViewController: ContactFormUserInterfaceProtocol {
     
-    func changeTextColorToWrongInput(field: InputTextType) {
-        switch field {
-        case .name:
-            nameTextField.textColor = Constants.wrongInputColor
-        case .surname:
-            surnameTextField.textColor = Constants.wrongInputColor
-        case .linkedin:
-            linkedInTextField.textColor = Constants.wrongInputColor
-        case .address:
-            addressTextField.textColor = Constants.wrongInputColor
-        case .phoneNumber:
-            phoneTextField.textColor = Constants.wrongInputColor
+    func setTextViewColor(forField field: InputTextType, withState state: TextViewInputState) {
+        
+        guard let textField = view.viewWithTag(field.rawValue) as? UITextField else {
+            return
         }
+        
+        textField.textColor = state == .correct ? Constants.correctInputColor : Constants.wrongInputColor
     }
     
-    func changeTextColorToCorrectInput(field: InputTextType) {
-        switch field {
-        case .name:
-            nameTextField.textColor = Constants.correctInputColor
-        case .surname:
-            surnameTextField.textColor = Constants.correctInputColor
-        case .linkedin:
-            linkedInTextField.textColor = Constants.correctInputColor
-        case .address:
-            addressTextField.textColor = Constants.correctInputColor
-        case .phoneNumber:
-            phoneTextField.textColor = Constants.correctInputColor
-        }
-    }
-        
     func setButtonState(enabled: Bool) {
         sendButton.isEnabled = enabled
     }
@@ -279,73 +264,31 @@ extension ContactFormViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        var nextField: UITextField
-        switch textField.tag {
-        case 0:
-            nextField = surnameTextField
-        case 1:
-            nextField = linkedInTextField
-        case 2:
-            nextField = addressTextField
-        case 3:
-            nextField = phoneTextField
-        default:
+        guard let nextTextField = view.viewWithTag(textField.tag + 1) as? UITextField else {
             textField.resignFirstResponder()
             return false
         }
-        nextField.becomeFirstResponder()
+        nextTextField.becomeFirstResponder()
         return false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        var field: InputTextType
-        switch textField {
-        case nameTextField:
-            field = .name
-            break
-        case surnameTextField:
-            field = .surname
-            break
-        case linkedInTextField:
-            field = .linkedin
-            break
-        case addressTextField:
-            field = .address
-            break
-        case phoneTextField:
-            field = .phoneNumber
-            break
-        default:
+        
+        guard let fieldInputType = InputTextType(rawValue: textField.tag) else {
             return
         }
-        presenter.textFieldDidBeginEditing(field: field)
+        presenter.textFieldDidBeginEditing(field: fieldInputType)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        
         guard let text = textField.text else {
             return
         }
         
-        var field: InputTextType
-        switch textField {
-        case nameTextField:
-            field = .name
-            break
-        case surnameTextField:
-            field = .surname
-            break
-        case linkedInTextField:
-            field = .linkedin
-            break
-        case addressTextField:
-            field = .address
-            break
-        case phoneTextField:
-            field = .phoneNumber
-            break
-        default:
+        guard let fieldInputType = InputTextType(rawValue: textField.tag) else {
             return
         }
-        presenter.textFieldDidEndEditing(withText: text, forField: field)
+        presenter.textFieldDidEndEditing(withText: text, forField: fieldInputType)
     }
 }

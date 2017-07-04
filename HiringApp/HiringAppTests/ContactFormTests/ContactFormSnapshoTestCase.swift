@@ -16,8 +16,7 @@ class ViewControllerFake: ContactFormUserInterfaceProtocol {
     var viewModel: ContactFormViewModel = ContactFormViewModel.fakeValid
     var viewModelInvalid: ContactFormViewModel = ContactFormViewModel.fakeInValid
     
-    func changeTextColorToWrongInput(field: InputTextType) {}
-    func changeTextColorToCorrectInput(field: InputTextType) {}
+    func setTextViewColor(forField field: InputTextType, withState state: TextViewInputState) {}
     func setButtonState(enabled: Bool) {}
     func showActivityIndicator() {}
     func hideActivityIndicator() {}
@@ -35,6 +34,15 @@ class InteractorFake: ContactFormInteractorProtocol {
 
 class RouterDummy: ContactFormRouterProtocol {
     func navigateToNextScene(){}
+}
+
+class RouterFake: ContactFormRouterProtocol {
+    
+    var isCalled = false
+    
+    func navigateToNextScene() {
+        isCalled = true
+    }
 }
 
 class RepositoryFake: ContactFormRepositoryProtocol {
@@ -166,6 +174,28 @@ class ContactFormSnapshoTestCase: SnapshotTestCase {
         
         //Then
         XCTAssert(!interactor.isCalled)
+    }
+    
+    func testPresenterCallsRouter() {
+        
+        // Given
+        let viewController = ViewControllerFake()
+        let router = RouterFake()
+        let interactor = InteractorFake()
+        let presenter = ContactFormPresenter(router: router, interactor: interactor, view: viewController)
+        presenter.viewModel = viewController.viewModel
+        
+        // Then
+        presenter.tappedSendButton()
+        
+        let expectation = self.expectation(description: "Wait for some time")
+        DispatchQueue.any().asyncAfter(deadline: .now() + .milliseconds(10)) {
+            expectation.fulfill()
+        }
+        waitForExpectations(timeout: 10, handler: nil)
+        
+        // Then
+        XCTAssert(router.isCalled)
     }
     
     func testContactFormInteractor() {

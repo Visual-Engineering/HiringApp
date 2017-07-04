@@ -67,7 +67,7 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
     }
     
     func textFieldDidBeginEditing(field: InputTextType) {
-        self.view.changeTextColorToCorrectInput(field: field)
+        self.view.setTextViewColor(forField: field, withState: .correct)
     }
     
     func textFieldDidEndEditing(withText text: String, forField field: InputTextType) {
@@ -79,46 +79,30 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
             self.viewModel = viewModel
         }
         
+        func changeColorToField(valid: Bool) {
+            self.view.setTextViewColor(forField: field, withState: valid ? .correct : .incorrect)
+        }
+        
         switch field {
         case .name:
             viewModel.name = text
-            if !viewModel.nameIsValid() {
-                self.view.changeTextColorToWrongInput(field: field)
-            } else {
-                self.view.changeTextColorToCorrectInput(field: field)
-            }
+            changeColorToField(valid: viewModel.nameIsValid())
 
         case .surname:
             viewModel.lastname = text
-            if !viewModel.lastnameIsValid(){
-                self.view.changeTextColorToWrongInput(field: field)
-            } else {
-                self.view.changeTextColorToCorrectInput(field: field)
-            }
+            changeColorToField(valid: viewModel.lastnameIsValid())
             
         case .linkedin:
             viewModel.linkedin = text
-            if !viewModel.linkedInIsValid() {
-                self.view.changeTextColorToWrongInput(field: field)
-            } else {
-                self.view.changeTextColorToCorrectInput(field: field)
-            }
+            changeColorToField(valid: viewModel.linkedInIsValid())
             
         case .address:
             viewModel.email = text
-            if !viewModel.emailIsValid() {
-                self.view.changeTextColorToWrongInput(field: field)
-            } else {
-                self.view.changeTextColorToCorrectInput(field: field)
-            }
+            changeColorToField(valid: viewModel.emailIsValid())
             
         case .phoneNumber:
             viewModel.phone = text
-            if !viewModel.phoneIsValid() {
-                self.view.changeTextColorToWrongInput(field: field)
-            } else {
-                self.view.changeTextColorToCorrectInput(field: field)
-            }
+            changeColorToField(valid: viewModel.phoneIsValid())
         }
         
         if viewModel.validate() {

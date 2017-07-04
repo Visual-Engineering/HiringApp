@@ -21,8 +21,7 @@ protocol ContactFormInteractorProtocol {
 }
 
 protocol ContactFormUserInterfaceProtocol: class {
-    func changeTextColorToWrongInput(field: InputTextType)
-    func changeTextColorToCorrectInput(field: InputTextType)
+    func setTextViewColor(forField field: InputTextType, withState state: TextViewInputState)
     func setButtonState(enabled: Bool)
     func showActivityIndicator()
     func hideActivityIndicator()
