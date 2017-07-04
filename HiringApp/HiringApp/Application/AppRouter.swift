@@ -28,7 +28,7 @@ class AppRouter {
         let controller: UIViewController? = TechnologiesBuilder.build()
         
         guard let viewController = controller else {
-            let alert = Thing().foo()
+            let alert = createAlertController()
             rootViewController.present(alert, animated: true, completion: nil)
             return
         }
@@ -36,10 +36,8 @@ class AppRouter {
         let navigationController = UINavigationController(rootViewController: viewController)
         rootViewController.transitionToRootViewController(navigationController)
     }
-}
-
-class Thing {
-    func foo() -> UIViewController {
+    
+    func createAlertController() -> UIViewController {
         let alert = UIAlertController(title: "Error", message: "Technologies view controller couldn't be initialized", preferredStyle: .alert)
         let action: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
