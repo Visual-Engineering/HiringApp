@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0652654FE74B2F2EA5F4FB96 /* Pods_HiringAppCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */; };
+		0E2F216D1F0CC884005DFBD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E2F216B1F0CC884005DFBD0 /* Localizable.strings */; };
+		0E2F21701F0CC88E005DFBD0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0E2F216E1F0CC88E005DFBD0 /* Localizable.strings */; };
+		0E2F21731F0CCB6E005DFBD0 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2F21721F0CCB6E005DFBD0 /* R.generated.swift */; };
 		0E5647B11F0BCB82007A3ACC /* ContactFormBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5647A81F0BCB82007A3ACC /* ContactFormBuilder.swift */; };
 		0E5647B21F0BCB82007A3ACC /* ContactFormInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5647A91F0BCB82007A3ACC /* ContactFormInteractor.swift */; };
 		0E5647B31F0BCB82007A3ACC /* ContactFormPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5647AA1F0BCB82007A3ACC /* ContactFormPresenter.swift */; };
@@ -96,6 +99,9 @@
 		034B0441CD5C6F76FDCBD94F /* Pods-HiringApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.debug.xcconfig"; sourceTree = "<group>"; };
 		0895AA4230E3280BEBE593BB /* Pods-HiringAppCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		0ACB5A7BA75307C18CB655DA /* Pods-HiringAppCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E2F216C1F0CC884005DFBD0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Localizable.strings; sourceTree = "<group>"; };
+		0E2F216F1F0CC88E005DFBD0 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = Localizable.strings; sourceTree = "<group>"; };
+		0E2F21721F0CCB6E005DFBD0 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		0E5647A81F0BCB82007A3ACC /* ContactFormBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormBuilder.swift; sourceTree = "<group>"; };
 		0E5647A91F0BCB82007A3ACC /* ContactFormInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormInteractor.swift; sourceTree = "<group>"; };
 		0E5647AA1F0BCB82007A3ACC /* ContactFormPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormPresenter.swift; sourceTree = "<group>"; };
@@ -203,6 +209,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E22E2601F0BF75900F8E84D /* Localizables */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F21721F0CCB6E005DFBD0 /* R.generated.swift */,
+				0E2F21631F0CC6E2005DFBD0 /* en.lproj */,
+				0E2F21661F0CC6E2005DFBD0 /* es.lproj */,
+			);
+			path = Localizables;
+			sourceTree = "<group>";
+		};
+		0E2F21631F0CC6E2005DFBD0 /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F216B1F0CC884005DFBD0 /* Localizable.strings */,
+			);
+			path = en.lproj;
+			sourceTree = "<group>";
+		};
+		0E2F21661F0CC6E2005DFBD0 /* es.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				0E2F216E1F0CC88E005DFBD0 /* Localizable.strings */,
+			);
+			path = es.lproj;
+			sourceTree = "<group>";
+		};
 		0E5647A71F0BCB82007A3ACC /* ContactForm */ = {
 			isa = PBXGroup;
 			children = (
@@ -352,6 +384,7 @@
 		780490EE1EF1881F00D03BEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0E22E2601F0BF75900F8E84D /* Localizables */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -448,6 +481,8 @@
 			buildConfigurationList = 780490E01EF184E200D03BEA /* Build configuration list for PBXNativeTarget "HiringApp" */;
 			buildPhases = (
 				1160D444A6D140266BFCDC7E /* [CP] Check Pods Manifest.lock */,
+				0E22E2631F0BF7AF00F8E84D /* Build Localizables script */,
+				0E2F21711F0CCABE005DFBD0 /* R.swift */,
 				780490B41EF184E200D03BEA /* Sources */,
 				780490B51EF184E200D03BEA /* Frameworks */,
 				780490B61EF184E200D03BEA /* Resources */,
@@ -570,7 +605,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				es,
 			);
 			mainGroup = 780490AF1EF184E200D03BEA;
 			productRefGroup = 780490B91EF184E200D03BEA /* Products */;
@@ -591,6 +626,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				780490C31EF184E200D03BEA /* Assets.xcassets in Resources */,
+				0E2F21701F0CC88E005DFBD0 /* Localizable.strings in Resources */,
+				0E2F216D1F0CC884005DFBD0 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -619,6 +656,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E22E2631F0BF7AF00F8E84D /* Build Localizables script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build Localizables script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "twine generate-all-localization-files \"HiringApp/Resources/Localizables/strings.txt\" \"HiringApp/Resources/Localizables\" --tags ios";
+		};
+		0E2F21711F0CCABE005DFBD0 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = R.swift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"HiringApp/Resources/Localizables\"";
+		};
 		1144762A13500405FA946CE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -813,6 +878,7 @@
 				0E5647B51F0BCB82007A3ACC /* ContactFormViewController.swift in Sources */,
 				0E5647B31F0BCB82007A3ACC /* ContactFormPresenter.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
+				0E2F21731F0CCB6E005DFBD0 /* R.generated.swift in Sources */,
 				0E5647B41F0BCB82007A3ACC /* ContactFormRouter.swift in Sources */,
 				0E5647B11F0BCB82007A3ACC /* ContactFormBuilder.swift in Sources */,
 				0E5647B21F0BCB82007A3ACC /* ContactFormInteractor.swift in Sources */,
@@ -880,6 +946,25 @@
 			targetProxy = B24D16481F03BC8C0030D5C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0E2F216B1F0CC884005DFBD0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E2F216C1F0CC884005DFBD0 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		0E2F216E1F0CC88E005DFBD0 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0E2F216F1F0CC88E005DFBD0 /* es */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		780490DE1EF184E200D03BEA /* Debug */ = {

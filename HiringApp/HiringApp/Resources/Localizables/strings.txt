@@ -1,0 +1,98 @@
+[[ GENERAL ]]
+    [app_name]
+        en = HiringApp
+        es = HiringApp
+        tags = ios
+
+[[ Contact form ]]
+    [cf_title]
+        en = If you want to apply for the backend position, leave us your contact and we will contact you as fast as we can. Thanks!
+        es = Si quieres aplicar para la posición de backend, déjanos tus datos y te contactamos en la mayor brevedad posible. Gracias!
+        tags = ios,android
+
+    [cf_name]
+        en = Name *	
+        es = Nombre *
+        tags = ios,android
+
+    [cf_lastname]
+        en = Surname *
+        es = Apellidos *
+        tags = ios,android
+
+    [cf_linkedin]
+        en = LinkedIn
+        es = LinkedIn
+        tags = ios,android
+
+    [cf_email]
+        en = Email *
+        es = Correo *
+        tags = ios,android
+
+    [cf_phone]
+        en = Phone *
+        es = Teléfono *
+        tags = ios,android
+
+    [cf_send]
+        en = Send
+        es = Enviar
+        tags = ios,android
+
+    [cf_formSentTitle]
+        en = Thank you for your application. We will contact you soon.
+        es = Gracias por contactar con nosotros. Te diremos algo pronto. 
+        tags = ios,android
+
+    [cf_formSentButton]
+        en = Continue
+        es = Continuar 
+        tags = ios,android
+
+    [cf_placeholder]
+	en = Type here…
+	es = Escribe aquí…
+	tags = ios, android
+
+    [[ WALKTHROUGH ]]
+
+    [walkthrough_title1]
+        en = Who are we?
+        es = ¿Quiénes somos?        
+        tags = ios,android
+    
+    [walkthrough_title2]
+        en = What do we do?
+        es = ¿Qué hacemos?
+        tags = ios,android
+
+    [walkthrough_title3]
+        en = Where are we?
+        es = ¿Dónde estamos?
+        tags = ios,android
+
+    [walkthrough_subtitles1]
+        en = TODO
+        es = TODO
+        tags = ios,android
+
+    [walkthrough_subtitles2]
+        en = TODO
+        es = TODO
+        tags = ios,android
+
+    [walkthrough_subtitles3]
+        en = TODO
+        es = TODO
+        tags = ios,android
+
+    [walkthrough_knowMoreButton]
+        en = Find out more about Visual Engineering
+        es = Saber más sobre Visual Engineering
+        tags = ios,android
+
+    [walkthrough_workWithUsButton]
+        en = Work with us
+        es = Trabajar con nosotros
+        tags = ios,android
