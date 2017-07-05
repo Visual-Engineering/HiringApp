@@ -11,7 +11,7 @@ import BWWalkthrough
 
 class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
-    var presenter: WalkthroughPresenter?
+    weak var delegate: WalkthoughViewControllerDelegate?
 
     enum Constants {
         static let buttonBackgroundColor: UIColor = .white
@@ -89,10 +89,10 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     }
 
     func didTouchKnowMoreButton() {
-        presenter?.navigateToKnowMoreScene()
+        delegate?.didClickOnKnowMoreFromUs()
     }
     
     func didTouchWorkWithUsButton() {
-        presenter?.navigateToWorkWithUsScene()
+        delegate?.didClickOnWorkWithUs()
     }
 }

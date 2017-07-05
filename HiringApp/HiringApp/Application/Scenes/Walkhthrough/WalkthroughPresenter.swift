@@ -12,11 +12,11 @@ import BWWalkthrough
 class WalkthroughPresenter {
 
     //MARK: - Stored properties
-    let router: WalkthroughRouter
-    fileprivate unowned let view: WalkthroughViewController
+    let router: WalkthroughRouterProtocol
+    fileprivate unowned let view: WalkthroughUserInterfaceProtocol
 
     //MARK: - Initializer
-    init(router: WalkthroughRouter, view: WalkthroughViewController) {
+    init(router: WalkthroughRouterProtocol, view: WalkthroughUserInterfaceProtocol) {
         self.router = router
         self.view = view
     }
@@ -27,18 +27,18 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
     func viewDidLoad() {
         
     }
-}
-
-extension WalkthroughPresenter : WalkthroughUserActionsProtocol {
-    func showModalMap() {
+    
+    func didClickOnMap() {
         router.showModalMap()
     }
     
-    func navigateToKnowMoreScene() {
+    func didClickOnKnowMoreFromUs() {
         router.navigateToKnowMoreScene()
     }
     
-    func navigateToWorkWithUsScene() {
+    func didClickOnWorkWithUs() {
         router.navigateToWorkWithUsScene()
     }
 }
+
+

@@ -9,8 +9,10 @@
 import UIKit
 import BWWalkthrough
 
-protocol PageControllerDelegate {
+protocol WalkthoughViewControllerDelegate: class {
     func didClickOnMap()
+    func didClickOnWorkWithUs()
+    func didClickOnKnowMoreFromUs()
 }
 
 class WalkthroughViewController: BWWalkthroughViewController {
@@ -25,7 +27,7 @@ class WalkthroughViewController: BWWalkthroughViewController {
         super.viewDidLoad()
         
         setup()
-        configureWalkthoughContainer()
+        configurePages()
     }
     
     private func setup() {
@@ -33,16 +35,18 @@ class WalkthroughViewController: BWWalkthroughViewController {
         navigationController?.navigationBar.isHidden = true
         edgesForExtendedLayout = []
     }
-    
-    func configureWalkthoughContainer() {
+}
+
+extension WalkthroughViewController : WalkthroughUserInterfaceProtocol {
+    func configurePages() {
         let pageOneViewController = WalkthroughPageOneViewController()
         let pageTwoViewController = WalkthroughPageTwoViewController()
         
         let pageThreeViewController = WalkthroughPageThreeViewController()
-        pageThreeViewController.presenter = presenter
+        pageThreeViewController.delegate = self
         
         let pageFourViewController = WalkthroughPageFourViewController()
-        pageFourViewController.presenter = presenter
+        pageFourViewController.delegate = self
         
         pageControl?.numberOfPages = 4
         add(viewController: pageOneViewController)
@@ -52,8 +56,16 @@ class WalkthroughViewController: BWWalkthroughViewController {
     }
 }
 
-extension WalkthroughViewController: PageControllerDelegate {
+extension WalkthroughViewController: WalkthoughViewControllerDelegate {
     func didClickOnMap() {
-        presenter.showModalMap()
+        presenter.didClickOnMap()
+    }
+    
+    func didClickOnWorkWithUs() {
+        presenter.didClickOnWorkWithUs()
+    }
+    
+    func didClickOnKnowMoreFromUs() {
+        presenter.didClickOnKnowMoreFromUs()
     }
 }

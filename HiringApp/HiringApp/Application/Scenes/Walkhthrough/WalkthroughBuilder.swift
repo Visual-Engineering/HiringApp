@@ -10,16 +10,20 @@ import Foundation
 
 protocol WalkthroughPresenterProtocol {
     func viewDidLoad()
+    func didClickOnMap()
+    func didClickOnKnowMoreFromUs()
+    func didClickOnWorkWithUs()
 }
 
-protocol WalkthroughUserActionsProtocol {
-    func showModalMap()
-    func navigateToKnowMoreScene()
-    func navigateToWorkWithUsScene() 
+protocol WalkthroughUserInterfaceProtocol: class {
+    func configurePages()
 }
 
 protocol WalkthroughRouterProtocol {
     func navigateToNextScene()
+    func showModalMap()
+    func navigateToKnowMoreScene()
+    func navigateToWorkWithUsScene()
 }
 
 class WalkthroughBuilder {
