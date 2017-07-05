@@ -25,8 +25,22 @@ class AppRouter {
 
     //MARK: - Public API
     func startApplication() {
-        let controller = UIViewController()
-        let navigationController = UINavigationController(rootViewController: controller)
+        let controller: UIViewController? = TechnologiesBuilder.build()
+        
+        guard let viewController = controller else {
+            let alert = createAlertController()
+            rootViewController.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        let navigationController = UINavigationController(rootViewController: viewController)
         rootViewController.transitionToRootViewController(navigationController)
+    }
+    
+    func createAlertController() -> UIViewController {
+        let alert = UIAlertController(title: "Error", message: "Technologies view controller couldn't be initialized", preferredStyle: .alert)
+        let action: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(action)
+        return alert
     }
 }

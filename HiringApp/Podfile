@@ -6,20 +6,25 @@ target 'HiringApp' do
   use_frameworks!
 
   # Pods for HiringApp
+  pod 'BNRDeferred'
   pod 'HiringAppCore', :path => 'HiringAppCore'
 
+
   target 'HiringAppTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'FBSnapshotTestCase'
+    pod 'Decodable'
+    pod 'BNRDeferred'
+  end
+  
+  target 'HiringAppCoreTests' do
     inherit! :search_paths
     # Pods for testing
     pod 'Decodable'
   end
 
-  target 'HiringAppUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-post_install do |installer|
+  post_install do |installer|
     installer.pods_project.targets.each do |target|
         target.build_configurations.each do |config|
             if target.name == 'BNRDeferred'
@@ -27,6 +32,5 @@ post_install do |installer|
             end
         end
     end
-end
-
+  end
 end

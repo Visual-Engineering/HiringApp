@@ -10,7 +10,7 @@ import Foundation
 import BSWFoundation
 import Deferred
 
-protocol CacheProviderType {
+public protocol CacheProviderType {
     func getTechnologies() -> [TechnologyModel]?
     func saveTechnologies(technologies: [TechnologyModel]) -> Task<()>
 }
