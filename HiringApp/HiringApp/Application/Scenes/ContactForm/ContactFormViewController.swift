@@ -65,7 +65,15 @@ class ContactFormViewController: UIViewController {
         lbl.styledText = Constants.titleLabelText
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
+        lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
+    }()
+    
+    let containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = Constants.stackViewBackgroundColor
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     let verticalStackView: UIStackView = {
@@ -79,152 +87,129 @@ class ContactFormViewController: UIViewController {
         return stack
     }()
     
-    let sendButton: UIButton = {
+    lazy var sendButton: UIButton = {
         let button = UIButton()
         button.style = Style.headline
         button.styledText = Constants.buttonText
         button.setStyledTitleColor(Constants.brandBlue)
         button.backgroundColor = Constants.stackViewBackgroundColor
         button.isEnabled = false
+        button.addTarget(self, action: #selector(tappedSendButton), for: .touchUpInside)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
-    let activityIndicator: UIActivityIndicatorView = {
-        let indicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
-        indicator.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
-        UIApplication.shared.isNetworkActivityIndicatorVisible = true
-        return indicator
-    }()
+    let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     
     var nameTextField: UITextField!
     var surnameTextField: UITextField!
     var linkedInTextField: UITextField!
     var addressTextField: UITextField!
     var phoneTextField: UITextField!
+    
+    
+    private var textFields: [(UITextField, String)] {
+        return [
+            (nameTextField, R.string.localizable.cf_name()),
+            (surnameTextField, R.string.localizable.cf_lastname()),
+            (linkedInTextField, R.string.localizable.cf_linkedin()),
+            (addressTextField, R.string.localizable.cf_email()),
+            (phoneTextField, R.string.localizable.cf_phone())
+        ]
+    }
 
     //MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameTextField = self.createTextField()
-        surnameTextField = self.createTextField()
-        linkedInTextField = self.createTextField()
-        addressTextField = self.createTextField()
-        phoneTextField = self.createTextField()
-        nameTextField.tag = InputTextType.name.rawValue
-        surnameTextField.tag = InputTextType.surname.rawValue
-        linkedInTextField.tag = InputTextType.linkedin.rawValue
-        addressTextField.tag = InputTextType.address.rawValue
-        phoneTextField.tag = InputTextType.phoneNumber.rawValue
-        
         self.view.backgroundColor = Constants.brandBlue
-        self.view.addSubview(titleLabel)
         
-        self.addColoredViewToStackView(stackView: verticalStackView, color: Constants.stackViewBackgroundColor)
-        
-        configureHorizontalStackView(field: R.string.localizable.cf_name(), textField: nameTextField)
-        configureHorizontalStackView(field: R.string.localizable.cf_lastname(), textField: surnameTextField)
-        configureHorizontalStackView(field: R.string.localizable.cf_linkedin(), textField: linkedInTextField, keyboardType: .URL)
-        configureHorizontalStackView(field: R.string.localizable.cf_email(), textField: addressTextField, keyboardType: .emailAddress)
-        configureHorizontalStackView(field: R.string.localizable.cf_phone(), textField: phoneTextField, keyboardType: .numberPad)
-        
-        self.view.addSubview(sendButton)
-        self.view.addSubview(verticalStackView)
-
-        // layout activity indicator
-        view.addSubview(activityIndicator)
-        activityIndicator.bringSubview(toFront: view)
-        activityIndicator.center = view.center
-
+        createFields()
         layout()
-        presenter.viewDidLoad()
         
+        presenter.viewDidLoad()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.view.layoutIfNeeded()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         sendButton.layer.cornerRadius = sendButton.frame.size.height * Constants.sendButtonCornerRadiusMultiplier
     }
 
     //MARK: - Private API
-    private func createTextField() -> UITextField {
-        let textField = UITextField()
-        textField.backgroundColor = Constants.stackViewBackgroundColor
-        textField.textAlignment = .left
-        textField.style = .body
-        textField.placeholder = Constants.textFieldsPlaceholder
-        textField.textColor = Constants.correctInputColor
-        textField.delegate = self
-        textField.returnKeyType = .done
-        return textField
+    
+    private func createFields() {
+        nameTextField = UITextField(withInput: .name, delegate: self)
+        surnameTextField = UITextField(withInput: .surname, delegate: self)
+        linkedInTextField = UITextField(withInput: .linkedin, keyboardType: .URL, delegate: self)
+        addressTextField = UITextField(withInput: .address, keyboardType: .emailAddress, delegate: self)
+        phoneTextField = UITextField(withInput: .phoneNumber, keyboardType: .numberPad, delegate: self)
+        
+        textFields.forEach { (field, label) in
+            let view = UIStackView(embeddingField: field, withLabel: label)
+            verticalStackView.addArrangedSubview(view)
+        }
     }
     
     private func layout() {
-        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.topAnchor.constraint(equalTo: topLayoutGuide.bottomAnchor, constant: Constants.titleLabelTopMargin).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.titleLabelSideMargin).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.titleLabelSideMargin).isActive = true
         
-        sendButton.translatesAutoresizingMaskIntoConstraints = false
-        sendButton.topAnchor.constraint(equalTo: verticalStackView.bottomAnchor, constant: Constants.sendButtonTopMargin).isActive = true
-        sendButton.heightAnchor.constraint(equalToConstant: Constants.sendButtonHeight).isActive = true
-        sendButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.sendButtonWidthMultiplier).isActive = true
-        sendButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        //View hierarchy
         
-        verticalStackView.translatesAutoresizingMaskIntoConstraints = false
-        verticalStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        verticalStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        verticalStackView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: Constants.verticalStackViewTopMargin).isActive = true
+        view.addSubview(titleLabel)
+        view.addSubview(containerView)
+        view.addSubview(sendButton)
         
-    }
+        view.addSubview(activityIndicator)
+        
+        
+        containerView.addSubview(verticalStackView)
+        verticalStackView.fillSuperview()
+        
+        
+        // Constraints
+        
+        //Title Layout
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(
+                equalTo: topLayoutGuide.bottomAnchor,
+                constant: Constants.titleLabelTopMargin),
+            titleLabel.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: Constants.titleLabelSideMargin),
+            titleLabel.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -Constants.titleLabelSideMargin)
+            ])
+        
+        //Container Layout
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: Constants.verticalStackViewTopMargin)
+            ])
     
-    private func configureHorizontalStackView(field: String, textField: UITextField, keyboardType: UIKeyboardType = .default) {
-        let horizontalStackView: UIStackView = {
-            let stack = UIStackView()
-            stack.axis = .horizontal
-            stack.distribution = .fill
-            stack.spacing = Constants.horizontalStackViewSpacing
-            stack.backgroundColor = Constants.stackViewBackgroundColor
-            return stack
-        }()
+        // Button Layout
+        // Align bottom with constant. Half Width as the screen, fixed height
+        NSLayoutConstraint.activate([
+            sendButton.topAnchor.constraint(
+                equalTo: containerView.bottomAnchor,
+                constant: Constants.sendButtonTopMargin),
+            sendButton.heightAnchor.constraint(
+                equalToConstant: Constants.sendButtonHeight),
+            sendButton.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: Constants.sendButtonWidthMultiplier),
+            sendButton.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor)
+            ])
         
-        let formLabel: UILabel = {
-            let lbl = UILabel()
-            lbl.textColor = Constants.formLabelTextColor
-            lbl.backgroundColor = Constants.stackViewBackgroundColor
-            lbl.styledText = field
-            lbl.textAlignment = .left
-            lbl.style = Style.body
-            return lbl
-        }()
+        // layout activity indicator
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            ])
         
-        textField.keyboardType = keyboardType
-        textField.autocorrectionType = .no
-        
-        horizontalStackView.addArrangedSubview(formLabel)
-        horizontalStackView.addArrangedSubview(textField)
-        verticalStackView.addArrangedSubview(horizontalStackView)
-        
-        horizontalStackView.translatesAutoresizingMaskIntoConstraints = false
-        horizontalStackView.leadingAnchor.constraint(equalTo: verticalStackView.leadingAnchor, constant: Constants.horizontalStackViewSidesMargin).isActive = true
-        horizontalStackView.trailingAnchor.constraint(equalTo: verticalStackView.trailingAnchor, constant: Constants.horizontalStackViewSidesMargin).isActive = true
-        
-        formLabel.widthAnchor.constraint(equalTo: horizontalStackView.widthAnchor, multiplier: Constants.formLabelWidthMultiplier).isActive = true
-        sendButton.addTarget(self, action: #selector(tappedSendButton), for: .touchUpInside)
-    }
-    
-    private func addColoredViewToStackView(stackView: UIStackView, color: UIColor) {
-        /*
-         UIStackView is a non-drawing view, meaning that  drawRect() is never called and its background color is ignored.
-         If you desperately want a background color, consider placing the stack view inside another UIView and giving
-        that view a background color. 
-         */
-        
-        let backgroundView = UIView(frame: stackView.bounds)
-        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        backgroundView.backgroundColor = color
-        stackView.addSubview(backgroundView)
     }
 }
 
@@ -262,7 +247,26 @@ extension ContactFormViewController {
 
 extension ContactFormViewController: UITextFieldDelegate {
     
+    private func inputTextField(fromTextField textField: UITextField) -> InputTextType {
+        switch textField {
+        case nameTextField:
+            return .name
+        case surnameTextField:
+            return .surname
+        case linkedInTextField:
+            return .linkedin
+        case addressTextField:
+            return .address
+        case phoneTextField:
+            return .phoneNumber
+        default:
+            fatalError()
+        }
+    }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        
         
         guard let nextTextField = view.viewWithTag(textField.tag + 1) as? UITextField else {
             textField.resignFirstResponder()
@@ -273,11 +277,7 @@ extension ContactFormViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        guard let fieldInputType = InputTextType(rawValue: textField.tag) else {
-            return
-        }
-        presenter.textFieldDidBeginEditing(field: fieldInputType)
+        presenter.textFieldDidBeginEditing(field: inputTextField(fromTextField: textField))
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -290,5 +290,51 @@ extension ContactFormViewController: UITextFieldDelegate {
             return
         }
         presenter.textFieldDidEndEditing(withText: text, forField: fieldInputType)
+    }
+}
+
+extension UITextField {
+    convenience init(withInput inputTextType: InputTextType, keyboardType: UIKeyboardType = .default, delegate: UITextFieldDelegate?) {
+        self.init(frame: .zero)
+        
+        self.backgroundColor = Constants.stackViewBackgroundColor
+        self.textAlignment = .left
+        self.style = .body
+        self.placeholder = Constants.textFieldsPlaceholder
+        self.textColor = Constants.correctInputColor
+        self.delegate = delegate
+        self.returnKeyType = .done
+        self.tag = inputTextType.rawValue
+        self.keyboardType = keyboardType
+        self.autocorrectionType = .no
+    }
+
+}
+
+extension UIStackView {
+    fileprivate convenience init(embeddingField textField: UITextField, withLabel label: String) {
+        self.init()
+        axis = .horizontal
+        distribution = .fill
+        spacing = Constants.horizontalStackViewSpacing
+        backgroundColor = Constants.stackViewBackgroundColor
+        
+        let formLabel: UILabel = {
+            let lbl = UILabel()
+            lbl.textColor = Constants.formLabelTextColor
+            lbl.backgroundColor = Constants.stackViewBackgroundColor
+            lbl.styledText = label
+            lbl.textAlignment = .left
+            lbl.style = Style.body
+            return lbl
+        }()
+        
+        addArrangedSubview(formLabel)
+        addArrangedSubview(textField)
+        
+        formLabel.widthAnchor.constraint(
+            equalTo: widthAnchor,
+            multiplier: Constants.formLabelWidthMultiplier
+            ).isActive = true
     }
 }
