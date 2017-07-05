@@ -17,8 +17,8 @@ private enum Constants {
     static let buttonBackgroundColor: UIColor = .white
     
     // Text
-    static let labelText = "Gracias por contactar con nosotros. Te diremos algo pronto"
-    static let buttonTitleText = "Continuar"
+    static let labelText = R.string.localizable.cf_formSentTitle()
+    static let buttonTitleText = R.string.localizable.cf_formSentButton()
     
     // Constraints
     static let labelWidthMultiplier: CGFloat = 0.8

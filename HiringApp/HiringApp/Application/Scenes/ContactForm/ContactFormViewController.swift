@@ -33,9 +33,9 @@ private enum Constants {
     static let correctInputColor: UIColor = .darkGray
     
     // Text
-    static let titleLabelText = "Si quieres aplicar para la posición de backend, déjanos tus datos y te contactamos en la mayor brevedad posible. ¡Gracias!"
-    static let textFieldsPlaceholder = "Type here..."
-    static let buttonText = "Enviar"
+    static let titleLabelText = R.string.localizable.cf_title()
+    static let textFieldsPlaceholder = R.string.localizable.cf_placeholder()
+    static let buttonText = R.string.localizable.cf_send()
     
     // Constraints
     static let verticalStackViewVerticalInsets: CGFloat = 10.0
@@ -122,11 +122,11 @@ class ContactFormViewController: UIViewController {
         
         self.addColoredViewToStackView(stackView: verticalStackView, color: Constants.stackViewBackgroundColor)
         
-        configureHorizontalStackView(field: "Nombre *", textField: nameTextField)
-        configureHorizontalStackView(field: "Apellidos *", textField: surnameTextField)
-        configureHorizontalStackView(field: "LinkedIn", textField: linkedInTextField, keyboardType: .URL)
-        configureHorizontalStackView(field: "Correo *", textField: addressTextField, keyboardType: .emailAddress)
-        configureHorizontalStackView(field: "Teléfono *", textField: phoneTextField, keyboardType: .numberPad)
+        configureHorizontalStackView(field: R.string.localizable.cf_name(), textField: nameTextField)
+        configureHorizontalStackView(field: R.string.localizable.cf_lastname(), textField: surnameTextField)
+        configureHorizontalStackView(field: R.string.localizable.cf_linkedin(), textField: linkedInTextField, keyboardType: .URL)
+        configureHorizontalStackView(field: R.string.localizable.cf_email(), textField: addressTextField, keyboardType: .emailAddress)
+        configureHorizontalStackView(field: R.string.localizable.cf_phone(), textField: phoneTextField, keyboardType: .numberPad)
         
         self.view.addSubview(sendButton)
         self.view.addSubview(verticalStackView)
