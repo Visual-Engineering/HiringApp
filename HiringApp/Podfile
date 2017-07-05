@@ -8,6 +8,7 @@ target 'HiringApp' do
   # Pods for HiringApp
   pod 'HiringAppCore', :path => 'HiringAppCore'
   pod 'IQKeyboardManager'
+  pod ‘R.swift’
 
   target 'HiringAppTests' do
     inherit! :search_paths
