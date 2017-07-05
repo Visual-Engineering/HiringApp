@@ -39,7 +39,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     let buttonBottom: UIButton = {
         let button = UIButton()
         //MARK: TODO - Localize text
-        button.setTitle("Trabajar con nostros", for: .normal)
+        button.setTitle("Trabajar con nosotros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
