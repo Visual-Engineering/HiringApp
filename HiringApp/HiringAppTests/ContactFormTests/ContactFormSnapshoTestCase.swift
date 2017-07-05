@@ -11,7 +11,7 @@ import XCTest
 @testable import HiringAppCore
 import Deferred
 
-class ViewControllerFake: ContactFormUserInterfaceProtocol {
+private class ViewControllerFake: ContactFormUserInterfaceProtocol {
     
     var viewModel: ContactFormViewModel = ContactFormViewModel.fakeValid
     var viewModelInvalid: ContactFormViewModel = ContactFormViewModel.fakeInValid
@@ -22,7 +22,7 @@ class ViewControllerFake: ContactFormUserInterfaceProtocol {
     func hideActivityIndicator() {}
 }
 
-class InteractorFake: ContactFormInteractorProtocol {
+private class InteractorFake: ContactFormInteractorProtocol {
     
     var isCalled: Bool = false
     
@@ -32,11 +32,11 @@ class InteractorFake: ContactFormInteractorProtocol {
     }
 }
 
-class RouterDummy: ContactFormRouterProtocol {
+private class RouterDummy: ContactFormRouterProtocol {
     func navigateToNextScene(){}
 }
 
-class RouterFake: ContactFormRouterProtocol {
+private class RouterFake: ContactFormRouterProtocol {
     
     var isCalled = false
     
@@ -45,7 +45,7 @@ class RouterFake: ContactFormRouterProtocol {
     }
 }
 
-class RepositoryFake: ContactFormRepositoryProtocol {
+private class RepositoryFake: ContactFormRepositoryProtocol {
     
     var isCalled = false
     
