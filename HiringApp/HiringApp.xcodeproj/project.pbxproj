@@ -715,7 +715,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "twine generate-all-localization-files \"HiringApp/Resources/Localizables/strings.txt\" \"HiringApp/Resources/Localizables\" --tags ios";
+			shellScript = "if [ \"${CONFIGURATION}\" = \"Debug\" ]; then\ntwine generate-all-localization-files \"HiringApp/Resources/Localizables/strings.txt\" \"HiringApp/Resources/Localizables\" --tags ios\nfi";
 		};
 		1144762A13500405FA946CE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
