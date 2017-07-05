@@ -26,14 +26,9 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     }
     
     let labelTop : UILabel = {
-        let label = UILabel()
         //MARK: TODO - Localize this string
-        label.text = "¿Dónde estamos?"
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.topLabelFontSize)
-        label.numberOfLines = 1
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.textColor = Constants.labelsTextColor
+        let label = UILabel()
+        LabelHelper.Walkthrough.setup(label: label, type: .title, text: "¿Dónde estamos?")
         return label
     }()
     
@@ -48,12 +43,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     let labelBottom : UILabel = {
         let label = UILabel()
         //MARK: TODO - Localize this string
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.bottomLabelFontSize)
-        label.numberOfLines = 3
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.textColor = Constants.labelsTextColor
+        LabelHelper.Walkthrough.setup(label: label, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         return label
     }()
     

@@ -71,6 +71,8 @@
 		B24D167B1F03D0650030D5C2 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16751F03D0650030D5C2 /* ContactFormViewController.swift */; };
 		B24D167C1F03D0660030D5C2 /* ContactFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16761F03D0650030D5C2 /* ContactFormViewModel.swift */; };
 		E438D5451F0CD31900589167 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5441F0CD31900589167 /* Utils.swift */; };
+		E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5461F0CD59700589167 /* LabelHelper.swift */; };
+		E438D5491F0CD75500589167 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5481F0CD75500589167 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +192,8 @@
 		D5E6658F1F115D7D69C42E18 /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8A2C85A5DD7300D050F24CB /* Pods-HiringAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E438D5441F0CD31900589167 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E438D5461F0CD59700589167 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
+		E438D5481F0CD75500589167 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +370,7 @@
 				8D7FCA791F0159970049DFA8 /* AvenirTypeface.swift */,
 				8D7FCA7B1F0260E40049DFA8 /* Stylesheet.swift */,
 				8D7FCA8B1F026A180049DFA8 /* NSString.swift */,
+				E438D5481F0CD75500589167 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -406,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				E438D5441F0CD31900589167 /* Utils.swift */,
+				E438D5461F0CD59700589167 /* LabelHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -828,6 +834,7 @@
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
 				7801E9881F0A5518005A68A8 /* TechnologiesBuilder.swift in Sources */,
 				B24D167C1F03D0660030D5C2 /* ContactFormViewModel.swift in Sources */,
+				E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */,
 				7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */,
 				B24D16791F03D0650030D5C2 /* ContactFormPresenter.swift in Sources */,
 				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
@@ -845,6 +852,7 @@
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
 				B24D16781F03D0650030D5C2 /* ContactFormInteractor.swift in Sources */,
+				E438D5491F0CD75500589167 /* UIColor.swift in Sources */,
 				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
 				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,

@@ -58,14 +58,16 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     private func configureLabels() {
         //MARK: TODO - Localize this string
-        let labelTopTitle = self.createLabelTitleWithText("¿Quiénes somos?")
+        let labelTopTitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: "¿Quiénes somos?")
         view.addSubviewWithAutolayout(labelTopTitle)
 
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
         //MARK: TODO - Localize this string
-        let labelTopSubtitle = self.createLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        let labelTopSubtitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelTopSubtitle)
 
         labelTopSubtitle.topAnchor.constraint(equalTo: labelTopTitle.bottomAnchor, constant: 20).isActive = true
@@ -73,7 +75,8 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelTopSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
         //MARK: TODO - Localize this string
-        let labelMiddleTitle = self.createLabelTitleWithText("¿Qué hacemos?")
+        let labelMiddleTitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: "¿Qué hacemos?")
         view.addSubviewWithAutolayout(labelMiddleTitle)
 
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
@@ -82,7 +85,9 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
         //MARK: TODO - Localize this string
-        labelMiddleSubtitle = self.createLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        labelMiddleSubtitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
 
         labelMiddleSubtitle.topAnchor.constraint(equalTo: labelMiddleTitle.bottomAnchor, constant: 20).isActive = true
@@ -122,30 +127,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         logo.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
         logo.heightAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
     }
-    
-    private func createLabelTitleWithText(_ text: String) -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.textColor = Constants.labelsTextColor
-        label.text = text
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.titleLabelsFontSize)
-        return label
-    }
-    
-    private func createLabelSubtitleWithText(_ text: String) -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 3
-        label.textColor = Constants.labelsTextColor
-        label.text = text
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.subtitleLabelsFontSize)
-        
-        return label
-    }
-    
+
     private func createArrayImagesLogos() -> [UIImageView] {
         var arrayLogos = [UIImageView]()
         for nameLogo in arrayStringLogos {
