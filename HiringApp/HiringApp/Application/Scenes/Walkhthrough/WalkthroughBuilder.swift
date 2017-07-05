@@ -23,10 +23,16 @@ protocol WalkthroughRouterProtocol {
 }
 
 class WalkthroughBuilder {
+    
+    let walkthroughViewController: WalkthroughViewController = {
+        let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
+        let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "container")
+        return walkthroughViewController as! WalkthroughViewController
+    }()
 
     //MARK: - Configuration
-    static func build() -> WalkthroughViewController {
-        let viewController = WalkthroughViewController()
+    func build() -> WalkthroughViewController {
+        let viewController = walkthroughViewController
         let router = WalkthroughRouter(view: viewController)
         let presenter = WalkthroughPresenter(router: router, view: viewController)
 

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Walkthrough Container View Controller-->
+        <!--Walkthrough View Controller-->
         <scene sceneID="8v5-Ga-k4n">
             <objects>
-                <viewController storyboardIdentifier="container" id="Ey0-fa-gzY" customClass="WalkthroughContainerViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="container" id="Ey0-fa-gzY" customClass="WalkthroughViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iCr-OH-J1t"/>
                         <viewControllerLayoutGuide type="bottom" id="ekU-gx-14h"/>

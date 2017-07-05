@@ -9,17 +9,14 @@
 import UIKit
 import BWWalkthrough
 
-class WalkthroughViewController: UIViewController {
+protocol PageControllerDelegate {
+    func didClickOnMap()
+}
+
+class WalkthroughViewController: BWWalkthroughViewController {
 
     //MARK: - Stored properties
     var presenter: WalkthroughPresenter!
-    var walkthroughViewController: WalkthroughContainerViewController? = {
-        let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
-        let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "container")
-        return walkthroughViewController as? WalkthroughContainerViewController
-    }()
-    
-    var viewControllers = [BWWalkthroughPageViewController]()
     
     @IBOutlet weak var pageControlWalkthrough: UIPageControl!
     
@@ -28,27 +25,16 @@ class WalkthroughViewController: UIViewController {
         super.viewDidLoad()
         
         setup()
-        layout()
         configureWalkthoughContainer()
-    }
-
-    //MARK: - Private API
-    private func layout() {
-        guard let walkVC = walkthroughViewController else { return }
-        
-        view.addSubviewWithAutolayout(walkVC.view)
-        walkVC.view.translatesAutoresizingMaskIntoConstraints = false
-        walkVC.view.fillSuperview()
     }
     
     private func setup() {
+        view.backgroundColor = UIColor.brandBlueColor()
         navigationController?.navigationBar.isHidden = true
         edgesForExtendedLayout = []
     }
     
     func configureWalkthoughContainer() {
-        guard let walkViewController = walkthroughViewController else { return }
-        
         let pageOneViewController = WalkthroughPageOneViewController()
         let pageTwoViewController = WalkthroughPageTwoViewController()
         
@@ -58,15 +44,16 @@ class WalkthroughViewController: UIViewController {
         let pageFourViewController = WalkthroughPageFourViewController()
         pageFourViewController.presenter = presenter
         
-        walkViewController.pageControl?.numberOfPages = 4
-        walkViewController.add(viewController: pageOneViewController)
-        walkViewController.add(viewController: pageTwoViewController)
-        walkViewController.add(viewController: pageThreeViewController)
-        walkViewController.add(viewController: pageFourViewController)
-        
-        viewControllers.append(pageOneViewController)
-        viewControllers.append(pageTwoViewController)
-        viewControllers.append(pageThreeViewController)
-        viewControllers.append(pageFourViewController)
+        pageControl?.numberOfPages = 4
+        add(viewController: pageOneViewController)
+        add(viewController: pageTwoViewController)
+        add(viewController: pageThreeViewController)
+        add(viewController: pageFourViewController)
+    }
+}
+
+extension WalkthroughViewController: PageControllerDelegate {
+    func didClickOnMap() {
+        presenter.showModalMap()
     }
 }
