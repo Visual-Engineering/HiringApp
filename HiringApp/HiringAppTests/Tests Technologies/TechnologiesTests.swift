@@ -77,11 +77,11 @@ private class RouterDummy: TechnologiesRouterProtocol {
 
 class TechnologiesTests: SnapshotTestCase {
     
-    func testSnapshotTechnologies() {
-        //recordMode = true
-        let technologiesVC = BuilderFake.build()
-        verifyViewController(technologiesVC)
-    }
+//    func testSnapshotTechnologies() {
+////        recordMode = true
+//        let technologiesVC = BuilderFake.build()
+//        verifyViewController(technologiesVC)
+//    }
     
     func testTechnologiesPresenter() {
         

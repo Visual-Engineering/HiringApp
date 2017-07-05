@@ -516,6 +516,8 @@
 			buildConfigurationList = 780490E01EF184E200D03BEA /* Build configuration list for PBXNativeTarget "HiringApp" */;
 			buildPhases = (
 				1160D444A6D140266BFCDC7E /* [CP] Check Pods Manifest.lock */,
+				0E8F641B1F0D0FB000079C94 /* Build localized strings */,
+				0E8F641A1F0D0EF300079C94 /* Rswift */,
 				780490B41EF184E200D03BEA /* Sources */,
 				780490B51EF184E200D03BEA /* Frameworks */,
 				780490B61EF184E200D03BEA /* Resources */,
@@ -687,6 +689,34 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E8F641A1F0D0EF300079C94 /* Rswift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Rswift;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" \"HiringApp/Resources/Localizables\"";
+		};
+		0E8F641B1F0D0FB000079C94 /* Build localized strings */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Build localized strings";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "twine generate-all-localization-files \"HiringApp/Resources/Localizables/strings.txt\" \"HiringApp/Resources/Localizables\" --tags ios";
+		};
 		1144762A13500405FA946CE2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
