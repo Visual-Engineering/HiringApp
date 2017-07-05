@@ -70,7 +70,7 @@
 		B24D167A1F03D0650030D5C2 /* ContactFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16741F03D0650030D5C2 /* ContactFormRouter.swift */; };
 		B24D167B1F03D0650030D5C2 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16751F03D0650030D5C2 /* ContactFormViewController.swift */; };
 		B24D167C1F03D0660030D5C2 /* ContactFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B24D16761F03D0650030D5C2 /* ContactFormViewModel.swift */; };
-		B2757B141F065F1C0010B2C5 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2757B131F065F1C0010B2C5 /* Utils.swift */; };
+		E438D5451F0CD31900589167 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5441F0CD31900589167 /* Utils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -187,9 +187,9 @@
 		B24D16741F03D0650030D5C2 /* ContactFormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormRouter.swift; sourceTree = "<group>"; };
 		B24D16751F03D0650030D5C2 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		B24D16761F03D0650030D5C2 /* ContactFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewModel.swift; sourceTree = "<group>"; };
-		B2757B131F065F1C0010B2C5 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Utils.swift; path = HiringApp/Application/Utils/Utils.swift; sourceTree = SOURCE_ROOT; };
 		D5E6658F1F115D7D69C42E18 /* Pods-HiringAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		D8A2C85A5DD7300D050F24CB /* Pods-HiringAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppTests/Pods-HiringAppTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E438D5441F0CD31900589167 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -405,7 +405,7 @@
 		780490EF1EF1881F00D03BEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B2757B131F065F1C0010B2C5 /* Utils.swift */,
+				E438D5441F0CD31900589167 /* Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -834,6 +834,7 @@
 				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
 				7801E9A21F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift in Sources */,
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
+				E438D5451F0CD31900589167 /* Utils.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
 				B24D16771F03D0650030D5C2 /* ContactFormBuilder.swift in Sources */,
@@ -845,7 +846,6 @@
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
 				B24D16781F03D0650030D5C2 /* ContactFormInteractor.swift in Sources */,
 				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
-				B2757B141F065F1C0010B2C5 /* Utils.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
 				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,
 				B24D167B1F03D0650030D5C2 /* ContactFormViewController.swift in Sources */,
