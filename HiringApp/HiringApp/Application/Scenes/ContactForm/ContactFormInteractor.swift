@@ -17,9 +17,8 @@ class ContactFormInteractor {
     let repository: ContactFormRepositoryProtocol
     
     //MARK: - Initializer
-    init?(repository: ContactFormRepositoryProtocol? = ContactFormRepository()) {
-        guard let repo = repository else { return nil }
-        self.repository = repo
+    init(repository: ContactFormRepositoryProtocol) {
+        self.repository = repository
     }
 }
 

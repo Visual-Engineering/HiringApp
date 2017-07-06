@@ -20,7 +20,7 @@ public class ContactFormRepository {
     let apiProvider: APIProviderType
     let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
-    public init?(apiProvider: APIProviderType = APIProvider()) {        
+    public init(apiProvider: APIProviderType = APIProvider()) {        
         self.apiProvider = apiProvider
     }
 }

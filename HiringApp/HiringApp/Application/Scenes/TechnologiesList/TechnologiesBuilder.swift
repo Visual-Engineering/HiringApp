@@ -34,9 +34,7 @@ class TechnologiesBuilder {
         let viewController = TechnologiesViewController()
         let router = TechnologiesRouter(view: viewController)
         
-        guard let interactor = TechnologiesInteractor() else {
-            return nil
-        }
+        let interactor = TechnologiesInteractor(repository: TechsRepository())
         
         let presenter = TechnologiesPresenter(router: router, interactor: interactor, view: viewController)
 

@@ -25,20 +25,16 @@ public class TechsRepository {
     //MARK: - Stored properties
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
-    let dbProvider: DBProviderType
+    let dbProvider: DBProviderType?
     let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
-    public init?(apiProvider: APIProviderType = APIProvider(),
+    public init(apiProvider: APIProviderType = APIProvider(),
          cacheProvider: CacheProviderType = CacheProvider(),
          dbProvider: DBProviderType? = DBProvider()) {
         
-        guard let dbProv = dbProvider else {
-            return nil
-        }
-        
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
-        self.dbProvider = dbProv
+        self.dbProvider = dbProvider
     }
 }
 
@@ -61,7 +57,12 @@ extension TechsRepository: TechsRepositoryProtocol {
         return techTask
     }
     
+    @available(*, deprecated)
     public func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+        
+        guard let dbProvider = dbProvider else {
+            return Task(success: [])
+        }
         
         var techList = [TechnologyModel]()
         
@@ -74,7 +75,7 @@ extension TechsRepository: TechsRepositoryProtocol {
         } else {
             let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
                 modelsArray.forEach({ (tech) in
-                    _ = self.dbProvider.write(tech: tech.toRealmModel)
+                    _ = self.dbProvider?.write(tech: tech.toRealmModel)
                 })
                 return Task(success: modelsArray)
             }

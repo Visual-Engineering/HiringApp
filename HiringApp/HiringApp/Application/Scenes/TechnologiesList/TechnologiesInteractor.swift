@@ -16,13 +16,8 @@ class TechnologiesInteractor {
     let repository: TechsRepositoryProtocol
 
     //MARK: - Initializer
-    init?(repository: TechsRepositoryProtocol? = TechsRepository()) {
-        
-        guard let repo = repository else {
-            return nil
-        }
-        
-        self.repository = repo
+    init(repository: TechsRepositoryProtocol) {
+        self.repository = repository
     }
 }
 

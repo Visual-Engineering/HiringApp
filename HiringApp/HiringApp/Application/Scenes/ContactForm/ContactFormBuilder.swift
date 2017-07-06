@@ -8,6 +8,7 @@
 
 import Foundation
 import Deferred
+import HiringAppCore
 
 protocol ContactFormPresenterProtocol {
     func viewDidLoad()
@@ -38,7 +39,7 @@ class ContactFormBuilder {
     static func build() -> ContactFormViewController? {
         let viewController = ContactFormViewController()
         let router = ContactFormRouter(view: viewController)
-        guard let interactor = ContactFormInteractor() else { return nil }
+        let interactor = ContactFormInteractor(repository: ContactFormRepository())
         
         let presenter = ContactFormPresenter(router: router, interactor: interactor, view: viewController)
 
