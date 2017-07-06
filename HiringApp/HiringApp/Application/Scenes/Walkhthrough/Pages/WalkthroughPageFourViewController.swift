@@ -25,10 +25,9 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         static let buttonsFontType: String = "Arial"
     }
     
-    let buttonTop: UIButton = {
-        let button = UIButton()
-        //MARK: TODO - Localize text
-        button.setTitle("Saber más sobre nosotros", for: .normal)
+    let buttonTop: RoundedButton = {
+        let button = RoundedButton()
+        button.setTitle(R.string.localizable.walkthrough_knowMoreButton(), for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)
@@ -36,10 +35,9 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         return button
     }()
     
-    let buttonBottom: UIButton = {
-        let button = UIButton()
-        //MARK: TODO - Localize text
-        button.setTitle("Trabajar con nosotros", for: .normal)
+    let buttonBottom: RoundedButton = {
+        let button = RoundedButton()
+        button.setTitle(R.string.localizable.walkthrough_workWithUsButton(), for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
         button.titleLabel?.font = UIFont(name: Constants.buttonsFontType, size: Constants.buttonsFontSize)

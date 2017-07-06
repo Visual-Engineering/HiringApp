@@ -36,7 +36,8 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     }
     
     func navigateToWorkWithUsScene() {
-        //MARK: TODO - Add code to navigate to 'Work with us' Scene
+        let viewController = TechnologiesBuilder.build()
+        view.navigationController?.pushViewController(viewController, animated: true)
     }
 
 }

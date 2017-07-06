@@ -12,7 +12,7 @@ import BWWalkthrough
 class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         
     let imageView : UIImageView = {
-        let image = UIImage(named: "visual-engin-logo")
+        let image = R.image.visualEnginLogo()
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         return imageView

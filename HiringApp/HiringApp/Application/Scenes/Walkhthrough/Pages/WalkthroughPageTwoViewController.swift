@@ -57,9 +57,8 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     }
     
     private func configureLabels() {
-        //MARK: TODO - Localize this string
         let labelTopTitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: "¿Quiénes somos?")
+        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: R.string.localizable.walkthrough_title1())
         view.addSubviewWithAutolayout(labelTopTitle)
 
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
@@ -67,7 +66,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
 
         //MARK: TODO - Localize this string
         let labelTopSubtitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: R.string.localizable.walkthrough_subtitles1())
         view.addSubviewWithAutolayout(labelTopSubtitle)
 
         labelTopSubtitle.topAnchor.constraint(equalTo: labelTopTitle.bottomAnchor, constant: 20).isActive = true
@@ -76,7 +75,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
 
         //MARK: TODO - Localize this string
         let labelMiddleTitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: "¿Qué hacemos?")
+        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: R.string.localizable.walkthrough_title2())
         view.addSubviewWithAutolayout(labelMiddleTitle)
 
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
@@ -86,7 +85,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
 
         //MARK: TODO - Localize this string
         labelMiddleSubtitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: R.string.localizable.walkthrough_subtitles2())
 
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
 

@@ -25,22 +25,9 @@ class AppRouter {
 
     //MARK: - Public API
     func startApplication() {
-        let controller: UIViewController? = TechnologiesBuilder.build()
-        
-        guard let viewController = controller else {
-            let alert = createAlertController()
-            rootViewController.present(alert, animated: true, completion: nil)
-            return
-        }
-        
+        let builder: WalkthroughBuilder = WalkthroughBuilder()
+        let viewController: UIViewController = builder.build()
         let navigationController = UINavigationController(rootViewController: viewController)
         rootViewController.transitionToRootViewController(navigationController)
-    }
-    
-    func createAlertController() -> UIViewController {
-        let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.error_message(), preferredStyle: .alert)
-        let action: UIAlertAction = UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: nil)
-        alert.addAction(action)
-        return alert
     }
 }

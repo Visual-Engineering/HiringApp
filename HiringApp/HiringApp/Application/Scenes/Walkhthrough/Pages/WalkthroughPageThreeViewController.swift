@@ -26,14 +26,13 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     }
     
     let labelTop : UILabel = {
-        //MARK: TODO - Localize this string
         let label = UILabel()
-        LabelHelper.Walkthrough.setup(label: label, type: .title, text: "¿Dónde estamos?")
+        LabelHelper.Walkthrough.setup(label: label, type: .title, text: R.string.localizable.walkthrough_title3())
         return label
     }()
     
     let imageMapView : UIImageView = {
-        let image = UIImage(named: "map-screenshot")
+        let image = R.image.mapScreenshot()
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -42,8 +41,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     let labelBottom : UILabel = {
         let label = UILabel()
-        //MARK: TODO - Localize this string
-        LabelHelper.Walkthrough.setup(label: label, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        LabelHelper.Walkthrough.setup(label: label, type: .subtitle, text: R.string.localizable.walkthrough_subtitles3())
         return label
     }()
     
@@ -55,7 +53,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         
         super.viewDidLoad()
     }
-    
+        
     //MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear

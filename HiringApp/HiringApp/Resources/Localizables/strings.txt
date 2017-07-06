@@ -94,18 +94,18 @@
         tags = ios,android
 
     [walkthrough_subtitles1]
-        en = TODO
-        es = TODO
+        en = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        es = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         tags = ios,android
 
     [walkthrough_subtitles2]
-        en = TODO
-        es = TODO
+        en = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        es = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         tags = ios,android
 
     [walkthrough_subtitles3]
-        en = TODO
-        es = TODO
+        en = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+        es = Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
         tags = ios,android
 
     [walkthrough_knowMoreButton]

@@ -23,7 +23,7 @@ extension TechnologiesRouter: TechnologiesRouterProtocol {
     
     func navigateToNextScene(selectedTechnology: TechnologyViewModel) {
         if !selectedTechnology.testAvailable {
-            guard let viewController = ContactFormBuilder.build() else { return }
+            let viewController = ContactFormBuilder.build()
             viewController.title = selectedTechnology.title
             view.navigationController?.pushViewController(viewController, animated: true)
         } else {
