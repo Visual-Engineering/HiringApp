@@ -22,6 +22,8 @@ class PresenterFake: TechnologiesPresenterProtocol {
         let viewModel = TechnologiesViewModel.fake
         self.view.configureFor(viewModel: viewModel)
     }
+    
+    func didClickOnTechnology(index: Int) {}
 }
 
 class BuilderFake {
@@ -72,7 +74,7 @@ class ViewControllerMock: TechnologiesUserInterfaceProtocol {
 }
 
 private class RouterDummy: TechnologiesRouterProtocol {
-    func navigateToNextScene() {}
+    func navigateToNextScene(selectedTechnology: TechnologyViewModel) {}
 }
 
 class TechnologiesTests: SnapshotTestCase {

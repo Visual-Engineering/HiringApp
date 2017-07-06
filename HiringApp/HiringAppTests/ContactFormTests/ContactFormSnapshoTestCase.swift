@@ -20,6 +20,7 @@ private class ViewControllerFake: ContactFormUserInterfaceProtocol {
     func setButtonState(enabled: Bool) {}
     func showActivityIndicator() {}
     func hideActivityIndicator() {}
+    func showErrorAlert() {}
 }
 
 private class InteractorFake: ContactFormInteractorProtocol {

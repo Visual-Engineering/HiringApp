@@ -57,12 +57,12 @@ extension ContactFormPresenter: ContactFormPresenterProtocol {
     }
     
     func tappedSendButton() {
-        guard let unwrappedViewModel = viewModel, self.viewModel?.validate() == true else {
+        guard let viewModel = viewModel, self.viewModel?.validate() == true else {
             return
         }
         
         view.showActivityIndicator()
-        self.sendContactFormData(candidate: unwrappedViewModel)
+        self.sendContactFormData(candidate: viewModel)
     }
     
     func textFieldDidBeginEditing(field: InputTextType) {
