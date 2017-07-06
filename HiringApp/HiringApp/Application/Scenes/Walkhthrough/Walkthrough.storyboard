@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Walkthrough View Controller-->
+        <scene sceneID="8v5-Ga-k4n">
+            <objects>
+                <viewController storyboardIdentifier="container" id="Ey0-fa-gzY" customClass="WalkthroughViewController" customModule="HiringApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="iCr-OH-J1t"/>
+                        <viewControllerLayoutGuide type="bottom" id="ekU-gx-14h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XZf-M3-agI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="5zF-rd-EDj">
+                                <rect key="frame" x="113" y="622" width="150" height="37"/>
+                            </pageControl>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5zF-rd-EDj" firstAttribute="width" secondItem="XZf-M3-agI" secondAttribute="width" multiplier="0.4" id="Dxq-Vp-aMy"/>
+                            <constraint firstItem="5zF-rd-EDj" firstAttribute="centerX" secondItem="XZf-M3-agI" secondAttribute="centerX" id="GMM-0m-clu"/>
+                            <constraint firstItem="ekU-gx-14h" firstAttribute="top" secondItem="5zF-rd-EDj" secondAttribute="bottom" constant="8" id="S9a-7t-N7U"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="pageControl" destination="5zF-rd-EDj" id="dVr-zL-iHJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvf-BL-jvT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2097" y="-49"/>
+        </scene>
+    </scenes>
+</document>
