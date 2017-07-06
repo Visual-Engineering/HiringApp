@@ -38,8 +38,8 @@ class AppRouter {
     }
     
     func createAlertController() -> UIViewController {
-        let alert = UIAlertController(title: "Error", message: "Technologies view controller couldn't be initialized", preferredStyle: .alert)
-        let action: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let alert = UIAlertController(title: R.string.localizable.error(), message: R.string.localizable.error_message(), preferredStyle: .alert)
+        let action: UIAlertAction = UIAlertAction(title: R.string.localizable.ok(), style: .default, handler: nil)
         alert.addAction(action)
         return alert
     }

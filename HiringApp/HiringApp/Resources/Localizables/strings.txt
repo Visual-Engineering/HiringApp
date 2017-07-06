@@ -18,6 +18,11 @@
 	en = Pick a technology
 	es = ¿Cual es tu technología?
 	tags = ios
+    
+    [ok]
+	en = OK
+	es = OK
+	tags = ios
 	 
 
 [[ Contact form ]]
