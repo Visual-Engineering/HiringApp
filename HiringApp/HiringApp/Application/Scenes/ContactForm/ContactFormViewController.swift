@@ -230,6 +230,10 @@ extension ContactFormViewController: ContactFormUserInterfaceProtocol {
     func hideActivityIndicator() {
         activityIndicator.stopAnimating()
     }
+    
+    func showErrorAlert() {
+        showAlert(baseView: self, title: R.string.localizable.error(), message: R.string.localizable.error_message())
+    }
 }
 
 //MARK: - User interaction

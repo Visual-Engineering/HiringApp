@@ -8,6 +8,10 @@
 
 "app_name" = "HiringApp";
 
+"error" = "Error";
+
+"error_message" = "An error occured. Please, try again!";
+
 
 /**********  Contact form  **********/
 

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import BSWFoundation
 
 class ContactFormPresenter {
 
@@ -42,7 +41,7 @@ class ContactFormPresenter {
             switch result {
             case .failure(let error):
                 self.state = .error(error)
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Error occured, please try again.")
+                self.view.showErrorAlert()
             case .success():
                 self.view.hideActivityIndicator()
                 self.router.navigateToNextScene()

@@ -25,6 +25,7 @@ protocol ContactFormUserInterfaceProtocol: class {
     func setButtonState(enabled: Bool)
     func showActivityIndicator()
     func hideActivityIndicator()
+    func showErrorAlert()
 }
 
 protocol ContactFormRouterProtocol {

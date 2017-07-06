@@ -4,6 +4,16 @@
         es = HiringApp
         tags = ios
 
+    [error]
+	en = Error
+	es = Error
+	tags = ios
+
+    [error_message]
+	en = An error occured. Please, try again!
+	es = Ha ocurrido un error. Por favor, inténtalo de nuevo.
+	tags = ios 
+
 [[ Contact form ]]
     [cf_title]
         en = If you want to apply for the backend position, leave us your contact and we will contact you as fast as we can. Thanks!
