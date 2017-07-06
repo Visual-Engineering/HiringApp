@@ -89,7 +89,5 @@ class ContactFormSentViewController: UIViewController {
                 equalTo: view.widthAnchor,
                 multiplier: Constants.buttonWidthMultiplier)
             ])
-        
-        
     }
 }

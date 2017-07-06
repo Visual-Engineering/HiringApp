@@ -22,7 +22,7 @@ struct TechnologyViewModel {
 
 extension TechnologyViewModel: Equatable {
     
-    public static func ==(lhs: TechnologyViewModel, rhs: TechnologyViewModel) -> Bool {
+    public static func == (lhs: TechnologyViewModel, rhs: TechnologyViewModel) -> Bool {
         
         let idsEqual = (lhs.id == rhs.id)
         let titleEqual = (lhs.title == rhs.title)
@@ -47,9 +47,8 @@ extension TechnologyViewModel: Equatable {
 
 extension TechnologiesViewModel: Equatable {
     
-    public static func ==(lhs: TechnologiesViewModel, rhs: TechnologiesViewModel) -> Bool {
+    public static func == (lhs: TechnologiesViewModel, rhs: TechnologiesViewModel) -> Bool {
         let techsEqual = (lhs.techs == rhs.techs)
         return techsEqual
     }
 }
-

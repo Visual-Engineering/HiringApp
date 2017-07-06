@@ -17,12 +17,12 @@ protocol WalkthoughViewControllerDelegate: class {
 
 class WalkthroughViewController: BWWalkthroughViewController {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     var presenter: WalkthroughPresenterProtocol!
     
-    @IBOutlet weak var pageControlWalkthrough: UIPageControl!
+    @IBOutlet weak private var pageControlWalkthrough: UIPageControl!
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         

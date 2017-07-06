@@ -57,7 +57,6 @@ class TechnologiesViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = false
     }
 
-
     // MARK: - Private API
     private func layout() {
         
@@ -85,8 +84,6 @@ class TechnologiesViewController: UIViewController {
                 equalTo: view.trailingAnchor,
                 constant: -Constants.stackViewHorizontalMargin)
             ])
-        
-        
     }
 }
 
@@ -110,4 +107,3 @@ extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
         presenter.didClickOnTechnology(index: sender.tag)
     }
 }
-

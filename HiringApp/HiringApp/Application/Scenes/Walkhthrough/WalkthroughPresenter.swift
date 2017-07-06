@@ -11,11 +11,11 @@ import BWWalkthrough
 
 class WalkthroughPresenter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let router: WalkthroughRouterProtocol
     fileprivate unowned let view: WalkthroughUserInterfaceProtocol
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(router: WalkthroughRouterProtocol, view: WalkthroughUserInterfaceProtocol) {
         self.router = router
         self.view = view
@@ -40,5 +40,3 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         router.navigateToWorkWithUsScene()
     }
 }
-
-

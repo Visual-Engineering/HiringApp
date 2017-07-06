@@ -69,7 +69,10 @@ extension TypefaceStyleable {
     }
     
     static func concreteFont(forSize size: CGFloat, andWeight weight: CGFloat) -> UIFont {
-        return UIFont(name: styleFontNameFor(weight: weight), size: size)!
+        guard let font = UIFont(name: styleFontNameFor(weight: weight), size: size) else {
+            return UIFont.systemFont(ofSize: size, weight: weight)
+        }
+        return font
     }
 }
 

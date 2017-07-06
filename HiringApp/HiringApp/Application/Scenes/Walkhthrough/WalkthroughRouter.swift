@@ -38,7 +38,6 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     }
     
     func navigateToWorkWithUsScene() {
-        // MARK: TODO - Add code to navigate to 'Work with us' Scene
         appRouter.navigateTechnologyList()
     }
 

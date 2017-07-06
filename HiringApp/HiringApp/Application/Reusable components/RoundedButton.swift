@@ -28,10 +28,12 @@ class RoundedButton: UIButton {
     
     override open var isEnabled: Bool {
         didSet {
-            if isEnabled {
-                self.setStyledTitleColor(self.titleColor(for: .normal)!.withAlphaComponent(1))
-            } else {
-                self.setStyledTitleColor(self.titleColor(for: .normal)!.withAlphaComponent(0.5))
+            if let color = self.titleColor(for: .normal) {
+                if isEnabled {
+                    self.setStyledTitleColor(color.withAlphaComponent(1))
+                } else {
+                    self.setStyledTitleColor(color.withAlphaComponent(0.5))
+                }
             }
         }
     }

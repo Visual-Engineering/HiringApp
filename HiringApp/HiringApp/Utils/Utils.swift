@@ -13,12 +13,14 @@ func showAlert(baseView: UIViewController, title: String, message: String, actio
     /* Shows an alert view with custom actions */
     
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    for action in actions! {
-        alertController.addAction(action)
+    if let actions = actions {
+        for action in actions {
+            alertController.addAction(action)
+        }
     }
+   
     baseView.present(alertController, animated: true, completion: nil)
 }
-
 
 func showAlert(baseView: UIViewController, title: String, message: String) {
     

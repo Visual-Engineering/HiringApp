@@ -24,13 +24,11 @@ enum LoadingState<VM> {
 
 extension LoadingState {
     var viewModel: VM? {
-        get {
-            switch self {
-            case .loaded(let vm):
-                return vm
-            default:
-                return nil
-            }
+        switch self {
+        case .loaded(let vm):
+            return vm
+        default:
+            return nil
         }
     }
 }
@@ -38,7 +36,6 @@ extension LoadingState {
 enum AppError: Error {
     case unknown
 }
-
 
 protocol ViewModelConfigurable {
     associatedtype VM

@@ -17,7 +17,7 @@ struct LabelHelper {
     
     struct Walkthrough {
         static func setup(label: UILabel?, type: WalkthroughLabel, text: String?) {
-            guard var label = label else {
+            guard let label = label else {
                 return
             }
             

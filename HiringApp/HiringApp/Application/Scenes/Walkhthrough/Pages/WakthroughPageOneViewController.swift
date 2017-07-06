@@ -11,7 +11,7 @@ import BWWalkthrough
 
 class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         
-    let imageView : UIImageView = {
+    let imageView: UIImageView = {
         let image = UIImage(named: "visual-engin-logo")
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
@@ -39,7 +39,7 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    private func setupWalkthroughTransitionValues(){
+    private func setupWalkthroughTransitionValues() {
         let speed = CGPoint(x: 0, y: 1)
         let speedVariance = CGPoint(x:0, y: 1)
         let animationType = "Zoom"
@@ -51,4 +51,3 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         self.setValue(animateAlpha, forKey: "animateAlpha")
     }
 }
-

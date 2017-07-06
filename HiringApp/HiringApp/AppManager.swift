@@ -1,4 +1,3 @@
-
 //
 //  AppManager.swift
 //  HiringApp
@@ -45,6 +44,4 @@ class AppManager {
     func applicationDidEnterBackground(_ application: UIApplication) {
         
     }
-    
-    
 }

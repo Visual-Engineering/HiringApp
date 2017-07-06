@@ -102,7 +102,6 @@ class ContactFormViewController: UIViewController {
     var addressTextField: UITextField!
     var phoneTextField: UITextField!
     
-    
     private var textFields: [(UITextField, String)] {
         return [
             (nameTextField, R.string.localizable.cf_name()),
@@ -150,10 +149,8 @@ class ContactFormViewController: UIViewController {
         
         view.addSubview(activityIndicator)
         
-        
         containerView.addSubview(verticalStackView)
         verticalStackView.fillSuperview()
-        
         
         // Constraints
         

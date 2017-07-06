@@ -44,7 +44,7 @@ extension ContactFormViewModel {
         return nameIsValid() && lastnameIsValid() && phoneIsValid() && emailIsValid()
     }
     
-    func nameIsValid() -> Bool  {
+    func nameIsValid() -> Bool {
         return !name.isEmpty
     }
     
@@ -75,7 +75,7 @@ extension ContactFormViewModel {
 }
 
 extension ContactFormViewModel: Equatable {
-    public static func ==(lhs: ContactFormViewModel, rhs: ContactFormViewModel) -> Bool {
+    public static func == (lhs: ContactFormViewModel, rhs: ContactFormViewModel) -> Bool {
         let name = (lhs.name == rhs.name)
         let lastname = (lhs.lastname == rhs.lastname)
         let linkedin = (lhs.linkedin == rhs.linkedin)

@@ -42,7 +42,7 @@ class ContactFormPresenter {
             case .failure(let error):
                 self.state = .error(error)
                 self.view.showErrorAlert()
-            case .success():
+            case .success:
                 self.view.hideActivityIndicator()
                 self.router.navigateToNextScene()
             }

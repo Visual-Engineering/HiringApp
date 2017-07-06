@@ -16,7 +16,7 @@ class WalkthroughMapViewController: UIViewController {
         static let longitude = 2.1832373
     }
     
-    let mapView : MKMapView = {
+    let mapView: MKMapView = {
         let map = MKMapView()
         return map
     }()

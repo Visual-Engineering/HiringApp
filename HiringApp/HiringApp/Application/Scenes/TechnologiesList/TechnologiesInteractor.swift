@@ -27,5 +27,3 @@ extension TechnologiesInteractor: TechnologiesInteractorProtocol {
         return repository.retrieveAPITechnologies()
     }
 }
-
-

@@ -29,6 +29,5 @@ extension TechnologiesRouter: TechnologiesRouterProtocol {
         } else {
             // TODO: Navigate when test available
         }
-
     }
 }
