@@ -22,6 +22,8 @@ class PresenterFake: TechnologiesPresenterProtocol {
         let viewModel = TechnologiesViewModel.fake
         self.view.configureFor(viewModel: viewModel)
     }
+    
+    func didClickOnTechnology(index: Int) {}
 }
 
 class BuilderFake {
@@ -36,7 +38,7 @@ class BuilderFake {
     }
 }
 
-class RepositoryFake: TechsRepositoryProtocol {
+private class RepositoryFake: TechsRepositoryProtocol {
     
     var isCalled = false
     
@@ -50,7 +52,7 @@ class RepositoryFake: TechsRepositoryProtocol {
     }
 }
 
-class InteractorFake: TechnologiesInteractorProtocol {
+private class InteractorFake: TechnologiesInteractorProtocol {
     func retrieveData() -> Task<[TechnologyModel]> {
         return Task(success: [TechnologyModel].fake)
     }
@@ -71,17 +73,17 @@ class ViewControllerMock: TechnologiesUserInterfaceProtocol {
     }
 }
 
-class RouterDummy: TechnologiesRouterProtocol {
-    func navigateToNextScene() {}
+private class RouterDummy: TechnologiesRouterProtocol {
+    func navigateToNextScene(selectedTechnology: TechnologyViewModel) {}
 }
 
 class TechnologiesTests: SnapshotTestCase {
     
-    func testSnapshotTechnologies() {
-//        recordMode = true
-        let technologiesVC = BuilderFake.build()
-        verifyViewController(technologiesVC)
-    }
+//    func testSnapshotTechnologies() {
+////        recordMode = true
+//        let technologiesVC = BuilderFake.build()
+//        verifyViewController(technologiesVC)
+//    }
     
     func testTechnologiesPresenter() {
         
@@ -119,10 +121,7 @@ class TechnologiesTests: SnapshotTestCase {
         let repository = RepositoryFake()
         
         // Given
-        guard let interactor = TechnologiesInteractor(repository: repository) else {
-            XCTAssert(false)
-            return
-        }
+        let interactor = TechnologiesInteractor(repository: repository)
         
         // When
         let data = interactor.retrieveData()

@@ -22,6 +22,7 @@ class ContactFormRouter {
 extension ContactFormRouter: ContactFormRouterProtocol {
 
     func navigateToNextScene() {
-
+        let viewController = ContactFormSentViewController()
+        view.present(viewController, animated: true, completion: nil)
     }
 }

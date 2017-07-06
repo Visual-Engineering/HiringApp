@@ -12,8 +12,7 @@ import Foundation
 
 extension TechnologiesViewModel {
     static var fake: TechnologiesViewModel {
-        
-        return TechnologiesViewModel(title: "¿Cuál es tu tecnología?", techs: [TechnologyViewModel].fake)
+        return TechnologiesViewModel(techs: [TechnologyViewModel].fake)
     }
 }
 

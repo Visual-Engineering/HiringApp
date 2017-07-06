@@ -8,22 +8,25 @@
 
 import Foundation
 import Deferred
+import HiringAppCore
 
 protocol ContactFormPresenterProtocol {
     func viewDidLoad()
     func tappedSendButton()
-    func textFieldDidBeginEditing(textField: UITextField)
-    func textFieldDidEndEditing(textField: UITextField, withText: String, forField: InputTextType)
+    func textFieldDidBeginEditing(field: InputTextType)
+    func textFieldDidEndEditing(withText: String, forField: InputTextType)
 }
 
 protocol ContactFormInteractorProtocol {
-    func sendContactFormData() -> Task<()>
+    func sendContactFormData(candidate: ContactFormViewModel) -> Task<()>
 }
 
 protocol ContactFormUserInterfaceProtocol: class {
-    func changeTextColorForTextField(textField: UITextField, color: UIColor)
-    func emptyTextInTextField(textField: UITextField)
-    func restartTextFieldToDefault(textField: UITextField)
+    func setTextViewColor(forField field: InputTextType, withState state: TextViewInputState)
+    func setButtonState(enabled: Bool)
+    func showActivityIndicator()
+    func hideActivityIndicator()
+    func showErrorAlert()
 }
 
 protocol ContactFormRouterProtocol {
@@ -33,10 +36,11 @@ protocol ContactFormRouterProtocol {
 class ContactFormBuilder {
 
     //MARK: - Configuration
-    static func build() -> ContactFormViewController {
+    static func build() -> ContactFormViewController? {
         let viewController = ContactFormViewController()
         let router = ContactFormRouter(view: viewController)
-        let interactor = ContactFormInteractor()
+        let interactor = ContactFormInteractor(repository: ContactFormRepository())
+        
         let presenter = ContactFormPresenter(router: router, interactor: interactor, view: viewController)
 
         viewController.presenter = presenter

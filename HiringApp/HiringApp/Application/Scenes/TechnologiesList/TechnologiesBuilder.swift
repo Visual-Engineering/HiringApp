@@ -12,6 +12,7 @@ import HiringAppCore
 
 protocol TechnologiesPresenterProtocol {
     func viewDidLoad()
+    func didClickOnTechnology(index: Int)
 }
 
 protocol TechnologiesInteractorProtocol {
@@ -23,20 +24,16 @@ protocol TechnologiesUserInterfaceProtocol: class {
 }
 
 protocol TechnologiesRouterProtocol {
-    func navigateToNextScene()
+    func navigateToNextScene(selectedTechnology: TechnologyViewModel)
 }
 
 class TechnologiesBuilder {
 
     //MARK: - Configuration
-    static func build() -> TechnologiesViewController? {
+    static func build() -> TechnologiesViewController {
         let viewController = TechnologiesViewController()
         let router = TechnologiesRouter(view: viewController)
-        
-        guard let interactor = TechnologiesInteractor() else {
-            return nil
-        }
-        
+        let interactor = TechnologiesInteractor(repository: TechsRepository())
         let presenter = TechnologiesPresenter(router: router, interactor: interactor, view: viewController)
 
         viewController.presenter = presenter

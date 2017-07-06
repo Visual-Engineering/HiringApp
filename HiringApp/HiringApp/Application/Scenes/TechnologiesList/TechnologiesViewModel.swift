@@ -9,7 +9,6 @@
 import Foundation
 
 struct TechnologiesViewModel {
-    let title: String
     let techs: [TechnologyViewModel]
 }
 
@@ -49,9 +48,8 @@ extension TechnologyViewModel: Equatable {
 extension TechnologiesViewModel: Equatable {
     
     public static func ==(lhs: TechnologiesViewModel, rhs: TechnologiesViewModel) -> Bool {
-        let titleEqual = (lhs.title == rhs.title)
         let techsEqual = (lhs.techs == rhs.techs)
-        return titleEqual && techsEqual
+        return techsEqual
     }
 }
 

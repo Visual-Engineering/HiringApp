@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AppRouterProtocol: class {
+    func navigateTechnologyList()
+}
+
 class AppRouter {
 
     //MARK: - Stored properties
@@ -25,7 +29,7 @@ class AppRouter {
 
     //MARK: - Public API
     func startApplication() {
-        let controller: UIViewController = WalkthroughBuilder.build()
+        let controller = WalkthroughBuilder.build(appRouter: self)
         
 //        guard let viewController = controller else {
 //            let alert = Thing().foo()
@@ -34,15 +38,22 @@ class AppRouter {
 //        }
 
         let navigationController = UINavigationController(rootViewController: controller)
-        rootViewController.transitionToRootViewController(navigationController)
+        rootViewController.transition(to: navigationController)
     }
-}
-
-class Thing {
-    func foo() -> UIViewController {
+    
+    func createAlertController() -> UIViewController {
         let alert = UIAlertController(title: "Error", message: "Technologies view controller couldn't be initialized", preferredStyle: .alert)
         let action: UIAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         return alert
+    }
+}
+
+extension AppRouter: AppRouterProtocol {
+
+    func navigateTechnologyList() {
+        let controller = TechnologiesBuilder.build()
+        let navigationController = UINavigationController(rootViewController: controller)
+        rootViewController.transition(to: navigationController)
     }
 }

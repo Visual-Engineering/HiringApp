@@ -32,7 +32,7 @@ class DBProvider: DBProviderType {
     
     func write(tech: TechnologyRealm) -> Task<()> {
         let deferred = Deferred<TaskResult<()>>()
-
+        
         do {
             try realm.write {
                 _ = realm.add(tech)
@@ -61,4 +61,3 @@ class DBProvider: DBProviderType {
     }
     
 }
-

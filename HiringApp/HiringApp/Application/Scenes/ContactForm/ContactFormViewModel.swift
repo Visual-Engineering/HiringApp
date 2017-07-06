@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HiringAppCore
 
 struct ContactFormViewModel {
     
@@ -19,6 +20,18 @@ struct ContactFormViewModel {
 }
 
 extension ContactFormViewModel {
+    var candidateModel: CandidateModel {
+        return CandidateModel(
+            name: self.name,
+            lastname: self.lastname,
+            linkedin: self.linkedin,
+            phone: self.phone,
+            email: self.email
+        )
+    }
+}
+
+extension ContactFormViewModel {
     init() {
         self.name = ""
         self.lastname = ""
@@ -28,7 +41,7 @@ extension ContactFormViewModel {
     }
     
     func validate() -> Bool {
-        return nameIsValid() && lastnameIsValid() && linkedInIsValid() && phoneIsValid() && emailIsValid()
+        return nameIsValid() && lastnameIsValid() && phoneIsValid() && emailIsValid()
     }
     
     func nameIsValid() -> Bool  {
@@ -58,5 +71,17 @@ extension ContactFormViewModel {
         let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
         let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
         return emailTest.evaluate(with: email)
+    }
+}
+
+extension ContactFormViewModel: Equatable {
+    public static func ==(lhs: ContactFormViewModel, rhs: ContactFormViewModel) -> Bool {
+        let name = (lhs.name == rhs.name)
+        let lastname = (lhs.lastname == rhs.lastname)
+        let linkedin = (lhs.linkedin == rhs.linkedin)
+        let phone = (lhs.phone == rhs.phone)
+        let email = (lhs.email == rhs.email)
+        
+        return name && lastname && linkedin && phone && email
     }
 }

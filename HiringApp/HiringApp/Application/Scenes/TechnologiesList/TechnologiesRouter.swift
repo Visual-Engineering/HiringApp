@@ -20,8 +20,15 @@ class TechnologiesRouter {
 }
 
 extension TechnologiesRouter: TechnologiesRouterProtocol {
-
-    func navigateToNextScene() {
+    
+    func navigateToNextScene(selectedTechnology: TechnologyViewModel) {
+        if !selectedTechnology.testAvailable {
+            guard let viewController = ContactFormBuilder.build() else { return }
+            viewController.title = selectedTechnology.title
+            view.navigationController?.pushViewController(viewController, animated: true)
+        } else {
+            // TODO: Navigate when test available
+        }
 
     }
 }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import BSWFoundation
 
 class ContactFormPresenter {
 
@@ -35,86 +34,78 @@ class ContactFormPresenter {
         self.interactor = interactor
         self.view = view
     }
+    
+    //MARK: - Private API
+    fileprivate func sendContactFormData(candidate: ContactFormViewModel) {
+        interactor.sendContactFormData(candidate: candidate).upon(.main) { result in
+            switch result {
+            case .failure(let error):
+                self.state = .error(error)
+                self.view.showErrorAlert()
+            case .success():
+                self.view.hideActivityIndicator()
+                self.router.navigateToNextScene()
+            }
+        }
+    }
 }
 
 extension ContactFormPresenter: ContactFormPresenterProtocol {
 
     func viewDidLoad() {
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = ContactFormViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
         self.viewModel = ContactFormViewModel()
     }
     
     func tappedSendButton() {
-        guard self.viewModel?.validate() == true else {
+        guard let viewModel = viewModel, self.viewModel?.validate() == true else {
             return
         }
         
-//        let task = interactor.sendContactFormData(data: Data).upon(.main) { result in
-//            switch result {
-//            case .failure(let error):
-//                self.state = .error(error)
-//                //TODO: Show some alert that sending contact data failed?
-//            case .success(): break
-//                //TODO: Navigate back to some screen (?)
-//            }
-//        }
+        view.showActivityIndicator()
+        self.sendContactFormData(candidate: viewModel)
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "Type here..." {
-            self.view.emptyTextInTextField(textField: textField)
-        }
-        self.view.changeTextColorForTextField(textField: textField, color: UIColor.darkGray)
+    func textFieldDidBeginEditing(field: InputTextType) {
+        self.view.setTextViewColor(forField: field, withState: .correct)
     }
     
-    func textFieldDidEndEditing(textField: UITextField, withText text: String, forField field: InputTextType){
+    func textFieldDidEndEditing(withText text: String, forField field: InputTextType) {
         guard var viewModel = self.viewModel else {
             return
         }
         
-        if text.isEmpty {
-            self.view.restartTextFieldToDefault(textField: textField)
+        defer {
+            self.viewModel = viewModel
+        }
+        
+        func changeColorToField(valid: Bool) {
+            self.view.setTextViewColor(forField: field, withState: valid ? .correct : .incorrect)
         }
         
         switch field {
         case .name:
             viewModel.name = text
-            if !viewModel.nameIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Nombre no valido")
-            }
+            changeColorToField(valid: viewModel.nameIsValid())
 
         case .surname:
             viewModel.lastname = text
-            if !viewModel.lastnameIsValid(){
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Apellidos no son validos")
-            }
+            changeColorToField(valid: viewModel.lastnameIsValid())
+            
         case .linkedin:
             viewModel.linkedin = text
-            if !viewModel.linkedInIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "URL no valido")
-            }
+            changeColorToField(valid: viewModel.linkedInIsValid())
+            
         case .address:
             viewModel.email = text
-            if !viewModel.emailIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Email no valido")
-            }
+            changeColorToField(valid: viewModel.emailIsValid())
+            
         case .phoneNumber:
             viewModel.phone = text
-            if !viewModel.phoneIsValid() {
-                showAlert(baseView: self.view as! UIViewController, title: "Error", message: "Teléfono no valido")
-            }
+            changeColorToField(valid: viewModel.phoneIsValid())
         }
-    }
-    
-    func presentAlert(title: String, message: String) {
-        showAlert(baseView: self.view as! UIViewController, title: title, message: message)
+        
+        if viewModel.validate() {
+            self.view.setButtonState(enabled: true)
+        }
     }
 }

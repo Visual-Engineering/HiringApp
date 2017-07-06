@@ -9,22 +9,22 @@
 import Foundation
 import Deferred
 import BSWFoundation
+import HiringAppCore
 
 class ContactFormInteractor {
 
     //MARK: - Stored properties
-    //    let repository: SceneRepositoryProtocol
-
+    let repository: ContactFormRepositoryProtocol
+    
     //MARK: - Initializer
-    //    init(repository: SceneRepositoryProtocol = SceneRepository()) {
-    //        self.repository = repository
-    //    }
-
+    init(repository: ContactFormRepositoryProtocol) {
+        self.repository = repository
+    }
 }
 
 extension ContactFormInteractor: ContactFormInteractorProtocol {
 
-    func sendContactFormData() -> Task<()> {
-        return undefined()
+    func sendContactFormData(candidate: ContactFormViewModel) -> Task<()> {
+        return repository.sendContactFormData(candidate: candidate.candidateModel)
     }
 }

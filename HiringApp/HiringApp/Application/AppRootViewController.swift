@@ -54,18 +54,18 @@ class AppRootViewController: UIViewController {
     }
 
     //MARK: - Private API
-    func transitionToRootViewController(_ toViewController: UIViewController, animated: Bool = true) {
+    func transition(to viewController: UIViewController, animated: Bool = true) {
         let fromViewController: UIViewController? = currentViewController
 
-        add(viewController: toViewController)
+        add(viewController: viewController)
 
         let receiver: AppTransitionDelegate = transitionDelegate ?? self
-        receiver.performTransition(animated: animated, fromViewController: fromViewController, toViewController: toViewController, containerView: view) { [weak self] _ in
+        receiver.performTransition(animated: animated, fromViewController: fromViewController, toViewController: viewController, containerView: view) { [weak self] _ in
             guard let fromViewController = fromViewController else { return }
             self?.remove(viewController: fromViewController)
         }
 
-        currentViewController = toViewController
+        currentViewController = viewController
     }
 
     private func add(viewController: UIViewController) {

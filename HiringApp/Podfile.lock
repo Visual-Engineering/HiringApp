@@ -20,6 +20,9 @@ PODS:
   - IQKeyboardManager (4.0.10)
   - KeychainAccess (3.0.2)
   - KeychainSwift (8.0.2)
+  - R.swift (3.3.0):
+    - R.swift.Library (~> 3.0.2)
+  - R.swift.Library (3.0.2)
   - Realm (2.8.3):
     - Realm/Headers (= 2.8.3)
   - Realm/Headers (2.8.3)
@@ -33,6 +36,7 @@ DEPENDENCIES:
   - FBSnapshotTestCase
   - HiringAppCore (from `HiringAppCore`)
   - IQKeyboardManager
+  - R.swift
 
 EXTERNAL SOURCES:
   HiringAppCore:
@@ -49,9 +53,11 @@ SPEC CHECKSUMS:
   IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
   KeychainAccess: a986406022dfc7c634c691ad3bec670cc6a32002
   KeychainSwift: 213db04dfe7244988e61f77c72a2afb2f775954a
+  R.swift: bde9704d50ff36820f49e266bc88ef545e1e9b36
+  R.swift.Library: fbdec16c9802ad104fc1ba53415dc190e6ec5c73
   Realm: 3601ef091c8c499a31101d8563b991e75546cdce
   RealmSwift: 8183818515471b01a99abdd2970f8e4fd52b6f4a
 
-PODFILE CHECKSUM: 7ce264629d9a65be570f08b0bd5ef5646cf1711c
+PODFILE CHECKSUM: ddf350ff310c5d5ba50e212c7003b42dbfb8b184
 
 COCOAPODS: 1.2.0

@@ -12,10 +12,12 @@ class WalkthroughRouter {
 
     //MARK: - Stored properties
     unowned let view: WalkthroughViewController
+    unowned let appRouter: AppRouterProtocol
 
     //MARK: Initializer
-    init(view: WalkthroughViewController) {
+    init(view: WalkthroughViewController, appRouter: AppRouterProtocol) {
         self.view = view
+        self.appRouter = appRouter
     }
 }
 
@@ -37,6 +39,7 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     
     func navigateToWorkWithUsScene() {
         //MARK: TODO - Add code to navigate to 'Work with us' Scene
+        appRouter.navigateTechnologyList()
     }
 
 }

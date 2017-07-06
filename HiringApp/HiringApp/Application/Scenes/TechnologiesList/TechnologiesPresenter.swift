@@ -56,9 +56,16 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
                 case .failure(let error):
                     strongSelf.state = .error(error)
                 case .success(let vm):
-                    strongSelf.viewModel = TechnologiesViewModel(title: "¿Cuál es tu tecnología?", techs: vm)
-                    strongSelf.view.configureFor(viewModel: strongSelf.viewModel!)
+                    let viewModel = TechnologiesViewModel(techs: vm)
+                    strongSelf.viewModel = viewModel
+                    strongSelf.view.configureFor(viewModel: viewModel)
                 }
         }
     }
+    
+    func didClickOnTechnology(index: Int) {
+        guard let technology = viewModel?.techs[index] else { return }
+        router.navigateToNextScene(selectedTechnology: technology)
+    }
+
 }

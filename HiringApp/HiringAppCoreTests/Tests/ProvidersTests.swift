@@ -70,6 +70,12 @@ class APIProviderSpy: APIProviderType {
         isCalled = true
         return Task(success: [TechnologyModel].fake)
     }
+    
+    func performContact(candidate: CandidateModel) -> Task<Data> {
+        isCalled = true
+        let data = Data()
+        return Task(success: data)
+    }
 }
 
 class ProvidersTests: XCTestCase {
@@ -205,7 +211,7 @@ class ProvidersTests: XCTestCase {
 
         //Given
         let candidate = CandidateModel.fake
-        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.mock))
         
         //When
         let task: Task<(Data)> = provider.performContact(candidate: candidate)
