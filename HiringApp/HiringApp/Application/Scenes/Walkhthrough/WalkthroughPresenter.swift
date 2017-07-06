@@ -11,13 +11,13 @@ import BWWalkthrough
 
 class WalkthroughPresenter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     fileprivate let router: WalkthroughRouter
     fileprivate unowned let view: WalkthroughViewController
 
     var viewControllers = [BWWalkthroughPageViewController]()
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(router: WalkthroughRouter, view: WalkthroughViewController) {
         self.router = router
         self.view = view

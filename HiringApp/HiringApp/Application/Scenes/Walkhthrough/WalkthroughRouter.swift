@@ -10,11 +10,11 @@ import UIKit
 
 class WalkthroughRouter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     unowned let view: WalkthroughViewController
     unowned let appRouter: AppRouterProtocol
 
-    //MARK: Initializer
+    // MARK: Initializer
     init(view: WalkthroughViewController, appRouter: AppRouterProtocol) {
         self.view = view
         self.appRouter = appRouter
@@ -34,11 +34,11 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     }
     
     func navigateToKnowMoreScene() {
-        //MARK: TODO - Add code to navigate to 'Know more info' Scene
+        // MARK: TODO - Add code to navigate to 'Know more info' Scene
     }
     
     func navigateToWorkWithUsScene() {
-        //MARK: TODO - Add code to navigate to 'Work with us' Scene
+        // MARK: TODO - Add code to navigate to 'Work with us' Scene
         appRouter.navigateTechnologyList()
     }
 

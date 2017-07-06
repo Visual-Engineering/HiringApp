@@ -13,10 +13,10 @@ import HiringAppCore
 
 class ContactFormInteractor {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let repository: ContactFormRepositoryProtocol
     
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(repository: ContactFormRepositoryProtocol) {
         self.repository = repository
     }

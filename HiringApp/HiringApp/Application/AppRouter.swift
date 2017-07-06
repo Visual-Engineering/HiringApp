@@ -14,11 +14,11 @@ protocol AppRouterProtocol: class {
 
 class AppRouter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     fileprivate let window: UIWindow
     fileprivate let rootViewController = AppRootViewController()
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init() {
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = rootViewController
@@ -27,7 +27,7 @@ class AppRouter {
         self.window = window
     }
 
-    //MARK: - Public API
+    // MARK: - Public API
     func startApplication() {
         let controller = WalkthroughBuilder.build(appRouter: self)
         

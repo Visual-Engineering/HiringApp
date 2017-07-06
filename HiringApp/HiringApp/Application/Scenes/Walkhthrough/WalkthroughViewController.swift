@@ -11,7 +11,7 @@ import BWWalkthrough
 
 class WalkthroughViewController: UIViewController {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     var presenter: WalkthroughPresenter!
     var walkthroughViewController: WalkthroughContainerViewController? = {
         let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
@@ -22,7 +22,7 @@ class WalkthroughViewController: UIViewController {
     
     @IBOutlet weak var pageControlWalkthrough: UIPageControl!
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,7 +31,7 @@ class WalkthroughViewController: UIViewController {
         presenter.viewDidLoad()
     }
 
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         guard let walkVC = walkthroughViewController else { return }
         

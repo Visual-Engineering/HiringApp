@@ -12,10 +12,10 @@ import HiringAppCore
 
 class TechnologiesInteractor {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let repository: TechsRepositoryProtocol
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(repository: TechsRepositoryProtocol) {
         self.repository = repository
     }

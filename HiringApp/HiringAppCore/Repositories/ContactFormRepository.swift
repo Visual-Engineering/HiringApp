@@ -16,7 +16,7 @@ public protocol ContactFormRepositoryProtocol {
 
 public class ContactFormRepository {
     
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let apiProvider: APIProviderType
     let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     

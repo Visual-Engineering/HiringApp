@@ -11,7 +11,7 @@ import Deferred
 
 class TechnologiesPresenter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     fileprivate let router: TechnologiesRouterProtocol
     fileprivate let interactor: TechnologiesInteractorProtocol
     fileprivate unowned let view: TechnologiesUserInterfaceProtocol
@@ -29,7 +29,7 @@ class TechnologiesPresenter {
         }
     }
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(router: TechnologiesRouterProtocol, interactor: TechnologiesInteractorProtocol, view: TechnologiesUserInterfaceProtocol) {
         self.router = router
         self.interactor = interactor

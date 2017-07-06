@@ -49,7 +49,7 @@ private enum Constants {
 
 class ContactFormViewController: UIViewController {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     var presenter: ContactFormPresenterProtocol!
     
     let titleLabel: UILabel = {
@@ -113,7 +113,7 @@ class ContactFormViewController: UIViewController {
         ]
     }
 
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -125,7 +125,7 @@ class ContactFormViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     
     private func createFields() {
         nameTextField = UITextField(withInput: .name, delegate: self)
@@ -231,7 +231,7 @@ extension ContactFormViewController: ContactFormUserInterfaceProtocol {
     }
 }
 
-//MARK: - User interaction
+// MARK: - User interaction
 
 extension ContactFormViewController {
     func tappedSendButton() {

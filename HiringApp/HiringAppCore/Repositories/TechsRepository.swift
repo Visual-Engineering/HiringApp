@@ -22,7 +22,7 @@ public protocol TechsRepositoryProtocol {
 
 public class TechsRepository {
     
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
     let dbProvider: DBProviderType?

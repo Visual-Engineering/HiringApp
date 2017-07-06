@@ -1,0 +1,25 @@
+disabled_rules:
+  - function_parameter_count
+  - trailing_whitespace
+  - nesting
+opt_in_rules:
+  - empty_count
+  - force_unwrapping
+  - private_outlet
+line_length:
+  warning: 200
+  ignores_function_declarations: false
+  ignores_comments: true
+type_body_length:
+  warning: 300
+  error: 400
+identifier_name:
+  excluded:
+    - id
+    - URL
+cyclomatic_complexity:
+  warning: 12
+included:
+  - HiringApp/
+excluded:
+  - Pods/

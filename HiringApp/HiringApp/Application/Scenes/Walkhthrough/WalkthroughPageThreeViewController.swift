@@ -27,7 +27,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     let labelTop : UILabel = {
         let label = UILabel()
-        //MARK: TODO - Localize this string
+        // MARK: TODO - Localize this string
         label.text = "¿Dónde estamos?"
         label.font = UIFont(name: Constants.labelsFontType, size: Constants.topLabelFontSize)
         label.numberOfLines = 1
@@ -47,7 +47,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     let labelBottom : UILabel = {
         let label = UILabel()
-        //MARK: TODO - Localize this string
+        // MARK: TODO - Localize this string
         label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
         label.font = UIFont(name: Constants.labelsFontType, size: Constants.bottomLabelFontSize)
         label.numberOfLines = 3
@@ -57,7 +57,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         return label
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         setup()
         layout()
@@ -65,7 +65,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
     }

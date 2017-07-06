@@ -11,7 +11,7 @@ import HiringAppCore
 
 struct ContactFormViewModel {
     
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     var name: String
     var lastname: String
     var linkedin: String
@@ -60,7 +60,7 @@ extension ContactFormViewModel {
     }
     
     func phoneIsValid() -> Bool {
-        guard phone.characters.count > 0 else {
+        guard !phone.characters.isEmpty else {
             return false
         }
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]

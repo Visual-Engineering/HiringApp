@@ -20,7 +20,7 @@ private enum Constants {
 
 class TechnologiesViewController: UIViewController {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let titleLabel: UILabel = {
         let label = UILabel()
         label.text = R.string.localizable.which_technology()
@@ -40,7 +40,7 @@ class TechnologiesViewController: UIViewController {
     
     var presenter: TechnologiesPresenterProtocol!
 
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
@@ -58,7 +58,7 @@ class TechnologiesViewController: UIViewController {
     }
 
 
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         
         view.backgroundColor = Constants.brandBlue
@@ -73,9 +73,7 @@ class TechnologiesViewController: UIViewController {
             titleLabel.centerXAnchor.constraint(
                 equalTo: view.centerXAnchor)
             ])
-        
-        
-        
+
         NSLayoutConstraint.activate([
             technologiesStackView.topAnchor.constraint(
                 equalTo: titleLabel.bottomAnchor,

@@ -10,7 +10,7 @@ import Foundation
 
 class ContactFormPresenter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     fileprivate let router: ContactFormRouterProtocol
     fileprivate let interactor: ContactFormInteractorProtocol
     fileprivate unowned let view: ContactFormUserInterfaceProtocol
@@ -28,14 +28,14 @@ class ContactFormPresenter {
         }
     }
 
-    //MARK: - Initializer
+    // MARK: - Initializer
     init(router: ContactFormRouterProtocol, interactor: ContactFormInteractorProtocol, view: ContactFormUserInterfaceProtocol) {
         self.router = router
         self.interactor = interactor
         self.view = view
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     fileprivate func sendContactFormData(candidate: ContactFormViewModel) {
         interactor.sendContactFormData(candidate: candidate).upon(.main) { result in
             switch result {

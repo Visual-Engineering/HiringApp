@@ -10,10 +10,10 @@ import Foundation
 
 class ContactFormRouter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     unowned let view: ContactFormViewController
 
-    //MARK: Initializer
+    // MARK: Initializer
     init(view: ContactFormViewController) {
         self.view = view
     }

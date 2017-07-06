@@ -11,10 +11,10 @@ import UIKit
 
 class AppManager {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     private let router = AppRouter()
 
-    //MARK: - UIApplicationDelegate forwaded methods
+    // MARK: - UIApplicationDelegate forwaded methods
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [AnyHashable: Any]?) -> Bool {
         router.startApplication()
 

@@ -18,7 +18,7 @@ protocol WalkthroughRouterProtocol {
 
 class WalkthroughBuilder {
 
-    //MARK: - Configuration
+    // MARK: - Configuration
     static func build(appRouter: AppRouterProtocol) -> WalkthroughViewController {
         let viewController = WalkthroughViewController()
         let router = WalkthroughRouter(view: viewController, appRouter: appRouter)

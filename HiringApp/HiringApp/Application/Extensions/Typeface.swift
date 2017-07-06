@@ -73,7 +73,6 @@ extension TypefaceStyleable {
     }
 }
 
-
 struct SystemTypeface: TypefaceCategoriesProtocol {
     
     ///Dynamic types

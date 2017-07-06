@@ -8,7 +8,7 @@
 
 import UIKit
 
-//MARK: - Available text styles
+// MARK: - Available text styles
 
 enum Style {
     case body
@@ -48,7 +48,7 @@ extension Style {
             ]
         case .caption2:
             return [
-                NSFontAttributeName: AvenirTypeface.caption2,
+                NSFontAttributeName: AvenirTypeface.caption2
             ]
         case .footnote:
             return [
@@ -78,7 +78,7 @@ extension Style {
     }
 }
 
-//MARK: - TextStylable protocol
+// MARK: - TextStylable protocol
 
 protocol TextStylable: class {
     var styledText: String? { get set }
@@ -132,9 +132,7 @@ extension TextStylable where Self: TextPropertiesInterface {
     }
 }
 
-
-//MARK: - UIKit extensions
-
+// MARK: - UIKit extensions
 extension UILabel: TextPropertiesInterface, TextStylable {
     
     var opaqueAttributedText: NSAttributedString? {

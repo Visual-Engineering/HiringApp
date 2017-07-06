@@ -29,7 +29,7 @@ protocol TechnologiesRouterProtocol {
 
 class TechnologiesBuilder {
 
-    //MARK: - Configuration
+    // MARK: - Configuration
     static func build() -> TechnologiesViewController {
         let viewController = TechnologiesViewController()
         let router = TechnologiesRouter(view: viewController)

@@ -10,10 +10,10 @@ import Foundation
 
 class TechnologiesRouter {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     unowned let view: TechnologiesViewController
 
-    //MARK: Initializer
+    // MARK: Initializer
     init(view: TechnologiesViewController) {
         self.view = view
     }

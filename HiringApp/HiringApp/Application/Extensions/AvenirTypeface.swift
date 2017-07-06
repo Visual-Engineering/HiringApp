@@ -14,13 +14,13 @@ struct AvenirTypeface {
 extension AvenirTypeface: TypefaceStyleable {
     
     static func styleFontNameFor(weight: CGFloat) -> String {
-        
+
         switch weight {
         case UIFontWeightUltraLight: fallthrough
         case UIFontWeightLight: fallthrough
         case UIFontWeightThin:
             return "Avenir-Light"
-            
+
         case UIFontWeightRegular:
             return "Avenir-Book"
             

@@ -27,7 +27,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     let buttonTop: UIButton = {
         let button = UIButton()
-        //MARK: TODO - Localize text
+        // MARK: TODO - Localize text
         button.setTitle("Saber más sobre nosotros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
@@ -38,7 +38,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
     
     let buttonBottom: UIButton = {
         let button = UIButton()
-        //MARK: TODO - Localize text
+        // MARK: TODO - Localize text
         button.setTitle("Trabajar con nostros", for: .normal)
         button.backgroundColor = Constants.buttonBackgroundColor
         button.setTitleColor(Constants.buttonFontColor, for: .normal)
@@ -47,7 +47,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         return button
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         setup()
         layout()
@@ -55,7 +55,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         buttonTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
         buttonTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true

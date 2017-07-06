@@ -23,8 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().isEnableAutoToolbar = false
         BuddyBuildSDK.setup()
 
-
-        if let _ = NSClassFromString("XCTest") {
+        if NSClassFromString("XCTest") != nil {
             let window = UIWindow(frame: UIScreen.main.bounds)
             let rootViewController = UIViewController()
             window.rootViewController = rootViewController
@@ -59,6 +58,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

@@ -21,7 +21,7 @@ class WalkthroughMapViewController: UIViewController {
         return map
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -29,7 +29,7 @@ class WalkthroughMapViewController: UIViewController {
         setMapRegion()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.addSubviewWithAutolayout(mapView)
         

@@ -10,7 +10,8 @@ target 'HiringApp' do
   pod 'HiringAppCore', :path => 'HiringAppCore'
   pod 'IQKeyboardManager'
   pod 'BWWalkthrough'
-  pod ‘R.swift’
+  pod 'R.swift'
+  pod 'SwiftLint'
 
 
   target 'HiringAppTests' do

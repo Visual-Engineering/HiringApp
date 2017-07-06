@@ -18,14 +18,14 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         return imageView
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         layout()
 
         super.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
         
