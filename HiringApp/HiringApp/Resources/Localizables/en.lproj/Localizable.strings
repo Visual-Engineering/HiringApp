@@ -12,6 +12,8 @@
 
 "error_message" = "An error occured. Please, try again!";
 
+"which_technology" = "Pick a technology";
+
 
 /**********  Contact form  **********/
 

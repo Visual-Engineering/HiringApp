@@ -12,7 +12,13 @@
     [error_message]
 	en = An error occured. Please, try again!
 	es = Ha ocurrido un error. Por favor, inténtalo de nuevo.
-	tags = ios 
+	tags = ios
+
+    [which_technology]
+	en = Pick a technology
+	es = ¿Cual es tu technología?
+	tags = ios
+	 
 
 [[ Contact form ]]
     [cf_title]
