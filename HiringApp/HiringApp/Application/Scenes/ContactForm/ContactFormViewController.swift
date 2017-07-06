@@ -31,12 +31,7 @@ private enum Constants {
     static let formLabelTextColor: UIColor = .black
     static let wrongInputColor: UIColor = .red
     static let correctInputColor: UIColor = .darkGray
-    
-    // Text
-    static let titleLabelText = R.string.localizable.cf_title()
-    static let textFieldsPlaceholder = R.string.localizable.cf_placeholder()
-    static let buttonText = R.string.localizable.cf_send()
-    
+        
     // Constraints
     static let verticalStackViewVerticalInsets: CGFloat = 10.0
     static let verticalStackViewSpacing: CGFloat = 20.0
@@ -62,7 +57,7 @@ class ContactFormViewController: UIViewController {
         lbl.textColor = Constants.titleLabelTextColor
         lbl.backgroundColor = Constants.brandBlue
         lbl.style = Style.title3
-        lbl.styledText = Constants.titleLabelText
+        lbl.styledText = R.string.localizable.cf_title()
         lbl.numberOfLines = 0
         lbl.textAlignment = .center
         lbl.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +85,7 @@ class ContactFormViewController: UIViewController {
     lazy var sendButton: RoundedButton = {
         let button = RoundedButton()
         button.style = Style.headline
-        button.styledText = Constants.buttonText
+        button.styledText = R.string.localizable.cf_send()
         button.setStyledTitleColor(Constants.brandBlue)
         button.backgroundColor = Constants.stackViewBackgroundColor
         button.isEnabled = false
@@ -297,7 +292,7 @@ extension UITextField {
         self.backgroundColor = Constants.stackViewBackgroundColor
         self.textAlignment = .left
         self.style = .body
-        self.placeholder = Constants.textFieldsPlaceholder
+        self.placeholder = R.string.localizable.cf_placeholder()
         self.textColor = Constants.correctInputColor
         self.delegate = delegate
         self.returnKeyType = .done

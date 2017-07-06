@@ -15,11 +15,7 @@ private enum Constants {
     static let buttonTextColor: UIColor = .white
     static let labelBackgroundColor: UIColor = .clear
     static let buttonBackgroundColor: UIColor = .white
-    
-    // Text
-    static let labelText = R.string.localizable.cf_formSentTitle()
-    static let buttonTitleText = R.string.localizable.cf_formSentButton()
-    
+        
     // Constraints
     static let labelWidthMultiplier: CGFloat = 0.8
     static let buttonTopMargin: CGFloat = 50.0
@@ -31,7 +27,7 @@ class ContactFormSentViewController: UIViewController {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = Constants.labelText
+        label.text = R.string.localizable.cf_formSentTitle()
         label.style = Style.title3
         label.backgroundColor = Constants.labelBackgroundColor
         label.textColor = Constants.buttonTextColor
@@ -43,7 +39,7 @@ class ContactFormSentViewController: UIViewController {
     
     let button: RoundedButton = {
         let button = RoundedButton()
-        button.styledText = Constants.buttonTitleText
+        button.styledText = R.string.localizable.cf_formSentButton()
         button.setStyledTitleColor(Constants.brandBlue)
         button.isEnabled = true
         button.backgroundColor = Constants.buttonBackgroundColor
