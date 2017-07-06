@@ -13,7 +13,6 @@ import Foundation
 extension CandidateModel {
     static var fake: CandidateModel {
         return CandidateModel(
-            id: 19238,
             name: "Alejandro",
             lastname: "García",
             linkedin: "https://www.linkedin.com/...",

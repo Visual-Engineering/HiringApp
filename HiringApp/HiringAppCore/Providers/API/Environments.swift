@@ -11,6 +11,7 @@ import BSWFoundation
 
 enum EnvironmentType {
     case development
+    case mock
 }
 
 extension EnvironmentType: Environment {
@@ -19,6 +20,8 @@ extension EnvironmentType: Environment {
         switch self {
         case .development:
             return "http://private-60454-visualtestapp.apiary-mock.com"
+        case .mock:
+            return "http://private-anon-2adaf77503-visualtestapp.apiary-mock.com"
         }
     }
 }

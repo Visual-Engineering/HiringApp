@@ -23,7 +23,7 @@ extension AppEndpoints: Endpoint {
         case .technologies:
             return "/technologies"
         case .candidate:
-            return "/contact"
+            return "/user/me"
         case .authenticate:
             return "/users"
         case .topics(let technologyId):
@@ -35,8 +35,10 @@ extension AppEndpoints: Endpoint {
         switch self {
         case .technologies, .topics:
             return .GET
-        case .candidate, .authenticate:
+        case .authenticate:
             return .POST
+        case .candidate:
+            return .PATCH
         }
     }
     

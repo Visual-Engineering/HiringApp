@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IQKeyboardManager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared().isEnableAutoToolbar = false
+        BuddyBuildSDK.setup()
+
 
         if let _ = NSClassFromString("XCTest") {
             let window = UIWindow(frame: UIScreen.main.bounds)
@@ -24,9 +31,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window.backgroundColor = .white
             window.makeKeyAndVisible()
             self.window = window
-            
-            BuddyBuildSDK.setup()
-
             return true
         } else {
             return appManager.application(application, didFinishLaunchingWithOptions: launchOptions)
