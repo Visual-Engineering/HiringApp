@@ -87,8 +87,8 @@ class ContactFormViewController: UIViewController {
         return stack
     }()
     
-    lazy var sendButton: UIButton = {
-        let button = UIButton()
+    lazy var sendButton: RoundedButton = {
+        let button = RoundedButton()
         button.style = Style.headline
         button.styledText = Constants.buttonText
         button.setStyledTitleColor(Constants.brandBlue)
@@ -130,11 +130,6 @@ class ContactFormViewController: UIViewController {
         presenter.viewDidLoad()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        sendButton.layer.cornerRadius = sendButton.frame.size.height * Constants.sendButtonCornerRadiusMultiplier
-    }
-
     //MARK: - Private API
     
     private func createFields() {
@@ -266,8 +261,6 @@ extension ContactFormViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        
-        
         guard let nextTextField = view.viewWithTag(textField.tag + 1) as? UITextField else {
             textField.resignFirstResponder()
             return false
@@ -332,9 +325,14 @@ extension UIStackView {
         addArrangedSubview(formLabel)
         addArrangedSubview(textField)
         
-        formLabel.widthAnchor.constraint(
-            equalTo: widthAnchor,
-            multiplier: Constants.formLabelWidthMultiplier
-            ).isActive = true
+        NSLayoutConstraint.activate([
+            formLabel.widthAnchor.constraint(
+                equalTo: widthAnchor,
+                multiplier: Constants.formLabelWidthMultiplier),
+            formLabel.leadingAnchor.constraint(
+                equalTo: leadingAnchor,
+                constant: Constants.horizontalStackViewSidesMargin)
+            ])
+        
     }
 }

@@ -12,6 +12,7 @@ import HiringAppCore
 
 protocol TechnologiesPresenterProtocol {
     func viewDidLoad()
+    func didClickOnTechnology(index: Int)
 }
 
 protocol TechnologiesInteractorProtocol {
@@ -23,7 +24,7 @@ protocol TechnologiesUserInterfaceProtocol: class {
 }
 
 protocol TechnologiesRouterProtocol {
-    func navigateToNextScene()
+    func navigateToNextScene(selectedTechnology: TechnologyViewModel)
 }
 
 class TechnologiesBuilder {

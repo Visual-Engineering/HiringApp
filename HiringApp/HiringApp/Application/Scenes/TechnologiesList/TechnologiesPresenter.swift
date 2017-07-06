@@ -62,4 +62,10 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
                 }
         }
     }
+    
+    func didClickOnTechnology(index: Int) {
+        guard let technology = viewModel?.techs[index] else { return }
+        router.navigateToNextScene(selectedTechnology: technology)
+    }
+
 }

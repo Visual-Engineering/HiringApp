@@ -41,8 +41,8 @@ class ContactFormSentViewController: UIViewController {
         return label
     }()
     
-    let button: UIButton = {
-        let button = UIButton()
+    let button: RoundedButton = {
+        let button = RoundedButton()
         button.styledText = Constants.buttonTitleText
         button.setStyledTitleColor(Constants.brandBlue)
         button.isEnabled = true
@@ -71,13 +71,29 @@ class ContactFormSentViewController: UIViewController {
         view.addSubview(label)
         view.addSubview(button)
         
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.labelWidthMultiplier).isActive = true
+        NSLayoutConstraint.activate([
+            label.centerYAnchor.constraint(
+                equalTo: view.centerYAnchor),
+            label.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor),
+            label.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: Constants.labelWidthMultiplier)
+            ])
         
-        button.topAnchor.constraint(equalTo: label.bottomAnchor, constant: Constants.buttonTopMargin).isActive = true
-        button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.heightAnchor.constraint(equalToConstant: Constants.buttonHeightConstant).isActive = true
-        button.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: Constants.buttonWidthMultiplier).isActive = true
+        NSLayoutConstraint.activate([
+            button.topAnchor.constraint(
+                equalTo: label.bottomAnchor,
+                constant: Constants.buttonTopMargin),
+            button.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor),
+            button.heightAnchor.constraint(
+                equalToConstant: Constants.buttonHeightConstant),
+            button.widthAnchor.constraint(
+                equalTo: view.widthAnchor,
+                multiplier: Constants.buttonWidthMultiplier)
+            ])
+        
+        
     }
 }

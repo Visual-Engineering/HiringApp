@@ -1,14 +1,21 @@
 //
-//  UIButton.swift
+//  RoundedButton.swift
 //  HiringApp
 //
-//  Created by Margareta Kusan on 03/07/2017.
+//  Created by Margareta Kusan on 06/07/2017.
 //  Copyright © 2017 Visual Engineering. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
-extension UIButton {
+class RoundedButton: UIButton {
+    
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        self.layer.cornerRadius = rect.height * 0.5
+        self.clipsToBounds = true
+    }
+    
     override open var isHighlighted: Bool {
         didSet {
             if isHighlighted {

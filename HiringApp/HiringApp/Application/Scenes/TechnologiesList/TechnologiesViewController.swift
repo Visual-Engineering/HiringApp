@@ -46,6 +46,17 @@ class TechnologiesViewController: UIViewController {
         layout()
         presenter.viewDidLoad()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.navigationBar.isHidden = false
+    }
+
 
     //MARK: - Private API
     private func layout() {
@@ -55,12 +66,29 @@ class TechnologiesViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(technologiesStackView)
         
-        titleLabel.topAnchor(equalTo: topLayoutGuide.bottomAnchor, constant: Constants.titleTopMargin)
-        titleLabel.centerXAnchor(equalTo: view.centerXAnchor)
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(
+                equalTo: topLayoutGuide.bottomAnchor,
+                constant: Constants.titleTopMargin),
+            titleLabel.centerXAnchor.constraint(
+                equalTo: view.centerXAnchor)
+            ])
         
-        technologiesStackView.topAnchor(equalTo: titleLabel.bottomAnchor, constant: Constants.stackViewTopMargin)
-        technologiesStackView.leadingAnchor(equalTo: view.leadingAnchor, constant: Constants.stackViewHorizontalMargin)
-        technologiesStackView.trailingAnchor(equalTo: view.trailingAnchor, constant: -Constants.stackViewHorizontalMargin)
+        
+        
+        NSLayoutConstraint.activate([
+            technologiesStackView.topAnchor.constraint(
+                equalTo: titleLabel.bottomAnchor,
+                constant: Constants.stackViewTopMargin),
+            technologiesStackView.leadingAnchor.constraint(
+                equalTo: view.leadingAnchor,
+                constant: Constants.stackViewHorizontalMargin),
+            technologiesStackView.trailingAnchor.constraint(
+                equalTo: view.trailingAnchor,
+                constant: -Constants.stackViewHorizontalMargin)
+            ])
+        
+        
     }
 }
 
@@ -71,13 +99,19 @@ extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
         
         titleLabel.text = viewModel.title
         
-        viewModel.techs.forEach { (technology) in
-            let button = UIButton()
+        for (index, technology) in viewModel.techs.enumerated() {
+            let button = RoundedButton()
             button.setTitle(technology.title, for: .normal)
             button.backgroundColor = Constants.brandWhite
             button.setTitleColor(Constants.brandBlue, for: .normal)
+            button.tag = index
+            button.addTarget(self, action: #selector(technologyTapped), for: .touchUpInside)
             technologiesStackView.addArrangedSubview(button)
         }
+    }
+
+    func technologyTapped(sender: UIButton) {
+        presenter.didClickOnTechnology(index: sender.tag)
     }
 }
 
