@@ -14,6 +14,8 @@ type_body_length:
   warning: 300
   error: 400
 identifier_name:
+  allowed_symbols:
+    - _
   excluded:
     - id
     - URL
@@ -22,4 +24,5 @@ cyclomatic_complexity:
 included:
   - HiringApp/
 excluded:
+  - HiringApp/Resources/Localizables
   - Pods/

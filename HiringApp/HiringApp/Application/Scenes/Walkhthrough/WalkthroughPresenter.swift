@@ -31,16 +31,16 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
     }
     
     func configureWalkthoughContainer() {
-        guard let walkViewController = view.walkthroughViewController else { return }
         let storyboard = UIStoryboard(name: "Walkthrough", bundle: nil)
-        
-        let pageOneViewController = storyboard.instantiateViewController(withIdentifier: "page_1")
-        let pageTwoViewController = storyboard.instantiateViewController(withIdentifier: "page_2")
-        
-        guard let pageThreeViewController = storyboard.instantiateViewController(withIdentifier: "page_3") as? WalkthroughPageThreeViewController else { return }
+
+        guard let walkViewController = view.walkthroughViewController,
+              let pageOneViewController = storyboard.instantiateViewController(withIdentifier: "page_1") as? BWWalkthroughPageViewController,
+              let pageTwoViewController = storyboard.instantiateViewController(withIdentifier: "page_2") as? BWWalkthroughPageViewController,
+              let pageThreeViewController = storyboard.instantiateViewController(withIdentifier: "page_3") as? WalkthroughPageThreeViewController,
+              let pageFourViewController = storyboard.instantiateViewController(withIdentifier: "page_4") as? WalkthroughPageFourViewController
+        else { return }
+
         pageThreeViewController.router = router
-        
-        guard let pageFourViewController = storyboard.instantiateViewController(withIdentifier: "page_4") as? WalkthroughPageFourViewController else { return }
         pageFourViewController.router = router
         
         walkViewController.pageControl?.numberOfPages = 4
@@ -49,8 +49,8 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
         walkViewController.add(viewController: pageThreeViewController)
         walkViewController.add(viewController: pageFourViewController)
         
-        viewControllers.append(pageOneViewController as! BWWalkthroughPageViewController)
-        viewControllers.append(pageTwoViewController as! BWWalkthroughPageViewController)
+        viewControllers.append(pageOneViewController)
+        viewControllers.append(pageTwoViewController)
         viewControllers.append(pageThreeViewController)
         viewControllers.append(pageFourViewController)
     }
