@@ -11,7 +11,7 @@ import BWWalkthrough
 
 class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
-    var router: WalkthroughRouter?
+    weak var delegate: WalkthoughViewControllerDelegate?
     
     enum Constants {
         static let labelsTextColor: UIColor = .white
@@ -26,14 +26,9 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     }
     
     let labelTop : UILabel = {
+        //MARK: TODO - Localize this string
         let label = UILabel()
-        // MARK: TODO - Localize this string
-        label.text = "¿Dónde estamos?"
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.topLabelFontSize)
-        label.numberOfLines = 1
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.textColor = Constants.labelsTextColor
+        LabelHelper.Walkthrough.setup(label: label, type: .title, text: "¿Dónde estamos?")
         return label
     }()
     
@@ -47,27 +42,35 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     
     let labelBottom : UILabel = {
         let label = UILabel()
-        // MARK: TODO - Localize this string
-        label.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.bottomLabelFontSize)
-        label.numberOfLines = 3
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.textColor = Constants.labelsTextColor
+        //MARK: TODO - Localize this string
+        LabelHelper.Walkthrough.setup(label: label, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         return label
     }()
     
-    // MARK: - View lifecycle
+    //MARK: - View lifecycle
     override func viewDidLoad() {
+        setupWalkthroughTransitionValues()
         setup()
         layout()
         
         super.viewDidLoad()
     }
     
-    // MARK: - Private API
+    //MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
+    }
+    
+    private func setupWalkthroughTransitionValues(){
+        let speed = CGPoint(x: 0.1, y: 0)
+        let speedVariance = CGPoint(x:3, y: 0)
+        let animationType = "Linear"
+        let animateAlpha = true
+        
+        self.setValue(speed, forKey: "speed")
+        self.setValue(speedVariance, forKey: "speedVariance")
+        self.setValue(animationType, forKey: "animationType")
+        self.setValue(animateAlpha, forKey: "animateAlpha")
     }
     
     private func setup() {
@@ -96,6 +99,6 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
 
 extension WalkthroughPageThreeViewController {
     func didTapOnMap() {
-        router?.showModalMap()
+        delegate?.didClickOnMap()
     }
 }

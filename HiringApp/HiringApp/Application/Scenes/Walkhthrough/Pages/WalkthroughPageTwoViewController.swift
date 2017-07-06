@@ -27,8 +27,9 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     
     private let arrayStringLogos = ["apple-logo","android-logo","windowsp-logo","js-logo"]
     
-    // MARK: - View lifecycle
+    //MARK: - View lifecycle
     override func viewDidLoad() {
+        setupWalkthroughTransitionValues()
         configureLabels()
         configureIcons()
         layout()
@@ -36,31 +37,46 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
 
-    // MARK: - Private API
+    //MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
         
         edgesForExtendedLayout = []
     }
     
+    private func setupWalkthroughTransitionValues(){
+        let speed = CGPoint(x: 0.1, y: 0)
+        let speedVariance = CGPoint(x:3, y: 0)
+        let animationType = "Linear"
+        let animateAlpha = true
+        
+        self.setValue(speed, forKey: "speed")
+        self.setValue(speedVariance, forKey: "speedVariance")
+        self.setValue(animationType, forKey: "animationType")
+        self.setValue(animateAlpha, forKey: "animateAlpha")
+    }
+    
     private func configureLabels() {
-        // MARK: TODO - Localize this string
-        let labelTopTitle = self.getLabelTitleWithText("¿Quiénes somos?")
+        //MARK: TODO - Localize this string
+        let labelTopTitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: "¿Quiénes somos?")
         view.addSubviewWithAutolayout(labelTopTitle)
 
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
-        // MARK: TODO - Localize this string
-        let labelTopSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        //MARK: TODO - Localize this string
+        let labelTopSubtitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
         view.addSubviewWithAutolayout(labelTopSubtitle)
 
         labelTopSubtitle.topAnchor.constraint(equalTo: labelTopTitle.bottomAnchor, constant: 20).isActive = true
         labelTopSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
-        // MARK: TODO - Localize this string
-        let labelMiddleTitle = self.getLabelTitleWithText("¿Qué hacemos?")
+        //MARK: TODO - Localize this string
+        let labelMiddleTitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: "¿Qué hacemos?")
         view.addSubviewWithAutolayout(labelMiddleTitle)
 
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
@@ -68,8 +84,10 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelMiddleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
         labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        // MARK: TODO - Localize this string
-        labelMiddleSubtitle = self.getLabelSubtitleWithText("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        //MARK: TODO - Localize this string
+        labelMiddleSubtitle = UILabel()
+        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
 
         labelMiddleSubtitle.topAnchor.constraint(equalTo: labelMiddleTitle.bottomAnchor, constant: 20).isActive = true
@@ -78,7 +96,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     }
     
     private func configureIcons() {
-        let arrayImageLogos = getArrayImagesLogos()
+        let arrayImageLogos = createArrayImagesLogos()
         
         for (index,logo) in arrayImageLogos.enumerated() {
             view.addSubviewWithAutolayout(logo)
@@ -109,30 +127,8 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         logo.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
         logo.heightAnchor.constraint(equalToConstant: self.view.frame.width * 0.17).isActive = true
     }
-    
-    private func getLabelTitleWithText(_ text: String) -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 1
-        label.textColor = Constants.labelsTextColor
-        label.text = text
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.titleLabelsFontSize)
-        return label
-    }
-    
-    private func getLabelSubtitleWithText(_ text: String) -> UILabel {
-        let label = UILabel()
-        label.numberOfLines = 3
-        label.textColor = Constants.labelsTextColor
-        label.text = text
-        label.sizeToFit()
-        label.textAlignment = .center
-        label.font = UIFont(name: Constants.labelsFontType, size: Constants.subtitleLabelsFontSize)
-        return label
-    }
-    
-    private func getArrayImagesLogos() -> [UIImageView] {
+
+    private func createArrayImagesLogos() -> [UIImageView] {
         var arrayLogos = [UIImageView]()
         for nameLogo in arrayStringLogos {
             let image = UIImage(named: nameLogo)
