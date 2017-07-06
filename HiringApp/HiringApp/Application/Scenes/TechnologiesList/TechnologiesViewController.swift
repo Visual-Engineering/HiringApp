@@ -23,7 +23,7 @@ class TechnologiesViewController: UIViewController {
     //MARK: - Stored properties
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = ""
+        label.text = R.string.localizable.which_technology()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.brandWhite
         return label
@@ -96,9 +96,7 @@ extension TechnologiesViewController: TechnologiesUserInterfaceProtocol {
     func configureFor(viewModel: TechnologiesViewModel) {
         
         technologiesStackView.clear()
-        
-        titleLabel.text = viewModel.title
-        
+                
         for (index, technology) in viewModel.techs.enumerated() {
             let button = RoundedButton()
             button.setTitle(technology.title, for: .normal)

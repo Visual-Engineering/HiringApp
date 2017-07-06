@@ -205,10 +205,7 @@ class ContactFormSnapshoTestCase: SnapshotTestCase {
         
         // Given
         let repository = RepositoryFake()
-        guard let interactor = ContactFormInteractor(repository: repository) else {
-            XCTAssert(false)
-            return
-        }
+        let interactor = ContactFormInteractor(repository: repository)
         
         // When
         _ = interactor.sendContactFormData(candidate: candidate)

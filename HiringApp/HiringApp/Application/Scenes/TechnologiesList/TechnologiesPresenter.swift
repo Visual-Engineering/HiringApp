@@ -56,7 +56,7 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
                 case .failure(let error):
                     strongSelf.state = .error(error)
                 case .success(let vm):
-                    let viewModel = TechnologiesViewModel(title: R.string.localizable.which_technology(), techs: vm)
+                    let viewModel = TechnologiesViewModel(techs: vm)
                     strongSelf.viewModel = viewModel
                     strongSelf.view.configureFor(viewModel: viewModel)
                 }

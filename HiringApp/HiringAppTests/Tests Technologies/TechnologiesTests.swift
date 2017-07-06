@@ -121,10 +121,7 @@ class TechnologiesTests: SnapshotTestCase {
         let repository = RepositoryFake()
         
         // Given
-        guard let interactor = TechnologiesInteractor(repository: repository) else {
-            XCTAssert(false)
-            return
-        }
+        let interactor = TechnologiesInteractor(repository: repository)
         
         // When
         let data = interactor.retrieveData()
