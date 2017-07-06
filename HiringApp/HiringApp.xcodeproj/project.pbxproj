@@ -19,12 +19,8 @@
 		7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9861F0A5518005A68A8 /* TechnologiesViewController.swift */; };
 		7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9871F0A5518005A68A8 /* TechnologiesViewModel.swift */; };
 		7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9901F0A5682005A68A8 /* WalkthroughMapViewController.swift */; };
-		7801E99C1F0A5682005A68A8 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */; };
 		7801E99D1F0A5682005A68A8 /* Walkthrough.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */; };
 		7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */; };
-		7801E9A01F0A5682005A68A8 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */; };
-		7801E9A11F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */; };
-		7801E9A21F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */; };
 		7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */; };
 		7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */; };
 		7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */; };
@@ -72,6 +68,12 @@
 		E438D5451F0CD31900589167 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5441F0CD31900589167 /* Utils.swift */; };
 		E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5461F0CD59700589167 /* LabelHelper.swift */; };
 		E438D5491F0CD75500589167 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5481F0CD75500589167 /* UIColor.swift */; };
+		E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */; };
+		E4BEC6C51F0D2AAB00136778 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */; };
+		E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */; };
+		E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */; };
+		E4BEC6C91F0D2BF600136778 /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */; };
+		E4BEC6CB1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,12 +128,8 @@
 		7801E9861F0A5518005A68A8 /* TechnologiesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewController.swift; sourceTree = "<group>"; };
 		7801E9871F0A5518005A68A8 /* TechnologiesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TechnologiesViewModel.swift; sourceTree = "<group>"; };
 		7801E9901F0A5682005A68A8 /* WalkthroughMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughMapViewController.swift; sourceTree = "<group>"; };
-		7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
 		7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Walkthrough.storyboard; sourceTree = "<group>"; };
 		7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughBuilder.swift; sourceTree = "<group>"; };
-		7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
-		7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
-		7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
 		7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPresenter.swift; sourceTree = "<group>"; };
 		7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughRouter.swift; sourceTree = "<group>"; };
 		7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +190,12 @@
 		E438D5441F0CD31900589167 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E438D5461F0CD59700589167 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
 		E438D5481F0CD75500589167 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
+		E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
+		E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
+		E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
+		E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughTests.swift; path = "Test Walkthrough /WalkthroughTests.swift"; sourceTree = "<group>"; };
+		E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughSnapshotTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,14 +266,11 @@
 		7801E98E1F0A5682005A68A8 /* Walkhthrough */ = {
 			isa = PBXGroup;
 			children = (
+				E4BEC6BF1F0D2AAB00136778 /* Pages */,
 				7801E98F1F0A5682005A68A8 /* Map controller */,
 				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
 				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
 				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,
-				7801E9951F0A5682005A68A8 /* WalkthroughPageFourViewController.swift */,
-				7801E9961F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift */,
-				7801E9971F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift */,
-				7801E9911F0A5682005A68A8 /* WakthroughPageOneViewController.swift */,
 				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
 				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
 			);
@@ -327,6 +328,8 @@
 		780490CF1EF184E200D03BEA /* HiringAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */,
+				E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */,
 				E4BEC6BD1F0D13D100136778 /* Test Walkthrough  */,
 				6E3FEB5B1F050D7B00D78426 /* Fake models */,
 				8A5894981F04EB0F0096F59B /* Test technologies */,
@@ -494,6 +497,17 @@
 			children = (
 			);
 			name = "Test Walkthrough ";
+			sourceTree = "<group>";
+		};
+		E4BEC6BF1F0D2AAB00136778 /* Pages */ = {
+			isa = PBXGroup;
+			children = (
+				E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */,
+				E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */,
+				E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */,
+				E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */,
+			);
+			path = Pages;
 			sourceTree = "<group>";
 		};
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
@@ -837,6 +851,7 @@
 			files = (
 				7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */,
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
+				E4BEC6C51F0D2AAB00136778 /* WalkthroughPageFourViewController.swift in Sources */,
 				7801E9881F0A5518005A68A8 /* TechnologiesBuilder.swift in Sources */,
 				B24D167C1F03D0660030D5C2 /* ContactFormViewModel.swift in Sources */,
 				E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */,
@@ -844,24 +859,24 @@
 				B24D16791F03D0650030D5C2 /* ContactFormPresenter.swift in Sources */,
 				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
 				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
-				7801E9A21F0A5682005A68A8 /* WalkthroughPageTwoViewController.swift in Sources */,
+				E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */,
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
 				E438D5451F0CD31900589167 /* Utils.swift in Sources */,
 				780490F11EF1884100D03BEA /* AppRootViewController.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
 				B24D16771F03D0650030D5C2 /* ContactFormBuilder.swift in Sources */,
-				7801E99C1F0A5682005A68A8 /* WakthroughPageOneViewController.swift in Sources */,
-				7801E9A01F0A5682005A68A8 /* WalkthroughPageFourViewController.swift in Sources */,
 				B24D167A1F03D0650030D5C2 /* ContactFormRouter.swift in Sources */,
 				8D7FCA781F01487A0049DFA8 /* Typeface.swift in Sources */,
 				780490BE1EF184E200D03BEA /* ViewController.swift in Sources */,
 				780490F71EF189B300D03BEA /* AppManager.swift in Sources */,
+				E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */,
 				B24D16781F03D0650030D5C2 /* ContactFormInteractor.swift in Sources */,
 				E438D5491F0CD75500589167 /* UIColor.swift in Sources */,
 				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
 				780490F51EF1894A00D03BEA /* AppRouter.swift in Sources */,
 				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,
 				B24D167B1F03D0650030D5C2 /* ContactFormViewController.swift in Sources */,
+				E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */,
 				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
 				8A5894AB1F04EC0D0096F59B /* UIStackView+Utilities.swift in Sources */,
 				7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */,
@@ -870,7 +885,6 @@
 				B24D16701F03D0450030D5C2 /* Scene+Common.swift in Sources */,
 				7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */,
 				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,
-				7801E9A11F0A5682005A68A8 /* WalkthroughPageThreeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -880,9 +894,11 @@
 			files = (
 				6E3FEB6A1F0559E800D78426 /* TechnologiesViewModel+Fake.swift in Sources */,
 				B24D166D1F03CDD90030D5C2 /* ContactFormSnapshoTestCase.swift in Sources */,
+				E4BEC6C91F0D2BF600136778 /* WalkthroughTests.swift in Sources */,
 				B24D166B1F03CAED0030D5C2 /* SnapshotTestCase.swift in Sources */,
 				6E3FEB5E1F05131000D78426 /* TechnologyModel+Fake.swift in Sources */,
 				8A58949A1F04EB390096F59B /* TechnologiesTests.swift in Sources */,
+				E4BEC6CB1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

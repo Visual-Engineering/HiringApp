@@ -18,7 +18,7 @@ protocol WalkthoughViewControllerDelegate: class {
 class WalkthroughViewController: BWWalkthroughViewController {
 
     //MARK: - Stored properties
-    var presenter: WalkthroughPresenter!
+    var presenter: WalkthroughPresenterProtocol!
     
     @IBOutlet weak var pageControlWalkthrough: UIPageControl!
     
@@ -35,10 +35,8 @@ class WalkthroughViewController: BWWalkthroughViewController {
         navigationController?.navigationBar.isHidden = true
         edgesForExtendedLayout = []
     }
-}
-
-extension WalkthroughViewController : WalkthroughUserInterfaceProtocol {
-    func configurePages() {
+    
+    private func configurePages() {
         let pageOneViewController = WalkthroughPageOneViewController()
         let pageTwoViewController = WalkthroughPageTwoViewController()
         
@@ -54,6 +52,10 @@ extension WalkthroughViewController : WalkthroughUserInterfaceProtocol {
         add(viewController: pageThreeViewController)
         add(viewController: pageFourViewController)
     }
+}
+
+extension WalkthroughViewController : WalkthroughUserInterfaceProtocol {
+    
 }
 
 extension WalkthroughViewController: WalkthoughViewControllerDelegate {

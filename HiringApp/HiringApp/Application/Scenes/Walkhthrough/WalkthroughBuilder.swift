@@ -15,9 +15,7 @@ protocol WalkthroughPresenterProtocol {
     func didClickOnWorkWithUs()
 }
 
-protocol WalkthroughUserInterfaceProtocol: class {
-    func configurePages()
-}
+protocol WalkthroughUserInterfaceProtocol: class {}
 
 protocol WalkthroughRouterProtocol {
     func navigateToNextScene()

@@ -25,7 +25,7 @@ class WalkthroughPresenter {
 extension WalkthroughPresenter: WalkthroughPresenterProtocol {
 
     func viewDidLoad() {
-        
+
     }
     
     func didClickOnMap() {
