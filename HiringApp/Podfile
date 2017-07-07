@@ -12,7 +12,9 @@ target 'HiringApp' do
   pod 'BWWalkthrough'
   pod 'R.swift'
   pod 'SwiftLint'
-
+  pod 'Firebase/Core'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
   target 'HiringAppTests' do
     inherit! :search_paths
