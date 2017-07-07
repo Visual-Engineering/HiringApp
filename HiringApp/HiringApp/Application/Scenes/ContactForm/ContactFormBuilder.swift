@@ -35,8 +35,8 @@ protocol ContactFormRouterProtocol {
 
 class ContactFormBuilder {
 
-    // MARK: - Configuration
-    static func build() -> ContactFormViewController? {
+    //MARK: - Configuration
+    static func build() -> ContactFormViewController {
         let viewController = ContactFormViewController()
         let router = ContactFormRouter(view: viewController)
         let interactor = ContactFormInteractor(repository: ContactFormRepository())

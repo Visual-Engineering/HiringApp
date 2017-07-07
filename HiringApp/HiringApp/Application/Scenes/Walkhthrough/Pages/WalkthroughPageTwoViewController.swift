@@ -25,9 +25,9 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         static let subtitleLabelsFontSize: CGFloat = 14.0
     }
     
-    private let arrayStringLogos = ["apple-logo", "android-logo", "windowsp-logo", "js-logo"]
+    private let arrayStringLogos = ["apple-logo","android-logo","windowsp-logo","js-logo"]
     
-    // MARK: - View lifecycle
+    //MARK: - View lifecycle
     override func viewDidLoad() {
         setupWalkthroughTransitionValues()
         configureLabels()
@@ -37,14 +37,14 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
 
-    // MARK: - Private API
+    //MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
         
         edgesForExtendedLayout = []
     }
     
-    private func setupWalkthroughTransitionValues() {
+    private func setupWalkthroughTransitionValues(){
         let speed = CGPoint(x: 0.1, y: 0)
         let speedVariance = CGPoint(x:3, y: 0)
         let animationType = "Linear"
@@ -57,26 +57,25 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     }
     
     private func configureLabels() {
-        // MARK: TODO - Localize this string
         let labelTopTitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: "¿Quiénes somos?")
+        LabelHelper.Walkthrough.setup(label: labelTopTitle, type: .title, text: R.string.localizable.walkthrough_title1())
         view.addSubviewWithAutolayout(labelTopTitle)
 
         labelTopTitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
-        // MARK: TODO - Localize this string
+        //MARK: TODO - Localize this string
         let labelTopSubtitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        LabelHelper.Walkthrough.setup(label: labelTopSubtitle, type: .subtitle, text: R.string.localizable.walkthrough_subtitles1())
         view.addSubviewWithAutolayout(labelTopSubtitle)
 
         labelTopSubtitle.topAnchor.constraint(equalTo: labelTopTitle.bottomAnchor, constant: 20).isActive = true
         labelTopSubtitle.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: view.frame.width * CGFloat(0.1)).isActive = true
         labelTopSubtitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
 
-        // MARK: TODO - Localize this string
+        //MARK: TODO - Localize this string
         let labelMiddleTitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: "¿Qué hacemos?")
+        LabelHelper.Walkthrough.setup(label: labelMiddleTitle, type: .title, text: R.string.localizable.walkthrough_title2())
         view.addSubviewWithAutolayout(labelMiddleTitle)
 
         labelMiddleTitle.topAnchor.constraint(equalTo: labelTopSubtitle.bottomAnchor, constant: 20).isActive = true
@@ -84,9 +83,9 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         labelMiddleTitle.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -(view.frame.width * CGFloat(0.1))).isActive = true
         labelMiddleTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
 
-        // MARK: TODO - Localize this string
+        //MARK: TODO - Localize this string
         labelMiddleSubtitle = UILabel()
-        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.")
+        LabelHelper.Walkthrough.setup(label: labelMiddleSubtitle, type: .subtitle, text: R.string.localizable.walkthrough_subtitles2())
 
         view.addSubviewWithAutolayout(labelMiddleSubtitle)
 
@@ -98,7 +97,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
     private func configureIcons() {
         let arrayImageLogos = createArrayImagesLogos()
         
-        for (index, logo) in arrayImageLogos.enumerated() {
+        for (index,logo) in arrayImageLogos.enumerated() {
             view.addSubviewWithAutolayout(logo)
             
             var previousImageShown = UIImageView()
@@ -116,7 +115,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         }
     }
     
-    private func addLogoConstraints(logo: UIImageView, index: Int, constantLeadingAnchor: CGFloat, leadingAnchor: NSLayoutXAxisAnchor) {
+    private func addLogoConstraints(logo: UIImageView, index: Int, constantLeadingAnchor: CGFloat, leadingAnchor: NSLayoutXAxisAnchor){
         if index > 0 {
             logo.leadingAnchor.constraint(equalTo: leadingAnchor, constant: constantLeadingAnchor).isActive = true
             if index == 1 {
