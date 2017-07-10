@@ -29,6 +29,7 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     
     func showModalMap() {
         let mapViewController = WalkthroughMapViewController()
+        mapViewController.delegate = view
         let navigationController = UINavigationController(rootViewController: mapViewController)
         view.present(navigationController, animated: true)
     }

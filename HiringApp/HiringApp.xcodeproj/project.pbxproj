@@ -164,7 +164,6 @@
 		7867B83F1F0FA21E00AF86F7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7867B8401F0FA21E00AF86F7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		7867B8411F0FA21E00AF86F7 /* strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strings.txt; sourceTree = "<group>"; };
-		788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
 		7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5894991F04EB390096F59B /* TechnologiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TechnologiesTests.swift; path = "Tests Technologies/TechnologiesTests.swift"; sourceTree = "<group>"; };
 		8A5894AA1F04EC0D0096F59B /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
@@ -290,7 +289,6 @@
 				E4BEC6BF1F0D2AAB00136778 /* Pages */,
 				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
 				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
-				788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */,
 				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
 				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
 				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,
