@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0652654FE74B2F2EA5F4FB96 /* Pods_HiringAppCoreTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */; };
+		0E15D1BF1F135C9500B2B28B /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E15D1BE1F135C9500B2B28B /* AnalyticsManager.swift */; };
 		0E55BC4C1F0E4A2500C79B20 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		0E5C5C5A1F0FAE680056FFEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0E5C5C591F0FAE680056FFEC /* GoogleService-Info.plist */; };
 		499961F64855B800470B62AC /* Pods_HiringAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */; };
@@ -123,6 +124,7 @@
 		034B0441CD5C6F76FDCBD94F /* Pods-HiringApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringApp/Pods-HiringApp.debug.xcconfig"; sourceTree = "<group>"; };
 		0895AA4230E3280BEBE593BB /* Pods-HiringAppCoreTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.release.xcconfig"; sourceTree = "<group>"; };
 		0ACB5A7BA75307C18CB655DA /* Pods-HiringAppCoreTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HiringAppCoreTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HiringAppCoreTests/Pods-HiringAppCoreTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0E15D1BE1F135C9500B2B28B /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		0E5C5C591F0FAE680056FFEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		179968D7E358D834AA151D9D /* Pods_HiringApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65A0B9DE992A5283F25637AC /* Pods_HiringAppCoreTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppCoreTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -256,6 +258,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E15D1BD1F135C7300B2B28B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0E15D1BE1F135C9500B2B28B /* AnalyticsManager.swift */,
+			);
+			name = Managers;
+			path = "Reusable components/Managers";
+			sourceTree = "<group>";
+		};
 		0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,6 +391,7 @@
 				780490F41EF1894A00D03BEA /* AppRouter.swift */,
 				780490EA1EF1881F00D03BEA /* Extensions */,
 				780490EB1EF1881F00D03BEA /* Protocols */,
+				0E15D1BD1F135C7300B2B28B /* Managers */,
 				780490EC1EF1881F00D03BEA /* Reusable components */,
 				780490ED1EF1881F00D03BEA /* Scenes */,
 			);
@@ -963,6 +975,7 @@
 				8D7FCA7A1F0159970049DFA8 /* AvenirTypeface.swift in Sources */,
 				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,
 				E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */,
+				0E15D1BF1F135C9500B2B28B /* AnalyticsManager.swift in Sources */,
 				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
 				7867B8371F0F9F7300AF86F7 /* ContactFormViewModel.swift in Sources */,
 				8A5894AB1F04EC0D0096F59B /* UIStackView+Utilities.swift in Sources */,
@@ -1051,6 +1064,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1101,6 +1115,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
