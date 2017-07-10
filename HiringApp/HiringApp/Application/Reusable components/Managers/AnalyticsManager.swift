@@ -9,6 +9,20 @@
 import Foundation
 import FirebaseAnalytics
 
-class AnalyticsManager {    
+class AnalyticsManager {
     
+    static let shared = AnalyticsManager()
+    private init() {}
+    
+    func configureFirebase() {
+        FirebaseApp.configure()
+    }
+    
+    func logEventWithFirebase(name: String, parameters: [String: AnyObject]?) {
+        Analytics.logEvent(name, parameters: parameters)
+    }
+    
+    func setUserPropertyWithFirebase(object: String, name: String) {
+        Analytics.setUserProperty(object, forName: name)
+    }
 }

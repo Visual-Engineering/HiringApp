@@ -8,7 +8,6 @@
 
 import UIKit
 import IQKeyboardManager
-import Firebase
 import Fabric
 import Crashlytics
 
@@ -25,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared().shouldResignOnTouchOutside = true
         IQKeyboardManager.shared().isEnableAutoToolbar = false
         BuddyBuildSDK.setup()
-        FirebaseApp.configure()
+        AnalyticsManager.shared.configureFirebase()
         Fabric.with([Crashlytics.self])
 
         if NSClassFromString("XCTest") != nil {
