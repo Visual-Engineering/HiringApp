@@ -232,6 +232,7 @@ extension ContactFormViewController: ContactFormUserInterfaceProtocol {
 
 extension ContactFormViewController {
     func tappedSendButton() {
+        AnalyticsManager.shared.logEventWithFirebase(name: "tapped_send_button", parameters: nil)
         presenter.tappedSendButton()
     }
 }

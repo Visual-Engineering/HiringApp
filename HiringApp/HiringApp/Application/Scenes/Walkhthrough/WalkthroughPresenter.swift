@@ -33,10 +33,12 @@ extension WalkthroughPresenter: WalkthroughPresenterProtocol {
     }
     
     func didClickOnKnowMoreFromUs() {
+        AnalyticsManager.shared.logEventWithFirebase(name: "selected_more_about_us", parameters: nil)
         router.navigateToKnowMoreScene()
     }
     
     func didClickOnWorkWithUs() {
+        AnalyticsManager.shared.logEventWithFirebase(name: "selected_work_with_us", parameters: nil)
         router.navigateToWorkWithUsScene()
     }
 }

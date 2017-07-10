@@ -65,6 +65,7 @@ extension TechnologiesPresenter: TechnologiesPresenterProtocol {
     
     func didClickOnTechnology(index: Int) {
         guard let technology = viewModel?.techs[index] else { return }
+        AnalyticsManager.shared.logEventWithFirebase(name: "technology_selected", parameters: ["id": technology.id as AnyObject])
         router.navigateToNextScene(selectedTechnology: technology)
     }
 
