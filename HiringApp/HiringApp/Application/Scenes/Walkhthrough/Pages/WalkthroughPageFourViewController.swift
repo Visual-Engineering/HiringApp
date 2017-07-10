@@ -45,7 +45,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         return button
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         setup()
         layout()
@@ -54,7 +54,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         buttonTop.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.stackViewSidesMargin).isActive = true
         buttonTop.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.stackViewSidesMargin).isActive = true
@@ -67,7 +67,7 @@ class WalkthroughPageFourViewController: BWWalkthroughPageViewController {
         buttonBottom.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
     }
     
-    private func setupWalkthroughTransitionValues(){
+    private func setupWalkthroughTransitionValues() {
         let speed = CGPoint(x: 0, y: 1)
         let speedVariance = CGPoint(x:0, y: 1)
         let animationType = "Zoom"

@@ -11,14 +11,14 @@ import BWWalkthrough
 
 class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         
-    let imageView : UIImageView = {
+    let imageView: UIImageView = {
         let image = R.image.visualEnginLogo()
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         setupWalkthroughTransitionValues()
         layout()
@@ -26,7 +26,7 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
     
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
         
@@ -39,7 +39,7 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    private func setupWalkthroughTransitionValues(){
+    private func setupWalkthroughTransitionValues() {
         let speed = CGPoint(x: 0, y: 1)
         let speedVariance = CGPoint(x:0, y: 1)
         let animationType = "Zoom"
@@ -51,4 +51,3 @@ class WalkthroughPageOneViewController: BWWalkthroughPageViewController {
         self.setValue(animateAlpha, forKey: "animateAlpha")
     }
 }
-

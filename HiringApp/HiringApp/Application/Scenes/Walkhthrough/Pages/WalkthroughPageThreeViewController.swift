@@ -16,7 +16,7 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
     enum Constants {
         static let labelsTextColor: UIColor = .white
         
-        static let heightStackView : CGFloat = 0.6
+        static let heightStackView: CGFloat = 0.6
         static let stackViewSpacing: CGFloat = 20.0
         static let stackViewSidesMargin: CGFloat = 40.0
         
@@ -25,13 +25,13 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         static let labelsFontType: String = "Arial"
     }
     
-    let labelTop : UILabel = {
+    let labelTop: UILabel = {
         let label = UILabel()
         LabelHelper.Walkthrough.setup(label: label, type: .title, text: R.string.localizable.walkthrough_title3())
         return label
     }()
     
-    let imageMapView : UIImageView = {
+    let imageMapView: UIImageView = {
         let image = R.image.mapScreenshot()
         let imageView = UIImageView(image: image)
         imageView.contentMode = .scaleAspectFill
@@ -39,13 +39,13 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         return imageView
     }()
     
-    let labelBottom : UILabel = {
+    let labelBottom: UILabel = {
         let label = UILabel()
         LabelHelper.Walkthrough.setup(label: label, type: .subtitle, text: R.string.localizable.walkthrough_subtitles3())
         return label
     }()
     
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         setupWalkthroughTransitionValues()
         setup()
@@ -54,12 +54,12 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
         super.viewDidLoad()
     }
         
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.backgroundColor = .clear
     }
     
-    private func setupWalkthroughTransitionValues(){
+    private func setupWalkthroughTransitionValues() {
         let speed = CGPoint(x: 0.1, y: 0)
         let speedVariance = CGPoint(x:3, y: 0)
         let animationType = "Linear"
