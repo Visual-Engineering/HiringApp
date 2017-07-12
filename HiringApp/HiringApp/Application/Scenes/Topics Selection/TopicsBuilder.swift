@@ -19,7 +19,8 @@ protocol TopicsInteractorProtocol {
 }
 
 protocol TopicsUserInterfaceProtocol: class {
-
+    func configureFor(viewModel: TopicsViewModel)
+    func topicTapped()
 }
 
 protocol TopicsRouterProtocol {

@@ -7,7 +7,13 @@
 //
 
 import Foundation
+import HiringAppCore
 
 struct TopicsViewModel {
-
+    let topics: [TopicModel]
+    
+    init(topics: [TopicModel]){
+        self.topics = topics
+    }
 }
+

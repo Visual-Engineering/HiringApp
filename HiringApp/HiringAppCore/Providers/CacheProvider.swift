@@ -60,7 +60,7 @@ class CacheProvider: CacheProviderType {
         
         var topicsConverted = [TopicModel]()
         storedTopics.forEach { (topic) in
-            let id = topic["id"] as! Int
+            let id = topic["topicId"] as! Int
             let title = topic["title"] as! String
             let technologyId = topic["technologyId"] as! Int
             

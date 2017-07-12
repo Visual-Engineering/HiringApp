@@ -48,6 +48,7 @@ class ContactFormSentViewController: UIViewController {
     }()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setup()
         layout()
     }
@@ -59,7 +60,12 @@ class ContactFormSentViewController: UIViewController {
     }
     
     private func setup() {
+        button.addTarget(self, action: #selector(continueButtonClicked), for: .touchUpInside)
         view.backgroundColor = Constants.brandBlue
+    }
+    
+    func continueButtonClicked() {
+        dismiss(animated: true)
     }
     
     private func layout() {

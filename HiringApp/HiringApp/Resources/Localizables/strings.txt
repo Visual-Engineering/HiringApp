@@ -16,7 +16,12 @@
 
     [which_technology]
 	en = Pick a technology
-	es = ¿Cual es tu technología?
+	es = ¿Cual es tu tecnología?
+	tags = ios
+
+    [which_topic]
+	en = Pick a topic
+	es = ¿Cual es tu tema?
 	tags = ios
     
     [ok]
