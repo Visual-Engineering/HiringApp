@@ -1,5 +1,5 @@
 //
-//  TopicsSelectionViewController.swift
+//  TopicsViewController.swift
 //  HiringApp
 //
 //  Created by Santi Bernaldo on 12/07/2017.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TopicsSelectionViewController: UIViewController {
+class TopicsViewController: UIViewController {
 
     //MARK: - Stored properties
-    var presenter: TopicsSelectionPresenterProtocol!
+    var presenter: TopicsPresenterProtocol!
 
     //MARK: - View lifecycle
     override func viewDidLoad() {
@@ -26,6 +26,6 @@ class TopicsSelectionViewController: UIViewController {
     }
 }
 
-extension TopicsSelectionViewController: TopicsSelectionUserInterfaceProtocol {
+extension TopicsViewController: TopicsUserInterfaceProtocol {
     
 }

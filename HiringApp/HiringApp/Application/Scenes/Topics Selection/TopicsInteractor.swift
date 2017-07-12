@@ -1,5 +1,5 @@
 //
-//  TopicsSelectionInteractor.swift
+//  TopicsInteractor.swift
 //  HiringApp
 //
 //  Created by Santi Bernaldo on 12/07/2017.
@@ -9,7 +9,7 @@
 import Foundation
 //import Deferred
 
-class TopicsSelectionInteractor {
+class TopicsInteractor {
 
     //MARK: - Stored properties
     //    let repository: SceneRepositoryProtocol
@@ -21,9 +21,9 @@ class TopicsSelectionInteractor {
 
 }
 
-extension TopicsSelectionInteractor: TopicsSelectionInteractorProtocol {
+extension TopicsInteractor: TopicsInteractorProtocol {
 
-    //    func retrieveData() -> Task<TopicsSelectionModel> {
+    //    func retrieveData() -> Task<TopicsModel> {
     //
     //    }
 }

@@ -1,5 +1,5 @@
 //
-//  TopicsSelectionRouter.swift
+//  TopicsRouter.swift
 //  HiringApp
 //
 //  Created by Santi Bernaldo on 12/07/2017.
@@ -8,18 +8,18 @@
 
 import Foundation
 
-class TopicsSelectionRouter {
+class TopicsRouter {
 
     //MARK: - Stored properties
-    unowned let view: TopicsSelectionViewController
+    unowned let view: TopicsViewController
 
     //MARK: Initializer
-    init(view: TopicsSelectionViewController) {
+    init(view: TopicsViewController) {
         self.view = view
     }
 }
 
-extension TopicsSelectionRouter: TopicsSelectionRouterProtocol {
+extension TopicsRouter: TopicsRouterProtocol {
 
     func navigateToNextScene() {
 

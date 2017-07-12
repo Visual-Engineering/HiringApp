@@ -1,5 +1,5 @@
 //
-//  TopicsSelectionViewModel.swift
+//  TopicsViewModel.swift
 //  HiringApp
 //
 //  Created by Santi Bernaldo on 12/07/2017.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct TopicsSelectionViewModel {
+struct TopicsViewModel {
 
 }

@@ -1,5 +1,5 @@
 //
-//  TopicsSelectionPresenter.swift
+//  TopicsPresenter.swift
 //  HiringApp
 //
 //  Created by Santi Bernaldo on 12/07/2017.
@@ -8,16 +8,16 @@
 
 import Foundation
 
-class TopicsSelectionPresenter {
+class TopicsPresenter {
 
     //MARK: - Stored properties
-    fileprivate let router: TopicsSelectionRouterProtocol
-    fileprivate let interactor: TopicsSelectionInteractorProtocol
-    fileprivate unowned let view: TopicsSelectionUserInterfaceProtocol
+    fileprivate let router: TopicsRouterProtocol
+    fileprivate let interactor: TopicsInteractorProtocol
+    fileprivate unowned let view: TopicsUserInterfaceProtocol
 
-    var state: LoadingState<TopicsSelectionViewModel> = .loading
+    var state: LoadingState<TopicsViewModel> = .loading
 
-    var viewModel: TopicsSelectionViewModel? {
+    var viewModel: TopicsViewModel? {
         didSet {
             guard let viewModel = viewModel else {
                 state = .error(AppError.unknown)
@@ -29,14 +29,14 @@ class TopicsSelectionPresenter {
     }
 
     //MARK: - Initializer
-    init(router: TopicsSelectionRouterProtocol, interactor: TopicsSelectionInteractorProtocol, view: TopicsSelectionUserInterfaceProtocol) {
+    init(router: TopicsRouterProtocol, interactor: TopicsInteractorProtocol, view: TopicsUserInterfaceProtocol) {
         self.router = router
         self.interactor = interactor
         self.view = view
     }
 }
 
-extension TopicsSelectionPresenter: TopicsSelectionPresenterProtocol {
+extension TopicsPresenter: TopicsPresenterProtocol {
 
     func viewDidLoad() {
         //        let task = interactor.retrieveData().upon(.main) { result in
@@ -44,7 +44,7 @@ extension TopicsSelectionPresenter: TopicsSelectionPresenterProtocol {
         //            case .failure(let error):
         //                self.state = .error(error)
         //            case .success(let model):
-        //                let vm = TopicsSelectionViewModel(..)
+        //                let vm = TopicsViewModel(..)
         //                self.state = .loaded(viewModel: vm)
         //            }
         //        }
