@@ -27,7 +27,8 @@ extension TechnologiesRouter: TechnologiesRouterProtocol {
             viewController.title = selectedTechnology.title
             view.navigationController?.pushViewController(viewController, animated: true)
         } else {
-            // TODO: Navigate when test available
+            let topicsViewController = TopicsBuilder.build(idTechnology: selectedTechnology.id)
+            view.navigationController?.pushViewController(topicsViewController, animated: true)
         }
     }
 }

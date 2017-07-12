@@ -14,6 +14,7 @@ class TopicsPresenter {
     fileprivate let router: TopicsRouterProtocol
     fileprivate let interactor: TopicsInteractorProtocol
     fileprivate unowned let view: TopicsUserInterfaceProtocol
+    var idTechnologySelected = Int()
 
     var state: LoadingState<TopicsViewModel> = .loading
 
@@ -39,14 +40,15 @@ class TopicsPresenter {
 extension TopicsPresenter: TopicsPresenterProtocol {
 
     func viewDidLoad() {
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = TopicsViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
+                _ = interactor.retrieveAPITopics(technologyId: idTechnologySelected).upon(.main) { result in
+                    switch result {
+                    case .failure(let error):
+                        self.state = .error(error)
+                    case .success(let model):
+                        print(model)
+//                        let vm = TopicsViewModel(..)
+//                        self.state = .loaded(viewModel: vm)
+                    }
+                }
     }
 }

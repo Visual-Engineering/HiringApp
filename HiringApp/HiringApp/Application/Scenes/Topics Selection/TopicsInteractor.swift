@@ -7,23 +7,24 @@
 //
 
 import Foundation
-//import Deferred
+import Deferred
+import HiringAppCore
 
 class TopicsInteractor {
 
     //MARK: - Stored properties
-    //    let repository: SceneRepositoryProtocol
+    let repository: TopicsRepositoryProtocol
 
     //MARK: - Initializer
-    //    init(repository: SceneRepositoryProtocol = SceneRepository()) {
-    //        self.repository = repository
-    //    }
+    init(repository: TopicsRepositoryProtocol) {
+        self.repository = repository
+    }
 
 }
 
 extension TopicsInteractor: TopicsInteractorProtocol {
 
-    //    func retrieveData() -> Task<TopicsModel> {
-    //
-    //    }
+        func retrieveAPITopics(technologyId: Int) -> Task<[TopicModel]> {
+            return repository.retrieveAPITopics(technologyId: technologyId)
+        }
 }

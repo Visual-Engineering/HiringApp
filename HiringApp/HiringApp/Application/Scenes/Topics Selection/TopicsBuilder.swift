@@ -7,14 +7,15 @@
 //
 
 import Foundation
-//import Deferred
+import HiringAppCore
+import Deferred
 
 protocol TopicsPresenterProtocol {
     func viewDidLoad()
 }
 
 protocol TopicsInteractorProtocol {
-    //    func retrieveData() -> Task<TopicsViewModel>
+    func retrieveAPITopics(technologyId: Int) -> Task<[TopicModel]>
 }
 
 protocol TopicsUserInterfaceProtocol: class {
@@ -28,12 +29,13 @@ protocol TopicsRouterProtocol {
 class TopicsBuilder {
 
     //MARK: - Configuration
-    static func build() -> TopicsViewController {
+    static func build(idTechnology: Int) -> TopicsViewController {
         let viewController = TopicsViewController()
         let router = TopicsRouter(view: viewController)
-        let interactor = TopicsInteractor()
+        let interactor = TopicsInteractor(repository: TopicsRepository())
         let presenter = TopicsPresenter(router: router, interactor: interactor, view: viewController)
-
+        presenter.idTechnologySelected = idTechnology
+        
         viewController.presenter = presenter
 
         return viewController
