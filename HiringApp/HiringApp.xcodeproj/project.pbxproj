@@ -79,6 +79,12 @@
 		E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */; };
 		E4BEC6C91F0D2BF600136778 /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */; };
 		E4BEC6CB1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */; };
+		E4FCE12B1F16074700A66782 /* TopicsSelectionBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1251F16074700A66782 /* TopicsSelectionBuilder.swift */; };
+		E4FCE12C1F16074700A66782 /* TopicsSelectionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1261F16074700A66782 /* TopicsSelectionInteractor.swift */; };
+		E4FCE12D1F16074700A66782 /* TopicsSelectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1271F16074700A66782 /* TopicsSelectionPresenter.swift */; };
+		E4FCE12E1F16074700A66782 /* TopicsSelectionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1281F16074700A66782 /* TopicsSelectionRouter.swift */; };
+		E4FCE12F1F16074700A66782 /* TopicsSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1291F16074700A66782 /* TopicsSelectionViewController.swift */; };
+		E4FCE1301F16074700A66782 /* TopicsSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE12A1F16074700A66782 /* TopicsSelectionViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +214,12 @@
 		E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughTests.swift; path = "Test Walkthrough /WalkthroughTests.swift"; sourceTree = "<group>"; };
 		E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughSnapshotTests.swift; sourceTree = "<group>"; };
+		E4FCE1251F16074700A66782 /* TopicsSelectionBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionBuilder.swift; sourceTree = "<group>"; };
+		E4FCE1261F16074700A66782 /* TopicsSelectionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionInteractor.swift; sourceTree = "<group>"; };
+		E4FCE1271F16074700A66782 /* TopicsSelectionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionPresenter.swift; sourceTree = "<group>"; };
+		E4FCE1281F16074700A66782 /* TopicsSelectionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionRouter.swift; sourceTree = "<group>"; };
+		E4FCE1291F16074700A66782 /* TopicsSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionViewController.swift; sourceTree = "<group>"; };
+		E4FCE12A1F16074700A66782 /* TopicsSelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsSelectionViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +431,7 @@
 				B24D166E1F03D0450030D5C2 /* ContactForm */,
 				0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */,
 				7801E9811F0A5518005A68A8 /* TechnologiesList */,
+				E4FCE1241F1606C900A66782 /* Topics Selection */,
 				7801E98E1F0A5682005A68A8 /* Walkhthrough */,
 			);
 			path = Scenes;
@@ -542,6 +555,19 @@
 				E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		E4FCE1241F1606C900A66782 /* Topics Selection */ = {
+			isa = PBXGroup;
+			children = (
+				E4FCE1251F16074700A66782 /* TopicsSelectionBuilder.swift */,
+				E4FCE1261F16074700A66782 /* TopicsSelectionInteractor.swift */,
+				E4FCE1271F16074700A66782 /* TopicsSelectionPresenter.swift */,
+				E4FCE1281F16074700A66782 /* TopicsSelectionRouter.swift */,
+				E4FCE1291F16074700A66782 /* TopicsSelectionViewController.swift */,
+				E4FCE12A1F16074700A66782 /* TopicsSelectionViewModel.swift */,
+			);
+			path = "Topics Selection";
 			sourceTree = "<group>";
 		};
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
@@ -937,6 +963,7 @@
 				7867B82B1F0F9F3500AF86F7 /* AppRootViewController.swift in Sources */,
 				7867B8281F0F9EE300AF86F7 /* AppRouter.swift in Sources */,
 				7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */,
+				E4FCE12E1F16074700A66782 /* TopicsSelectionRouter.swift in Sources */,
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
 				7867B8341F0F9F7300AF86F7 /* ContactFormPresenter.swift in Sources */,
 				E4BEC6C51F0D2AAB00136778 /* WalkthroughPageFourViewController.swift in Sources */,
@@ -944,6 +971,7 @@
 				E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */,
 				7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */,
 				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
+				E4FCE12D1F16074700A66782 /* TopicsSelectionPresenter.swift in Sources */,
 				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
 				7867B8431F0FA21E00AF86F7 /* R.generated.swift in Sources */,
 				E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */,
@@ -951,8 +979,10 @@
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
 				E438D5451F0CD31900589167 /* Utils.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
+				E4FCE1301F16074700A66782 /* TopicsSelectionViewModel.swift in Sources */,
 				7867B82A1F0F9F1900AF86F7 /* RoundedButton.swift in Sources */,
 				E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */,
+				E4FCE12C1F16074700A66782 /* TopicsSelectionInteractor.swift in Sources */,
 				E438D5491F0CD75500589167 /* UIColor.swift in Sources */,
 				7867B8321F0F9F7300AF86F7 /* ContactFormBuilder.swift in Sources */,
 				7867B8351F0F9F7300AF86F7 /* ContactFormRouter.swift in Sources */,
@@ -966,7 +996,9 @@
 				7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */,
 				7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
-				7867B8391F0F9F7C00AF86F7 /* ContactFormSent.swift in Sources */,
+				E4FCE12B1F16074700A66782 /* TopicsSelectionBuilder.swift in Sources */,
+				7867B8391F0F9F7C00AF86F7 /* ContactFormSentViewController.swift in Sources */,
+				E4FCE12F1F16074700A66782 /* TopicsSelectionViewController.swift in Sources */,
 				B24D16701F03D0450030D5C2 /* Scene+Common.swift in Sources */,
 				7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */,
 				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,
