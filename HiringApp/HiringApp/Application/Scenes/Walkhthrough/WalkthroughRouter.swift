@@ -23,10 +23,6 @@ class WalkthroughRouter {
 
 extension WalkthroughRouter: WalkthroughRouterProtocol {
 
-    func navigateToNextScene() {
-
-    }
-    
     func showModalMap() {
         let mapViewController = WalkthroughMapViewController()
         let navigationController = UINavigationController(rootViewController: mapViewController)
@@ -34,7 +30,7 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     }
     
     func navigateToKnowMoreScene() {
-        // MARK: TODO - Add code to navigate to 'Know more info' Scene
+        appRouter.navigateAboutUs()
     }
     
     func navigateToWorkWithUsScene() {

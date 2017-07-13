@@ -10,6 +10,7 @@ import UIKit
 
 protocol AppRouterProtocol: class {
     func navigateTechnologyList()
+    func navigateAboutUs()
 }
 
 class AppRouter {
@@ -53,6 +54,12 @@ extension AppRouter: AppRouterProtocol {
 
     func navigateTechnologyList() {
         let controller = TechnologiesBuilder.build()
+        let navigationController = UINavigationController(rootViewController: controller)
+        rootViewController.transition(to: navigationController)
+    }
+    
+    func navigateAboutUs() {
+        let controller = AboutUsBuilder.build()
         let navigationController = UINavigationController(rootViewController: controller)
         rootViewController.transition(to: navigationController)
     }

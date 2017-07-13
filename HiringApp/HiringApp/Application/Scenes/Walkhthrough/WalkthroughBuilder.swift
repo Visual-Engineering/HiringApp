@@ -18,7 +18,6 @@ protocol WalkthroughPresenterProtocol {
 protocol WalkthroughUserInterfaceProtocol: class {}
 
 protocol WalkthroughRouterProtocol {
-    func navigateToNextScene()
     func showModalMap()
     func navigateToKnowMoreScene()
     func navigateToWorkWithUsScene()

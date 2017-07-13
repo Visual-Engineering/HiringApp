@@ -31,8 +31,7 @@ class AboutUsBuilder {
     static func build() -> AboutUsViewController {
         let viewController = AboutUsViewController()
         let router = AboutUsRouter(view: viewController)
-        let interactor = AboutUsInteractor()
-        let presenter = AboutUsPresenter(router: router, interactor: interactor, view: viewController)
+        let presenter = AboutUsPresenter(router: router, view: viewController)
 
         viewController.presenter = presenter
 

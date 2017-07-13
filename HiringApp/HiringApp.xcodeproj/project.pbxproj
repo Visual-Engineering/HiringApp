@@ -79,6 +79,10 @@
 		E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */; };
 		E4BEC6C91F0D2BF600136778 /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */; };
 		E4BEC6CB1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */; };
+		E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */; };
+		E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */; };
+		E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */; };
+		E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +212,10 @@
 		E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughTests.swift; path = "Test Walkthrough /WalkthroughTests.swift"; sourceTree = "<group>"; };
 		E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughSnapshotTests.swift; sourceTree = "<group>"; };
+		E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsBuilder.swift; sourceTree = "<group>"; };
+		E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
+		E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsRouter.swift; sourceTree = "<group>"; };
+		E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -416,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				B24D166F1F03D0450030D5C2 /* Scene+Common.swift */,
+				E4F526791F17BF5800ECE5A2 /* About Us */,
 				B24D166E1F03D0450030D5C2 /* ContactForm */,
 				0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */,
 				7801E9811F0A5518005A68A8 /* TechnologiesList */,
@@ -542,6 +551,17 @@
 				E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */,
 			);
 			path = Pages;
+			sourceTree = "<group>";
+		};
+		E4F526791F17BF5800ECE5A2 /* About Us */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */,
+				E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */,
+				E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */,
+				E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */,
+			);
+			path = "About Us";
 			sourceTree = "<group>";
 		};
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
@@ -944,11 +964,14 @@
 				E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */,
 				7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */,
 				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
+				E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */,
 				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
 				7867B8431F0FA21E00AF86F7 /* R.generated.swift in Sources */,
 				E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */,
+				E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */,
 				7867B8361F0F9F7300AF86F7 /* ContactFormViewController.swift in Sources */,
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
+				E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */,
 				E438D5451F0CD31900589167 /* Utils.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
 				7867B82A1F0F9F1900AF86F7 /* RoundedButton.swift in Sources */,
@@ -960,6 +983,7 @@
 				7801E99B1F0A5682005A68A8 /* WalkthroughMapViewController.swift in Sources */,
 				E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */,
 				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
+				E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */,
 				7867B8371F0F9F7300AF86F7 /* ContactFormViewModel.swift in Sources */,
 				8A5894AB1F04EC0D0096F59B /* UIStackView+Utilities.swift in Sources */,
 				7867B8331F0F9F7300AF86F7 /* ContactFormInteractor.swift in Sources */,

@@ -12,26 +12,11 @@ class AboutUsPresenter {
 
     //MARK: - Stored properties
     fileprivate let router: AboutUsRouterProtocol
-    fileprivate let interactor: AboutUsInteractorProtocol
     fileprivate unowned let view: AboutUsUserInterfaceProtocol
 
-    var state: LoadingState<AboutUsViewModel> = .loading
-
-    var viewModel: AboutUsViewModel? {
-        didSet {
-            guard let viewModel = viewModel else {
-                state = .error(AppError.unknown)
-                return
-            }
-
-            state = .loaded(viewModel: viewModel)
-        }
-    }
-
     //MARK: - Initializer
-    init(router: AboutUsRouterProtocol, interactor: AboutUsInteractorProtocol, view: AboutUsUserInterfaceProtocol) {
+    init(router: AboutUsRouterProtocol, view: AboutUsUserInterfaceProtocol) {
         self.router = router
-        self.interactor = interactor
         self.view = view
     }
 }
@@ -39,14 +24,6 @@ class AboutUsPresenter {
 extension AboutUsPresenter: AboutUsPresenterProtocol {
 
     func viewDidLoad() {
-        //        let task = interactor.retrieveData().upon(.main) { result in
-        //            switch result {
-        //            case .failure(let error):
-        //                self.state = .error(error)
-        //            case .success(let model):
-        //                let vm = AboutUsViewModel(..)
-        //                self.state = .loaded(viewModel: vm)
-        //            }
-        //        }
+       
     }
 }
