@@ -34,8 +34,10 @@ class TopicsBuilder {
         let viewController = TopicsViewController()
         let router = TopicsRouter(view: viewController)
         let interactor = TopicsInteractor(repository: TopicsRepository())
-        let presenter = TopicsPresenter(router: router, interactor: interactor, view: viewController)
-        presenter.idTechnologySelected = idTechnology
+        let presenter = TopicsPresenter(router: router,
+                                        interactor: interactor,
+                                        view: viewController,
+                                        idTechnology: idTechnology)
         
         viewController.presenter = presenter
 

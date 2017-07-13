@@ -14,7 +14,7 @@ class TopicsPresenter {
     fileprivate let router: TopicsRouterProtocol
     fileprivate let interactor: TopicsInteractorProtocol
     fileprivate unowned let view: TopicsUserInterfaceProtocol
-    var idTechnologySelected = Int()
+    var idTechnologySelected: Int
 
     var state: LoadingState<TopicsViewModel> = .loading
 
@@ -30,10 +30,11 @@ class TopicsPresenter {
     }
 
     //MARK: - Initializer
-    init(router: TopicsRouterProtocol, interactor: TopicsInteractorProtocol, view: TopicsUserInterfaceProtocol) {
+    init(router: TopicsRouterProtocol, interactor: TopicsInteractorProtocol, view: TopicsUserInterfaceProtocol, idTechnology: Int) {
         self.router = router
         self.interactor = interactor
         self.view = view
+        self.idTechnologySelected = idTechnology
     }
 }
 
