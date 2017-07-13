@@ -20,7 +20,7 @@ class TopicsViewController: UIViewController {
         static let brandWhite: UIColor = .white
     }
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     var presenter: TopicsPresenterProtocol!
     
     // MARK: - Stored properties
@@ -29,6 +29,7 @@ class TopicsViewController: UIViewController {
         label.text = R.string.localizable.which_technology()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = Constants.brandWhite
+        label.text = R.string.localizable.which_topic()
         return label
     }()
     
@@ -41,7 +42,7 @@ class TopicsViewController: UIViewController {
         return stackView
     }()
 
-    //MARK: - View lifecycle
+    // MARK: - View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -50,7 +51,7 @@ class TopicsViewController: UIViewController {
         layout()
     }
 
-    //MARK: - Private API
+    // MARK: - Private API
     private func layout() {
         view.addSubview(titleLabel)
         view.addSubview(topicsStackView)
@@ -64,7 +65,6 @@ class TopicsViewController: UIViewController {
     }
     
     private func setup() {
-        titleLabel.text = "Topics"
         view.backgroundColor = Constants.brandBlue
     }
 }
@@ -82,7 +82,6 @@ extension TopicsViewController: TopicsUserInterfaceProtocol {
             button.addTarget(self, action: #selector(topicTapped), for: .touchUpInside)
             topicsStackView.addArrangedSubview(button)
         }
-
     }
     
     func topicTapped() {
