@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import HiringAppCore
 
 class TopicsRouter {
 
@@ -21,7 +22,7 @@ class TopicsRouter {
 
 extension TopicsRouter: TopicsRouterProtocol {
 
-    func navigateToNextScene() {
-
+    func navigateToNextScene(selectedTopic: TopicViewModel) {
+        
     }
 }

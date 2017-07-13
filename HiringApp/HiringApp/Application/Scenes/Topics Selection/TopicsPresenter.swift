@@ -44,10 +44,20 @@ extension TopicsPresenter: TopicsPresenterProtocol {
             switch result {
             case .failure(let error):
                 self.state = .error(error)
-            case .success(let model):
-                let topicsViewModel = TopicsViewModel(topics: model)
+            case .success(let topics):
+                var arrayTopicViewModels = [TopicViewModel]()
+                for topicModel in topics {
+                    let topicViewModel = topicModel.toViewModel()
+                    arrayTopicViewModels.append(topicViewModel)
+                }
+                let topicsViewModel = TopicsViewModel(topics: arrayTopicViewModels)
                 self.view.configureFor(viewModel: topicsViewModel)
             }
         }
+    }
+    
+    func didClickOnTopic(index: Int) {
+        guard let topic = viewModel?.topics[index] else { return }
+        router.navigateToNextScene(selectedTopic: topic)
     }
 }

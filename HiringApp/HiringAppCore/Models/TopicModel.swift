@@ -25,7 +25,7 @@ extension TopicModel: Decodable {
     }
 }
 
-extension TopicModel {
+extension TopicModel {    
     func topicsToDict() -> [String: Any] {
         
         let otherSelf = Mirror(reflecting: self)

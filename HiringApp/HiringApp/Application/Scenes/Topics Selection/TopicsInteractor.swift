@@ -24,7 +24,7 @@ class TopicsInteractor {
 
 extension TopicsInteractor: TopicsInteractorProtocol {
 
-        func retrieveAPITopics(technologyId: Int) -> Task<[TopicModel]> {
-            return repository.retrieveAPITopics(technologyId: technologyId)
-        }
+    func retrieveAPITopics(technologyId: Int) -> Task<[TopicModel]> {
+        return repository.retrieveAPITopics(technologyId: technologyId)
+    }
 }

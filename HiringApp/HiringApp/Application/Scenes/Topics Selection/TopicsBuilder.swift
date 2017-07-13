@@ -12,6 +12,7 @@ import Deferred
 
 protocol TopicsPresenterProtocol {
     func viewDidLoad()
+    func didClickOnTopic(index: Int)
 }
 
 protocol TopicsInteractorProtocol {
@@ -20,11 +21,10 @@ protocol TopicsInteractorProtocol {
 
 protocol TopicsUserInterfaceProtocol: class {
     func configureFor(viewModel: TopicsViewModel)
-    func topicTapped()
 }
 
 protocol TopicsRouterProtocol {
-    func navigateToNextScene()
+    func navigateToNextScene(selectedTopic: TopicViewModel)
 }
 
 class TopicsBuilder {

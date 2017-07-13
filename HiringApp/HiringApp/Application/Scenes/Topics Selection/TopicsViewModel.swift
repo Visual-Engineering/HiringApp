@@ -10,10 +10,20 @@ import Foundation
 import HiringAppCore
 
 struct TopicsViewModel {
-    let topics: [TopicModel]
+    let topics: [TopicViewModel]
     
-    init(topics: [TopicModel]){
+    init(topics: [TopicViewModel]) {
         self.topics = topics
     }
 }
 
+struct TopicViewModel {
+    public let title: String
+}
+
+extension TopicModel {
+    func toViewModel() -> TopicViewModel {
+        let topicViewModel = TopicViewModel(title: self.title)
+        return topicViewModel
+    }
+}

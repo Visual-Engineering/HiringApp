@@ -67,6 +67,10 @@ class TopicsViewController: UIViewController {
     private func setup() {
         view.backgroundColor = Constants.brandBlue
     }
+    
+    func didClickOnTopic(sender: UIButton) {
+        presenter.didClickOnTopic(index: sender.tag)
+    }
 }
 
 extension TopicsViewController: TopicsUserInterfaceProtocol {
@@ -79,12 +83,8 @@ extension TopicsViewController: TopicsUserInterfaceProtocol {
             button.backgroundColor = Constants.brandWhite
             button.setTitleColor(Constants.brandBlue, for: .normal)
             button.tag = index
-            button.addTarget(self, action: #selector(topicTapped), for: .touchUpInside)
+            button.addTarget(self, action: #selector(didClickOnTopic), for: .touchUpInside)
             topicsStackView.addArrangedSubview(button)
         }
-    }
-    
-    func topicTapped() {
-        
     }
 }
