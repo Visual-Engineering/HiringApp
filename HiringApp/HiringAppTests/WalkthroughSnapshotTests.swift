@@ -23,11 +23,11 @@ class WalkthroughSnapshotTests: SnapshotTestCase {
         verifyViewController(pageTwo)
     }
     
-    func testSnapshotWalkthroughPageThree() {
-        let pageThree = WalkthroughPageThreeViewController()
-        
-        debugViewController(pageThree)
-    }
+//    func testSnapshotWalkthroughPageThree() {
+//        let pageThree = WalkthroughPageThreeViewController()
+//        
+//        debugViewController(pageThree)
+//    }
     
     func testSnapshotWalkthroughPageFour() {
         let pageFour = WalkthroughPageFourViewController()
