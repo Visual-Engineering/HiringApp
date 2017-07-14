@@ -30,11 +30,13 @@ extension WalkthroughRouter: WalkthroughRouterProtocol {
     }
     
     func navigateToKnowMoreScene() {
-        appRouter.navigateAboutUs()
+        let controller = AboutUsBuilder.build()
+        
+        let navigation = UINavigationController(rootViewController: controller)
+        view.present(navigation, animated: true)
     }
     
     func navigateToWorkWithUsScene() {
         appRouter.navigateTechnologyList()
     }
-
 }

@@ -33,7 +33,7 @@ class WalkthroughViewController: BWWalkthroughViewController {
     private func setup() {
         view.backgroundColor = UIColor.brandBlueColor()
         navigationController?.navigationBar.isHidden = true
-        edgesForExtendedLayout = []
+        edgesForExtendedLayout = []        
     }
     
     private func configurePages() {
