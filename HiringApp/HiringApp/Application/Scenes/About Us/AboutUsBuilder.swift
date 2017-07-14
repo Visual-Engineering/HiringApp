@@ -7,14 +7,9 @@
 //
 
 import Foundation
-//import Deferred
 
 protocol AboutUsPresenterProtocol {
     func viewDidLoad()
-}
-
-protocol AboutUsInteractorProtocol {
-    //    func retrieveData() -> Task<AboutUsViewModel>
 }
 
 protocol AboutUsUserInterfaceProtocol: class {
@@ -27,7 +22,7 @@ protocol AboutUsRouterProtocol {
 
 class AboutUsBuilder {
 
-    //MARK: - Configuration
+    // MARK: - Configuration
     static func build() -> AboutUsViewController {
         let viewController = AboutUsViewController()
         let router = AboutUsRouter(view: viewController)
