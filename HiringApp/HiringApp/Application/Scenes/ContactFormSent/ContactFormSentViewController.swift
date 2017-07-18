@@ -58,7 +58,12 @@ class ContactFormSentViewController: UIViewController {
     }
     
     private func setup() {
+        button.addTarget(self, action: #selector(continueButtonClicked), for: .touchUpInside)
         view.backgroundColor = Constants.brandBlue
+    }
+    
+    func continueButtonClicked() {
+        dismiss(animated: true)
     }
     
     private func layout() {

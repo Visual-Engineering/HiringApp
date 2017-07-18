@@ -26,6 +26,7 @@ extension Drosky: DroskyType {}
 
 public protocol APIProviderType {
     func retrieveTechnologies() -> Task<[TechnologyModel]>
+    func retrieveTopics(technologyId: Int) -> Task<[TopicModel]>
     func performContact(candidate: CandidateModel) -> Task<Data>
 }
 

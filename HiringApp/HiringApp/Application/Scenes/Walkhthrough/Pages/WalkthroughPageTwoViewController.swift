@@ -44,7 +44,7 @@ class WalkthroughPageTwoViewController: BWWalkthroughPageViewController {
         edgesForExtendedLayout = []
     }
     
-    private func setupWalkthroughTransitionValues(){
+    private func setupWalkthroughTransitionValues() {
         let speed = CGPoint(x: 0.1, y: 0)
         let speedVariance = CGPoint(x:3, y: 0)
         let animationType = "Linear"

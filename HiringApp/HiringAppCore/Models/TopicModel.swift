@@ -24,3 +24,31 @@ extension TopicModel: Decodable {
             technologyId: json => "technologyId")
     }
 }
+
+extension TopicModel {    
+    func topicsToDict() -> [String: Any] {
+        
+        let otherSelf = Mirror(reflecting: self)
+        
+        let optionalKeys = otherSelf.children.flatMap { (child) -> String? in
+            if String(describing: type(of: child.value)).contains("Optional") {
+                return child.label!
+            }
+            return nil
+        }
+        
+        var dict = [String:Any]()
+        for child in otherSelf.children {
+            if let key = child.label {
+                if optionalKeys.contains(key) {
+                    if let _ = child.value as? Dictionary<String, Any> {
+                        dict[key] = child.value
+                    }
+                } else {
+                    dict[key] = child.value
+                }
+            }
+        }
+        return dict
+    }
+}

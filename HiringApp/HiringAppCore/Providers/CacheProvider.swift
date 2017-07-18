@@ -13,6 +13,8 @@ import Deferred
 public protocol CacheProviderType {
     func getTechnologies() -> [TechnologyModel]?
     func saveTechnologies(technologies: [TechnologyModel]) -> Task<()>
+    func getTopics() -> [TopicModel]?
+    func saveTopics(_ topics: [TopicModel]) -> Task<()>
 }
 
 class CacheProvider: CacheProviderType {
@@ -32,7 +34,7 @@ class CacheProvider: CacheProviderType {
         }
         return technologiesConverted
     }
-
+    
     func saveTechnologies(technologies: [TechnologyModel]) -> Task<()> {
         let deferred = Deferred<TaskResult<()>>()
         
@@ -49,6 +51,40 @@ class CacheProvider: CacheProviderType {
     
     func removeTechnologies() {
         defaults.removeObject(forKey: "technologies")
+    }
+    
+    func getTopics() -> [TopicModel]? {
+        guard let storedTopics = defaults.array(forKey: "topics") as? [[String:Any]] else {
+            return nil
+        }
+        
+        var topicsConverted = [TopicModel]()
+        storedTopics.forEach { (topic) in
+            let id = topic["topicId"] as! Int
+            let title = topic["title"] as! String
+            let technologyId = topic["technologyId"] as! Int
+            
+            let topic = TopicModel(topicId: id,
+                                   title: title,
+                                   technologyId: technologyId)
+            topicsConverted.append(topic)
+        }
+        return topicsConverted
+    }
+    
+    func saveTopics(_ topics: [TopicModel]) -> Task<()> {
+        let deferred = Deferred<TaskResult<()>>()
+        
+        var topicsStorable = [[String: Any]]()
+        _ = topics.map { (topic) in
+            topicsStorable.append(topic.topicsToDict())
+        }
+        
+        defaults.setValue(topicsStorable, forKey: "topics")
+        deferred.fill(with: .success(()))
+        
+        return Task(future: Future(deferred))
+
     }
 }
 
