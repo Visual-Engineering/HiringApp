@@ -97,6 +97,13 @@ class WalkthroughPageThreeViewController: BWWalkthroughPageViewController {
 
 extension WalkthroughPageThreeViewController {
     func didTapOnMap() {
+        if let delegate = delegate {
+            guard let containerViewController = delegate as? WalkthroughViewController else { return }
+            //If it's not hidden, after map dismiss, there is a delay when updating the exact page of the pageControl, so we hide it until its currentPage is updated
+            containerViewController.pageControl?.isHidden = true
+        }
         delegate?.didClickOnMap()
     }
 }
+
+

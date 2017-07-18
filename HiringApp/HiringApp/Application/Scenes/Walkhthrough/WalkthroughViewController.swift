@@ -71,3 +71,10 @@ extension WalkthroughViewController: WalkthoughViewControllerDelegate {
         presenter.didClickOnKnowMoreFromUs()
     }
 }
+
+extension WalkthroughViewController: WalkthroughMapViewControllerDelegate {
+    func didDismissMap() {
+        pageControl?.currentPage = 2
+        pageControl?.isHidden = false
+    }
+}

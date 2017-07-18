@@ -38,7 +38,7 @@
 		7867B8351F0F9F7300AF86F7 /* ContactFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B82F1F0F9F7300AF86F7 /* ContactFormRouter.swift */; };
 		7867B8361F0F9F7300AF86F7 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8301F0F9F7300AF86F7 /* ContactFormViewController.swift */; };
 		7867B8371F0F9F7300AF86F7 /* ContactFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8311F0F9F7300AF86F7 /* ContactFormViewModel.swift */; };
-		7867B8391F0F9F7C00AF86F7 /* ContactFormSent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */; };
+		7867B8391F0F9F7C00AF86F7 /* ContactFormSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */; };
 		7867B8421F0FA21E00AF86F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7867B83D1F0FA21E00AF86F7 /* Localizable.strings */; };
 		7867B8431F0FA21E00AF86F7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8401F0FA21E00AF86F7 /* R.generated.swift */; };
 		7867B8441F0FA21E00AF86F7 /* strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7867B8411F0FA21E00AF86F7 /* strings.txt */; };
@@ -163,12 +163,11 @@
 		7867B82F1F0F9F7300AF86F7 /* ContactFormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormRouter.swift; sourceTree = "<group>"; };
 		7867B8301F0F9F7300AF86F7 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		7867B8311F0F9F7300AF86F7 /* ContactFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewModel.swift; sourceTree = "<group>"; };
-		7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSent.swift; sourceTree = "<group>"; };
+		7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSentViewController.swift; sourceTree = "<group>"; };
 		7867B83E1F0FA21E00AF86F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7867B83F1F0FA21E00AF86F7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7867B8401F0FA21E00AF86F7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		7867B8411F0FA21E00AF86F7 /* strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strings.txt; sourceTree = "<group>"; };
-		788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
 		7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5894991F04EB390096F59B /* TechnologiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TechnologiesTests.swift; path = "Tests Technologies/TechnologiesTests.swift"; sourceTree = "<group>"; };
 		8A5894AA1F04EC0D0096F59B /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
@@ -265,7 +264,7 @@
 		0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */ = {
 			isa = PBXGroup;
 			children = (
-				7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */,
+				7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */,
 			);
 			path = ContactFormSent;
 			sourceTree = "<group>";
@@ -298,7 +297,6 @@
 				E4BEC6BF1F0D2AAB00136778 /* Pages */,
 				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
 				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
-				788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */,
 				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
 				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
 				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,
@@ -990,7 +988,7 @@
 				7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */,
 				7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
-				7867B8391F0F9F7C00AF86F7 /* ContactFormSent.swift in Sources */,
+				7867B8391F0F9F7C00AF86F7 /* ContactFormSentViewController.swift in Sources */,
 				B24D16701F03D0450030D5C2 /* Scene+Common.swift in Sources */,
 				7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */,
 				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,
