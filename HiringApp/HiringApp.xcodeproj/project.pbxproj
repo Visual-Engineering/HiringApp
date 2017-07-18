@@ -38,7 +38,7 @@
 		7867B8351F0F9F7300AF86F7 /* ContactFormRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B82F1F0F9F7300AF86F7 /* ContactFormRouter.swift */; };
 		7867B8361F0F9F7300AF86F7 /* ContactFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8301F0F9F7300AF86F7 /* ContactFormViewController.swift */; };
 		7867B8371F0F9F7300AF86F7 /* ContactFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8311F0F9F7300AF86F7 /* ContactFormViewModel.swift */; };
-		7867B8391F0F9F7C00AF86F7 /* ContactFormSent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */; };
+		7867B8391F0F9F7C00AF86F7 /* ContactFormSentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */; };
 		7867B8421F0FA21E00AF86F7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7867B83D1F0FA21E00AF86F7 /* Localizable.strings */; };
 		7867B8431F0FA21E00AF86F7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7867B8401F0FA21E00AF86F7 /* R.generated.swift */; };
 		7867B8441F0FA21E00AF86F7 /* strings.txt in Resources */ = {isa = PBXBuildFile; fileRef = 7867B8411F0FA21E00AF86F7 /* strings.txt */; };
@@ -85,6 +85,10 @@
 		E4FCE13A1F16093900A66782 /* TopicsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1341F16093900A66782 /* TopicsRouter.swift */; };
 		E4FCE13B1F16093900A66782 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1351F16093900A66782 /* TopicsViewController.swift */; };
 		E4FCE13C1F16093900A66782 /* TopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1361F16093900A66782 /* TopicsViewModel.swift */; };
+		E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */; };
+		E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */; };
+		E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */; };
+		E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -165,12 +169,11 @@
 		7867B82F1F0F9F7300AF86F7 /* ContactFormRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormRouter.swift; sourceTree = "<group>"; };
 		7867B8301F0F9F7300AF86F7 /* ContactFormViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewController.swift; sourceTree = "<group>"; };
 		7867B8311F0F9F7300AF86F7 /* ContactFormViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormViewModel.swift; sourceTree = "<group>"; };
-		7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSent.swift; sourceTree = "<group>"; };
+		7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactFormSentViewController.swift; sourceTree = "<group>"; };
 		7867B83E1F0FA21E00AF86F7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7867B83F1F0FA21E00AF86F7 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7867B8401F0FA21E00AF86F7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		7867B8411F0FA21E00AF86F7 /* strings.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = strings.txt; sourceTree = "<group>"; };
-		788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughContainerViewController.swift; sourceTree = "<group>"; };
 		7D12306B4FA4ED1B59289405 /* Pods_HiringAppTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HiringAppTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A5894991F04EB390096F59B /* TechnologiesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TechnologiesTests.swift; path = "Tests Technologies/TechnologiesTests.swift"; sourceTree = "<group>"; };
 		8A5894AA1F04EC0D0096F59B /* UIStackView+Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Utilities.swift"; sourceTree = "<group>"; };
@@ -220,6 +223,10 @@
 		E4FCE1341F16093900A66782 /* TopicsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRouter.swift; sourceTree = "<group>"; };
 		E4FCE1351F16093900A66782 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		E4FCE1361F16093900A66782 /* TopicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewModel.swift; sourceTree = "<group>"; };
+		E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsBuilder.swift; sourceTree = "<group>"; };
+		E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
+		E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsRouter.swift; sourceTree = "<group>"; };
+		E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,7 +276,7 @@
 		0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */ = {
 			isa = PBXGroup;
 			children = (
-				7867B8381F0F9F7C00AF86F7 /* ContactFormSent.swift */,
+				7867B8381F0F9F7C00AF86F7 /* ContactFormSentViewController.swift */,
 			);
 			path = ContactFormSent;
 			sourceTree = "<group>";
@@ -302,7 +309,6 @@
 				E4BEC6BF1F0D2AAB00136778 /* Pages */,
 				7801E9921F0A5682005A68A8 /* Walkthrough.storyboard */,
 				7801E9931F0A5682005A68A8 /* WalkthroughBuilder.swift */,
-				788606CD1F0E900100CFFF9E /* WalkthroughContainerViewController.swift */,
 				7801E9981F0A5682005A68A8 /* WalkthroughPresenter.swift */,
 				7801E9991F0A5682005A68A8 /* WalkthroughRouter.swift */,
 				7801E99A1F0A5682005A68A8 /* WalkthroughViewController.swift */,
@@ -428,6 +434,7 @@
 			isa = PBXGroup;
 			children = (
 				B24D166F1F03D0450030D5C2 /* Scene+Common.swift */,
+				E4F526791F17BF5800ECE5A2 /* About Us */,
 				B24D166E1F03D0450030D5C2 /* ContactForm */,
 				0E55BC4D1F0E4A5A00C79B20 /* ContactFormSent */,
 				7801E9811F0A5518005A68A8 /* TechnologiesList */,
@@ -568,6 +575,17 @@
 				E4FCE1361F16093900A66782 /* TopicsViewModel.swift */,
 			);
 			path = "Topics Selection";
+			sourceTree = "<group>";
+		};
+		E4F526791F17BF5800ECE5A2 /* About Us */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */,
+				E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */,
+				E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */,
+				E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */,
+			);
+			path = "About Us";
 			sourceTree = "<group>";
 		};
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
@@ -972,11 +990,14 @@
 				E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */,
 				7801E98B1F0A5518005A68A8 /* TechnologiesRouter.swift in Sources */,
 				7801E99E1F0A5682005A68A8 /* WalkthroughBuilder.swift in Sources */,
+				E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */,
 				7801E9A31F0A5682005A68A8 /* WalkthroughPresenter.swift in Sources */,
 				7867B8431F0FA21E00AF86F7 /* R.generated.swift in Sources */,
 				E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */,
+				E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */,
 				7867B8361F0F9F7300AF86F7 /* ContactFormViewController.swift in Sources */,
 				7801E98A1F0A5518005A68A8 /* TechnologiesPresenter.swift in Sources */,
+				E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */,
 				E438D5451F0CD31900589167 /* Utils.swift in Sources */,
 				7801E9891F0A5518005A68A8 /* TechnologiesInteractor.swift in Sources */,
 				7867B82A1F0F9F1900AF86F7 /* RoundedButton.swift in Sources */,
@@ -990,14 +1011,15 @@
 				E4FCE1391F16093900A66782 /* TopicsPresenter.swift in Sources */,
 				E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */,
 				8D7FCA8C1F026A180049DFA8 /* NSString.swift in Sources */,
+				E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */,
 				7867B8371F0F9F7300AF86F7 /* ContactFormViewModel.swift in Sources */,
 				8A5894AB1F04EC0D0096F59B /* UIStackView+Utilities.swift in Sources */,
 				7867B8331F0F9F7300AF86F7 /* ContactFormInteractor.swift in Sources */,
 				7801E98D1F0A5518005A68A8 /* TechnologiesViewModel.swift in Sources */,
 				7801E9A51F0A5682005A68A8 /* WalkthroughViewController.swift in Sources */,
 				780490BC1EF184E200D03BEA /* AppDelegate.swift in Sources */,
+				7867B8391F0F9F7C00AF86F7 /* ContactFormSentViewController.swift in Sources */,
 				E4FCE13C1F16093900A66782 /* TopicsViewModel.swift in Sources */,
-				7867B8391F0F9F7C00AF86F7 /* ContactFormSent.swift in Sources */,
 				B24D16701F03D0450030D5C2 /* Scene+Common.swift in Sources */,
 				7801E9A41F0A5682005A68A8 /* WalkthroughRouter.swift in Sources */,
 				8D7FCA7C1F0260E40049DFA8 /* Stylesheet.swift in Sources */,

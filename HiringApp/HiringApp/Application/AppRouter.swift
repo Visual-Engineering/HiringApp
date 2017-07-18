@@ -30,13 +30,6 @@ class AppRouter {
     // MARK: - Public API
     func startApplication() {
         let controller = WalkthroughBuilder.build(appRouter: self)
-        
-//        guard let viewController = controller else {
-//            let alert = Thing().foo()
-//            rootViewController.present(alert, animated: true, completion: nil)
-//            return
-//        }
-
         let navigationController = UINavigationController(rootViewController: controller)
         rootViewController.transition(to: navigationController)
     }

@@ -9,12 +9,18 @@
 import UIKit
 import MapKit
 
+protocol WalkthroughMapViewControllerDelegate: class {
+    func didDismissMap()
+}
+
 class WalkthroughMapViewController: UIViewController {
     
     enum Constants {
         static let latitude = 41.380951
         static let longitude = 2.1832373
     }
+    
+    weak var delegate: WalkthroughMapViewControllerDelegate?
     
     let mapView: MKMapView = {
         let map = MKMapView()
@@ -37,11 +43,14 @@ class WalkthroughMapViewController: UIViewController {
     }
     
     private func setup() {
+        //MARK: TO-DO Localize this string
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(dismissMapController))
     }
     
     func dismissMapController() {
-        dismiss(animated: true)
+       dismiss(animated: true, completion: {
+            self.delegate?.didDismissMap()
+        })
     }
     
     private func setMapRegion() {
