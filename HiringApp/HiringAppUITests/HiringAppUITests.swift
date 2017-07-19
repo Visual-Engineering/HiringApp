@@ -80,7 +80,7 @@ class HiringAppUITests: XCTestCase {
         phoneTextfield.tap()
         phoneTextfield.typeText("968282541")
         
-        //Force 'textFieldDidEndEditing' to validate all fields
+        //Force 'textFieldDidEndEditing', so phoneTextField is also validated. 
         emailTextField.tap()
 
         let buttonSendContactForm = app.buttons["buttonSendContactForm"]
