@@ -135,9 +135,9 @@ class ContactFormViewController: UIViewController {
         linkedInTextField = UITextField(withInput: .linkedin, keyboardType: .URL, delegate: self)
         linkedInTextField.accessibilityLabel = "linkedInTextField"
         addressTextField = UITextField(withInput: .address, keyboardType: .emailAddress, delegate: self)
-        addressTextField.accessibilityIdentifier = "addressTextField"
+        addressTextField.accessibilityLabel = "addressTextField"
         phoneTextField = UITextField(withInput: .phoneNumber, keyboardType: .numberPad, delegate: self)
-        phoneTextField.accessibilityIdentifier = "phoneTextField"
+        phoneTextField.accessibilityLabel = "phoneTextField"
         textFields.forEach { (field, label) in
             let view = UIStackView(embeddingField: field, withLabel: label)
             verticalStackView.addArrangedSubview(view)

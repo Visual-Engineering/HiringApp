@@ -46,7 +46,7 @@ class HiringAppUITests: XCTestCase {
         XCTAssert(map.exists == true)
     }
     
-    func testLabelContactFormSentIsCorrectInEnglish() {
+    func testIsDataSentByContactForm() {
         //Given
         let app = XCUIApplication()
         let scrollViewsQuery = app.scrollViews
@@ -80,13 +80,18 @@ class HiringAppUITests: XCTestCase {
         phoneTextfield.tap()
         phoneTextfield.typeText("968282541")
         
+        //Force 'textFieldDidEndEditing' to validate all fields
+        emailTextField.tap()
+
         let buttonSendContactForm = app.buttons["buttonSendContactForm"]
         buttonSendContactForm.tap()
+        
+        sleep(3)
         
         let labelSentForm = app.staticTexts["labelContactFormSent"]
         
         //Then
-       // XCTAssertEqual(labelSentForm.value as! String, "Thank you for your application. We will contact you soon.")
+        XCTAssert(labelSentForm.exists)
     }
     
 }
