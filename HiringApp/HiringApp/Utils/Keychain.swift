@@ -34,11 +34,12 @@ struct Keychain {
     
     mutating func getUUID() -> String? {
         let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
-                                              account: Constants.userName)
+                                                account: Constants.userName)
         
         guard let uuid = try? passwordItem.readPassword() else {
             return createUUID()
         }
+        
         return uuid
     }
     
