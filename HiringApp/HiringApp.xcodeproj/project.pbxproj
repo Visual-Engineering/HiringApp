@@ -73,22 +73,24 @@
 		E438D5451F0CD31900589167 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5441F0CD31900589167 /* Utils.swift */; };
 		E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5461F0CD59700589167 /* LabelHelper.swift */; };
 		E438D5491F0CD75500589167 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5481F0CD75500589167 /* UIColor.swift */; };
+		E47A4AA21F279AFC0047606C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A4AA11F279AFC0047606C /* Keychain.swift */; };
+		E47A4AA41F279D300047606C /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */; };
 		E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */; };
 		E4BEC6C51F0D2AAB00136778 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */; };
 		E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */; };
 		E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */; };
 		E4BEC6C91F0D2BF600136778 /* WalkthroughTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */; };
 		E4BEC6CB1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */; };
+		E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */; };
+		E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */; };
+		E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */; };
+		E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */; };
 		E4FCE1371F16093900A66782 /* TopicsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1311F16093900A66782 /* TopicsBuilder.swift */; };
 		E4FCE1381F16093900A66782 /* TopicsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1321F16093900A66782 /* TopicsInteractor.swift */; };
 		E4FCE1391F16093900A66782 /* TopicsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1331F16093900A66782 /* TopicsPresenter.swift */; };
 		E4FCE13A1F16093900A66782 /* TopicsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1341F16093900A66782 /* TopicsRouter.swift */; };
 		E4FCE13B1F16093900A66782 /* TopicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1351F16093900A66782 /* TopicsViewController.swift */; };
 		E4FCE13C1F16093900A66782 /* TopicsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FCE1361F16093900A66782 /* TopicsViewModel.swift */; };
-		E4F526801F17BF7200ECE5A2 /* AboutUsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */; };
-		E4F526821F17BF7200ECE5A2 /* AboutUsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */; };
-		E4F526831F17BF7200ECE5A2 /* AboutUsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */; };
-		E4F526841F17BF7200ECE5A2 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -211,22 +213,24 @@
 		E438D5441F0CD31900589167 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E438D5461F0CD59700589167 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
 		E438D5481F0CD75500589167 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		E47A4AA11F279AFC0047606C /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C31F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageTwoViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C81F0D2BF600136778 /* WalkthroughTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WalkthroughTests.swift; path = "Test Walkthrough /WalkthroughTests.swift"; sourceTree = "<group>"; };
 		E4BEC6CA1F0D3AAE00136778 /* WalkthroughSnapshotTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughSnapshotTests.swift; sourceTree = "<group>"; };
+		E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsBuilder.swift; sourceTree = "<group>"; };
+		E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
+		E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsRouter.swift; sourceTree = "<group>"; };
+		E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 		E4FCE1311F16093900A66782 /* TopicsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsBuilder.swift; sourceTree = "<group>"; };
 		E4FCE1321F16093900A66782 /* TopicsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsInteractor.swift; sourceTree = "<group>"; };
 		E4FCE1331F16093900A66782 /* TopicsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsPresenter.swift; sourceTree = "<group>"; };
 		E4FCE1341F16093900A66782 /* TopicsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsRouter.swift; sourceTree = "<group>"; };
 		E4FCE1351F16093900A66782 /* TopicsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewController.swift; sourceTree = "<group>"; };
 		E4FCE1361F16093900A66782 /* TopicsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopicsViewModel.swift; sourceTree = "<group>"; };
-		E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsBuilder.swift; sourceTree = "<group>"; };
-		E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsPresenter.swift; sourceTree = "<group>"; };
-		E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsRouter.swift; sourceTree = "<group>"; };
-		E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -455,8 +459,10 @@
 		780490EF1EF1881F00D03BEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */,
 				E438D5441F0CD31900589167 /* Utils.swift */,
 				E438D5461F0CD59700589167 /* LabelHelper.swift */,
+				E47A4AA11F279AFC0047606C /* Keychain.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -564,6 +570,17 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		E4F526791F17BF5800ECE5A2 /* About Us */ = {
+			isa = PBXGroup;
+			children = (
+				E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */,
+				E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */,
+				E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */,
+				E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */,
+			);
+			path = "About Us";
+			sourceTree = "<group>";
+		};
 		E4FCE1241F1606C900A66782 /* Topics Selection */ = {
 			isa = PBXGroup;
 			children = (
@@ -575,17 +592,6 @@
 				E4FCE1361F16093900A66782 /* TopicsViewModel.swift */,
 			);
 			path = "Topics Selection";
-			sourceTree = "<group>";
-		};
-		E4F526791F17BF5800ECE5A2 /* About Us */ = {
-			isa = PBXGroup;
-			children = (
-				E4F5267A1F17BF7200ECE5A2 /* AboutUsBuilder.swift */,
-				E4F5267C1F17BF7200ECE5A2 /* AboutUsPresenter.swift */,
-				E4F5267D1F17BF7200ECE5A2 /* AboutUsRouter.swift */,
-				E4F5267E1F17BF7200ECE5A2 /* AboutUsViewController.swift */,
-			);
-			path = "About Us";
 			sourceTree = "<group>";
 		};
 		F2308B00C3C6458564A6D262 /* Frameworks */ = {
@@ -981,6 +987,7 @@
 				7867B82B1F0F9F3500AF86F7 /* AppRootViewController.swift in Sources */,
 				7867B8281F0F9EE300AF86F7 /* AppRouter.swift in Sources */,
 				7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */,
+				E47A4AA41F279D300047606C /* KeychainPasswordItem.swift in Sources */,
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
 				E4FCE13A1F16093900A66782 /* TopicsRouter.swift in Sources */,
 				E4FCE1381F16093900A66782 /* TopicsInteractor.swift in Sources */,
@@ -1003,6 +1010,7 @@
 				7867B82A1F0F9F1900AF86F7 /* RoundedButton.swift in Sources */,
 				E4BEC6C71F0D2AAB00136778 /* WalkthroughPageTwoViewController.swift in Sources */,
 				E438D5491F0CD75500589167 /* UIColor.swift in Sources */,
+				E47A4AA21F279AFC0047606C /* Keychain.swift in Sources */,
 				7867B8321F0F9F7300AF86F7 /* ContactFormBuilder.swift in Sources */,
 				7867B8351F0F9F7300AF86F7 /* ContactFormRouter.swift in Sources */,
 				E4FCE1371F16093900A66782 /* TopicsBuilder.swift in Sources */,
