@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Keychain {
+class Keychain {
     
     struct KeychainConfiguration {
         static let serviceName = "HiringApp"
@@ -16,23 +16,18 @@ struct Keychain {
     }
     
     struct Constants {
-        // MARK: TODO - Delete this constant and use the real user's username
+        // MARK: Delete this constant and use the real user's username
         // that will be associated to the UUID saved into the Keychain
         static let userName = "userName"
     }
     
     static let shared = Keychain()
     
-    var uuidIdentifier: String
+    fileprivate var uuidIdentifier = String()
     
-    let token:  String
+    fileprivate var token =  String()
     
-    private init() {
-        uuidIdentifier = ""
-        token = ""
-    }
-    
-    mutating func getUUID() -> String? {
+    func getUUID() -> String? {
         let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
                                                 account: Constants.userName)
         
@@ -43,7 +38,7 @@ struct Keychain {
         return uuid
     }
     
-    mutating func createUUID() -> String? {
+    func createUUID() -> String? {
         let generatedUUID = UIDevice.current.identifierForVendor?.uuidString
         guard let _generatedUUID = generatedUUID else { return nil }
         
