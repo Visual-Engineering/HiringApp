@@ -26,7 +26,6 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         layout()
-        presenter.viewDidLoad()
         setup()
     }
 
