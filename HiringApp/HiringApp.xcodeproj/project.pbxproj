@@ -74,6 +74,7 @@
 		E438D5471F0CD59700589167 /* LabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5461F0CD59700589167 /* LabelHelper.swift */; };
 		E438D5491F0CD75500589167 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E438D5481F0CD75500589167 /* UIColor.swift */; };
 		E47A4AA21F279AFC0047606C /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A4AA11F279AFC0047606C /* Keychain.swift */; };
+		E47A4AA41F279D300047606C /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */; };
 		E4BEC6C41F0D2AAB00136778 /* WakthroughPageOneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */; };
 		E4BEC6C51F0D2AAB00136778 /* WalkthroughPageFourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */; };
 		E4BEC6C61F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */; };
@@ -213,6 +214,7 @@
 		E438D5461F0CD59700589167 /* LabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelHelper.swift; sourceTree = "<group>"; };
 		E438D5481F0CD75500589167 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		E47A4AA11F279AFC0047606C /* Keychain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
+		E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		E4BEC6C01F0D2AAB00136778 /* WakthroughPageOneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakthroughPageOneViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C11F0D2AAB00136778 /* WalkthroughPageFourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageFourViewController.swift; sourceTree = "<group>"; };
 		E4BEC6C21F0D2AAB00136778 /* WalkthroughPageThreeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalkthroughPageThreeViewController.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		780490EF1EF1881F00D03BEA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E47A4AA31F279D300047606C /* KeychainPasswordItem.swift */,
 				E438D5441F0CD31900589167 /* Utils.swift */,
 				E438D5461F0CD59700589167 /* LabelHelper.swift */,
 				E47A4AA11F279AFC0047606C /* Keychain.swift */,
@@ -984,6 +987,7 @@
 				7867B82B1F0F9F3500AF86F7 /* AppRootViewController.swift in Sources */,
 				7867B8281F0F9EE300AF86F7 /* AppRouter.swift in Sources */,
 				7801E98C1F0A5518005A68A8 /* TechnologiesViewController.swift in Sources */,
+				E47A4AA41F279D300047606C /* KeychainPasswordItem.swift in Sources */,
 				780490F31EF1886D00D03BEA /* UIView.swift in Sources */,
 				E4FCE13A1F16093900A66782 /* TopicsRouter.swift in Sources */,
 				E4FCE1381F16093900A66782 /* TopicsInteractor.swift in Sources */,
