@@ -16,12 +16,14 @@ struct Keychain {
     }
     
     struct Constants {
+        // MARK: TODO - Delete this constant and use the real user's username
+        // that will be associated to the UUID saved into the Keychain
         static let userName = "userName"
     }
     
     static let shared = Keychain()
     
-    let uuidIdentifier: String
+    var uuidIdentifier: String
     
     let token:  String
     
@@ -30,7 +32,7 @@ struct Keychain {
         token = ""
     }
     
-    func getUUID() -> String? {
+    mutating func getUUID() -> String? {
         let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
                                               account: Constants.userName)
         
@@ -40,7 +42,7 @@ struct Keychain {
         return uuid
     }
     
-    func createUUID() -> String? {
+    mutating func createUUID() -> String? {
         let generatedUUID = UIDevice.current.identifierForVendor?.uuidString
         guard let _generatedUUID = generatedUUID else { return nil }
         
@@ -53,6 +55,8 @@ struct Keychain {
         } catch {
             fatalError("Error saving password")
         }
+        
+        uuidIdentifier = _generatedUUID
         
         return _generatedUUID
     }
