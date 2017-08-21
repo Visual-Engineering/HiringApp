@@ -45,6 +45,7 @@ class WalkthroughMapViewController: UIViewController {
     private func setup() {
         //MARK: TO-DO Localize this string
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(dismissMapController))
+        navigationItem.leftBarButtonItem?.accessibilityLabel = "mapBarButton"
     }
     
     func dismissMapController() {

@@ -33,6 +33,7 @@ class ContactFormSentViewController: UIViewController {
         label.textColor = Constants.buttonTextColor
         label.numberOfLines = 0
         label.textAlignment = .center
+        label.accessibilityLabel = "labelContactFormSent"
         return label
     }()
     

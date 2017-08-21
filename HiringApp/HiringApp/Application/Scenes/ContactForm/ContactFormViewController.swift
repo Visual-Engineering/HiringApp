@@ -91,6 +91,7 @@ class ContactFormViewController: UIViewController {
         button.isEnabled = false
         button.addTarget(self, action: #selector(tappedSendButton), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
+        button.accessibilityLabel = "buttonSendContactForm"
         return button
     }()
     
@@ -128,11 +129,15 @@ class ContactFormViewController: UIViewController {
     
     private func createFields() {
         nameTextField = UITextField(withInput: .name, delegate: self)
+        nameTextField.accessibilityLabel = "nameTextField"
         surnameTextField = UITextField(withInput: .surname, delegate: self)
+        surnameTextField.accessibilityLabel = "surnameTextfield"
         linkedInTextField = UITextField(withInput: .linkedin, keyboardType: .URL, delegate: self)
+        linkedInTextField.accessibilityLabel = "linkedInTextField"
         addressTextField = UITextField(withInput: .address, keyboardType: .emailAddress, delegate: self)
+        addressTextField.accessibilityLabel = "addressTextField"
         phoneTextField = UITextField(withInput: .phoneNumber, keyboardType: .numberPad, delegate: self)
-        
+        phoneTextField.accessibilityLabel = "phoneTextField"
         textFields.forEach { (field, label) in
             let view = UIStackView(embeddingField: field, withLabel: label)
             verticalStackView.addArrangedSubview(view)
