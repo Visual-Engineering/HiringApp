@@ -12,7 +12,7 @@ import BSWFoundation
 enum AppEndpoints {
     case technologies
     case candidate(parameters: [String : AnyObject])
-    case authenticate
+    case authenticate(deviceID: String)
     case topics(technologyId: Int)
 }
 
@@ -23,7 +23,7 @@ extension AppEndpoints: Endpoint {
         case .technologies:
             return "/technologies"
         case .candidate:
-            return "/contact"
+            return "/user/me"
         case .authenticate:
             return "/users"
         case .topics(let technologyId):
@@ -35,8 +35,10 @@ extension AppEndpoints: Endpoint {
         switch self {
         case .technologies, .topics:
             return .GET
-        case .candidate, .authenticate:
+        case .authenticate:
             return .POST
+        case .candidate:
+            return .PATCH
         }
     }
     
@@ -51,8 +53,8 @@ extension AppEndpoints: Endpoint {
     
     var parameters: [String : AnyObject]? {
         switch self {
-        case .authenticate:
-            return ["deviceId": UIDevice.current.identifierForVendor?.uuidString as AnyObject]
+        case .authenticate(let deviceID):
+            return ["deviceId": deviceID as AnyObject]
         case .candidate(let parameters):
             return parameters
         case .technologies, .topics:

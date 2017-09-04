@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+set -e
+
+function die { ( >&2 echo "$*"); exit 1; }
+
+# CHECK PREREQUISITES
+hash xcodebuild 2>/dev/null || die "Can't find Xcode, please install from the App Store"
+hash gem 2>/dev/null || die "Can't find Ruby (gem), please install from https://www.ruby-lang.org/en/"
+hash brew 2>/dev/null || die "Can't find Hombrew, please install from http://brew.sh"
+
+version=`xcodebuild -version | head -n 1 | sed "s/Xcode //"`
+XCODE_VERSION=( ${version//./ } )
+
+[[ ${XCODE_VERSION[0]} -gt 8 || ( ${XCODE_VERSION[0]} -eq 8 && ${XCODE_VERSION[1]} -ge 2 ) ]] || die "Xcode version should be at least 8.2.1"
+echo "ℹ️  Check that twine is installed..."
+hash twine 2>/dev/null || gem install -n /usr/local/bin twine
+echo ""
+
+echo "ℹ️  Pod install. This might take a while..."
+exec pod install
+echo ""
+
+echo "✅  Versus project was set up, you can now open Versus.xcworkspace"

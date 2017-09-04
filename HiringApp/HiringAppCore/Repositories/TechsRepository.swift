@@ -1,5 +1,5 @@
 //
-//  TechnologiesRepository.swift
+//  TechsRepository.swift
 //  Pods
 //
 //  Created by Alba Luján on 21/6/17.
@@ -15,24 +15,36 @@ enum RepositoryError: Error {
     case cantSave
 }
 
-class Repository {
+public protocol TechsRepositoryProtocol {
+    func retrieveAPITechnologies() -> Task<[TechnologyModel]>
+    func retrieveDBTechnologies() -> Task<[TechnologyModel]>
+}
+
+public class TechsRepository {
     
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     let apiProvider: APIProviderType
     let cacheProvider: CacheProviderType
-    let dbProvider: DBProviderType
+    let dbProvider: DBProviderType?
+    let deviceID: String? = UIDevice.current.identifierForVendor?.uuidString
     
-    init(apiProvider: APIProviderType, cacheProvider: CacheProviderType, dbProvider: DBProviderType) {
+    public init(apiProvider: APIProviderType = APIProvider(),
+                cacheProvider: CacheProviderType = CacheProvider(),
+                dbProvider: DBProviderType? = DBProvider()) {
+        
         self.apiProvider = apiProvider
         self.cacheProvider = cacheProvider
         self.dbProvider = dbProvider
     }
+}
+
+extension TechsRepository: TechsRepositoryProtocol {
     
-    func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
+    public func retrieveAPITechnologies() -> Task<[TechnologyModel]> {
         if let technologies = cacheProvider.getTechnologies() {
             return Task(success: technologies)
         }
-                
+        
         let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
             return self.cacheProvider
                 .saveTechnologies(technologies: modelsArray) //Save modelsArray into cache
@@ -45,7 +57,12 @@ class Repository {
         return techTask
     }
     
-    func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+    @available(*, deprecated)
+    public func retrieveDBTechnologies() -> Task<[TechnologyModel]> {
+        
+        guard let dbProvider = dbProvider else {
+            return Task(success: [])
+        }
         
         var techList = [TechnologyModel]()
         
@@ -58,11 +75,11 @@ class Repository {
         } else {
             let techTask = apiProvider.retrieveTechnologies().andThen(upon: .main) { (modelsArray) -> Task<[TechnologyModel]> in
                 modelsArray.forEach({ (tech) in
-                    _ = self.dbProvider.write(tech: tech.toRealmModel)
+                    _ = self.dbProvider?.write(tech: tech.toRealmModel)
                 })
                 return Task(success: modelsArray)
-           }
-        
+            }
+            
             return techTask
         }
     }

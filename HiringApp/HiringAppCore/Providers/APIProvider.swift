@@ -24,8 +24,9 @@ protocol DroskyType {
 
 extension Drosky: DroskyType {}
 
-protocol APIProviderType {
+public protocol APIProviderType {
     func retrieveTechnologies() -> Task<[TechnologyModel]>
+    func performContact(candidate: CandidateModel) -> Task<Data>
 }
 
 class APIProvider: APIProviderType {
@@ -42,9 +43,8 @@ class APIProvider: APIProviderType {
         return modelTask
     }
     
-    func performLogin() -> Task<String> {
-        let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate)
-        
+    func performLogin(deviceID: String) -> Task<String> {
+        let statusCodeTask = performRequest(endpoint: AppEndpoints.authenticate(deviceID: deviceID))
         let modelTask = statusCodeTask.andThen(upon: .global()) { (data) -> Task<String> in
             
             guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? Dictionary<String, Any>,
@@ -91,7 +91,7 @@ class APIProvider: APIProviderType {
     func parse<T:Decodable>(data: Data) -> Task<T> {
         guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
             let data = try? T.decode(json) else {
-            return Task(failure: APIError.errorWhileParsing)
+                return Task(failure: APIError.errorWhileParsing)
         }
         return Task(success: data)
     }
@@ -99,7 +99,7 @@ class APIProvider: APIProviderType {
     func parse<T: Decodable>(data: Data) -> Task<[T]> {
         guard let json = try? JSONSerialization.jsonObject(with: data, options: []),
             let data = try? [T].decode(json) else {
-            return Task(failure: APIError.errorWhileParsing)
+                return Task(failure: APIError.errorWhileParsing)
         }
         return Task(success: data)
     }

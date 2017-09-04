@@ -70,6 +70,12 @@ class APIProviderSpy: APIProviderType {
         isCalled = true
         return Task(success: [TechnologyModel].fake)
     }
+    
+    func performContact(candidate: CandidateModel) -> Task<Data> {
+        isCalled = true
+        let data = Data()
+        return Task(success: data)
+    }
 }
 
 class ProvidersTests: XCTestCase {
@@ -84,7 +90,7 @@ class ProvidersTests: XCTestCase {
         let  cacheProvider = CacheProvider()
         cacheProvider.removeTechnologies()
         
-        guard let dbProvider = try? DBProvider() else { fatalError() }
+        guard let dbProvider = DBProvider() else { fatalError() }
         dbProvider.clearAll()
         super.tearDown()
     }
@@ -154,7 +160,7 @@ class ProvidersTests: XCTestCase {
     func testDBProvider() {
         let fakeTech = [TechnologyRealm].fakeArray
         //Given
-        guard let dbProvider = try? DBProvider() else { fatalError() }
+        guard let dbProvider = DBProvider() else { fatalError() }
         fakeTech.forEach { (tech) in
             _ = dbProvider.write(tech: tech)
         }
@@ -181,7 +187,11 @@ class ProvidersTests: XCTestCase {
         let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
         
         //When
-        let task: Task<String> = provider.performLogin()
+        guard let deviceID =  UIDevice.current.identifierForVendor?.uuidString else {
+            XCTAssert(false)
+            return
+        }
+        let task: Task<String> = provider.performLogin(deviceID: deviceID)
         
         //Then
         task.upon(.main) { (result) in
@@ -201,7 +211,7 @@ class ProvidersTests: XCTestCase {
 
         //Given
         let candidate = CandidateModel.fake
-        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.development))
+        let provider = APIProvider(drosky: Drosky(environment: EnvironmentType.mock))
         
         //When
         let task: Task<(Data)> = provider.performContact(candidate: candidate)

@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import IQKeyboardManager
+import Fabric
+import Crashlytics
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,17 +19,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        IQKeyboardManager.shared().isEnabled = true
+        IQKeyboardManager.shared().shouldResignOnTouchOutside = true
+        IQKeyboardManager.shared().isEnableAutoToolbar = false
+        BuddyBuildSDK.setup()
+        AnalyticsManager.shared.configureFirebase()
+        Fabric.with([Crashlytics.self])
 
-        if let _ = NSClassFromString("XCTest") {
+        if NSClassFromString("XCTest") != nil {
             let window = UIWindow(frame: UIScreen.main.bounds)
             let rootViewController = UIViewController()
             window.rootViewController = rootViewController
             window.backgroundColor = .white
             window.makeKeyAndVisible()
             self.window = window
-            
-            BuddyBuildSDK.setup()
-
             return true
         } else {
             return appManager.application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -55,6 +62,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-
 }
-

@@ -8,22 +8,22 @@
 
 import UIKit
 
-protocol AppTransitionDelegate {
+protocol AppTransitionDelegate: class {
 
     func performTransition(animated: Bool,
                            fromViewController: UIViewController?,
                            toViewController: UIViewController,
                            containerView: UIView,
-                           completion: @escaping (Bool) -> ())
+                           completion: @escaping (Bool) -> Void)
 }
 
 class AppRootViewController: UIViewController {
 
-    //MARK: - Stored properties
+    // MARK: - Stored properties
     private(set) var currentViewController: UIViewController?
-    var transitionDelegate: AppTransitionDelegate?
+    weak var transitionDelegate: AppTransitionDelegate?
 
-    //MARK: - Overrided properties
+    // MARK: - Overrided properties
     override var preferredStatusBarStyle: UIStatusBarStyle {
         guard let currentViewController = currentViewController else {
             return UIStatusBarStyle.default
@@ -53,19 +53,19 @@ class AppRootViewController: UIViewController {
         return currentViewController
     }
 
-    //MARK: - Private API
-    func transitionToRootViewController(_ toViewController: UIViewController, animated: Bool = true) {
+    // MARK: - Private API
+    func transition(to viewController: UIViewController, animated: Bool = true) {
         let fromViewController: UIViewController? = currentViewController
 
-        add(viewController: toViewController)
+        add(viewController: viewController)
 
         let receiver: AppTransitionDelegate = transitionDelegate ?? self
-        receiver.performTransition(animated: animated, fromViewController: fromViewController, toViewController: toViewController, containerView: view) { [weak self] _ in
+        receiver.performTransition(animated: animated, fromViewController: fromViewController, toViewController: viewController, containerView: view) { [weak self] _ in
             guard let fromViewController = fromViewController else { return }
             self?.remove(viewController: fromViewController)
         }
 
-        currentViewController = toViewController
+        currentViewController = viewController
     }
 
     private func add(viewController: UIViewController) {
@@ -86,7 +86,7 @@ extension AppRootViewController: AppTransitionDelegate {
                            fromViewController: UIViewController?,
                            toViewController: UIViewController,
                            containerView: UIView,
-                           completion: @escaping (Bool) -> ()) {
+                           completion: @escaping (Bool) -> Void) {
 
         toViewController.view.alpha = 0.0
 

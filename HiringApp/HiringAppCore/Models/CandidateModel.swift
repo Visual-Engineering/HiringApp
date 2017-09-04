@@ -8,19 +8,25 @@
 
 import Foundation
 
-struct CandidateModel {
-    var id: Int
-    var name: String
-    var lastname: String
-    var linkedin: String
-    var phone: String
-    var email: String
+public struct CandidateModel {
+    public let name: String
+    public let lastname: String
+    public let linkedin: String
+    public let phone: String
+    public let email: String
+    
+    public init(name: String, lastname: String, linkedin: String?, phone: String, email: String) {
+        self.name = name
+        self.lastname = lastname
+        self.linkedin = linkedin ?? ""
+        self.phone = phone
+        self.email = email
+    }
 }
 
 extension CandidateModel {
     var dict: [String : Any] {
         return [
-            "id" : self.id,
             "name" : self.name,
             "lastname" : self.lastname,
             "linkedin" : self.linkedin,
